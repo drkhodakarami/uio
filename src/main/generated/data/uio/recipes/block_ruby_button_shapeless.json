@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "uio:gem_ruby"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:block_ruby_button"
+  }
+}

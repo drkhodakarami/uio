@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "uio:block_raw_sapphire"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "uio:raw_sapphire"
+  }
+}

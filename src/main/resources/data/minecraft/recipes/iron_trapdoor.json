@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": {
+      "item": "uio:plate_iron"
+    },
+    "R": {
+      "item": "uio:rod_iron"
+    }
+  },
+  "pattern": [
+    "RR",
+    "##"
+  ],
+  "result": {
+    "item": "minecraft:iron_trapdoor"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_block_citrine_fence": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:block_citrine_fence"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "uio:block_citrine_wall"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_block_citrine_fence"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "uio:block_citrine_wall"
+    ]
+  }
+}

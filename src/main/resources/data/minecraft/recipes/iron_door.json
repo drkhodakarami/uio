@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": {
+      "item": "uio:plate_iron"
+    },
+    "R": {
+      "item": "uio:rod_iron"
+    }
+  },
+  "pattern": [
+    "#R",
+    "#R",
+    "#R"
+  ],
+  "result": {
+    "count": 3,
+    "item": "minecraft:iron_door"
+  },
+  "show_notification": true
+}

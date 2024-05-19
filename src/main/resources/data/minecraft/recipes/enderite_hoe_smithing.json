@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "uio:ingot_enderite"
+  },
+  "base": {
+    "item": "uio:head_diamond_hoe"
+  },
+  "result": {
+    "item": "uio:head_enderite_hoe"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

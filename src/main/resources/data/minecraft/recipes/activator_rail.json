@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:redstone_torch"
+    },
+    "S": {
+      "item": "uio:plate_copper"
+    },
+    "X": {
+      "item": "uio:rod_iron"
+    },
+    "R": {
+      "item": "uio:rod_copper"
+    }
+  },
+  "pattern": [
+    "XSX",
+    "R#R",
+    "XSX"
+  ],
+  "result": {
+    "count": 6,
+    "item": "minecraft:activator_rail"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:obsidian"
+    },
+    "I": {
+      "item": "uio:plate_iron"
+    },
+    "R": {
+      "item": "uio:rod_iron"
+    },
+    "X": {
+      "item": "uio:gear_stone"
+    },
+    "G": {
+      "item": "uio:gear_ruby"
+    }
+  },
+  "pattern": [
+    "III",
+    "RXR",
+    "#G#"
+  ],
+  "result": {
+    "item": "minecraft:blast_furnace"
+  },
+  "show_notification": true
+}

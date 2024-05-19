@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "minecraft:compass"
+    },
+    "D": {
+      "item": "uio:reinforced_diamond"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "G": {
+      "item": "uio:reinforced_gold"
+    },
+    "P": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "pattern": [
+    "PEP",
+    "DCD",
+    "GGG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:tool_player_teleport"
+  }
+}

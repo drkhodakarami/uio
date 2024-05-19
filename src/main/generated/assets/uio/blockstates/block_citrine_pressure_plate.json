@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "uio:block/block_citrine_pressure_plate"
+    },
+    "powered=true": {
+      "model": "uio:block/block_citrine_pressure_plate_down"
+    }
+  }
+}

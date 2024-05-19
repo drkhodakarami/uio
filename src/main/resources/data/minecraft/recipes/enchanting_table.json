@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:obsidian"
+    },
+    "B": {
+      "item": "minecraft:book"
+    },
+    "D": {
+      "item": "uio:gear_diamond"
+    },
+    "L": {
+      "item": "uio:gear_lapis"
+    },
+    "O": {
+      "item": "uio:gear_obsidian"
+    }
+  },
+  "pattern": [
+    " B ",
+    "DLD",
+    "#O#"
+  ],
+  "result": {
+    "item": "minecraft:enchanting_table"
+  },
+  "show_notification": true
+}

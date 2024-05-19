@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "uio:reinforced_iron"
+    },
+    "R": {
+      "item": "uio:rod_iron"
+    },
+    "i": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "pattern": [
+    "III",
+    "R R",
+    "iii"
+  ],
+  "result": {
+    "item": "minecraft:anvil"
+  },
+  "show_notification": true
+}

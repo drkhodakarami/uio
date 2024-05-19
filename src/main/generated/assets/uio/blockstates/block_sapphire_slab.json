@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "uio:block/block_sapphire_slab"
+    },
+    "type=double": {
+      "model": "uio:block/block_sapphire"
+    },
+    "type=top": {
+      "model": "uio:block/block_sapphire_slab_top"
+    }
+  }
+}

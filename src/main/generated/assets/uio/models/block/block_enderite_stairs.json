@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "uio:block/block_enderite",
+    "side": "uio:block/block_enderite",
+    "top": "uio:block/block_enderite"
+  }
+}

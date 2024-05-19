@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "uio:plate_iron"
+    },
+    "G": {
+      "item": "uio:gear_iron"
+    }
+  },
+  "pattern": [
+    "# #",
+    "G#G"
+  ],
+  "result": {
+    "item": "minecraft:minecart"
+  },
+  "show_notification": true
+}

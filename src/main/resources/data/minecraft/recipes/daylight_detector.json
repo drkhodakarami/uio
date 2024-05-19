@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "Q": {
+      "item": "uio:gear_quartz"
+    },
+    "W": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "N": {
+      "item": "uio:gear_netherite"
+    },
+    "B": {
+      "item": "uio:gear_wood"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "BQB",
+    "WNW"
+  ],
+  "result": {
+    "item": "minecraft:daylight_detector"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,150 @@
+plugins {
+    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    maven { url "https://maven.shedaniel.me" }
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+
+    maven {
+        name = "CottonMC"
+        url = "https://server.bbkr.space/artifactory/libs-release"
+    }
+    maven {
+        name = 'Ladysnake Mods'
+        url = 'https://maven.ladysnake.org/releases'
+        content {
+            includeGroup 'io.github.ladysnake'
+            includeGroupByRegex 'io\\.github\\.onyxstudios.*'
+        }
+    }
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/'
+    }
+    maven { url = 'https://maven.minecraftforge.net/' }
+    maven { url = "https://maven.kyrptonaught.dev" }
+    maven { url 'https://jitpack.io' }
+}
+
+fabricApi {
+    configureDataGeneration()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    // REI Compatibility Dependency
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+
+    modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+
+    modApi "dev.architectury:architectury-fabric:${project.architectury_version}"
+
+    // Energy API Handling Dependency
+    include modApi("teamreborn:energy:${project.energy_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+    // Tech Reborn Mod for Testing
+    //modImplementation("curse.maven:reborncore-237903:${project.reborn_curse_version}")
+    //modImplementation("curse.maven:techreborn-233564:${project.tech_reborn_version}")
+
+    // Needed for LibGUI
+    modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
+
+    // Needed for Sign and Boat
+    modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_version}"
+    include "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_version}"
+
+    // Needed for Custom Biomes
+    modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_version}"
+
+    // Needed for custom portals
+    modImplementation "net.kyrptonaught:customportalapi:${project.kyrptonaught_version}"
+    include "net.kyrptonaught:customportalapi:${project.kyrptonaught_version}"
+
+    // Needed for Fluid Handling
+    modImplementation include("com.github.drkhodakarami:fluidutils:${project.fluidutils_version}")
+
+    // Needed for Custom Player Effects
+    modImplementation "io.github.ladysnake:PlayerAbilityLib:${project.pal_version}"
+    include "io.github.ladysnake:PlayerAbilityLib:${project.pal_version}"
+
+    // to get the latest jade
+    modImplementation "curse.maven:jade-324717:${project.jade_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+// TODO : Change the vertion to 21
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 17
+}
+
+java {
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+    // if it is present.
+    // If you remove this line, sources will not be generated.
+    withSourcesJar()
+
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.base.archivesName.get()}" }
+    }
+}
+
+// configure the maven publication
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+    }
+}
+
+tasks.create("checkVersionFileValidation") {
+    doFirst {
+        File testFile = new File("${remapJar.archiveFile.get()}")
+        if (testFile.isFile()) {
+            throw new GradleException("project version is built before, change the project version >>> ${project.mod_version}")
+        } else {
+            println "Project version needs building >>> ${project.archives_base_name}-${project.mod_version}"
+        }
+    }
+}
+
+compileJava.dependsOn checkVersionFileValidation

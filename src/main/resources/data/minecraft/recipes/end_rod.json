@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:popped_chorus_fruit"
+    },
+    "/": {
+      "item": "minecraft:blaze_rod"
+    },
+    "E": {
+      "item": "uio:rod_enderite"
+    }
+  },
+  "pattern": [
+    "/",
+    "#",
+    "E"
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:end_rod"
+  },
+  "show_notification": true
+}
