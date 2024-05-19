@@ -1,6 +1,6 @@
 package jiraiyah.uio.registry;
 
-import net.minecraft.item.Item;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
@@ -197,6 +197,40 @@ public class ModItems
 
     public static final Item HEAD_WOOD_HAMMER = registerItem("head_wood_hammer", new Item(new Item.Settings()));
     //endregion
+
+    public static final Item TOOL_CITRINE_AXE = registerItem("tool_citrine_axe", new AxeItem(ModToolMaterials.CITRINE,
+                                                                                             new Item.Settings().attributeModifiers(
+                                                                                                     AxeItem.createAttributeModifiers(
+                                                                                                             ModToolMaterials.CITRINE,
+                                                                                                             6.0f, -3.1f))));
+
+    //TODO : Add Hammer Class for Tools
+    public static final Item TOOL_CITRINE_HAMMER = registerItem("tool_citrine_hammer", new AxeItem(ModToolMaterials.CITRINE,
+                                                                                                   new Item.Settings().attributeModifiers(
+                                                                                                           AxeItem.createAttributeModifiers(
+                                                                                                                   ModToolMaterials.CITRINE,
+                                                                                                                   9.0f, -1.5f))));
+
+    public static final Item TOOL_CITRINE_HOE = registerItem("tool_citrine_hoe", new HoeItem(ModToolMaterials.CITRINE,
+                                                                                             new Item.Settings().attributeModifiers(
+                                                                                                     HoeItem.createAttributeModifiers(
+                                                                                                             ModToolMaterials.CITRINE,
+                                                                                                             -2.0f, -1.0f))));
+    public static final Item TOOL_CITRINE_PICKAXE = registerItem("tool_citrine_pickaxe", new PickaxeItem(ModToolMaterials.CITRINE,
+                                                                                                         new Item.Settings().attributeModifiers(
+                                                                                                                 PickaxeItem.createAttributeModifiers(
+                                                                                                                         ModToolMaterials.CITRINE,
+                                                                                                                         1.0f, -2.8f))));
+    public static final Item TOOL_CITRINE_SHOVEL = registerItem("tool_citrine_shovel", new ShovelItem(ModToolMaterials.CITRINE,
+                                                                                                      new Item.Settings().attributeModifiers(
+                                                                                                              ShovelItem.createAttributeModifiers(
+                                                                                                                      ModToolMaterials.CITRINE,
+                                                                                                                      1.5f, -3.0f))));
+    public static final Item TOOL_CITRINE_SWORD = registerItem("tool_citrine_sword", new SwordItem(ModToolMaterials.CITRINE,
+                                                                                                   new Item.Settings().attributeModifiers(
+                                                                                                           SwordItem.createAttributeModifiers(
+                                                                                                                   ModToolMaterials.CITRINE,
+                                                                                                                   3, -2.4f))));
 
     //region TOOL
     public static final Item TOOL_PLAYER_TELEPORT = registerItem("tool_player_teleport", new Item(new Item.Settings()));

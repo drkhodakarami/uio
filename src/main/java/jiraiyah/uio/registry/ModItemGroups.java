@@ -229,6 +229,13 @@ public class ModItemGroups
                                                           entries.add(ModItems.TOOL_TUNER);
                                                           entries.add(ModItems.TOOL_WRENCH);
 
+                                                          entries.add(ModItems.TOOL_CITRINE_AXE);
+                                                          entries.add(ModItems.TOOL_CITRINE_HAMMER);
+                                                          entries.add(ModItems.TOOL_CITRINE_HOE);
+                                                          entries.add(ModItems.TOOL_CITRINE_PICKAXE);
+                                                          entries.add(ModItems.TOOL_CITRINE_SHOVEL);
+                                                          entries.add(ModItems.TOOL_CITRINE_SWORD);
+
                                                           entries.add(ModItems.HEAD_CITRINE_AXE);
                                                           entries.add(ModItems.HEAD_CITRINE_HAMMER);
                                                           entries.add(ModItems.HEAD_CITRINE_HOE);

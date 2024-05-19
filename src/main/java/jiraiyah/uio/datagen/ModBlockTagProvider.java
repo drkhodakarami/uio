@@ -86,6 +86,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.ORE_ENDERITE);
 
+        //TODO : Fix Netherite Tier
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_4"))); // Netherite
 
         getOrCreateTagBuilder(BlockTags.LOGS);

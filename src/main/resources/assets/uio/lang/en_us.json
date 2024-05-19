@@ -221,5 +221,11 @@
   "block.uio.gray_goo": "Gray Goo",
   "block.uio.world_eating_goo": "World Eating Goo",
   "block.uio.chunk_goo": "Chunk Goo",
-  "block.uio.towering_goo": "Towering Goo"
+  "block.uio.towering_goo": "Towering Goo",
+  "item.uio.tool_citrine_axe": "Citrine Axe",
+  "item.uio.tool_citrine_hammer": "Citrine Hammer",
+  "item.uio.tool_citrine_hoe": "Citrine Hoe",
+  "item.uio.tool_citrine_pickaxe": "Citrine Pickaxe",
+  "item.uio.tool_citrine_shovel": "Citrine Shovel",
+  "item.uio.tool_citrine_sword": "Citrine Sword"
 }

@@ -301,6 +301,13 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.TOOL_PLAYER_TELEPORT, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOOL_TUNER, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOOL_WRENCH, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.TOOL_CITRINE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_CITRINE_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_CITRINE_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_CITRINE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_CITRINE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_CITRINE_SWORD, Models.HANDHELD);
         //endregion
     }
 }

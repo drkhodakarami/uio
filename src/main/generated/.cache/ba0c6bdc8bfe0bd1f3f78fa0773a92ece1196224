@@ -1,8 +1,8 @@
-// 1.20.6	2024-05-19T10:27:48.1029832	Ultra IO/Recipes
+// 1.20.6	2024-05-19T11:58:07.4007101	Ultra IO/Recipes
 f448cf85a0af5fd39231a0a04b08de89d49e0dcc data\uio\recipes\block_citrine_fence.json
 9cf0c7c677caeb1195e47c2add0b57ef3e325826 data\uio\advancements\recipes\decorations\block_enderite.json
-528d4c235d5ea12a17af265d19cdc60ffdd55576 data\uio\advancements\recipes\redstone\block_sapphire_trap_door.json
 5f141412966e0564e802e8ba6f37beb40691715e data\uio\advancements\recipes\redstone\block_enderite_trap_door.json
+528d4c235d5ea12a17af265d19cdc60ffdd55576 data\uio\advancements\recipes\redstone\block_sapphire_trap_door.json
 989364fa13ee1482b86faef2e49b9a9314e02d50 data\uio\advancements\recipes\redstone\block_citrine_button_shapeless.json
 91c3f4a4ba8dcf2385c8fce987f335f33ea9c217 data\uio\advancements\recipes\decorations\block_ruby.json
 3f76f335cdfa44fff0fa7d32d0379ac868e90041 data\uio\advancements\recipes\building_blocks\block_sapphire_slab.json
@@ -37,8 +37,8 @@ ccc37d0a8218947ddca23da819807e1ec52721d0 data\uio\recipes\raw_enderite.json
 5ec4e71e2d0b3a064a416a6120a74eb4e19098ad data\uio\advancements\recipes\building_blocks\raw_quartz.json
 59151a4dc2ef1f736d158a34338c3ab5ed594650 data\uio\advancements\recipes\building_blocks\gem_citrine.json
 c2abbf08d40c7219920fe38e5ba0c0a94fa0c137 data\uio\recipes\block_enderite_wall.json
-ca2e5846a216100024cf8298981a0c2f03c54cb3 data\uio\advancements\recipes\building_blocks\block_citrine_wall.json
 dfbbeafa5d36c411afa4b37ef066d4e354aba4d6 data\uio\recipes\block_citrine_wall.json
+ca2e5846a216100024cf8298981a0c2f03c54cb3 data\uio\advancements\recipes\building_blocks\block_citrine_wall.json
 952cf1ab282d57bcbf551906689d5e5761b9fbba data\uio\recipes\block_ruby_button_shapeless.json
 cdbe0c6272c45a6fbf66c3784fca0983768b373f data\uio\recipes\block_sapphire_stairs.json
 42697fa87d4ff0fc1b28b77b001cafad7f3917d7 data\uio\recipes\ingot_enderite.json
@@ -115,7 +115,7 @@ c391aca263a0e556e80f54695b5b879d065348ac data\uio\recipes\block_ruby_fence.json
 f4d62f8c02c35e31c5c0626763a06dfc3a3203fa data\uio\advancements\recipes\building_blocks\gem_ruby.json
 e9e4e69d4e638340bf7b714768acb1336ff8d57b data\uio\advancements\recipes\building_blocks\gem_sapphire.json
 195c87c54230cffb38f3a8c061c026dadd76fbdf data\uio\recipes\block_ruby_stairs.json
-d21b471dd0c86743633d1dee16398b550da57853 data\uio\advancements\recipes\decorations\block_enderite_fence.json
 99555c2fc0437edb371006fc247bea298f8a21b1 data\uio\advancements\recipes\tools\tool_player_teleport.json
+d21b471dd0c86743633d1dee16398b550da57853 data\uio\advancements\recipes\decorations\block_enderite_fence.json
 d093744d609dede75059f21aba0f30d8700cb23b data\uio\recipes\gem_citrine.json
 0e159ab7392a7b42c4e7052ba5b914204a86afdf data\uio\advancements\recipes\tools\tool_tuner.json
