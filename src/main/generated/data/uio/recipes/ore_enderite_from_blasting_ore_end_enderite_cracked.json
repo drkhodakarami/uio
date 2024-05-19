@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 1200,
+  "experience": 5.0,
+  "group": "ore_enderite",
+  "ingredient": {
+    "item": "uio:ore_end_enderite_cracked"
+  },
+  "result": {
+    "id": "uio:ore_enderite"
+  }
+}

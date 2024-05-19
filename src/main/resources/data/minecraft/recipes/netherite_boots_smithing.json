@@ -7,7 +7,7 @@
     "item": "minecraft:stick"
   },
   "result": {
-    "item": "minecraft:stick"
+    "id": "minecraft:stick"
   },
   "template": {
     "item": "minecraft:stick"

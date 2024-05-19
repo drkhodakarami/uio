@@ -17,7 +17,7 @@ public enum ModToolMaterials implements ToolMaterial
     COPPER(BlockTags.INCORRECT_FOR_IRON_TOOL, 500, 6.0f, 1.0f, 0,
            () -> Ingredient.ofItems(ModItems.PLATE_COPPER)),
     // TODO : ADD Enderite Tier Tag
-    ENDERITE(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 3000, 24.0f, 5.0f, 0,
+    ENDERITE(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 3000, 24.0f, 15.0f, 0,
              () -> Ingredient.ofItems(ModItems.PLATE_ENDERITE)),
     RUBY(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 2000, 12.0f, 4.0f, 0,
          () -> Ingredient.ofItems(ModItems.PLATE_RUBY)),
@@ -44,36 +44,36 @@ public enum ModToolMaterials implements ToolMaterial
     @Override
     public int getDurability()
     {
-        return 0;
+        return itemDurability;
     }
 
     @Override
     public float getMiningSpeedMultiplier()
     {
-        return 0;
+        return miningSpeed;
     }
 
     @Override
     public float getAttackDamage()
     {
-        return 0;
+        return attackDamage;
     }
 
     @Override
     public TagKey<Block> getInverseTag()
     {
-        return null;
+        return inverseTag;
     }
 
     @Override
     public int getEnchantability()
     {
-        return 0;
+        return enchantability;
     }
 
     @Override
     public Ingredient getRepairIngredient()
     {
-        return null;
+        return repairIngredient.get();
     }
 }

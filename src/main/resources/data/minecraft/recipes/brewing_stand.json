@@ -17,7 +17,7 @@
     "###"
   ],
   "result": {
-    "item": "minecraft:brewing_stand"
+    "id": "minecraft:brewing_stand"
   },
   "show_notification": true
 }

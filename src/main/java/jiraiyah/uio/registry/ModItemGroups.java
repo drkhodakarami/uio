@@ -85,6 +85,7 @@ public class ModItemGroups
                                                           entries.add(ModBlocks.ORE_DEEP_SAPPHIRE);
                                                           entries.add(ModBlocks.ORE_END_CITRINE);
                                                           entries.add(ModBlocks.ORE_END_ENDERITE);
+                                                          entries.add(ModBlocks.ORE_END_ENDERITE_CRACKED);
                                                           entries.add(ModBlocks.ORE_END_RUBY);
                                                           entries.add(ModBlocks.ORE_END_SAPPHIRE);
                                                           entries.add(ModBlocks.ORE_NETHER_CITRINE);
@@ -230,11 +231,45 @@ public class ModItemGroups
                                                           entries.add(ModItems.TOOL_WRENCH);
 
                                                           entries.add(ModItems.TOOL_CITRINE_AXE);
+                                                          entries.add(ModItems.TOOL_COPPER_AXE);
+                                                          entries.add(ModItems.TOOL_ENDERITE_AXE);
+                                                          entries.add(ModItems.TOOL_RUBY_AXE);
+                                                          entries.add(ModItems.TOOL_SAPPHIRE_AXE);
+
                                                           entries.add(ModItems.TOOL_CITRINE_HAMMER);
+                                                          entries.add(ModItems.TOOL_COPPER_HAMMER);
+                                                          entries.add(ModItems.TOOL_ENDERITE_HAMMER);
+                                                          entries.add(ModItems.TOOL_RUBY_HAMMER);
+                                                          entries.add(ModItems.TOOL_SAPPHIRE_HAMMER);
+                                                          entries.add(ModItems.TOOL_GOLD_HAMMER);
+                                                          entries.add(ModItems.TOOL_IRON_HAMMER);
+                                                          entries.add(ModItems.TOOL_NETHERITE_HAMMER);
+                                                          entries.add(ModItems.TOOL_STONE_HAMMER);
+                                                          entries.add(ModItems.TOOL_WOOD_HAMMER);
+
                                                           entries.add(ModItems.TOOL_CITRINE_HOE);
+                                                          entries.add(ModItems.TOOL_COPPER_HOE);
+                                                          entries.add(ModItems.TOOL_ENDERITE_HOE);
+                                                          entries.add(ModItems.TOOL_RUBY_HOE);
+                                                          entries.add(ModItems.TOOL_SAPPHIRE_HOE);
+
                                                           entries.add(ModItems.TOOL_CITRINE_PICKAXE);
+                                                          entries.add(ModItems.TOOL_COPPER_PICKAXE);
+                                                          entries.add(ModItems.TOOL_ENDERITE_PICKAXE);
+                                                          entries.add(ModItems.TOOL_RUBY_PICKAXE);
+                                                          entries.add(ModItems.TOOL_SAPPHIRE_PICKAXE);
+
                                                           entries.add(ModItems.TOOL_CITRINE_SHOVEL);
+                                                          entries.add(ModItems.TOOL_COPPER_SHOVEL);
+                                                          entries.add(ModItems.TOOL_ENDERITE_SHOVEL);
+                                                          entries.add(ModItems.TOOL_RUBY_SHOVEL);
+                                                          entries.add(ModItems.TOOL_SAPPHIRE_SHOVEL);
+
                                                           entries.add(ModItems.TOOL_CITRINE_SWORD);
+                                                          entries.add(ModItems.TOOL_COPPER_SWORD);
+                                                          entries.add(ModItems.TOOL_ENDERITE_SWORD);
+                                                          entries.add(ModItems.TOOL_RUBY_SWORD);
+                                                          entries.add(ModItems.TOOL_SAPPHIRE_SWORD);
 
                                                           entries.add(ModItems.HEAD_CITRINE_AXE);
                                                           entries.add(ModItems.HEAD_CITRINE_HAMMER);

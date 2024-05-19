@@ -16,6 +16,7 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static jiraiyah.uio.Reference.logRGB256;
@@ -127,7 +128,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
         //endregion
 
         //region STAIRS
-        createStairsRecipe(ModBlocks.CITRINE_STAIRS, Ingredient.ofItems(ModItems.GEM_CITRINE))
+        /*createStairsRecipe(ModBlocks.CITRINE_STAIRS, Ingredient.ofItems(ModItems.GEM_CITRINE))
                 .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CITRINE_STAIRS)));
         createStairsRecipe(ModBlocks.ENDERITE_STAIRS, Ingredient.ofItems(ModItems.INGOT_ENDERITE))
@@ -138,11 +139,16 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBY_STAIRS)));
         createStairsRecipe(ModBlocks.SAPPHIRE_STAIRS, Ingredient.ofItems(ModItems.GEM_SAPPHIRE))
                 .criterion(hasItem(ModItems.GEM_SAPPHIRE), conditionsFromItem(ModItems.GEM_SAPPHIRE))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SAPPHIRE_STAIRS)));
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SAPPHIRE_STAIRS)));*/
+
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.CITRINE_STAIRS, ModBlocks.CITRINE, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.ENDERITE_STAIRS, ModBlocks.ENDERITE, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.RUBY_STAIRS, ModBlocks.RUBY, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.SAPPHIRE_STAIRS, ModBlocks.SAPPHIRE, 9);
         //endregion
 
         //region SLABS
-        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CITRINE_SLAB, Ingredient.ofItems(ModItems.GEM_CITRINE))
+        /*createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CITRINE_SLAB, Ingredient.ofItems(ModItems.GEM_CITRINE))
                 .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CITRINE_SLAB)));
         createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENDERITE_SLAB, Ingredient.ofItems(ModItems.INGOT_ENDERITE))
@@ -153,7 +159,12 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBY_SLAB)));
         createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SAPPHIRE_SLAB, Ingredient.ofItems(ModItems.GEM_SAPPHIRE))
                 .criterion(hasItem(ModItems.GEM_SAPPHIRE), conditionsFromItem(ModItems.GEM_SAPPHIRE))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SAPPHIRE_SLAB)));
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SAPPHIRE_SLAB)));*/
+
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.CITRINE_SLAB, ModBlocks.CITRINE, 18);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.ENDERITE_SLAB, ModItems.INGOT_ENDERITE, 18);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.RUBY_SLAB, ModItems.GEM_RUBY, 18);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.SAPPHIRE_SLAB, ModItems.GEM_SAPPHIRE, 18);
         //endregion
 
         //region PRESSURE PLATE
@@ -172,7 +183,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
         //endregion
 
         //region FENCE
-        createFenceRecipe(ModBlocks.CITRINE_FENCE, Ingredient.ofItems(ModItems.GEM_CITRINE))
+        /*createFenceRecipe(ModBlocks.CITRINE_FENCE, Ingredient.ofItems(ModItems.GEM_CITRINE))
                 .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CITRINE_FENCE)));
         createFenceRecipe(ModBlocks.ENDERITE_FENCE, Ingredient.ofItems(ModItems.INGOT_ENDERITE))
@@ -183,11 +194,16 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBY_FENCE)));
         createFenceRecipe(ModBlocks.SAPPHIRE_FENCE, Ingredient.ofItems(ModItems.GEM_SAPPHIRE))
                 .criterion(hasItem(ModItems.GEM_SAPPHIRE), conditionsFromItem(ModItems.GEM_SAPPHIRE))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SAPPHIRE_FENCE)));
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SAPPHIRE_FENCE)));*/
+
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.CITRINE_FENCE, ModBlocks.CITRINE, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.ENDERITE_FENCE, ModItems.INGOT_ENDERITE, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.RUBY_FENCE, ModItems.GEM_RUBY, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.SAPPHIRE_FENCE, ModItems.GEM_SAPPHIRE, 9);
         //endregion
 
         //region FENCE GATE
-        createFenceGateRecipe(ModBlocks.CITRINE_FENCE_GATE, Ingredient.ofItems(ModItems.GEM_CITRINE))
+        /*createFenceGateRecipe(ModBlocks.CITRINE_FENCE_GATE, Ingredient.ofItems(ModItems.GEM_CITRINE))
                 .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CITRINE_FENCE_GATE)));
         createFenceGateRecipe(ModBlocks.ENDERITE_FENCE_GATE, Ingredient.ofItems(ModItems.INGOT_ENDERITE))
@@ -198,7 +214,12 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBY_FENCE_GATE)));
         createFenceGateRecipe(ModBlocks.SAPPHIRE_FENCE_GATE, Ingredient.ofItems(ModItems.GEM_SAPPHIRE))
                 .criterion(hasItem(ModItems.GEM_SAPPHIRE), conditionsFromItem(ModItems.GEM_SAPPHIRE))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SAPPHIRE_FENCE_GATE)));
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SAPPHIRE_FENCE_GATE)));*/
+
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.CITRINE_FENCE_GATE, ModBlocks.CITRINE, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.ENDERITE_FENCE_GATE, ModItems.INGOT_ENDERITE, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.RUBY_FENCE_GATE, ModItems.GEM_RUBY, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.SAPPHIRE_FENCE_GATE, ModItems.GEM_SAPPHIRE, 9);
         //endregion
 
         //region DOOR
@@ -232,10 +253,15 @@ public class ModRecipeProvider extends FabricRecipeProvider
         //endregion
 
         //region WALL
-        offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CITRINE_WALL, ModBlocks.CITRINE_FENCE);
+        /*offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CITRINE_WALL, ModBlocks.CITRINE_FENCE);
         offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENDERITE_WALL, ModBlocks.ENDERITE_FENCE);
         offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RUBY_WALL, ModBlocks.RUBY_FENCE);
-        offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SAPPHIRE_WALL, ModBlocks.SAPPHIRE_FENCE);
+        offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SAPPHIRE_WALL, ModBlocks.SAPPHIRE_FENCE);*/
+
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.CITRINE_WALL, ModBlocks.CITRINE, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.ENDERITE_WALL, ModBlocks.ENDERITE, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.RUBY_WALL, ModBlocks.RUBY, 9);
+        offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.SAPPHIRE_WALL, ModBlocks.SAPPHIRE, 9);
         //endregion
 
         //region BUTTON
@@ -256,5 +282,487 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                   .criterion(hasItem(ModItems.GEM_SAPPHIRE), conditionsFromItem(ModItems.GEM_SAPPHIRE))
                                   .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SAPPHIRE_BUTTON) + "_shapeless"));
         //endregion
+
+        //region CITRINE TOOLS
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_AXE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_CITRINE_AXE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_CITRINE_AXE),
+                                          conditionsFromItem(ModItems.HEAD_CITRINE_AXE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_CITRINE_AXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_HAMMER, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_CITRINE_HAMMER)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_CITRINE_HAMMER),
+                                          conditionsFromItem(ModItems.HEAD_CITRINE_HAMMER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_CITRINE_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_HOE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_CITRINE_HOE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_CITRINE_HOE),
+                                          conditionsFromItem(ModItems.HEAD_CITRINE_HOE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_CITRINE_HOE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_PICKAXE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_CITRINE_PICKAXE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_CITRINE_PICKAXE),
+                                          conditionsFromItem(ModItems.HEAD_CITRINE_PICKAXE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_CITRINE_PICKAXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_SHOVEL, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_CITRINE_SHOVEL)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_CITRINE_SHOVEL),
+                                          conditionsFromItem(ModItems.HEAD_CITRINE_SHOVEL))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_CITRINE_SHOVEL)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_SWORD, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_CITRINE_SWORD)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_CITRINE_SWORD),
+                                          conditionsFromItem(ModItems.HEAD_CITRINE_SWORD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_CITRINE_SWORD)));
+        //endregion
+
+        //region COPPER TOOLS
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_AXE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_COPPER_AXE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_COPPER_AXE),
+                                          conditionsFromItem(ModItems.HEAD_COPPER_AXE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_COPPER_AXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_HAMMER, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_COPPER_HAMMER)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_COPPER_HAMMER),
+                                          conditionsFromItem(ModItems.HEAD_COPPER_HAMMER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_COPPER_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_HOE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_COPPER_HOE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_COPPER_HOE),
+                                          conditionsFromItem(ModItems.HEAD_COPPER_HOE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_COPPER_HOE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_PICKAXE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_COPPER_PICKAXE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_COPPER_PICKAXE),
+                                          conditionsFromItem(ModItems.HEAD_COPPER_PICKAXE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_COPPER_PICKAXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_SHOVEL, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_COPPER_SHOVEL)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_COPPER_SHOVEL),
+                                          conditionsFromItem(ModItems.HEAD_COPPER_SHOVEL))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_COPPER_SHOVEL)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_SWORD, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_COPPER_SWORD)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_COPPER_SWORD),
+                                          conditionsFromItem(ModItems.HEAD_COPPER_SWORD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_COPPER_SWORD)));
+        //endregion
+
+        //region ENDERITE TOOLS
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_AXE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_ENDERITE_AXE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_ENDERITE_AXE),
+                                          conditionsFromItem(ModItems.HEAD_ENDERITE_AXE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_ENDERITE_AXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_HAMMER, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_ENDERITE_HAMMER)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_ENDERITE_HAMMER),
+                                          conditionsFromItem(ModItems.HEAD_ENDERITE_HAMMER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_ENDERITE_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_HOE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_ENDERITE_HOE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_ENDERITE_HOE),
+                                          conditionsFromItem(ModItems.HEAD_ENDERITE_HOE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_ENDERITE_HOE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_PICKAXE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_ENDERITE_PICKAXE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_ENDERITE_PICKAXE),
+                                          conditionsFromItem(ModItems.HEAD_ENDERITE_PICKAXE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_ENDERITE_PICKAXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_SHOVEL, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_ENDERITE_SHOVEL)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_ENDERITE_SHOVEL),
+                                          conditionsFromItem(ModItems.HEAD_ENDERITE_SHOVEL))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_ENDERITE_SHOVEL)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_SWORD, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_ENDERITE_SWORD)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_ENDERITE_SWORD),
+                                          conditionsFromItem(ModItems.HEAD_ENDERITE_SWORD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_ENDERITE_SWORD)));
+        //endregion
+
+        //region RUBY TOOLS
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_AXE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_RUBY_AXE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_RUBY_AXE),
+                                          conditionsFromItem(ModItems.HEAD_RUBY_AXE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_RUBY_AXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_HAMMER, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_RUBY_HAMMER)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_RUBY_HAMMER),
+                                          conditionsFromItem(ModItems.HEAD_RUBY_HAMMER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_RUBY_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_HOE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_RUBY_HOE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_RUBY_HOE),
+                                          conditionsFromItem(ModItems.HEAD_RUBY_HOE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_RUBY_HOE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_PICKAXE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_RUBY_PICKAXE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_RUBY_PICKAXE),
+                                          conditionsFromItem(ModItems.HEAD_RUBY_PICKAXE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_RUBY_PICKAXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_SHOVEL, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_RUBY_SHOVEL)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_RUBY_SHOVEL),
+                                          conditionsFromItem(ModItems.HEAD_RUBY_SHOVEL))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_RUBY_SHOVEL)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_SWORD, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_RUBY_SWORD)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_RUBY_SWORD),
+                                          conditionsFromItem(ModItems.HEAD_RUBY_SWORD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_RUBY_SWORD)));
+        //endregion
+
+        //region SAPPHIRE TOOLS
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_AXE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_SAPPHIRE_AXE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_SAPPHIRE_AXE),
+                                          conditionsFromItem(ModItems.HEAD_SAPPHIRE_AXE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_SAPPHIRE_AXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_HAMMER, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_SAPPHIRE_HAMMER)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_SAPPHIRE_HAMMER),
+                                          conditionsFromItem(ModItems.HEAD_SAPPHIRE_HAMMER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_SAPPHIRE_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_HOE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_SAPPHIRE_HOE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_SAPPHIRE_HOE),
+                                          conditionsFromItem(ModItems.HEAD_SAPPHIRE_HOE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_SAPPHIRE_HOE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_PICKAXE, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_SAPPHIRE_PICKAXE)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_SAPPHIRE_PICKAXE),
+                                          conditionsFromItem(ModItems.HEAD_SAPPHIRE_PICKAXE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_SAPPHIRE_PICKAXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_SHOVEL, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_SAPPHIRE_SHOVEL)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_SAPPHIRE_SHOVEL),
+                                          conditionsFromItem(ModItems.HEAD_SAPPHIRE_SHOVEL))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_SAPPHIRE_SHOVEL)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_SWORD, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_SAPPHIRE_SWORD)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_SAPPHIRE_SWORD),
+                                          conditionsFromItem(ModItems.HEAD_SAPPHIRE_SWORD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_SAPPHIRE_SWORD)));
+        //endregion
+
+        //region VANILLA HAMMERS
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_DIAMOND_HAMMER, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_DIAMOND_HAMMER)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_DIAMOND_HAMMER),
+                                          conditionsFromItem(ModItems.HEAD_DIAMOND_HAMMER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_DIAMOND_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_GOLD_HAMMER, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_GOLD_HAMMER)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_GOLD_HAMMER),
+                                          conditionsFromItem(ModItems.HEAD_GOLD_HAMMER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_GOLD_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_IRON_HAMMER, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_IRON_HAMMER)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_IRON_HAMMER),
+                                          conditionsFromItem(ModItems.HEAD_IRON_HAMMER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_IRON_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_NETHERITE_HAMMER, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_NETHERITE_HAMMER)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_NETHERITE_HAMMER),
+                                          conditionsFromItem(ModItems.HEAD_NETHERITE_HAMMER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_NETHERITE_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_STONE_HAMMER, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_STONE_HAMMER)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_STONE_HAMMER),
+                                          conditionsFromItem(ModItems.HEAD_STONE_HAMMER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_STONE_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_WOOD_HAMMER, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_WOOD_HAMMER)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_WOOD_HAMMER),
+                                          conditionsFromItem(ModItems.HEAD_WOOD_HAMMER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_WOOD_HAMMER)));
+        //endregion
+
+        offerBlasting(exporter, List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 5.0f, 1200, "ore_enderite");
     }
 }

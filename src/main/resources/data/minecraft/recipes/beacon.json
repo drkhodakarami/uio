@@ -24,7 +24,7 @@
     "XOX"
   ],
   "result": {
-    "item": "minecraft:beacon"
+    "id": "minecraft:beacon"
   },
   "show_notification": true
 }

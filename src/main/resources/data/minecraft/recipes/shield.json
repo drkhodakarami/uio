@@ -15,7 +15,7 @@
     " W "
   ],
   "result": {
-    "item": "minecraft:shield"
+    "id": "minecraft:shield"
   },
   "show_notification": true
 }

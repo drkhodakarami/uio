@@ -198,39 +198,249 @@ public class ModItems
     public static final Item HEAD_WOOD_HAMMER = registerItem("head_wood_hammer", new Item(new Item.Settings()));
     //endregion
 
-    public static final Item TOOL_CITRINE_AXE = registerItem("tool_citrine_axe", new AxeItem(ModToolMaterials.CITRINE,
-                                                                                             new Item.Settings().attributeModifiers(
-                                                                                                     AxeItem.createAttributeModifiers(
-                                                                                                             ModToolMaterials.CITRINE,
-                                                                                                             6.0f, -3.1f))));
-
+    //region CITRINE TOOLS
+    public static final Item TOOL_CITRINE_AXE = registerItem("tool_citrine_axe",
+                                                             new AxeItem(ModToolMaterials.CITRINE,
+                                                                         new Item.Settings().attributeModifiers(
+                                                                                 AxeItem.createAttributeModifiers(
+                                                                                         ModToolMaterials.CITRINE,
+                                                                                         6.0f, -3.1f))));
     //TODO : Add Hammer Class for Tools
-    public static final Item TOOL_CITRINE_HAMMER = registerItem("tool_citrine_hammer", new AxeItem(ModToolMaterials.CITRINE,
-                                                                                                   new Item.Settings().attributeModifiers(
-                                                                                                           AxeItem.createAttributeModifiers(
-                                                                                                                   ModToolMaterials.CITRINE,
-                                                                                                                   9.0f, -1.5f))));
+    public static final Item TOOL_CITRINE_HAMMER = registerItem("tool_citrine_hammer",
+                                                                new AxeItem(ModToolMaterials.CITRINE,
+                                                                            new Item.Settings().attributeModifiers(
+                                                                                    AxeItem.createAttributeModifiers(
+                                                                                            ModToolMaterials.CITRINE,
+                                                                                            9.0f, -1.5f))));
+    public static final Item TOOL_CITRINE_HOE = registerItem("tool_citrine_hoe",
+                                                             new HoeItem(ModToolMaterials.CITRINE,
+                                                                         new Item.Settings().attributeModifiers(
+                                                                                 HoeItem.createAttributeModifiers(
+                                                                                         ModToolMaterials.CITRINE,
+                                                                                         -0.0f, -0.0f))));
+    public static final Item TOOL_CITRINE_PICKAXE = registerItem("tool_citrine_pickaxe",
+                                                                 new PickaxeItem(ModToolMaterials.CITRINE,
+                                                                                 new Item.Settings().attributeModifiers(
+                                                                                         PickaxeItem.createAttributeModifiers(
+                                                                                                 ModToolMaterials.CITRINE,
+                                                                                                 1.0f, -2.8f))));
+    public static final Item TOOL_CITRINE_SHOVEL = registerItem("tool_citrine_shovel",
+                                                                new ShovelItem(ModToolMaterials.CITRINE,
+                                                                               new Item.Settings().attributeModifiers(
+                                                                                       ShovelItem.createAttributeModifiers(
+                                                                                               ModToolMaterials.CITRINE,
+                                                                                               0.0f, -0.0f))));
+    public static final Item TOOL_CITRINE_SWORD = registerItem("tool_citrine_sword",
+                                                               new SwordItem(ModToolMaterials.CITRINE,
+                                                                             new Item.Settings().attributeModifiers(
+                                                                                     SwordItem.createAttributeModifiers(
+                                                                                             ModToolMaterials.CITRINE,
+                                                                                             3, -2.4f))));
+    //endregion
 
-    public static final Item TOOL_CITRINE_HOE = registerItem("tool_citrine_hoe", new HoeItem(ModToolMaterials.CITRINE,
-                                                                                             new Item.Settings().attributeModifiers(
-                                                                                                     HoeItem.createAttributeModifiers(
-                                                                                                             ModToolMaterials.CITRINE,
-                                                                                                             -2.0f, -1.0f))));
-    public static final Item TOOL_CITRINE_PICKAXE = registerItem("tool_citrine_pickaxe", new PickaxeItem(ModToolMaterials.CITRINE,
-                                                                                                         new Item.Settings().attributeModifiers(
-                                                                                                                 PickaxeItem.createAttributeModifiers(
-                                                                                                                         ModToolMaterials.CITRINE,
-                                                                                                                         1.0f, -2.8f))));
-    public static final Item TOOL_CITRINE_SHOVEL = registerItem("tool_citrine_shovel", new ShovelItem(ModToolMaterials.CITRINE,
-                                                                                                      new Item.Settings().attributeModifiers(
-                                                                                                              ShovelItem.createAttributeModifiers(
-                                                                                                                      ModToolMaterials.CITRINE,
-                                                                                                                      1.5f, -3.0f))));
-    public static final Item TOOL_CITRINE_SWORD = registerItem("tool_citrine_sword", new SwordItem(ModToolMaterials.CITRINE,
-                                                                                                   new Item.Settings().attributeModifiers(
-                                                                                                           SwordItem.createAttributeModifiers(
-                                                                                                                   ModToolMaterials.CITRINE,
-                                                                                                                   3, -2.4f))));
+    //region COPPER TOOLS
+    public static final Item TOOL_COPPER_AXE = registerItem("tool_copper_axe",
+                                                            new AxeItem(ModToolMaterials.COPPER,
+                                                                        new Item.Settings().attributeModifiers(
+                                                                                AxeItem.createAttributeModifiers(
+                                                                                        ModToolMaterials.COPPER,
+                                                                                        6.0f, -1.5f))));
+    //TODO : Add Hammer Class for Tools
+    public static final Item TOOL_COPPER_HAMMER = registerItem("tool_copper_hammer",
+                                                               new AxeItem(ModToolMaterials.COPPER,
+                                                                           new Item.Settings().attributeModifiers(
+                                                                                   AxeItem.createAttributeModifiers(
+                                                                                           ModToolMaterials.COPPER,
+                                                                                           9.0f, -1.5f))));
+
+    public static final Item TOOL_COPPER_HOE = registerItem("tool_copper_hoe",
+                                                            new HoeItem(ModToolMaterials.COPPER,
+                                                                        new Item.Settings().attributeModifiers(
+                                                                                HoeItem.createAttributeModifiers(
+                                                                                        ModToolMaterials.COPPER,
+                                                                                        -0.0f, -0.0f))));
+    public static final Item TOOL_COPPER_PICKAXE = registerItem("tool_copper_pickaxe",
+                                                                new PickaxeItem(ModToolMaterials.COPPER,
+                                                                                new Item.Settings().attributeModifiers(
+                                                                                        PickaxeItem.createAttributeModifiers(
+                                                                                                ModToolMaterials.COPPER,
+                                                                                                1.0f, -1.0f))));
+    public static final Item TOOL_COPPER_SHOVEL = registerItem("tool_copper_shovel",
+                                                               new ShovelItem(ModToolMaterials.COPPER,
+                                                                              new Item.Settings().attributeModifiers(
+                                                                                      ShovelItem.createAttributeModifiers(
+                                                                                              ModToolMaterials.COPPER,
+                                                                                              0.0f, -0.0f))));
+    public static final Item TOOL_COPPER_SWORD = registerItem("tool_copper_sword",
+                                                              new SwordItem(ModToolMaterials.COPPER,
+                                                                            new Item.Settings().attributeModifiers(
+                                                                                    SwordItem.createAttributeModifiers(
+                                                                                            ModToolMaterials.COPPER,
+                                                                                            3, -2.4f))));
+    //endregion
+
+    //region ENDERITE TOOLS
+    public static final Item TOOL_ENDERITE_AXE = registerItem("tool_enderite_axe",
+                                                              new AxeItem(ModToolMaterials.ENDERITE,
+                                                                          new Item.Settings().attributeModifiers(
+                                                                                  AxeItem.createAttributeModifiers(
+                                                                                          ModToolMaterials.ENDERITE,
+                                                                                          20.0f, -2.5f))));
+    //TODO : Add Hammer Class for Tools
+    public static final Item TOOL_ENDERITE_HAMMER = registerItem("tool_enderite_hammer",
+                                                                 new AxeItem(ModToolMaterials.ENDERITE,
+                                                                             new Item.Settings().attributeModifiers(
+                                                                                     AxeItem.createAttributeModifiers(
+                                                                                             ModToolMaterials.ENDERITE,
+                                                                                             9.0f, -1.5f))));
+
+    public static final Item TOOL_ENDERITE_HOE = registerItem("tool_enderite_hoe",
+                                                              new HoeItem(ModToolMaterials.ENDERITE,
+                                                                          new Item.Settings().attributeModifiers(
+                                                                                  HoeItem.createAttributeModifiers(
+                                                                                          ModToolMaterials.ENDERITE,
+                                                                                          -0.0f, -0.0f))));
+    public static final Item TOOL_ENDERITE_PICKAXE = registerItem("tool_enderite_pickaxe",
+                                                                  new PickaxeItem(ModToolMaterials.ENDERITE,
+                                                                                  new Item.Settings().attributeModifiers(
+                                                                                          PickaxeItem.createAttributeModifiers(
+                                                                                                  ModToolMaterials.ENDERITE,
+                                                                                                  1.0f, -1.0f))));
+    public static final Item TOOL_ENDERITE_SHOVEL = registerItem("tool_enderite_shovel",
+                                                                 new ShovelItem(ModToolMaterials.ENDERITE,
+                                                                                new Item.Settings().attributeModifiers(
+                                                                                        ShovelItem.createAttributeModifiers(
+                                                                                                ModToolMaterials.ENDERITE,
+                                                                                                0.0f, -0.0f))));
+    public static final Item TOOL_ENDERITE_SWORD = registerItem("tool_enderite_sword",
+                                                                new SwordItem(ModToolMaterials.ENDERITE,
+                                                                              new Item.Settings().attributeModifiers(
+                                                                                      SwordItem.createAttributeModifiers(
+                                                                                              ModToolMaterials.ENDERITE,
+                                                                                              15, -4.5f))));
+    //endregion
+
+    //region RUBY TOOLS
+    public static final Item TOOL_RUBY_AXE = registerItem("tool_ruby_axe",
+                                                          new AxeItem(ModToolMaterials.RUBY,
+                                                                      new Item.Settings().attributeModifiers(
+                                                                              AxeItem.createAttributeModifiers(
+                                                                                      ModToolMaterials.RUBY,
+                                                                                      5.0f, -1.5f))));
+    //TODO : Add Hammer Class for Tools
+    public static final Item TOOL_RUBY_HAMMER = registerItem("tool_ruby_hammer",
+                                                             new AxeItem(ModToolMaterials.RUBY,
+                                                                         new Item.Settings().attributeModifiers(
+                                                                                 AxeItem.createAttributeModifiers(
+                                                                                         ModToolMaterials.RUBY,
+                                                                                         5.0f, -1.5f))));
+
+    public static final Item TOOL_RUBY_HOE = registerItem("tool_ruby_hoe",
+                                                          new HoeItem(ModToolMaterials.RUBY,
+                                                                      new Item.Settings().attributeModifiers(
+                                                                              HoeItem.createAttributeModifiers(
+                                                                                      ModToolMaterials.RUBY,
+                                                                                      -0.0f, -0.0f))));
+    public static final Item TOOL_RUBY_PICKAXE = registerItem("tool_ruby_pickaxe",
+                                                              new PickaxeItem(ModToolMaterials.RUBY,
+                                                                              new Item.Settings().attributeModifiers(
+                                                                                      PickaxeItem.createAttributeModifiers(
+                                                                                              ModToolMaterials.RUBY,
+                                                                                              1.0f, -1.0f))));
+    public static final Item TOOL_RUBY_SHOVEL = registerItem("tool_ruby_shovel",
+                                                             new ShovelItem(ModToolMaterials.RUBY,
+                                                                            new Item.Settings().attributeModifiers(
+                                                                                    ShovelItem.createAttributeModifiers(
+                                                                                            ModToolMaterials.RUBY,
+                                                                                            0.0f, -0.0f))));
+    public static final Item TOOL_RUBY_SWORD = registerItem("tool_ruby_sword",
+                                                            new SwordItem(ModToolMaterials.RUBY,
+                                                                          new Item.Settings().attributeModifiers(
+                                                                                  SwordItem.createAttributeModifiers(
+                                                                                          ModToolMaterials.RUBY,
+                                                                                          4, -3.0f))));
+    //endregion
+
+    //region SAPPHIRE TOOLS
+    public static final Item TOOL_SAPPHIRE_AXE = registerItem("tool_sapphire_axe",
+                                                              new AxeItem(ModToolMaterials.SAPPHIRE,
+                                                                          new Item.Settings().attributeModifiers(
+                                                                                  AxeItem.createAttributeModifiers(
+                                                                                          ModToolMaterials.SAPPHIRE,
+                                                                                          5.0f, -1.5f))));
+    //TODO : Add Hammer Class for Tools
+    public static final Item TOOL_SAPPHIRE_HAMMER = registerItem("tool_sapphire_hammer",
+                                                                 new AxeItem(ModToolMaterials.SAPPHIRE,
+                                                                             new Item.Settings().attributeModifiers(
+                                                                                     AxeItem.createAttributeModifiers(
+                                                                                             ModToolMaterials.SAPPHIRE,
+                                                                                             5.0f, -1.5f))));
+
+    public static final Item TOOL_SAPPHIRE_HOE = registerItem("tool_sapphire_hoe",
+                                                              new HoeItem(ModToolMaterials.SAPPHIRE,
+                                                                          new Item.Settings().attributeModifiers(
+                                                                                  HoeItem.createAttributeModifiers(
+                                                                                          ModToolMaterials.SAPPHIRE,
+                                                                                          -0.0f, -0.0f))));
+    public static final Item TOOL_SAPPHIRE_PICKAXE = registerItem("tool_sapphire_pickaxe",
+                                                                  new PickaxeItem(ModToolMaterials.SAPPHIRE,
+                                                                                  new Item.Settings().attributeModifiers(
+                                                                                          PickaxeItem.createAttributeModifiers(
+                                                                                                  ModToolMaterials.SAPPHIRE,
+                                                                                                  1.0f, -1.0f))));
+    public static final Item TOOL_SAPPHIRE_SHOVEL = registerItem("tool_sapphire_shovel",
+                                                                 new ShovelItem(ModToolMaterials.SAPPHIRE,
+                                                                                new Item.Settings().attributeModifiers(
+                                                                                        ShovelItem.createAttributeModifiers(
+                                                                                                ModToolMaterials.SAPPHIRE,
+                                                                                                0.0f, -0.0f))));
+    public static final Item TOOL_SAPPHIRE_SWORD = registerItem("tool_sapphire_sword",
+                                                                new SwordItem(ModToolMaterials.SAPPHIRE,
+                                                                              new Item.Settings().attributeModifiers(
+                                                                                      SwordItem.createAttributeModifiers(
+                                                                                              ModToolMaterials.SAPPHIRE,
+                                                                                              4, -3.0f))));
+    //endregion
+
+    //region VANILLA HAMMERS
+    //TODO : Add Hammer Class for Tools
+    public static final Item TOOL_DIAMOND_HAMMER = registerItem("tool_diamond_hammer",
+                                                                new AxeItem(ToolMaterials.DIAMOND,
+                                                                            new Item.Settings().attributeModifiers(
+                                                                                    AxeItem.createAttributeModifiers(
+                                                                                            ToolMaterials.DIAMOND,
+                                                                                            6.0f, -1.0f))));
+    public static final Item TOOL_GOLD_HAMMER = registerItem("tool_gold_hammer",
+                                                             new AxeItem(ToolMaterials.GOLD,
+                                                                         new Item.Settings().attributeModifiers(
+                                                                                 AxeItem.createAttributeModifiers(
+                                                                                         ToolMaterials.GOLD,
+                                                                                         5.0f, -1.0f))));
+    public static final Item TOOL_IRON_HAMMER = registerItem("tool_iron_hammer",
+                                                             new AxeItem(ToolMaterials.IRON,
+                                                                         new Item.Settings().attributeModifiers(
+                                                                                 AxeItem.createAttributeModifiers(
+                                                                                         ToolMaterials.IRON,
+                                                                                         5.0f, -1.0f))));
+    public static final Item TOOL_NETHERITE_HAMMER = registerItem("tool_netherite_hammer",
+                                                                  new AxeItem(ToolMaterials.NETHERITE,
+                                                                              new Item.Settings().attributeModifiers(
+                                                                                      AxeItem.createAttributeModifiers(
+                                                                                              ToolMaterials.NETHERITE,
+                                                                                              7.0f, -1.0f))));
+    public static final Item TOOL_STONE_HAMMER = registerItem("tool_stone_hammer",
+                                                              new AxeItem(ToolMaterials.STONE,
+                                                                          new Item.Settings().attributeModifiers(
+                                                                                  AxeItem.createAttributeModifiers(
+                                                                                          ToolMaterials.STONE,
+                                                                                          3.0f, -1.0f))));
+    public static final Item TOOL_WOOD_HAMMER = registerItem("tool_wood_hammer",
+                                                             new AxeItem(ToolMaterials.WOOD,
+                                                                         new Item.Settings().attributeModifiers(
+                                                                                 AxeItem.createAttributeModifiers(
+                                                                                         ToolMaterials.WOOD,
+                                                                                         1.5f, -1.0f))));
+    //endregion
 
     //region TOOL
     public static final Item TOOL_PLAYER_TELEPORT = registerItem("tool_player_teleport", new Item(new Item.Settings()));

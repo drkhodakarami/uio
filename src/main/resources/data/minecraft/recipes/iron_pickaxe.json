@@ -6,7 +6,7 @@
       "item": "uio:head_iron_pickaxe"
     },
     "X": {
-      "item": "minecraft:string"
+      "item": "uio:binding_string"
     },
     "#": {
       "item": "minecraft:stick"
@@ -18,7 +18,7 @@
     "#"
   ],
   "result": {
-    "item": "minecraft:iron_pickaxe"
+    "id": "minecraft:iron_pickaxe"
   },
   "show_notification": true
 }

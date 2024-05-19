@@ -12,7 +12,7 @@
       "item": "uio:rod_obsidian"
     },
     "~": {
-      "item": "uio:binding"
+      "item": "uio:binding_string"
     }
   },
   "pattern": [
@@ -21,7 +21,7 @@
     " # "
   ],
   "result": {
-    "item": "minecraft:crossbow"
+    "id": "minecraft:crossbow"
   },
   "show_notification": true
 }

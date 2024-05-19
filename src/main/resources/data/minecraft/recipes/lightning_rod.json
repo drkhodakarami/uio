@@ -12,7 +12,7 @@
     "#"
   ],
   "result": {
-    "item": "minecraft:lightning_rod"
+    "id": "minecraft:lightning_rod"
   },
   "show_notification": true
 }

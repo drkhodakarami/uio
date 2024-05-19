@@ -6,7 +6,7 @@
       "item": "uio:head_iron_sword"
     },
     "X": {
-      "item": "uio:binding"
+      "item": "uio:binding_string"
     },
     "#": {
       "item": "minecraft:stick"
@@ -18,7 +18,7 @@
     "#"
   ],
   "result": {
-    "item": "minecraft:iron_sword"
+    "id": "minecraft:iron_sword"
   },
   "show_notification": true
 }

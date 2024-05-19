@@ -6,7 +6,7 @@
       "item": "uio:head_iron_hoe"
     },
     "X": {
-      "item": "uio:binding"
+      "item": "uio:binding_string"
     },
     "#": {
       "item": "minecraft:stick"
@@ -18,7 +18,7 @@
     "#"
   ],
   "result": {
-    "item": "minecraft:iron_hoe"
+    "id": "minecraft:iron_hoe"
   },
   "show_notification": true
 }

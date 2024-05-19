@@ -1,4 +1,4 @@
-// 1.20.6	2024-05-19T11:58:07.4316971	Ultra IO/Block Loot Tables
+// 1.20.6	2024-05-19T18:40:33.0728786	Ultra IO/Block Loot Tables
 913971fa4ff5b15e2b57484d955b60e808cffa79 data\uio\loot_tables\blocks\block_ruby_wall.json
 5142df42e1c4b793fa020554370e2dcf0461c9af data\uio\loot_tables\blocks\block_citrine.json
 96a4e501017acf9bb265ba87f7344d4d886bd932 data\uio\loot_tables\blocks\ore_nether_lapis.json
@@ -44,6 +44,7 @@ a0ff47c52b71c8a7bda81950e22556e86ccd0196 data\uio\loot_tables\blocks\block_raw_q
 51fc8c08d20061a2aeb5852c3232cbd603ab9db9 data\uio\loot_tables\blocks\ore_nether_iron.json
 c9bb83a92b455839e2cf4a2668dc9d08ee9b54c3 data\uio\loot_tables\blocks\ore_world_ruby.json
 af4d8316bb00c43d4797871bd9150931565b26d4 data\uio\loot_tables\blocks\ore_nether_diamond.json
+38bb6b79d04041eabd263dec099520369ab71fae data\uio\loot_tables\blocks\ore_end_enderite_cracked.json
 c07d800b7c3dfbe66c131bbe6c784e75060c40ec data\uio\loot_tables\blocks\ore_nether_ruby.json
 bebd27b62c06f346d59d52243959f9e28079298a data\uio\loot_tables\blocks\ore_nether_sapphire.json
 58952e8b98898036e40149fef00696f00a5526f7 data\uio\loot_tables\blocks\block_enderite_stairs.json

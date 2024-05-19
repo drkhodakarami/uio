@@ -9,7 +9,7 @@
       "item": "minecraft:string"
     },
     "B": {
-      "item": "uio:binding"
+      "item": "uio:binding_string"
     }
   },
   "pattern": [
@@ -18,7 +18,7 @@
     " #B"
   ],
   "result": {
-    "item": "minecraft:bow"
+    "id": "minecraft:bow"
   },
   "show_notification": true
 }

@@ -1,11 +1,13 @@
 package jiraiyah.uio.datagen;
 
 import jiraiyah.uio.registry.ModBlocks;
+import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
@@ -39,6 +41,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_DEEP_RUBY)
                 .add(ModBlocks.ORE_DEEP_SAPPHIRE)
                 .add(ModBlocks.ORE_END_CITRINE)
+                .add(ModBlocks.ORE_END_ENDERITE_CRACKED)
                 .add(ModBlocks.ORE_END_RUBY)
                 .add(ModBlocks.ORE_END_SAPPHIRE)
                 .add(ModBlocks.ORE_ENDERITE)
@@ -84,6 +87,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_WORLD_SAPPHIRE);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
+                .add(ModBlocks.ORE_END_ENDERITE_CRACKED)
                 .add(ModBlocks.ORE_ENDERITE);
 
         //TODO : Fix Netherite Tier

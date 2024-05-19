@@ -80,6 +80,7 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ORE_DEEP_SAPPHIRE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ORE_END_CITRINE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ORE_END_ENDERITE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ORE_END_ENDERITE_CRACKED);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ORE_END_RUBY);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ORE_END_SAPPHIRE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ORE_NETHER_CITRINE);
@@ -308,6 +309,41 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.TOOL_CITRINE_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_CITRINE_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_CITRINE_SWORD, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.TOOL_COPPER_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_COPPER_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_COPPER_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_COPPER_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_COPPER_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_COPPER_SWORD, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.TOOL_ENDERITE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_ENDERITE_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_ENDERITE_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_ENDERITE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_ENDERITE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_ENDERITE_SWORD, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.TOOL_RUBY_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_RUBY_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_RUBY_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_RUBY_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_RUBY_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_RUBY_SWORD, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_SWORD, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.TOOL_DIAMOND_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_GOLD_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_IRON_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_NETHERITE_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_STONE_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_WOOD_HAMMER, Models.HANDHELD);
         //endregion
     }
 }

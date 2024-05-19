@@ -18,7 +18,7 @@
     "iii"
   ],
   "result": {
-    "item": "minecraft:anvil"
+    "id": "minecraft:anvil"
   },
   "show_notification": true
 }

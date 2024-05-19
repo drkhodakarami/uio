@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_block_ruby": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:block_ruby"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:block_ruby_stairs_from_block_ruby_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_block_ruby"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:block_ruby_stairs_from_block_ruby_stonecutting"
+    ]
+  }
+}

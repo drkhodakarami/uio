@@ -151,6 +151,7 @@ public class ModBlocks
 
     public static final Block ORE_END_CITRINE = registerBlock("ore_end_citrine", new Block(AbstractBlock.Settings.copy(Blocks.END_STONE)));
     public static final Block ORE_END_ENDERITE = registerBlock("ore_end_enderite", new Block(AbstractBlock.Settings.copy(Blocks.END_STONE)));
+    public static final Block ORE_END_ENDERITE_CRACKED = registerBlock("ore_end_enderite_cracked", new Block(AbstractBlock.Settings.copy(Blocks.END_STONE)));
     public static final Block ORE_END_RUBY = registerBlock("ore_end_ruby", new Block(AbstractBlock.Settings.copy(Blocks.END_STONE)));
     public static final Block ORE_END_SAPPHIRE = registerBlock("ore_end_sapphire", new Block(AbstractBlock.Settings.copy(Blocks.END_STONE)));
 

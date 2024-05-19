@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "uio:gem_sapphire"
+  },
+  "result": {
+    "count": 9,
+    "id": "uio:block_sapphire_fence_gate"
+  }
+}

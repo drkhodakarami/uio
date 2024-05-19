@@ -15,7 +15,7 @@
     "###"
   ],
   "result": {
-    "item": "minecraft:golden_apple"
+    "id": "minecraft:golden_apple"
   },
   "show_notification": true
 }

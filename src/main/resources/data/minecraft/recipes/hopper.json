@@ -15,7 +15,7 @@
     " I "
   ],
   "result": {
-    "item": "minecraft:hopper"
+    "id": "minecraft:hopper"
   },
   "show_notification": true
 }

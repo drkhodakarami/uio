@@ -14,7 +14,7 @@
     "G#G"
   ],
   "result": {
-    "item": "minecraft:minecart"
+    "id": "minecraft:minecart"
   },
   "show_notification": true
 }

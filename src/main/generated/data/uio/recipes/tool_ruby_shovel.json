@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "B": {
+      "item": "uio:binding_string"
+    },
+    "H": {
+      "item": "uio:head_ruby_shovel"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "H",
+    "B",
+    "S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:tool_ruby_shovel"
+  }
+}

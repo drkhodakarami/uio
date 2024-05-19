@@ -6,7 +6,7 @@
       "item": "uio:head_gold_sword"
     },
     "X": {
-      "item": "uio:binding"
+      "item": "uio:binding_string"
     },
     "#": {
       "item": "minecraft:stick"
@@ -18,7 +18,7 @@
     "#"
   ],
   "result": {
-    "item": "minecraft:golden_sword"
+    "id": "minecraft:golden_sword"
   },
   "show_notification": true
 }

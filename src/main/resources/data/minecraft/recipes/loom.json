@@ -6,7 +6,7 @@
       "tag": "minecraft:planks"
     },
     "@": {
-      "item": "uio:binding"
+      "item": "uio:binding_string"
     }
   },
   "pattern": [
@@ -14,7 +14,7 @@
     "##"
   ],
   "result": {
-    "item": "minecraft:loom"
+    "id": "minecraft:loom"
   },
   "show_notification": true
 }

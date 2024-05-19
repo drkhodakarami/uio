@@ -11,7 +11,7 @@
     "X X"
   ],
   "result": {
-    "item": "minecraft:iron_helmet"
+    "id": "minecraft:iron_helmet"
   },
   "show_notification": true
 }

@@ -6,7 +6,7 @@
       "item": "uio:head_diamond_shovel"
     },
     "X": {
-      "item": "uio:binding"
+      "item": "uio:binding_string"
     },
     "#": {
       "item": "minecraft:stick"
@@ -18,7 +18,7 @@
     "#"
   ],
   "result": {
-    "item": "minecraft:diamond_shovel"
+    "id": "minecraft:diamond_shovel"
   },
   "show_notification": true
 }

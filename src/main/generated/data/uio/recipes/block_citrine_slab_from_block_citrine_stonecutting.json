@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "uio:block_citrine"
+  },
+  "result": {
+    "count": 18,
+    "id": "uio:block_citrine_slab"
+  }
+}
