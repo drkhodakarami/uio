@@ -92,6 +92,9 @@ dependencies {
 
     // to get the latest jade
     modImplementation "curse.maven:jade-324717:${project.jade_version}"
+
+    // Mod Menu Dependency
+    modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 }
 
 processResources {
@@ -102,9 +105,8 @@ processResources {
     }
 }
 
-// TODO : Change the vertion to 21
 tasks.withType(JavaCompile).configureEach {
-    it.options.release = 17
+    it.options.release = 21
 }
 
 java {

@@ -3,15 +3,16 @@
   "id": "uio",
   "version": "${version}",
   "name": "Ultra IO",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Ultra IO is a mod that will combine industrial approach with a little bit of magic from Ender universe!",
   "authors": [
-    "Me!"
+    "Jiraiyah"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/drkhodakarami/uio/",
+    "issues": "https://github.com/drkhodakarami/uio/issues/"
   },
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/uio/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -35,12 +36,20 @@
     "uio.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.7",
-    "minecraft": "~1.20.4",
-    "java": ">=17",
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.20.6",
+    "java": ">=21",
     "fabric-api": "*"
   },
   "suggests": {
     "another-mod": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/pmM4emCbuH"
+      },
+      "update_checker": true
+    }
   }
 }

@@ -5,6 +5,7 @@ import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
+import net.minecraft.item.ArmorItem;
 
 import static jiraiyah.uio.Reference.logRGB256;
 
@@ -345,5 +346,10 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.TOOL_STONE_HAMMER, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_WOOD_HAMMER, Models.HANDHELD);
         //endregion
+
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_BOOTS);
     }
 }

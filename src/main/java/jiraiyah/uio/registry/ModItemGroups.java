@@ -338,6 +338,19 @@ public class ModItemGroups
                                                           entries.add(ModItems.HEAD_WOOD_HAMMER);
                                                       }).build());
 
+    public static final ItemGroup ARMORS =
+            Registry.register(Registries.ITEM_GROUP,
+                              identifier(ModID + "_armor_group"),
+                              FabricItemGroup.builder().displayName(translate("armor.group"))
+                                             .icon(() -> new ItemStack(ModItems.ARMOR_AMETHYST_CHESTPLATE))
+                                             .entries((displayContext, entries) ->
+                                                      {
+                                                          entries.add(ModItems.ARMOR_AMETHYST_HELMET);
+                                                          entries.add(ModItems.ARMOR_AMETHYST_CHESTPLATE);
+                                                          entries.add(ModItems.ARMOR_AMETHYST_LEGGINGS);
+                                                          entries.add(ModItems.ARMOR_AMETHYST_BOOTS);
+                                                      }).build());
+
     public ModItemGroups()
     {
         throw new AssertionError();

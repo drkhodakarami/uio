@@ -3,6 +3,7 @@
   "uio.machine.group": "Machines",
   "uio.tool.group": "Tools",
   "uio.block.group": "Blocks",
+  "uio.armor.group": "Armors",
   "item.uio.binding_string": "Binding String",
   "item.uio.cast_axe": "Axe Head Cast",
   "item.uio.cast_binding": "Binding String Cast",
@@ -189,6 +190,10 @@
   "item.uio.tool_netherite_hammer": "Netherite Hammer",
   "item.uio.tool_stone_hammer": "Stone Hammer",
   "item.uio.tool_wood_hammer": "Wood Hammer",
+  "item.uio.armor_amethyst_helmet": "Amethyst Helmet",
+  "item.uio.armor_amethyst_chestplate": "Amethyst Chestplate",
+  "item.uio.armor_amethyst_leggings": "Amethyst Leggings",
+  "item.uio.armor_amethyst_boots": "Amethyst Boots",
 
   "block.uio.block_citrine": "Citrine Block",
   "block.uio.block_enderite": "Enderite Block",

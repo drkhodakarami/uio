@@ -448,6 +448,25 @@ public class ModItems
     public static final Item TOOL_WRENCH = registerItem("tool_wrench", new Item(new Item.Settings()));
     //endregion
 
+    //region AMETHYST ARMOR
+    public static final Item ARMOR_AMETHYST_HELMET = Items.register("armor_amethyst_helmet",
+                                                                    new ArmorItem(ModArmorMaterials.AMETHYST,
+                                                                                  ArmorItem.Type.HELMET,
+                                                                                  new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(20))));
+    public static final Item ARMOR_AMETHYST_CHESTPLATE = Items.register("armor_amethyst_chestplate",
+                                                                        new ArmorItem(ModArmorMaterials.AMETHYST,
+                                                                                      ArmorItem.Type.CHESTPLATE,
+                                                                                      new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(20))));
+    public static final Item ARMOR_AMETHYST_LEGGINGS = Items.register("armor_amethyst_leggings",
+                                                                      new ArmorItem(ModArmorMaterials.AMETHYST,
+                                                                                    ArmorItem.Type.LEGGINGS,
+                                                                                    new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(20))));
+    public static final Item ARMOR_AMETHYST_BOOTS = Items.register("armor_amethyst_boots",
+                                                                   new ArmorItem(ModArmorMaterials.AMETHYST,
+                                                                                 ArmorItem.Type.BOOTS,
+                                                                                 new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(20))));
+    //endregion
+
     public ModItems()
     {
         throw new AssertionError();

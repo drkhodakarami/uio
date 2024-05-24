@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "uio:gear_diamond"
+    },
+    "I": {
+      "item": "uio:reinforced_amethyst"
+    }
+  },
+  "pattern": [
+    "IGI",
+    "I I",
+    "I I"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:armor_amethyst_leggings"
+  }
+}

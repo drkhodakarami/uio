@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "uio:gear_diamond"
+    },
+    "I": {
+      "item": "uio:reinforced_amethyst"
+    }
+  },
+  "pattern": [
+    "IGI",
+    "III",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:armor_amethyst_chestplate"
+  }
+}

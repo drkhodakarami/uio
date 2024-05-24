@@ -763,6 +763,45 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .offerTo(exporter, new Identifier(getRecipeName(ModItems.TOOL_WOOD_HAMMER)));
         //endregion
 
+        //region AMETHYST ARMOR
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_AMETHYST_HELMET, 1)
+                               .pattern("III")
+                               .pattern("IGI")
+                               .pattern("   ")
+                               .input('I', ModItems.REINFORCED_AMETHYST)
+                               .input('G', ModItems.GEAR_DIAMOND)
+                               .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
+                               .criterion(hasItem(ModItems.GEAR_DIAMOND), conditionsFromItem(ModItems.GEAR_DIAMOND))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_AMETHYST_HELMET)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_AMETHYST_CHESTPLATE, 1)
+                               .pattern("IGI")
+                               .pattern("III")
+                               .pattern("III")
+                               .input('I', ModItems.REINFORCED_AMETHYST)
+                               .input('G', ModItems.GEAR_DIAMOND)
+                               .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
+                               .criterion(hasItem(ModItems.GEAR_DIAMOND), conditionsFromItem(ModItems.GEAR_DIAMOND))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_AMETHYST_CHESTPLATE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_AMETHYST_LEGGINGS, 1)
+                               .pattern("IGI")
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_AMETHYST)
+                               .input('G', ModItems.GEAR_DIAMOND)
+                               .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
+                               .criterion(hasItem(ModItems.GEAR_DIAMOND), conditionsFromItem(ModItems.GEAR_DIAMOND))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_AMETHYST_LEGGINGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_AMETHYST_BOOTS, 1)
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_AMETHYST)
+                               .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_AMETHYST_BOOTS)));
+        //endregion
+
         offerBlasting(exporter, List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 5.0f, 1200, "ore_enderite");
     }
 }
