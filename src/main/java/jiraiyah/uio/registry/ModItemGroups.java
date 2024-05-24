@@ -200,6 +200,14 @@ public class ModItemGroups
                                              .icon(() -> new ItemStack(ModItems.CAST_GEAR))
                                              .entries((displayContext, entries) ->
                                                       {
+                                                          entries.add(ModBlocks.ALLOY_SMELTER);
+                                                          entries.add(ModBlocks.CAST_PRESS);
+                                                          entries.add(ModBlocks.GEM_CLEANER);
+                                                          entries.add(ModBlocks.GENERATOR);
+                                                          entries.add(ModBlocks.OVEN);
+                                                          entries.add(ModBlocks.PULVERIZER);
+                                                          entries.add(ModBlocks.SMELTER);
+
                                                           entries.add(ModItems.CAST_AXE);
                                                           entries.add(ModItems.CAST_BINDING);
                                                           entries.add(ModItems.CAST_GEAR);
@@ -349,6 +357,36 @@ public class ModItemGroups
                                                           entries.add(ModItems.ARMOR_AMETHYST_CHESTPLATE);
                                                           entries.add(ModItems.ARMOR_AMETHYST_LEGGINGS);
                                                           entries.add(ModItems.ARMOR_AMETHYST_BOOTS);
+
+                                                          entries.add(ModItems.ARMOR_CITRINE_HELMET);
+                                                          entries.add(ModItems.ARMOR_CITRINE_CHESTPLATE);
+                                                          entries.add(ModItems.ARMOR_CITRINE_LEGGINGS);
+                                                          entries.add(ModItems.ARMOR_CITRINE_BOOTS);
+
+                                                          entries.add(ModItems.ARMOR_COPPER_HELMET);
+                                                          entries.add(ModItems.ARMOR_COPPER_CHESTPLATE);
+                                                          entries.add(ModItems.ARMOR_COPPER_LEGGINGS);
+                                                          entries.add(ModItems.ARMOR_COPPER_BOOTS);
+
+                                                          entries.add(ModItems.ARMOR_EMERALD_HELMET);
+                                                          entries.add(ModItems.ARMOR_EMERALD_CHESTPLATE);
+                                                          entries.add(ModItems.ARMOR_EMERALD_LEGGINGS);
+                                                          entries.add(ModItems.ARMOR_EMERALD_BOOTS);
+
+                                                          entries.add(ModItems.ARMOR_ENDERITE_HELMET);
+                                                          entries.add(ModItems.ARMOR_ENDERITE_CHESTPLATE);
+                                                          entries.add(ModItems.ARMOR_ENDERITE_LEGGINGS);
+                                                          entries.add(ModItems.ARMOR_ENDERITE_BOOTS);
+
+                                                          entries.add(ModItems.ARMOR_RUBY_HELMET);
+                                                          entries.add(ModItems.ARMOR_RUBY_CHESTPLATE);
+                                                          entries.add(ModItems.ARMOR_RUBY_LEGGINGS);
+                                                          entries.add(ModItems.ARMOR_RUBY_BOOTS);
+
+                                                          entries.add(ModItems.ARMOR_SAPPHIRE_HELMET);
+                                                          entries.add(ModItems.ARMOR_SAPPHIRE_CHESTPLATE);
+                                                          entries.add(ModItems.ARMOR_SAPPHIRE_LEGGINGS);
+                                                          entries.add(ModItems.ARMOR_SAPPHIRE_BOOTS);
                                                       }).build());
 
     public ModItemGroups()

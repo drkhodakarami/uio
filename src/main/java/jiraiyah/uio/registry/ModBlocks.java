@@ -172,15 +172,33 @@ public class ModBlocks
     public static final Block ORE_ENDERITE = registerBlock("ore_enderite", new Block(AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS)));
     //endregion
 
+    //region GOO
+
+    // TODO : Gray Goo eats Water
     public static final Block GRAY_GOO = registerBlock("gray_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+    // TODO : World Eating Goo eats a lot bigger section
     public static final Block WORLD_EATING_GOO = registerBlock("world_eating_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+    // TODO : Chunk Goo eats a chunk
     public static final Block CHUNK_GOO = registerBlock("chunk_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+    // TODO : Towering Goo eats a tower
     public static final Block TOWERING_GOO = registerBlock("towering_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+
+    //endregion
+
+    public static final Block ALLOY_SMELTER = registerBlock("alloy_smelter", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block CAST_PRESS = registerBlock("cast_press", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block GEM_CLEANER = registerBlock("gem_cleaner", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block GENERATOR = registerBlock("generator", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block OVEN = registerBlock("oven", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block PULVERIZER = registerBlock("pulverizer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static final Block SMELTER = registerBlock("smelter", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
 
     public ModBlocks()
     {
         throw new AssertionError();
     }
+
+    //region HELPER METHODS
 
     public static void register()
     {
@@ -198,4 +216,6 @@ public class ModBlocks
         return Registry.register(Registries.ITEM, identifier(name),
                                  new BlockItem(block, new Item.Settings()));
     }
+
+    //endregion
 }

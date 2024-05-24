@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gear_gold": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:gear_gold"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_reinforced_citrine": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:reinforced_citrine"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:armor_citrine_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_reinforced_citrine",
+      "has_gear_gold"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:armor_citrine_chestplate"
+    ]
+  }
+}

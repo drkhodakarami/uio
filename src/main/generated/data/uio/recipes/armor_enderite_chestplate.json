@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "uio:gear_enderite"
+    },
+    "I": {
+      "item": "uio:reinforced_enderite"
+    }
+  },
+  "pattern": [
+    "IGI",
+    "III",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:armor_enderite_chestplate"
+  }
+}

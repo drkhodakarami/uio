@@ -1,5 +1,6 @@
 package jiraiyah.uio.datagen;
 
+import jiraiyah.uio.Reference;
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -21,17 +22,22 @@ public class ModModelProvider extends FabricModelProvider
     {
         logRGB256("Generating Block Model Data", 0, 255, 0);
 
+        //region GEM
         BlockStateModelGenerator.BlockTexturePool citrine_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.CITRINE);
         BlockStateModelGenerator.BlockTexturePool ruby_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RUBY);
         BlockStateModelGenerator.BlockTexturePool sapphire_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.SAPPHIRE);
         BlockStateModelGenerator.BlockTexturePool enderite_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.ENDERITE);
+        //endregion
 
+        //region RAW
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_CITRINE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_ENDERITE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_QUARTZ);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_RUBY);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_SAPPHIRE);
+        //endregion
 
+        //region SPECIAL BLOCKS
         citrine_pool.stairs(ModBlocks.CITRINE_STAIRS);
         citrine_pool.slab(ModBlocks.CITRINE_SLAB);
         citrine_pool.button(ModBlocks.CITRINE_BUTTON);
@@ -75,7 +81,9 @@ public class ModModelProvider extends FabricModelProvider
 
         blockStateModelGenerator.registerDoor(ModBlocks.SAPPHIRE_DOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.SAPPHIRE_TRAP_DOOR);
+        //endregion
 
+        //region ORE
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ORE_DEEP_CITRINE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ORE_DEEP_RUBY);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ORE_DEEP_SAPPHIRE);
@@ -98,12 +106,32 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ORE_WORLD_SAPPHIRE);
 
         blockStateModelGenerator.registerSingleton(ModBlocks.ORE_ENDERITE, TexturedModel.CUBE_COLUMN);
+        //endregion
 
+        //region GOO
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAY_GOO);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WORLD_EATING_GOO);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHUNK_GOO);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TOWERING_GOO);
+        //endregion
 
+        //region MACHINES
+        blockStateModelGenerator.registerSingleton(ModBlocks.ALLOY_SMELTER, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.CAST_PRESS, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.GEM_CLEANER, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.GENERATOR, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.OVEN, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.PULVERIZER, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.SMELTER, TexturedModel.ORIENTABLE);
+
+//        blockStateModelGenerator.registerCooker(ModBlocks.ALLOY_SMELTER, TexturedModel.ORIENTABLE);
+//        blockStateModelGenerator.registerCooker(ModBlocks.CAST_PRESS, TexturedModel.ORIENTABLE);
+//        blockStateModelGenerator.registerCooker(ModBlocks.GEM_CLEANER, TexturedModel.ORIENTABLE);
+//        blockStateModelGenerator.registerCooker(ModBlocks.GENERATOR, TexturedModel.ORIENTABLE);
+//        blockStateModelGenerator.registerCooker(ModBlocks.OVEN, TexturedModel.ORIENTABLE);
+//        blockStateModelGenerator.registerCooker(ModBlocks.PULVERIZER, TexturedModel.ORIENTABLE);
+//        blockStateModelGenerator.registerCooker(ModBlocks.SMELTER, TexturedModel.ORIENTABLE);
+        //endregion
     }
 
     @Override
@@ -347,9 +375,41 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.TOOL_WOOD_HAMMER, Models.HANDHELD);
         //endregion
 
+        //region ARMOR
         itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_HELMET);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_CHESTPLATE);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_LEGGINGS);
         itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_BOOTS);
+
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_CITRINE_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_CITRINE_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_CITRINE_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_CITRINE_BOOTS);
+
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_COPPER_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_COPPER_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_COPPER_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_COPPER_BOOTS);
+
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_EMERALD_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_EMERALD_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_EMERALD_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_EMERALD_BOOTS);
+
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_ENDERITE_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_ENDERITE_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_ENDERITE_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_ENDERITE_BOOTS);
+
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_RUBY_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_RUBY_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_RUBY_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_RUBY_BOOTS);
+
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_SAPPHIRE_HELMET);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_SAPPHIRE_CHESTPLATE);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_SAPPHIRE_LEGGINGS);
+        itemModelGenerator.registerArmor((ArmorItem) ModItems.ARMOR_SAPPHIRE_BOOTS);
+        //endregion
     }
 }

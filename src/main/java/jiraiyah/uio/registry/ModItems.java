@@ -449,28 +449,222 @@ public class ModItems
     //endregion
 
     //region AMETHYST ARMOR
-    public static final Item ARMOR_AMETHYST_HELMET = Items.register("armor_amethyst_helmet",
-                                                                    new ArmorItem(ModArmorMaterials.AMETHYST,
-                                                                                  ArmorItem.Type.HELMET,
-                                                                                  new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(20))));
-    public static final Item ARMOR_AMETHYST_CHESTPLATE = Items.register("armor_amethyst_chestplate",
-                                                                        new ArmorItem(ModArmorMaterials.AMETHYST,
-                                                                                      ArmorItem.Type.CHESTPLATE,
-                                                                                      new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(20))));
-    public static final Item ARMOR_AMETHYST_LEGGINGS = Items.register("armor_amethyst_leggings",
-                                                                      new ArmorItem(ModArmorMaterials.AMETHYST,
-                                                                                    ArmorItem.Type.LEGGINGS,
-                                                                                    new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(20))));
-    public static final Item ARMOR_AMETHYST_BOOTS = Items.register("armor_amethyst_boots",
-                                                                   new ArmorItem(ModArmorMaterials.AMETHYST,
-                                                                                 ArmorItem.Type.BOOTS,
-                                                                                 new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(20))));
+    public static final Item ARMOR_AMETHYST_HELMET =
+            registerItem("armor_amethyst_helmet",
+                         new ArmorItem(ModArmorMaterials.AMETHYST,
+                                       ArmorItem.Type.HELMET,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(20))));
+
+    public static final Item ARMOR_AMETHYST_CHESTPLATE =
+            registerItem("armor_amethyst_chestplate",
+                         new ArmorItem(ModArmorMaterials.AMETHYST,
+                                       ArmorItem.Type.CHESTPLATE,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(20))));
+
+    public static final Item ARMOR_AMETHYST_LEGGINGS =
+            registerItem("armor_amethyst_leggings",
+                         new ArmorItem(ModArmorMaterials.AMETHYST,
+                                       ArmorItem.Type.LEGGINGS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(20))));
+
+    public static final Item ARMOR_AMETHYST_BOOTS =
+            registerItem("armor_amethyst_boots",
+                         new ArmorItem(ModArmorMaterials.AMETHYST,
+                                       ArmorItem.Type.BOOTS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.BOOTS
+                                                                  .getMaxDamage(20))));
+    //endregion
+
+    //region CITRINE ARMOR
+    public static final Item ARMOR_CITRINE_HELMET =
+            registerItem("armor_citrine_helmet",
+                         new ArmorItem(ModArmorMaterials.CITRINE,
+                                       ArmorItem.Type.HELMET,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(30))));
+
+    public static final Item ARMOR_CITRINE_CHESTPLATE =
+            registerItem("armor_citrine_chestplate",
+                         new ArmorItem(ModArmorMaterials.CITRINE,
+                                       ArmorItem.Type.CHESTPLATE,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(30))));
+
+    public static final Item ARMOR_CITRINE_LEGGINGS =
+            registerItem("armor_citrine_leggings",
+                         new ArmorItem(ModArmorMaterials.CITRINE,
+                                       ArmorItem.Type.LEGGINGS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(30))));
+
+    public static final Item ARMOR_CITRINE_BOOTS =
+            registerItem("armor_citrine_boots",
+                         new ArmorItem(ModArmorMaterials.CITRINE,
+                                       ArmorItem.Type.BOOTS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(30))));
+    //endregion
+
+    //region COPPER ARMOR
+    public static final Item ARMOR_COPPER_HELMET =
+            registerItem("armor_copper_helmet",
+                         new ArmorItem(ModArmorMaterials.COPPER,
+                                       ArmorItem.Type.HELMET,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(25))));
+
+    public static final Item ARMOR_COPPER_CHESTPLATE =
+            registerItem("armor_copper_chestplate",
+                         new ArmorItem(ModArmorMaterials.COPPER,
+                                       ArmorItem.Type.CHESTPLATE,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(25))));
+
+    public static final Item ARMOR_COPPER_LEGGINGS =
+            registerItem("armor_copper_leggings",
+                         new ArmorItem(ModArmorMaterials.COPPER,
+                                       ArmorItem.Type.LEGGINGS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(25))));
+
+    public static final Item ARMOR_COPPER_BOOTS =
+            registerItem("armor_copper_boots",
+                         new ArmorItem(ModArmorMaterials.COPPER,
+                                       ArmorItem.Type.BOOTS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(25))));
+    //endregion
+
+    //region EMERALD ARMOR
+    public static final Item ARMOR_EMERALD_HELMET =
+            registerItem("armor_emerald_helmet",
+                         new ArmorItem(ModArmorMaterials.EMERALD,
+                                       ArmorItem.Type.HELMET,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
+
+    public static final Item ARMOR_EMERALD_CHESTPLATE =
+            registerItem("armor_emerald_chestplate",
+                         new ArmorItem(ModArmorMaterials.EMERALD,
+                                       ArmorItem.Type.CHESTPLATE,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(15))));
+
+    public static final Item ARMOR_EMERALD_LEGGINGS =
+            registerItem("armor_emerald_leggings",
+                         new ArmorItem(ModArmorMaterials.EMERALD,
+                                       ArmorItem.Type.LEGGINGS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(15))));
+
+    public static final Item ARMOR_EMERALD_BOOTS =
+            registerItem("armor_emerald_boots",
+                         new ArmorItem(ModArmorMaterials.EMERALD,
+                                       ArmorItem.Type.BOOTS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(15))));
+    //endregion
+
+    //region ENDERITE ARMOR
+    public static final Item ARMOR_ENDERITE_HELMET =
+            registerItem("armor_enderite_helmet",
+                         new ArmorItem(ModArmorMaterials.ENDERITE,
+                                       ArmorItem.Type.HELMET,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(42))));
+
+    public static final Item ARMOR_ENDERITE_CHESTPLATE =
+            registerItem("armor_enderite_chestplate",
+                         new ArmorItem(ModArmorMaterials.ENDERITE,
+                                       ArmorItem.Type.CHESTPLATE,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(42))));
+
+    public static final Item ARMOR_ENDERITE_LEGGINGS =
+            registerItem("armor_enderite_leggings",
+                         new ArmorItem(ModArmorMaterials.ENDERITE,
+                                       ArmorItem.Type.LEGGINGS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(42))));
+
+    public static final Item ARMOR_ENDERITE_BOOTS =
+            registerItem("armor_enderite_boots",
+                         new ArmorItem(ModArmorMaterials.ENDERITE,
+                                       ArmorItem.Type.BOOTS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(42))));
+    //endregion
+
+    //region RUBY ARMOR
+    public static final Item ARMOR_RUBY_HELMET =
+            registerItem("armor_ruby_helmet",
+                         new ArmorItem(ModArmorMaterials.RUBY,
+                                       ArmorItem.Type.HELMET,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(36))));
+
+    public static final Item ARMOR_RUBY_CHESTPLATE =
+            registerItem("armor_ruby_chestplate",
+                         new ArmorItem(ModArmorMaterials.RUBY,
+                                       ArmorItem.Type.CHESTPLATE,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(36))));
+
+    public static final Item ARMOR_RUBY_LEGGINGS =
+            registerItem("armor_ruby_leggings",
+                         new ArmorItem(ModArmorMaterials.RUBY,
+                                       ArmorItem.Type.LEGGINGS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(36))));
+
+    public static final Item ARMOR_RUBY_BOOTS =
+            registerItem("armor_ruby_boots",
+                         new ArmorItem(ModArmorMaterials.RUBY,
+                                       ArmorItem.Type.BOOTS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(36))));
+    //endregion
+
+    //region SAPPHIRE ARMOR
+    public static final Item ARMOR_SAPPHIRE_HELMET =
+            registerItem("armor_sapphire_helmet",
+                         new ArmorItem(ModArmorMaterials.SAPPHIRE,
+                                       ArmorItem.Type.HELMET,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(36))));
+
+    public static final Item ARMOR_SAPPHIRE_CHESTPLATE =
+            registerItem("armor_sapphire_chestplate",
+                         new ArmorItem(ModArmorMaterials.SAPPHIRE,
+                                       ArmorItem.Type.CHESTPLATE,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(36))));
+
+    public static final Item ARMOR_SAPPHIRE_LEGGINGS =
+            registerItem("armor_sapphire_leggings",
+                         new ArmorItem(ModArmorMaterials.SAPPHIRE,
+                                       ArmorItem.Type.LEGGINGS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(36))));
+
+    public static final Item ARMOR_SAPPHIRE_BOOTS =
+            registerItem("armor_sapphire_boots",
+                         new ArmorItem(ModArmorMaterials.SAPPHIRE,
+                                       ArmorItem.Type.BOOTS,
+                                       new Item.Settings()
+                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(36))));
     //endregion
 
     public ModItems()
     {
         throw new AssertionError();
     }
+
+    //region HELPER METHODS
 
     public static void register()
     {
@@ -481,4 +675,6 @@ public class ModItems
     {
         return Registry.register(Registries.ITEM, identifier(name), item);
     }
+
+    //endregion
 }

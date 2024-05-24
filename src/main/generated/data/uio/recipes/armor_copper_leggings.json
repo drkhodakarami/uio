@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "uio:gear_copper"
+    },
+    "I": {
+      "item": "uio:reinforced_copper"
+    }
+  },
+  "pattern": [
+    "IGI",
+    "I I",
+    "I I"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:armor_copper_leggings"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "uio:gear_emerald"
+    },
+    "I": {
+      "item": "uio:reinforced_emerald"
+    }
+  },
+  "pattern": [
+    "IGI",
+    "III",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:armor_emerald_chestplate"
+  }
+}

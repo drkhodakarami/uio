@@ -36,12 +36,96 @@ public class ModArmorMaterials
                                                                          1.5f, 0.05f,
                                                                          () -> Ingredient.ofItems(ModItems.REINFORCED_AMETHYST));
 
-    //region HELPER METHODS
-    public static RegistryEntry<ArmorMaterial> getDefault(Registry<ArmorMaterial> registry)
+    public static final RegistryEntry<ArmorMaterial> CITRINE = register("citrine",
+                                                                        Util.make(new EnumMap(ArmorItem.Type.class),
+                                                                                  map ->
+                                                                                  {
+                                                                                      map.put(ArmorItem.Type.BOOTS, 3);
+                                                                                      map.put(ArmorItem.Type.LEGGINGS, 6);
+                                                                                      map.put(ArmorItem.Type.CHESTPLATE, 8);
+                                                                                      map.put(ArmorItem.Type.HELMET, 3);
+                                                                                      map.put(ArmorItem.Type.BODY, 7);
+                                                                                  }),
+                                                                        0, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+                                                                        2.0f, 0.1f,
+                                                                        () -> Ingredient.ofItems(ModItems.REINFORCED_CITRINE));
+
+    public static final RegistryEntry<ArmorMaterial> COPPER = register("copper",
+                                                                       Util.make(new EnumMap(ArmorItem.Type.class),
+                                                                                 map ->
+                                                                                 {
+                                                                                     map.put(ArmorItem.Type.BOOTS, 2);
+                                                                                     map.put(ArmorItem.Type.LEGGINGS, 5);
+                                                                                     map.put(ArmorItem.Type.CHESTPLATE, 6);
+                                                                                     map.put(ArmorItem.Type.HELMET, 2);
+                                                                                     map.put(ArmorItem.Type.BODY, 7);
+                                                                                 }),
+                                                                       0, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+                                                                       1.0f, 0.0f,
+                                                                       () -> Ingredient.ofItems(ModItems.REINFORCED_COPPER));
+
+    public static final RegistryEntry<ArmorMaterial> EMERALD = register("emerald",
+                                                                        Util.make(new EnumMap(ArmorItem.Type.class),
+                                                                                  map ->
+                                                                                  {
+                                                                                      map.put(ArmorItem.Type.BOOTS, 1);
+                                                                                      map.put(ArmorItem.Type.LEGGINGS, 5);
+                                                                                      map.put(ArmorItem.Type.CHESTPLATE, 7);
+                                                                                      map.put(ArmorItem.Type.HELMET, 2);
+                                                                                      map.put(ArmorItem.Type.BODY, 7);
+                                                                                  }),
+                                                                        0, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+                                                                        1.5f, 0.15f,
+                                                                        () -> Ingredient.ofItems(ModItems.REINFORCED_EMERALD));
+
+    public static final RegistryEntry<ArmorMaterial> ENDERITE = register("enderite",
+                                                                         Util.make(new EnumMap(ArmorItem.Type.class),
+                                                                                   map ->
+                                                                                   {
+                                                                                       map.put(ArmorItem.Type.BOOTS, 3);
+                                                                                       map.put(ArmorItem.Type.LEGGINGS, 6);
+                                                                                       map.put(ArmorItem.Type.CHESTPLATE, 8);
+                                                                                       map.put(ArmorItem.Type.HELMET, 3);
+                                                                                       map.put(ArmorItem.Type.BODY, 15);
+                                                                                   }),
+                                                                         0, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
+                                                                         3.0f, 0.2f,
+                                                                         () -> Ingredient.ofItems(ModItems.REINFORCED_ENDERITE));
+
+    public static final RegistryEntry<ArmorMaterial> RUBY = register("ruby",
+                                                                     Util.make(new EnumMap(ArmorItem.Type.class),
+                                                                               map ->
+                                                                               {
+                                                                                   map.put(ArmorItem.Type.BOOTS, 3);
+                                                                                   map.put(ArmorItem.Type.LEGGINGS, 6);
+                                                                                   map.put(ArmorItem.Type.CHESTPLATE, 8);
+                                                                                   map.put(ArmorItem.Type.HELMET, 3);
+                                                                                   map.put(ArmorItem.Type.BODY, 7);
+                                                                               }),
+                                                                     0, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+                                                                     2.0f, 0.1f,
+                                                                     () -> Ingredient.ofItems(ModItems.REINFORCED_RUBY));
+
+    public static final RegistryEntry<ArmorMaterial> SAPPHIRE = register("sapphire",
+                                                                         Util.make(new EnumMap(ArmorItem.Type.class),
+                                                                                   map ->
+                                                                                   {
+                                                                                       map.put(ArmorItem.Type.BOOTS, 3);
+                                                                                       map.put(ArmorItem.Type.LEGGINGS, 6);
+                                                                                       map.put(ArmorItem.Type.CHESTPLATE, 8);
+                                                                                       map.put(ArmorItem.Type.HELMET, 3);
+                                                                                       map.put(ArmorItem.Type.BODY, 7);
+                                                                                   }),
+                                                                         0, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+                                                                         2.0f, 0.1f,
+                                                                         () -> Ingredient.ofItems(ModItems.REINFORCED_SAPPHIRE));
+
+    public ModArmorMaterials()
     {
-        return ArmorMaterials.LEATHER;
+        throw new AssertionError();
     }
 
+    //region HELPER METHODS
     private static RegistryEntry<ArmorMaterial> register(String id, EnumMap<ArmorItem.Type, Integer> defense, int enchantability, RegistryEntry<SoundEvent> equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient)
     {
         List<ArmorMaterial.Layer> list = List.of(new ArmorMaterial.Layer(identifier(id)));
@@ -55,7 +139,9 @@ public class ModArmorMaterials
         {
             enumMap.put(type, defense.get(type));
         }
-        return Registry.registerReference(Registries.ARMOR_MATERIAL, identifier(id), new ArmorMaterial(enumMap, enchantability, equipSound, repairIngredient, layers, toughness, knockbackResistance));
+        return Registry.registerReference(Registries.ARMOR_MATERIAL, identifier(id),
+                                          new ArmorMaterial(enumMap, enchantability, equipSound, repairIngredient,
+                                                            layers, toughness, knockbackResistance));
     }
     //endregion
 }

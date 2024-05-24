@@ -802,6 +802,368 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_AMETHYST_BOOTS)));
         //endregion
 
+        //region CITRINE ARMOR
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_CITRINE_HELMET, 1)
+                               .pattern("III")
+                               .pattern("IGI")
+                               .pattern("   ")
+                               .input('I', ModItems.REINFORCED_CITRINE)
+                               .input('G', ModItems.GEAR_GOLD)
+                               .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
+                               .criterion(hasItem(ModItems.GEAR_GOLD), conditionsFromItem(ModItems.GEAR_GOLD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_CITRINE_HELMET)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_CITRINE_CHESTPLATE, 1)
+                               .pattern("IGI")
+                               .pattern("III")
+                               .pattern("III")
+                               .input('I', ModItems.REINFORCED_CITRINE)
+                               .input('G', ModItems.GEAR_GOLD)
+                               .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
+                               .criterion(hasItem(ModItems.GEAR_GOLD), conditionsFromItem(ModItems.GEAR_GOLD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_CITRINE_CHESTPLATE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_CITRINE_LEGGINGS, 1)
+                               .pattern("IGI")
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_CITRINE)
+                               .input('G', ModItems.GEAR_GOLD)
+                               .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
+                               .criterion(hasItem(ModItems.GEAR_GOLD), conditionsFromItem(ModItems.GEAR_GOLD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_CITRINE_LEGGINGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_CITRINE_BOOTS, 1)
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_CITRINE)
+                               .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_CITRINE_BOOTS)));
+        //endregion
+
+        //region COPPER ARMOR
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_COPPER_HELMET, 1)
+                               .pattern("III")
+                               .pattern("IGI")
+                               .pattern("   ")
+                               .input('I', ModItems.REINFORCED_COPPER)
+                               .input('G', ModItems.GEAR_COPPER)
+                               .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
+                               .criterion(hasItem(ModItems.GEAR_COPPER), conditionsFromItem(ModItems.GEAR_COPPER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_COPPER_HELMET)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_COPPER_CHESTPLATE, 1)
+                               .pattern("IGI")
+                               .pattern("III")
+                               .pattern("III")
+                               .input('I', ModItems.REINFORCED_COPPER)
+                               .input('G', ModItems.GEAR_COPPER)
+                               .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
+                               .criterion(hasItem(ModItems.GEAR_COPPER), conditionsFromItem(ModItems.GEAR_COPPER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_COPPER_CHESTPLATE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_COPPER_LEGGINGS, 1)
+                               .pattern("IGI")
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_COPPER)
+                               .input('G', ModItems.GEAR_COPPER)
+                               .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
+                               .criterion(hasItem(ModItems.GEAR_COPPER), conditionsFromItem(ModItems.GEAR_COPPER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_COPPER_LEGGINGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_COPPER_BOOTS, 1)
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_COPPER)
+                               .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_COPPER_BOOTS)));
+        //endregion
+
+        // region EMERALD ARMOR
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_EMERALD_HELMET, 1)
+                               .pattern("III")
+                               .pattern("IGI")
+                               .pattern("   ")
+                               .input('I', ModItems.REINFORCED_EMERALD)
+                               .input('G', ModItems.GEAR_EMERALD)
+                               .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
+                               .criterion(hasItem(ModItems.GEAR_EMERALD), conditionsFromItem(ModItems.GEAR_EMERALD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_EMERALD_HELMET)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_EMERALD_CHESTPLATE, 1)
+                               .pattern("IGI")
+                               .pattern("III")
+                               .pattern("III")
+                               .input('I', ModItems.REINFORCED_EMERALD)
+                               .input('G', ModItems.GEAR_EMERALD)
+                               .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
+                               .criterion(hasItem(ModItems.GEAR_EMERALD), conditionsFromItem(ModItems.GEAR_EMERALD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_EMERALD_CHESTPLATE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_EMERALD_LEGGINGS, 1)
+                               .pattern("IGI")
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_EMERALD)
+                               .input('G', ModItems.GEAR_EMERALD)
+                               .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
+                               .criterion(hasItem(ModItems.GEAR_EMERALD), conditionsFromItem(ModItems.GEAR_EMERALD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_EMERALD_LEGGINGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_EMERALD_BOOTS, 1)
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_EMERALD)
+                               .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_EMERALD_BOOTS)));
+        //endregion
+
+        // region ENDERITE ARMOR
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_ENDERITE_HELMET, 1)
+                               .pattern("III")
+                               .pattern("IGI")
+                               .pattern("   ")
+                               .input('I', ModItems.REINFORCED_ENDERITE)
+                               .input('G', ModItems.GEAR_ENDERITE)
+                               .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
+                               .criterion(hasItem(ModItems.GEAR_ENDERITE), conditionsFromItem(ModItems.GEAR_ENDERITE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_ENDERITE_HELMET)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_ENDERITE_CHESTPLATE, 1)
+                               .pattern("IGI")
+                               .pattern("III")
+                               .pattern("III")
+                               .input('I', ModItems.REINFORCED_ENDERITE)
+                               .input('G', ModItems.GEAR_ENDERITE)
+                               .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
+                               .criterion(hasItem(ModItems.GEAR_ENDERITE), conditionsFromItem(ModItems.GEAR_ENDERITE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_ENDERITE_CHESTPLATE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_ENDERITE_LEGGINGS, 1)
+                               .pattern("IGI")
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_ENDERITE)
+                               .input('G', ModItems.GEAR_ENDERITE)
+                               .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
+                               .criterion(hasItem(ModItems.GEAR_ENDERITE), conditionsFromItem(ModItems.GEAR_ENDERITE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_ENDERITE_LEGGINGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_ENDERITE_BOOTS, 1)
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_ENDERITE)
+                               .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_ENDERITE_BOOTS)));
+        //endregion
+
+        // region RUBY ARMOR
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_RUBY_HELMET, 1)
+                               .pattern("III")
+                               .pattern("IGI")
+                               .pattern("   ")
+                               .input('I', ModItems.REINFORCED_RUBY)
+                               .input('G', ModItems.GEAR_RUBY)
+                               .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
+                               .criterion(hasItem(ModItems.GEAR_RUBY), conditionsFromItem(ModItems.GEAR_RUBY))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_RUBY_HELMET)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_RUBY_CHESTPLATE, 1)
+                               .pattern("IGI")
+                               .pattern("III")
+                               .pattern("III")
+                               .input('I', ModItems.REINFORCED_RUBY)
+                               .input('G', ModItems.GEAR_RUBY)
+                               .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
+                               .criterion(hasItem(ModItems.GEAR_RUBY), conditionsFromItem(ModItems.GEAR_RUBY))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_RUBY_CHESTPLATE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_RUBY_LEGGINGS, 1)
+                               .pattern("IGI")
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_RUBY)
+                               .input('G', ModItems.GEAR_RUBY)
+                               .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
+                               .criterion(hasItem(ModItems.GEAR_RUBY), conditionsFromItem(ModItems.GEAR_RUBY))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_RUBY_LEGGINGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_RUBY_BOOTS, 1)
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_RUBY)
+                               .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_RUBY_BOOTS)));
+        //endregion
+
+        // region SAPPHIRE ARMOR
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_SAPPHIRE_HELMET, 1)
+                               .pattern("III")
+                               .pattern("IGI")
+                               .pattern("   ")
+                               .input('I', ModItems.REINFORCED_SAPPHIRE)
+                               .input('G', ModItems.GEAR_SAPPHIRE)
+                               .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
+                               .criterion(hasItem(ModItems.GEAR_SAPPHIRE), conditionsFromItem(ModItems.GEAR_SAPPHIRE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_SAPPHIRE_HELMET)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_SAPPHIRE_CHESTPLATE, 1)
+                               .pattern("IGI")
+                               .pattern("III")
+                               .pattern("III")
+                               .input('I', ModItems.REINFORCED_SAPPHIRE)
+                               .input('G', ModItems.GEAR_SAPPHIRE)
+                               .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
+                               .criterion(hasItem(ModItems.GEAR_SAPPHIRE), conditionsFromItem(ModItems.GEAR_SAPPHIRE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_SAPPHIRE_CHESTPLATE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_SAPPHIRE_LEGGINGS, 1)
+                               .pattern("IGI")
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_SAPPHIRE)
+                               .input('G', ModItems.GEAR_SAPPHIRE)
+                               .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
+                               .criterion(hasItem(ModItems.GEAR_SAPPHIRE), conditionsFromItem(ModItems.GEAR_SAPPHIRE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_SAPPHIRE_LEGGINGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_SAPPHIRE_BOOTS, 1)
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.REINFORCED_SAPPHIRE)
+                               .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.ARMOR_SAPPHIRE_BOOTS)));
+        //endregion
+
+        // region NETHERITE ARMOR
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.NETHERITE_HELMET, 1)
+                               .pattern("IRI")
+                               .pattern("I I")
+                               .pattern("   ")
+                               .input('I', ModItems.PLATE_NETHERITE)
+                               .input('R', ModItems.REINFORCED_NETHERITE)
+                               .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
+                               .offerTo(exporter, new Identifier(getRecipeName(Items.NETHERITE_HELMET)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.NETHERITE_CHESTPLATE, 1)
+                               .pattern("I I")
+                               .pattern("IRI")
+                               .pattern("IRI")
+                               .input('I', ModItems.PLATE_NETHERITE)
+                               .input('R', ModItems.REINFORCED_NETHERITE)
+                               .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
+                               .offerTo(exporter, new Identifier(getRecipeName(Items.NETHERITE_CHESTPLATE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.NETHERITE_LEGGINGS, 1)
+                               .pattern("IRI")
+                               .pattern("I I")
+                               .pattern("I I")
+                               .input('I', ModItems.PLATE_NETHERITE)
+                               .input('R', ModItems.REINFORCED_NETHERITE)
+                               .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
+                               .offerTo(exporter, new Identifier(getRecipeName(Items.NETHERITE_LEGGINGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.NETHERITE_BOOTS, 1)
+                               .pattern("I I")
+                               .pattern("R R")
+                               .input('I', ModItems.PLATE_NETHERITE)
+                               .input('R', ModItems.REINFORCED_NETHERITE)
+                               .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
+                               .offerTo(exporter, new Identifier(getRecipeName(Items.NETHERITE_BOOTS)));
+        //endregion
+
+        //region GOO
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WORLD_EATING_GOO, 1)
+                               .pattern(" E ")
+                               .pattern("EWE")
+                               .pattern(" E ")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', Items.RED_WOOL)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion(hasItem(Items.RED_WOOL), conditionsFromItem(Items.RED_WOOL))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WORLD_EATING_GOO)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TOWERING_GOO, 1)
+                               .pattern(" E ")
+                               .pattern(" W ")
+                               .pattern(" E ")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', Items.PURPLE_WOOL)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion(hasItem(Items.PURPLE_WOOL), conditionsFromItem(Items.PURPLE_WOOL))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.TOWERING_GOO)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GRAY_GOO, 1)
+                               .pattern(" E ")
+                               .pattern(" W ")
+                               .pattern(" E ")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', Items.GRAY_WOOL)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion(hasItem(Items.GRAY_WOOL), conditionsFromItem(Items.GRAY_WOOL))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GRAY_GOO)));
+
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CHUNK_GOO, 1)
+                               .pattern(" E ")
+                               .pattern(" W ")
+                               .pattern(" E ")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', Items.GRAY_WOOL)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion(hasItem(Items.PINK_WOOL), conditionsFromItem(Items.PINK_WOOL))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CHUNK_GOO)));
+        //endregion
+
+        //region ALLOY SMELTER
+
+        // Iron + Soul + Glass --> Pulsating --> Base Cable Alloy
+        // Iron + Soul + Sand --> Pulsating --> Base Cable Alloy
+        // Obsidian + Copper + Wither --> Conductive --> Fluid Cable
+        // Gold + Citrine + Sapphire --> Energetic --> Energy Cable
+        // Ruby + Redstone + Quartz --> Red Alloy --> Redstone Cable
+        // Citrine + Enderite + Diamond --> Vibrant --> Item Cable
+
+        //endregion
+
+        //region PULVERIZER
+
+        // Enderite --> Enderite Dust
+        // Wither Bone --> Withering Dust
+        // Soul Sand --> Soul Dust
+        // Obsidian --> Obsidian Dust
+        // Copper --> Copper Dust
+        // Gold --> Gold Dust
+        // Iron --> Iron Dust
+
+        //endregion
+
+        //region OVEN
+
+        // Dust --> Ingot
+        // Raw --> Ingot
+        // Plate
+        // Reinforced Plate
+        // Gear
+        // Head
+        // Nugget
+        // Rod
+
+        //endregion
+
+        //region GEM CLEANER
+        // Raw Gem --> Gem
+        // Wool --> Binding
+        // String --> Binding
+        //endregion
+
+        //region SMELTERY
+
+        // Ingot --> Liquid
+
+        //endregion
+
         offerBlasting(exporter, List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 5.0f, 1200, "ore_enderite");
     }
 }

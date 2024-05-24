@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "uio:block/gem_cleaner_front",
+    "side": "uio:block/gem_cleaner_side",
+    "top": "uio:block/gem_cleaner_top"
+  }
+}

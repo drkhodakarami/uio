@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": {
+      "item": "uio:gear_ruby"
+    },
+    "I": {
+      "item": "uio:reinforced_ruby"
+    }
+  },
+  "pattern": [
+    "III",
+    "IGI",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:armor_ruby_helmet"
+  }
+}
