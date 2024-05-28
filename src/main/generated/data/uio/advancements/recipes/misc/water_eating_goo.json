@@ -11,11 +11,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_purple_dye": {
+    "has_gray_dye": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:purple_dye"
+            "items": "minecraft:gray_dye"
           }
         ]
       },
@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:towering_goo"
+        "recipe": "minecraft:water_eating_goo"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -43,12 +43,12 @@
       "has_the_recipe",
       "has_ender_pearl",
       "has_unstable_goo_core",
-      "has_purple_dye"
+      "has_gray_dye"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:towering_goo"
+      "minecraft:water_eating_goo"
     ]
   }
 }

@@ -218,6 +218,7 @@
   "item.uio.armor_sapphire_chestplate": "Sapphire Chestplate",
   "item.uio.armor_sapphire_leggings": "Sapphire Leggings",
   "item.uio.armor_sapphire_boots": "Sapphire Boots",
+  "item.uio.unstable_goo_core": "Unstable Goo",
 
   "block.uio.block_citrine": "Citrine Block",
   "block.uio.block_enderite": "Enderite Block",
@@ -285,16 +286,20 @@
   "block.uio.block_enderite_trap_door": "Enderite Trap Door",
   "block.uio.block_ruby_trap_door": "Ruby Trap Door",
   "block.uio.block_sapphire_trap_door": "Sapphire Trap Door",
-  "block.uio.gray_goo": "Gray Goo",
-  "block.uio.world_eating_goo": "World Eating Goo",
-  "block.uio.chunk_goo": "Chunk Goo",
-  "block.uio.towering_goo": "Towering Goo",
   "block.uio.alloy_smelter": "Alloy Smelter",
   "block.uio.cast_press": "Cast Press",
   "block.uio.gem_cleaner": "Gem Cleaner",
   "block.uio.generator": "Generator",
   "block.uio.oven": "Oven",
   "block.uio.pulverizer": "Pulverizer",
-  "block.uio.smelter": "Smelter"
+  "block.uio.smelter": "Smelter",
+  "block.uio.bridge_goo": "Bridge Goo",
+  "block.uio.tunneling_goo": "Tunneling Goo",
+  "block.uio.towering_goo": "Towering Goo",
+  "block.uio.chunk_goo": "Chunk Goo",
+  "block.uio.lava_eating_goo": "Lava Eating Goo",
+  "block.uio.lava_generating_goo": "Lava Generating Goo",
+  "block.uio.water_eating_goo": "Water Eating Goo",
+  "block.uio.water_generating_goo": "Water Generating Goo"
 
 }

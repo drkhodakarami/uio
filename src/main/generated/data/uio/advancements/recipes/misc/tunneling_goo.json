@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_cyan_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:cyan_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_ender_pearl": {
       "conditions": {
         "items": [
@@ -11,19 +21,9 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_purple_dye": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:purple_dye"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:towering_goo"
+        "recipe": "minecraft:tunneling_goo"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -43,12 +43,12 @@
       "has_the_recipe",
       "has_ender_pearl",
       "has_unstable_goo_core",
-      "has_purple_dye"
+      "has_cyan_dye"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:towering_goo"
+      "minecraft:tunneling_goo"
     ]
   }
 }

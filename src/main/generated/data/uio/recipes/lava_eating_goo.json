@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "D": {
-      "item": "minecraft:purple_dye"
+      "item": "minecraft:magenta_dye"
     },
     "E": {
       "item": "minecraft:ender_pearl"
@@ -19,6 +19,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "uio:towering_goo"
+    "id": "uio:lava_eating_goo"
   }
 }

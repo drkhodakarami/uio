@@ -11,11 +11,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_gray_wool": {
+    "has_magenta_dye": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:gray_wool"
+            "items": "minecraft:magenta_dye"
           }
         ]
       },
@@ -23,21 +23,32 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:gray_goo"
+        "recipe": "minecraft:lava_eating_goo"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_unstable_goo_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:unstable_goo_core"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
       "has_ender_pearl",
-      "has_gray_wool"
+      "has_unstable_goo_core",
+      "has_magenta_dye"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:gray_goo"
+      "minecraft:lava_eating_goo"
     ]
   }
 }

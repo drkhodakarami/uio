@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "uio:block/gray_goo"
+      "model": "uio:block/bridge_goo"
     }
   }
 }

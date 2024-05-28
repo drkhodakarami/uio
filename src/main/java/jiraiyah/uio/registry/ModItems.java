@@ -11,6 +11,8 @@ public class ModItems
 {
     public static final Item BINDING_STRING = registerItem("binding_string", new Item(new Item.Settings()));
 
+    public static final Item UNSTABLE_GOO = registerItem("unstable_goo_core", new Item(new Item.Settings()));
+
     //region CAST
     public static final Item CAST_AXE = registerItem("cast_axe", new Item(new Item.Settings()));
     public static final Item CAST_BINDING = registerItem("cast_binding", new Item(new Item.Settings()));

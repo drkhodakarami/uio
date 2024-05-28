@@ -4,6 +4,7 @@ import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
@@ -1074,46 +1075,103 @@ public class ModRecipeProvider extends FabricRecipeProvider
         //endregion
 
         //region GOO
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WORLD_EATING_GOO, 1)
-                               .pattern(" E ")
+        offerBlasting(exporter, List.of(Blocks.TNT), RecipeCategory.MISC, ModItems.UNSTABLE_GOO, 5.0f, 1200, "ore_enderite");
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.BRIDGE_GOO, 1)
+                               .pattern("DED")
                                .pattern("EWE")
-                               .pattern(" E ")
+                               .pattern("DED")
                                .input('E', Items.ENDER_PEARL)
-                               .input('W', Items.RED_WOOL)
+                               .input('W', ModItems.UNSTABLE_GOO)
+                               .input('D', Items.YELLOW_DYE)
                                .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                               .criterion(hasItem(Items.RED_WOOL), conditionsFromItem(Items.RED_WOOL))
-                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WORLD_EATING_GOO)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TOWERING_GOO, 1)
-                               .pattern(" E ")
-                               .pattern(" W ")
-                               .pattern(" E ")
-                               .input('E', Items.ENDER_PEARL)
-                               .input('W', Items.PURPLE_WOOL)
-                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                               .criterion(hasItem(Items.PURPLE_WOOL), conditionsFromItem(Items.PURPLE_WOOL))
-                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.TOWERING_GOO)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GRAY_GOO, 1)
-                               .pattern(" E ")
-                               .pattern(" W ")
-                               .pattern(" E ")
-                               .input('E', Items.ENDER_PEARL)
-                               .input('W', Items.GRAY_WOOL)
-                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                               .criterion(hasItem(Items.GRAY_WOOL), conditionsFromItem(Items.GRAY_WOOL))
-                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GRAY_GOO)));
-
+                               .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                               .criterion(hasItem(Items.YELLOW_DYE), conditionsFromItem(Items.YELLOW_DYE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BRIDGE_GOO)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CHUNK_GOO, 1)
-                               .pattern(" E ")
-                               .pattern(" W ")
-                               .pattern(" E ")
+                               .pattern("DED")
+                               .pattern("EWE")
+                               .pattern("DED")
                                .input('E', Items.ENDER_PEARL)
-                               .input('W', Items.GRAY_WOOL)
+                               .input('W', ModItems.UNSTABLE_GOO)
+                               .input('D', Items.PINK_DYE)
                                .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                               .criterion(hasItem(Items.PINK_WOOL), conditionsFromItem(Items.PINK_WOOL))
+                               .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                               .criterion(hasItem(Items.PINK_DYE), conditionsFromItem(Items.PINK_DYE))
                                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CHUNK_GOO)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.LAVA_EATING_GOO, 1)
+                               .pattern("DED")
+                               .pattern("EWE")
+                               .pattern("DED")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', ModItems.UNSTABLE_GOO)
+                               .input('D', Items.MAGENTA_DYE)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                               .criterion(hasItem(Items.MAGENTA_DYE), conditionsFromItem(Items.MAGENTA_DYE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.LAVA_EATING_GOO)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.LAVA_GENERATING_GOO, 1)
+                               .pattern("DED")
+                               .pattern("EWE")
+                               .pattern("DED")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', ModItems.UNSTABLE_GOO)
+                               .input('D', Items.RED_DYE)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                               .criterion(hasItem(Items.RED_DYE), conditionsFromItem(Items.RED_DYE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.LAVA_GENERATING_GOO)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TOWERING_GOO, 1)
+                               .pattern("DED")
+                               .pattern("EWE")
+                               .pattern("DED")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', ModItems.UNSTABLE_GOO)
+                               .input('D', Items.PURPLE_DYE)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                               .criterion(hasItem(Items.PURPLE_DYE), conditionsFromItem(Items.PURPLE_DYE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.TOWERING_GOO)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.TUNNELING_GOO, 1)
+                               .pattern("DED")
+                               .pattern("EWE")
+                               .pattern("DED")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', ModItems.UNSTABLE_GOO)
+                               .input('D', Items.CYAN_DYE)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                               .criterion(hasItem(Items.CYAN_DYE), conditionsFromItem(Items.CYAN_DYE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.TUNNELING_GOO)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WATER_EATING_GOO, 1)
+                               .pattern("DED")
+                               .pattern("EWE")
+                               .pattern("DED")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', ModItems.UNSTABLE_GOO)
+                               .input('D', Items.GRAY_DYE)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                               .criterion(hasItem(Items.GRAY_DYE), conditionsFromItem(Items.GRAY_DYE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WATER_EATING_GOO)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WATER_GENERATING_GOO, 1)
+                               .pattern("DED")
+                               .pattern("EWE")
+                               .pattern("DED")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', ModItems.UNSTABLE_GOO)
+                               .input('D', Items.BLUE_DYE)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                               .criterion(hasItem(Items.BLUE_DYE), conditionsFromItem(Items.BLUE_DYE))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WATER_GENERATING_GOO)));
         //endregion
 
         //region ALLOY SMELTER

@@ -22,10 +22,14 @@ public class ModItemGroups
                                                           entries.add(ModBlocks.RUBY);
                                                           entries.add(ModBlocks.SAPPHIRE);
 
-                                                          entries.add(ModBlocks.GRAY_GOO);
-                                                          entries.add(ModBlocks.WORLD_EATING_GOO);
+                                                          entries.add(ModBlocks.BRIDGE_GOO);
                                                           entries.add(ModBlocks.CHUNK_GOO);
+                                                          entries.add(ModBlocks.LAVA_EATING_GOO);
+                                                          entries.add(ModBlocks.LAVA_GENERATING_GOO);
                                                           entries.add(ModBlocks.TOWERING_GOO);
+                                                          entries.add(ModBlocks.TUNNELING_GOO);
+                                                          entries.add(ModBlocks.WATER_EATING_GOO);
+                                                          entries.add(ModBlocks.WATER_GENERATING_GOO);
 
                                                           entries.add(ModBlocks.RAW_CITRINE);
                                                           entries.add(ModBlocks.RAW_ENDERITE);
@@ -120,6 +124,8 @@ public class ModItemGroups
                                                           entries.add(ModItems.RAW_SAPPHIRE);
 
                                                           entries.add(ModItems.BINDING_STRING);
+
+                                                          entries.add(ModItems.UNSTABLE_GOO);
 
                                                           entries.add(ModItems.DUST_CONDUCTIVE);
                                                           entries.add(ModItems.DUST_COPPER);

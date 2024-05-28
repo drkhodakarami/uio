@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 1200,
+  "experience": 5.0,
+  "group": "ore_enderite",
+  "ingredient": {
+    "item": "minecraft:tnt"
+  },
+  "result": {
+    "id": "uio:unstable_goo_core"
+  }
+}

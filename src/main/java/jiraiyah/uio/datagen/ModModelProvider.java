@@ -1,6 +1,5 @@
 package jiraiyah.uio.datagen;
 
-import jiraiyah.uio.Reference;
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -109,10 +108,14 @@ public class ModModelProvider extends FabricModelProvider
         //endregion
 
         //region GOO
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GRAY_GOO);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WORLD_EATING_GOO);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHUNK_GOO);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BRIDGE_GOO);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TUNNELING_GOO);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TOWERING_GOO);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHUNK_GOO);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LAVA_EATING_GOO);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LAVA_GENERATING_GOO);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WATER_EATING_GOO);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WATER_GENERATING_GOO);
         //endregion
 
         //region MACHINES
@@ -140,6 +143,8 @@ public class ModModelProvider extends FabricModelProvider
         logRGB256("Generating Item Model Data", 0, 255, 0);
 
         itemModelGenerator.register(ModItems.BINDING_STRING, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.UNSTABLE_GOO, Models.GENERATED);
 
         //region CAST
         itemModelGenerator.register(ModItems.CAST_AXE, Models.GENERATED);

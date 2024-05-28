@@ -11,11 +11,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_pink_wool": {
+    "has_pink_dye": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:pink_wool"
+            "items": "minecraft:pink_dye"
           }
         ]
       },
@@ -26,13 +26,24 @@
         "recipe": "minecraft:chunk_goo"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_unstable_goo_core": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:unstable_goo_core"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_the_recipe",
       "has_ender_pearl",
-      "has_pink_wool"
+      "has_unstable_goo_core",
+      "has_pink_dye"
     ]
   ],
   "rewards": {
