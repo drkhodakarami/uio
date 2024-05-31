@@ -38,6 +38,8 @@ repositories {
     maven { url = 'https://maven.minecraftforge.net/' }
     maven { url = "https://maven.kyrptonaught.dev" }
     maven { url 'https://jitpack.io' }
+
+    maven { url = "https://api.modrinth.com/maven" }
 }
 
 fabricApi {
@@ -95,6 +97,9 @@ dependencies {
 
     // Mod Menu Dependency
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
+
+    // Mod Menu Badges Lib
+    include(modImplementation("maven.modrinth:modmenu-badges-lib:${badges_lib_version}"))
 }
 
 processResources {

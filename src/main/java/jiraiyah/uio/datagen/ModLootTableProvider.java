@@ -106,6 +106,20 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.ORE_WORLD_SAPPHIRE);
 
         addDrop(ModBlocks.ORE_ENDERITE);
+
+        addDrop(ModBlocks.ALLOY_SMELTER);
+        addDrop(ModBlocks.CAST_PRESS);
+        addDrop(ModBlocks.GEM_CLEANER);
+        addDrop(ModBlocks.GENERATOR);
+        addDrop(ModBlocks.OVEN);
+        addDrop(ModBlocks.PULVERIZER);
+        addDrop(ModBlocks.SMELTER);
+        addDrop(ModBlocks.FLUID_PUMP);
+        addDrop(ModBlocks.BLOCK_BREAKER);
+        addDrop(ModBlocks.BLOCK_PLACER);
+        addDrop(ModBlocks.WOOD_STRIPPER);
+        addDrop(ModBlocks.ANIMAL_FEED);
+        addDrop(ModBlocks.TESSERACT);
     }
 
     private LootTable.Builder customOreDrops(Block drop, Item item, float min, float max)

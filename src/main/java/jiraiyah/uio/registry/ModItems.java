@@ -1,5 +1,6 @@
 package jiraiyah.uio.registry;
 
+import jiraiyah.uio.item.*;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -233,8 +234,8 @@ public class ModItems
                                                                                                ModToolMaterials.CITRINE,
                                                                                                0.0f, -0.0f))));
     public static final Item TOOL_CITRINE_SWORD = registerItem("tool_citrine_sword",
-                                                               new SwordItem(ModToolMaterials.CITRINE,
-                                                                             new Item.Settings().attributeModifiers(
+                                                               new CitrineSword(ModToolMaterials.CITRINE,
+                                                                                new Item.Settings().attributeModifiers(
                                                                                      SwordItem.createAttributeModifiers(
                                                                                              ModToolMaterials.CITRINE,
                                                                                              3, -2.4f))));
@@ -274,8 +275,8 @@ public class ModItems
                                                                                               ModToolMaterials.COPPER,
                                                                                               0.0f, -0.0f))));
     public static final Item TOOL_COPPER_SWORD = registerItem("tool_copper_sword",
-                                                              new SwordItem(ModToolMaterials.COPPER,
-                                                                            new Item.Settings().attributeModifiers(
+                                                              new CopperSword(ModToolMaterials.COPPER,
+                                                                              new Item.Settings().attributeModifiers(
                                                                                     SwordItem.createAttributeModifiers(
                                                                                             ModToolMaterials.COPPER,
                                                                                             3, -2.4f))));
@@ -397,8 +398,8 @@ public class ModItems
                                                                                                 ModToolMaterials.SAPPHIRE,
                                                                                                 0.0f, -0.0f))));
     public static final Item TOOL_SAPPHIRE_SWORD = registerItem("tool_sapphire_sword",
-                                                                new SwordItem(ModToolMaterials.SAPPHIRE,
-                                                                              new Item.Settings().attributeModifiers(
+                                                                new SapphireSword(ModToolMaterials.SAPPHIRE,
+                                                                                  new Item.Settings().attributeModifiers(
                                                                                       SwordItem.createAttributeModifiers(
                                                                                               ModToolMaterials.SAPPHIRE,
                                                                                               4, -3.0f))));
@@ -445,8 +446,8 @@ public class ModItems
     //endregion
 
     //region TOOL
-    public static final Item TOOL_PLAYER_TELEPORT = registerItem("tool_player_teleport", new Item(new Item.Settings()));
-    public static final Item TOOL_TUNER = registerItem("tool_tuner", new Item(new Item.Settings()));
+    public static final Item TOOL_PLAYER_TELEPORT = registerItem("tool_player_teleport", new PlayerTeleporter(new Item.Settings()));
+    public static final Item TOOL_TUNER = registerItem("tool_tuner", new TunerItem(new Item.Settings()));
     public static final Item TOOL_WRENCH = registerItem("tool_wrench", new Item(new Item.Settings()));
     //endregion
 
@@ -467,9 +468,9 @@ public class ModItems
 
     public static final Item ARMOR_AMETHYST_LEGGINGS =
             registerItem("armor_amethyst_leggings",
-                         new ArmorItem(ModArmorMaterials.AMETHYST,
-                                       ArmorItem.Type.LEGGINGS,
-                                       new Item.Settings()
+                         new ModArmorItem(ModArmorMaterials.AMETHYST,
+                                          ArmorItem.Type.LEGGINGS,
+                                          new Item.Settings()
                                                .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(20))));
 
     public static final Item ARMOR_AMETHYST_BOOTS =
@@ -498,7 +499,7 @@ public class ModItems
 
     public static final Item ARMOR_CITRINE_LEGGINGS =
             registerItem("armor_citrine_leggings",
-                         new ArmorItem(ModArmorMaterials.CITRINE,
+                         new ModArmorItem(ModArmorMaterials.CITRINE,
                                        ArmorItem.Type.LEGGINGS,
                                        new Item.Settings()
                                                .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(30))));
@@ -528,7 +529,7 @@ public class ModItems
 
     public static final Item ARMOR_COPPER_LEGGINGS =
             registerItem("armor_copper_leggings",
-                         new ArmorItem(ModArmorMaterials.COPPER,
+                         new ModArmorItem(ModArmorMaterials.COPPER,
                                        ArmorItem.Type.LEGGINGS,
                                        new Item.Settings()
                                                .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(25))));
@@ -558,7 +559,7 @@ public class ModItems
 
     public static final Item ARMOR_EMERALD_LEGGINGS =
             registerItem("armor_emerald_leggings",
-                         new ArmorItem(ModArmorMaterials.EMERALD,
+                         new ModArmorItem(ModArmorMaterials.EMERALD,
                                        ArmorItem.Type.LEGGINGS,
                                        new Item.Settings()
                                                .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(15))));
@@ -588,7 +589,7 @@ public class ModItems
 
     public static final Item ARMOR_ENDERITE_LEGGINGS =
             registerItem("armor_enderite_leggings",
-                         new ArmorItem(ModArmorMaterials.ENDERITE,
+                         new ModArmorItem(ModArmorMaterials.ENDERITE,
                                        ArmorItem.Type.LEGGINGS,
                                        new Item.Settings()
                                                .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(42))));
@@ -618,7 +619,7 @@ public class ModItems
 
     public static final Item ARMOR_RUBY_LEGGINGS =
             registerItem("armor_ruby_leggings",
-                         new ArmorItem(ModArmorMaterials.RUBY,
+                         new ModArmorItem(ModArmorMaterials.RUBY,
                                        ArmorItem.Type.LEGGINGS,
                                        new Item.Settings()
                                                .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(36))));
@@ -648,7 +649,7 @@ public class ModItems
 
     public static final Item ARMOR_SAPPHIRE_LEGGINGS =
             registerItem("armor_sapphire_leggings",
-                         new ArmorItem(ModArmorMaterials.SAPPHIRE,
+                         new ModArmorItem(ModArmorMaterials.SAPPHIRE,
                                        ArmorItem.Type.LEGGINGS,
                                        new Item.Settings()
                                                .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(36))));

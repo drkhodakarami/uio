@@ -42,7 +42,7 @@
     "fabric-api": "*"
   },
   "suggests": {
-    "another-mod": "*"
+    "modmenu-badges-lib": "*"
   },
   "custom": {
     "modmenu": {
@@ -50,6 +50,20 @@
         "modmenu.discord": "https://discord.gg/pmM4emCbuH"
       },
       "update_checker": true
-    }
+    },
+    "mcb": [
+      {
+        "name": "Storage",
+        "labelColor": -1842205,
+        "fillColor": -10388178,
+        "outlineColor": -8212404
+      },
+      {
+        "name": "Tech.",
+        "labelColor": -1842205,
+        "fillColor": -10932611,
+        "outlineColor": -6402896
+      }
+    ]
   }
 }

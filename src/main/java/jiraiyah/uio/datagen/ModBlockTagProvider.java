@@ -56,9 +56,22 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_NETHER_SAPPHIRE)
                 .add(ModBlocks.ORE_WORLD_CITRINE)
                 .add(ModBlocks.ORE_WORLD_RUBY)
-                .add(ModBlocks.ORE_WORLD_SAPPHIRE);
+                .add(ModBlocks.ORE_WORLD_SAPPHIRE)
+                .add(ModBlocks.ALLOY_SMELTER)
+                .add(ModBlocks.CAST_PRESS)
+                .add(ModBlocks.GEM_CLEANER)
+                .add(ModBlocks.GENERATOR)
+                .add(ModBlocks.OVEN)
+                .add(ModBlocks.PULVERIZER)
+                .add(ModBlocks.SMELTER)
+                .add(ModBlocks.FLUID_PUMP)
+                .add(ModBlocks.BLOCK_BREAKER)
+                .add(ModBlocks.BLOCK_PLACER)
+                .add(ModBlocks.WOOD_STRIPPER)
+                .add(ModBlocks.ANIMAL_FEED);
 
-        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL);
+        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
+                .add(ModBlocks.ANIMAL_FEED);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.CITRINE)
@@ -84,7 +97,19 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_NETHER_SAPPHIRE)
                 .add(ModBlocks.ORE_WORLD_CITRINE)
                 .add(ModBlocks.ORE_WORLD_RUBY)
-                .add(ModBlocks.ORE_WORLD_SAPPHIRE);
+                .add(ModBlocks.ORE_WORLD_SAPPHIRE)
+                .add(ModBlocks.ALLOY_SMELTER)
+                .add(ModBlocks.CAST_PRESS)
+                .add(ModBlocks.GEM_CLEANER)
+                .add(ModBlocks.GENERATOR)
+                .add(ModBlocks.OVEN)
+                .add(ModBlocks.PULVERIZER)
+                .add(ModBlocks.SMELTER)
+                .add(ModBlocks.FLUID_PUMP)
+                .add(ModBlocks.BLOCK_BREAKER)
+                .add(ModBlocks.BLOCK_PLACER)
+                .add(ModBlocks.WOOD_STRIPPER)
+                .add(ModBlocks.TESSERACT);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.ORE_END_ENDERITE_CRACKED)

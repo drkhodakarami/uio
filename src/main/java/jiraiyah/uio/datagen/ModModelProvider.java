@@ -126,6 +126,14 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerSingleton(ModBlocks.OVEN, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerSingleton(ModBlocks.PULVERIZER, TexturedModel.ORIENTABLE);
         blockStateModelGenerator.registerSingleton(ModBlocks.SMELTER, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.FLUID_PUMP, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BLOCK_BREAKER, TexturedModel.ORIENTABLE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BLOCK_PLACER, TexturedModel.ORIENTABLE);
+
+        blockStateModelGenerator.registerSingleton(ModBlocks.WOOD_STRIPPER, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerSingleton(ModBlocks.ANIMAL_FEED, TexturedModel.CUBE_BOTTOM_TOP);
+
+        blockStateModelGenerator.registerSimpleState(ModBlocks.TESSERACT);
 
 //        blockStateModelGenerator.registerCooker(ModBlocks.ALLOY_SMELTER, TexturedModel.ORIENTABLE);
 //        blockStateModelGenerator.registerCooker(ModBlocks.CAST_PRESS, TexturedModel.ORIENTABLE);

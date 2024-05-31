@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "uio:block/animal_feed_bottom",
+    "side": "uio:block/animal_feed_side",
+    "top": "uio:block/animal_feed_top"
+  }
+}

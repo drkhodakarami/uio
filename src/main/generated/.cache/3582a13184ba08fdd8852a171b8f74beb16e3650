@@ -1,14 +1,14 @@
-// 1.20.6	2024-05-28T19:50:06.3224974	Ultra IO/Tags for minecraft:block
+// 1.20.6	2024-05-30T02:02:08.6267755	Ultra IO/Tags for minecraft:block
 3a1a50db4f1dfac0fcaa4caf111889342218af5d data\minecraft\tags\blocks\fence_gates.json
 7793c36a86fa13490b61d16a705473146b9c0eef data\minecraft\tags\blocks\lapis_ores.json
-35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\blocks\needs_stone_tool.json
-d0b538bcb989091f2ccc28d5a3e50ef0a9039606 data\minecraft\tags\blocks\needs_iron_tool.json
+ce077874115f9528f162dcd8c4c0708e1eceb0a7 data\minecraft\tags\blocks\needs_stone_tool.json
+2321787a156b2349ed3ebf651387cc4d59245adb data\minecraft\tags\blocks\needs_iron_tool.json
 79f0f405cda96d6bdd4ff20c66e269c58b8dd0ea data\minecraft\tags\blocks\walls.json
 b7cd630377b449e6f014d7bfebb31cefea135163 data\minecraft\tags\blocks\iron_ores.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\blocks\logs.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\fabric\tags\blocks\needs_tool_level_4.json
 bc1b84bdfdf4163c9f1c338c1a80d51d306fab5f data\minecraft\tags\blocks\fences.json
-26e00c9367522bb994e1a5c70e176e38955fb1f8 data\minecraft\tags\blocks\mineable\pickaxe.json
+2bc2d748e055145ed390a8a3987aa7401a7b5ee8 data\minecraft\tags\blocks\mineable\pickaxe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\blocks\logs_that_burn.json
 0e343d9b05722811b7b05da28ddf677404e73206 data\minecraft\tags\blocks\needs_diamond_tool.json
 e8b3eabddfdf50cf8b95204f7245915f08258990 data\minecraft\tags\blocks\redstone_ores.json

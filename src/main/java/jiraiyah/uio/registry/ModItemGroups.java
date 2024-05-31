@@ -203,7 +203,7 @@ public class ModItemGroups
             Registry.register(Registries.ITEM_GROUP,
                               identifier(ModID + "_machine_group"),
                               FabricItemGroup.builder().displayName(translate("machine.group"))
-                                             .icon(() -> new ItemStack(ModItems.CAST_GEAR))
+                                             .icon(() -> new ItemStack(ModBlocks.CAST_PRESS))
                                              .entries((displayContext, entries) ->
                                                       {
                                                           entries.add(ModBlocks.ALLOY_SMELTER);
@@ -213,6 +213,12 @@ public class ModItemGroups
                                                           entries.add(ModBlocks.OVEN);
                                                           entries.add(ModBlocks.PULVERIZER);
                                                           entries.add(ModBlocks.SMELTER);
+                                                          entries.add(ModBlocks.FLUID_PUMP);
+                                                          entries.add(ModBlocks.BLOCK_BREAKER);
+                                                          entries.add(ModBlocks.BLOCK_PLACER);
+                                                          entries.add(ModBlocks.WOOD_STRIPPER);
+                                                          entries.add(ModBlocks.ANIMAL_FEED);
+                                                          entries.add(ModBlocks.TESSERACT);
 
                                                           entries.add(ModItems.CAST_AXE);
                                                           entries.add(ModItems.CAST_BINDING);
