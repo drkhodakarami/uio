@@ -1,3 +1,9 @@
 {
-  "values": []
+  "values": [
+    "uio:tool_citrine_hoe",
+    "uio:tool_copper_hoe",
+    "uio:tool_enderite_hoe",
+    "uio:tool_ruby_hoe",
+    "uio:tool_sapphire_hoe"
+  ]
 }

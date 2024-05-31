@@ -30,7 +30,6 @@ public class ModMessages
 
     public static void sendToClientPlayerEntities(World world, BlockPos pos, CustomPayload payload)
     {
-        //TODO : Talk about network sending messages
         PlayerLookup.tracking((ServerWorld) world, pos).forEach(player ->
                                                                         ServerPlayNetworking.send(player, payload));
     }

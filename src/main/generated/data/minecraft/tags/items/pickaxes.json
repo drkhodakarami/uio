@@ -1,3 +1,9 @@
 {
-  "values": []
+  "values": [
+    "uio:tool_citrine_pickaxe",
+    "uio:tool_copper_pickaxe",
+    "uio:tool_enderite_pickaxe",
+    "uio:tool_ruby_pickaxe",
+    "uio:tool_sapphire_pickaxe"
+  ]
 }

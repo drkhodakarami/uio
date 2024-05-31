@@ -208,7 +208,7 @@ public class ModItems
                                                                                  AxeItem.createAttributeModifiers(
                                                                                          ModToolMaterials.CITRINE,
                                                                                          6.0f, -3.1f))));
-    //TODO : Add Hammer Class for Tools
+
     public static final Item TOOL_CITRINE_HAMMER = registerItem("tool_citrine_hammer",
                                                                 new AxeItem(ModToolMaterials.CITRINE,
                                                                             new Item.Settings().attributeModifiers(
@@ -248,7 +248,7 @@ public class ModItems
                                                                                 AxeItem.createAttributeModifiers(
                                                                                         ModToolMaterials.COPPER,
                                                                                         6.0f, -1.5f))));
-    //TODO : Add Hammer Class for Tools
+
     public static final Item TOOL_COPPER_HAMMER = registerItem("tool_copper_hammer",
                                                                new AxeItem(ModToolMaterials.COPPER,
                                                                            new Item.Settings().attributeModifiers(
@@ -289,7 +289,7 @@ public class ModItems
                                                                                   AxeItem.createAttributeModifiers(
                                                                                           ModToolMaterials.ENDERITE,
                                                                                           20.0f, -2.5f))));
-    //TODO : Add Hammer Class for Tools
+
     public static final Item TOOL_ENDERITE_HAMMER = registerItem("tool_enderite_hammer",
                                                                  new AxeItem(ModToolMaterials.ENDERITE,
                                                                              new Item.Settings().attributeModifiers(
@@ -330,7 +330,7 @@ public class ModItems
                                                                               AxeItem.createAttributeModifiers(
                                                                                       ModToolMaterials.RUBY,
                                                                                       5.0f, -1.5f))));
-    //TODO : Add Hammer Class for Tools
+
     public static final Item TOOL_RUBY_HAMMER = registerItem("tool_ruby_hammer",
                                                              new AxeItem(ModToolMaterials.RUBY,
                                                                          new Item.Settings().attributeModifiers(
@@ -371,7 +371,7 @@ public class ModItems
                                                                                   AxeItem.createAttributeModifiers(
                                                                                           ModToolMaterials.SAPPHIRE,
                                                                                           5.0f, -1.5f))));
-    //TODO : Add Hammer Class for Tools
+
     public static final Item TOOL_SAPPHIRE_HAMMER = registerItem("tool_sapphire_hammer",
                                                                  new AxeItem(ModToolMaterials.SAPPHIRE,
                                                                              new Item.Settings().attributeModifiers(
@@ -406,7 +406,7 @@ public class ModItems
     //endregion
 
     //region VANILLA HAMMERS
-    //TODO : Add Hammer Class for Tools
+
     public static final Item TOOL_DIAMOND_HAMMER = registerItem("tool_diamond_hammer",
                                                                 new AxeItem(ToolMaterials.DIAMOND,
                                                                             new Item.Settings().attributeModifiers(

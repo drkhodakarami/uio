@@ -11,16 +11,12 @@ public class ModJadePlugin implements IWailaPlugin
     @Override
     public void register(IWailaCommonRegistration registration)
     {
-        //TODO register data providers
-
         IWailaPlugin.super.register(registration);
     }
 
     @Override
     public void registerClient(IWailaClientRegistration registration)
     {
-        //TODO register component providers, icon providers, callbacks, and config options here
-
         IWailaPlugin.super.registerClient(registration);
     }
 }

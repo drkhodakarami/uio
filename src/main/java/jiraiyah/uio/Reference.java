@@ -1,5 +1,12 @@
 package jiraiyah.uio;
 
+import net.minecraft.block.Block;
+import net.minecraft.entity.EntityType;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -87,21 +94,78 @@ public class Reference
     }
 
     //region TAGS
-    public static class ModTags
+    public static class Tags
     {
-        public static class Blocks
+        public static class Block
         {
+            public static final TagKey<net.minecraft.block.Block> GEM_BLOCKS = createCommonTag("gem_blocks");
+            public static final TagKey<net.minecraft.block.Block> IS_MACHINE = createCommonTag("machines");
 
+            public static final TagKey<net.minecraft.block.Block> HAMMER_BLACKLIST = createTag("hammer_blacklist");
+
+            //region HELPER METHODS
+            private static TagKey<net.minecraft.block.Block> createTag(String name)
+            {
+                return TagKey.of(RegistryKeys.BLOCK, identifier(name));
+            }
+
+            private static TagKey<net.minecraft.block.Block> createCommonTag(String name)
+            {
+                return TagKey.of(RegistryKeys.BLOCK, new Identifier("c", name));
+            }
+            //endregion
         }
 
-        public static class Items
+        public static class Item
         {
+            public static final TagKey<net.minecraft.item.Item> FLUID_BUCKET = createCommonTag("fluid_buckets");
+            public static final TagKey<net.minecraft.item.Item> CAST = createCommonTag("casts");
+            public static final TagKey<net.minecraft.item.Item> RAW = createCommonTag("raws");
+            public static final TagKey<net.minecraft.item.Item> WOOD_CAST = createCommonTag("wood_casts");
+            public static final TagKey<net.minecraft.item.Item> GEAR = createCommonTag("gears");
+            public static final TagKey<net.minecraft.item.Item> DUST = createCommonTag("dusts");
+            public static final TagKey<net.minecraft.item.Item> INGOT = createCommonTag("ingots");
+            public static final TagKey<net.minecraft.item.Item> PLATE = createCommonTag("plates");
+            public static final TagKey<net.minecraft.item.Item> REINFORCED = createCommonTag("reinforced_plates");
+            public static final TagKey<net.minecraft.item.Item> ROD = createCommonTag("rods");
+            public static final TagKey<net.minecraft.item.Item> TOOL_HEAD = createCommonTag("tool_heads");
+            public static final TagKey<net.minecraft.item.Item> ALLOY = createCommonTag("alloys");
+            public static final TagKey<net.minecraft.item.Item> GEM = createCommonTag("gems");
 
+            public static final TagKey<net.minecraft.item.Item> HAMMERS = createTag("hammers");
+            public static final TagKey<net.minecraft.item.Item> MENDING_ONLY = createTag("mending_only");
+            public static final TagKey<net.minecraft.item.Item> SMELTERY = createTag("smeltery");
+
+            //region HELPER METHODS
+            private static TagKey<net.minecraft.item.Item> createTag(String name)
+            {
+                return TagKey.of(RegistryKeys.ITEM, identifier(name));
+            }
+
+            private static TagKey<net.minecraft.item.Item> createCommonTag(String name)
+            {
+                return TagKey.of(RegistryKeys.ITEM, new Identifier("c", name));
+            }
+            //endregion
         }
 
-        public static class Entities
+        public static class Entity
         {
 
+            public static final TagKey<EntityType<?>> TUNER_BLACKLIST = createTag("tuner_blacklist");
+            public static final TagKey<EntityType<?>> RUBY_SWORD_IGNITES = createTag("ruby_sword_ignites");
+
+            //region HELPER METHODS
+            private static TagKey<EntityType<?>> createTag(String name)
+            {
+                return TagKey.of(RegistryKeys.ENTITY_TYPE, identifier(name));
+            }
+
+            private static TagKey<EntityType<?>> createCommonTag(String name)
+            {
+                return TagKey.of(RegistryKeys.ENTITY_TYPE, new Identifier("c", name));
+            }
+            //endregion
         }
     }
     //endregion

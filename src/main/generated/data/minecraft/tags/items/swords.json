@@ -1,3 +1,9 @@
 {
-  "values": []
+  "values": [
+    "uio:tool_citrine_sword",
+    "uio:tool_copper_sword",
+    "uio:tool_enderite_sword",
+    "uio:tool_ruby_sword",
+    "uio:tool_sapphire_sword"
+  ]
 }

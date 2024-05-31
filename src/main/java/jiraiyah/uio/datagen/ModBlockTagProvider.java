@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
+import static jiraiyah.uio.Reference.Tags.Block.*;
 import static jiraiyah.uio.Reference.logRGB256;
 
 public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
@@ -115,7 +116,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_END_ENDERITE_CRACKED)
                 .add(ModBlocks.ORE_ENDERITE);
 
-        //TODO : Fix Netherite Tier
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_4"))); // Netherite
 
         getOrCreateTagBuilder(BlockTags.LOGS);
@@ -158,5 +158,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ENDERITE_WALL)
                 .add(ModBlocks.RUBY_WALL)
                 .add(ModBlocks.SAPPHIRE_WALL);
+
+        getOrCreateTagBuilder(HAMMER_BLACKLIST);
+        getOrCreateTagBuilder(GEM_BLOCKS);
+        getOrCreateTagBuilder(IS_MACHINE);
     }
 }

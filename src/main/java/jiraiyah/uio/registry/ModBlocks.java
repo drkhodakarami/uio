@@ -174,21 +174,13 @@ public class ModBlocks
 
     //region GOO
 
-    // TODO : Water Eating GOO
     public static final Block WATER_EATING_GOO = registerBlock("water_eating_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    // TODO : Water Generating GOO
     public static final Block WATER_GENERATING_GOO = registerBlock("water_generating_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    // TODO : Lava Eating GOO
     public static final Block LAVA_EATING_GOO = registerBlock("lava_eating_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    // TODO : Lava Generating GOO
     public static final Block LAVA_GENERATING_GOO = registerBlock("lava_generating_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    // TODO : Chunk Goo eats a chunk
     public static final Block CHUNK_GOO = registerBlock("chunk_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    // TODO : Towering Goo eats a tower
     public static final Block TOWERING_GOO = registerBlock("towering_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    // TODO : Tunneling Goo eats a tower
     public static final Block TUNNELING_GOO = registerBlock("tunneling_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    // TODO : Bridge Goo eats a tower
     public static final Block BRIDGE_GOO = registerBlock("bridge_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
     //endregion
 

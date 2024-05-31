@@ -1,0 +1,19 @@
+{
+  "values": [
+    "uio:cast_axe",
+    "uio:cast_binding",
+    "uio:cast_gear",
+    "uio:cast_gem",
+    "uio:cast_hammer",
+    "uio:cast_handle",
+    "uio:cast_hoe",
+    "uio:cast_ingot",
+    "uio:cast_nugget",
+    "uio:cast_pickaxe",
+    "uio:cast_plate",
+    "uio:cast_rod",
+    "uio:cast_shovel",
+    "uio:cast_sword",
+    "uio:cast_wire"
+  ]
+}
