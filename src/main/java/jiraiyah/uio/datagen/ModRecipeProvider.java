@@ -15,6 +15,8 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SmokingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
@@ -1174,6 +1176,34 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WATER_GENERATING_GOO)));
         //endregion
 
+        //region MACHINES
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ELEVATOR, 1)
+                               .pattern(" E ")
+                               .pattern("EWE")
+                               .pattern(" E ")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', ItemTags.WOOL)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ELEVATOR)));
+
+        // ALLOY_SMELTER
+        // CAST_PRESS
+        // GEM_CLEANER
+        // GENERATOR
+        // OVEN
+        // PULVERIZER
+        // SMELTER
+        // FLUID_PUMP
+        // BLOCK_BREAKER
+        // BLOCK_PLACER
+        // WOOD_STRIPPER
+        // ANIMAL_FEED
+        // TESSERACT
+        // Enderchanter
+        // Project Table
+        //endregion
+
         //region ALLOY SMELTER
 
         // Iron + Soul + Glass --> Pulsating --> Base Cable Alloy
@@ -1222,6 +1252,33 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
         //endregion
 
+        //region WOOD STRIPPER
+
+        //endregion
+
         offerBlasting(exporter, List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 5.0f, 1200, "ore_enderite");
+
+        //region FOOD AND FUEL
+        offerFoodCookingRecipe(exporter,
+                               "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
+                               300, Items.EGG, ModItems.COOKED_EGG, 0.15F);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.EGG_AND_BREAD, 1)
+                                  .input(ModItems.COOKED_EGG)
+                                  .input(Items.BREAD)
+                                  .criterion(hasItem(ModItems.COOKED_EGG), conditionsFromItem(ModItems.COOKED_EGG))
+                                  .criterion(hasItem(Items.BREAD), conditionsFromItem(Items.BREAD))
+                                  .offerTo(exporter, new Identifier(getRecipeName(ModItems.EGG_AND_BREAD) + "_shapeless"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HOT_COAL, 8)
+                               .pattern("CCC")
+                               .pattern("CBC")
+                               .pattern("CCC")
+                               .input('C', Items.COAL)
+                               .input('B', Items.LAVA_BUCKET)
+                               .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
+                               .criterion(hasItem(Items.LAVA_BUCKET), conditionsFromItem(Items.LAVA_BUCKET))
+                               .offerTo(exporter, new Identifier(getRecipeName(ModItems.HOT_COAL)));
+        //endregion
     }
 }

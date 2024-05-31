@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "uio:block/wood_stripper_top",
-    "side": "uio:block/wood_stripper_side"
-  }
-}

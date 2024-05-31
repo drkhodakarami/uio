@@ -119,21 +119,23 @@ public class ModModelProvider extends FabricModelProvider
         //endregion
 
         //region MACHINES
-        blockStateModelGenerator.registerSingleton(ModBlocks.ALLOY_SMELTER, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerSingleton(ModBlocks.CAST_PRESS, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerSingleton(ModBlocks.GEM_CLEANER, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerSingleton(ModBlocks.GENERATOR, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerSingleton(ModBlocks.OVEN, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerSingleton(ModBlocks.PULVERIZER, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerSingleton(ModBlocks.SMELTER, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerSingleton(ModBlocks.FLUID_PUMP, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerSingleton(ModBlocks.BLOCK_BREAKER, TexturedModel.ORIENTABLE);
-        blockStateModelGenerator.registerSingleton(ModBlocks.BLOCK_PLACER, TexturedModel.ORIENTABLE);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.ALLOY_SMELTER, TexturedModel.ORIENTABLE);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.CAST_PRESS, TexturedModel.ORIENTABLE);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.GEM_CLEANER, TexturedModel.ORIENTABLE);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.GENERATOR, TexturedModel.ORIENTABLE);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.OVEN, TexturedModel.ORIENTABLE);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.PULVERIZER, TexturedModel.ORIENTABLE);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.SMELTER, TexturedModel.ORIENTABLE);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.FLUID_PUMP, TexturedModel.ORIENTABLE);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.BLOCK_BREAKER, TexturedModel.ORIENTABLE);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.BLOCK_PLACER, TexturedModel.ORIENTABLE);
 
-        blockStateModelGenerator.registerSingleton(ModBlocks.WOOD_STRIPPER, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(ModBlocks.ANIMAL_FEED, TexturedModel.CUBE_BOTTOM_TOP);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.WOOD_STRIPPER, TexturedModel.CUBE_COLUMN);
+        //blockStateModelGenerator.registerSingleton(ModBlocks.ANIMAL_FEED, TexturedModel.CUBE_BOTTOM_TOP);
 
-        blockStateModelGenerator.registerSimpleState(ModBlocks.TESSERACT);
+        //blockStateModelGenerator.registerSimpleState(ModBlocks.TESSERACT);
+
+        blockStateModelGenerator.registerSingleton(ModBlocks.ELEVATOR, TexturedModel.CUBE_BOTTOM_TOP);
 
 //        blockStateModelGenerator.registerCooker(ModBlocks.ALLOY_SMELTER, TexturedModel.ORIENTABLE);
 //        blockStateModelGenerator.registerCooker(ModBlocks.CAST_PRESS, TexturedModel.ORIENTABLE);
@@ -153,6 +155,10 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.BINDING_STRING, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.UNSTABLE_GOO, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.COOKED_EGG, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EGG_AND_BREAD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HOT_COAL, Models.GENERATED);
 
         //region CAST
         itemModelGenerator.register(ModItems.CAST_AXE, Models.GENERATED);

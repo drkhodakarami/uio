@@ -1,6 +1,7 @@
 package jiraiyah.uio.registry;
 
 import jiraiyah.uio.item.*;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -13,6 +14,20 @@ public class ModItems
     public static final Item BINDING_STRING = registerItem("binding_string", new Item(new Item.Settings()));
 
     public static final Item UNSTABLE_GOO = registerItem("unstable_goo_core", new Item(new Item.Settings()));
+
+    public static final Item COOKED_EGG = registerItem("cooked_egg", new Item(new Item.Settings()
+                                                                                      .food(new FoodComponent.Builder()
+                                                                                                    .nutrition(4)
+                                                                                                    .saturationModifier(0.55f)
+                                                                                                    .snack().build())));
+
+    public static final Item EGG_AND_BREAD = registerItem("egg_and_bread", new Item(new Item.Settings()
+                                                                                            .food(new FoodComponent.Builder()
+                                                                                                          .nutrition(11)
+                                                                                                          .saturationModifier(1.2f)
+                                                                                                          .snack().build())));
+
+    public static final Item HOT_COAL = registerItem("hot_coal", new Item(new Item.Settings()));
 
     //region CAST
     public static final Item CAST_AXE = registerItem("cast_axe", new Item(new Item.Settings()));

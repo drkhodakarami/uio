@@ -1,5 +1,6 @@
 package jiraiyah.uio.registry;
 
+import jiraiyah.uio.block.ElevatorBlock;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -184,19 +185,22 @@ public class ModBlocks
     public static final Block BRIDGE_GOO = registerBlock("bridge_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
     //endregion
 
-    public static final Block ALLOY_SMELTER = registerBlock("alloy_smelter", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block CAST_PRESS = registerBlock("cast_press", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block GEM_CLEANER = registerBlock("gem_cleaner", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block GENERATOR = registerBlock("generator", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block OVEN = registerBlock("oven", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block PULVERIZER = registerBlock("pulverizer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block SMELTER = registerBlock("smelter", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block FLUID_PUMP = registerBlock("fluid_pump", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block BLOCK_BREAKER = registerBlock("block_breaker", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block BLOCK_PLACER = registerBlock("block_placer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block WOOD_STRIPPER = registerBlock("wood_stripper", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block ANIMAL_FEED = registerBlock("animal_feed", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block TESSERACT = registerBlock("tesseract", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    //public static final Block ALLOY_SMELTER = registerBlock("alloy_smelter", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block CAST_PRESS = registerBlock("cast_press", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block GEM_CLEANER = registerBlock("gem_cleaner", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block GENERATOR = registerBlock("generator", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block OVEN = registerBlock("oven", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block PULVERIZER = registerBlock("pulverizer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block SMELTER = registerBlock("smelter", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block FLUID_PUMP = registerBlock("fluid_pump", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block BLOCK_BREAKER = registerBlock("block_breaker", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block BLOCK_PLACER = registerBlock("block_placer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block WOOD_STRIPPER = registerBlock("wood_stripper", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block ANIMAL_FEED = registerBlock("animal_feed", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block TESSERACT = registerBlock("tesseract", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    public static final Block ELEVATOR = registerBlock("elevator", new ElevatorBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+    // Enderchanter
+    // Project Table
 
     public ModBlocks()
     {

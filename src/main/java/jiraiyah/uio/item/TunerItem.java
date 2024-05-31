@@ -1,19 +1,29 @@
 package jiraiyah.uio.item;
 
 import net.minecraft.client.item.TooltipType;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtHelper;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+import static jiraiyah.uio.Reference.Tags.Entity.TUNER_BLACKLIST;
+import static jiraiyah.uio.Reference.translate;
+
+// TODO : Use Custom DataComponentType
 public class TunerItem extends Item
 {
     public TunerItem(Settings settings)
@@ -24,27 +34,47 @@ public class TunerItem extends Item
     @Override
     public ActionResult useOnBlock(ItemUsageContext context)
     {
-        if (context.getWorld().isClient)
+        @Nullable var data = context.getStack().get(DataComponentTypes.CUSTOM_DATA);
+
+        if (data != null)
+            return super.useOnBlock(context);
+
+        BlockPos pos = context.getBlockPos();
+        PlayerEntity player = context.getPlayer();
+
+        if (player != null)
         {
-            context.getPlayer().sendMessage(Text.literal("Use On Block from Client"));
+            if (!player.isSneaking())
+            {
+                if (!context.getWorld().isClient())
+                {
+                    NbtCompound nbt = new NbtCompound();
+                    nbt.put("uio.tuner.pos", NbtHelper.fromBlockPos(pos));
+                    nbt.putString("uio.tuner.dimension", player.getWorld().getRegistryKey().getValue().toString());
+                    NbtComponent component = NbtComponent.of(nbt);
+                    context.getStack().set(DataComponentTypes.CUSTOM_DATA, component);
+                }
+                else
+                {
+                    var dimension = player.getWorld().getRegistryKey().getValue().toString();
+                    dimension = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
+                    outputCoordinatesToChat(pos, dimension, player);
+                }
+            }
         }
-        else
-        {
-            context.getPlayer().sendMessage(Text.literal("Use On Block from Server"));
-        }
+
         return super.useOnBlock(context);
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
     {
-        if (world.isClient)
+        if (!world.isClient())
         {
-            user.sendMessage(Text.literal("Use from Client"));
-        }
-        else
-        {
-            user.sendMessage(Text.literal("Use from Server"));
+            @Nullable var data = user.getStackInHand(hand).get(DataComponentTypes.CUSTOM_DATA);
+
+            if (user.isSneaking() && data != null)
+                user.getStackInHand(hand).set(DataComponentTypes.CUSTOM_DATA, null);
         }
         return super.use(world, user, hand);
     }
@@ -52,26 +82,73 @@ public class TunerItem extends Item
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand)
     {
-        if (user.getWorld().isClient)
+        @Nullable var data = stack.get(DataComponentTypes.CUSTOM_DATA);
+
+        if (entity.isPlayer() ||
+            data == null ||
+            entity.getType().isIn(TUNER_BLACKLIST))
+            return ActionResult.FAIL;
+
+        if (!user.isSneaking())
         {
-            user.sendMessage(Text.literal("Use from Client on " + entity.getType()));
+            NbtCompound nbt = data.copyNbt();
+            BlockPos pos = NbtHelper.toBlockPos(nbt, "uio.tuner.pos").get();
+
+            if (!user.getWorld().isClient())
+            {
+                var dimension = nbt.getString("uio.tuner.dimension");
+                var userDimension = user.getWorld().getRegistryKey().getValue().toString();
+                if (dimension.equalsIgnoreCase(userDimension))
+                {
+                    entity.teleport(pos.getX(), pos.getY(), pos.getZ());
+                    entity.refreshPositionAfterTeleport(pos.getX(), pos.getY() + 1, pos.getZ());
+                    return ActionResult.SUCCESS;
+                }
+                return ActionResult.FAIL;
+            }
+
+            var dimension = nbt.getString("uio.tuner.dimension");
+            var userDimension = user.getWorld().getRegistryKey().getValue().toString();
+            var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
+            if (dimension.equalsIgnoreCase(userDimension))
+            {
+                user.sendMessage(translate("tuner.teleported", pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
+                return ActionResult.SUCCESS;
+            }
+            else
+            {
+                user.sendMessage(translate("tuner.error", dimensionName), false);
+                return ActionResult.FAIL;
+            }
         }
-        else
-        {
-            user.sendMessage(Text.literal("Use from Server on " + entity.getType()));
-        }
+
         return super.useOnEntity(stack, user, entity, hand);
     }
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
     {
-        super.appendTooltip(stack, context, tooltip, type);
+        @Nullable var data = stack.get(DataComponentTypes.CUSTOM_DATA);
+        if (data != null)
+        {
+            NbtCompound nbt = data.copyNbt();
+            BlockPos pos = NbtHelper.toBlockPos(nbt, "uio.tuner.pos").get();
+
+            var dimension = nbt.getString("uio.tuner.dimension");
+            var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
+            tooltip.add(translate("tuner.tooltip", pos.getX(), pos.getY(), pos.getZ(), dimensionName));
+        }
     }
 
     @Override
     public boolean hasGlint(ItemStack stack)
     {
-        return super.hasGlint(stack);
+        @Nullable var data = stack.get(DataComponentTypes.CUSTOM_DATA);
+        return data != null;
+    }
+
+    private void outputCoordinatesToChat(BlockPos pos, String dimension, PlayerEntity player)
+    {
+        player.sendMessage(translate("tuner.tooltip", pos.getX(), pos.getY(), pos.getZ(), dimension), false);
     }
 }

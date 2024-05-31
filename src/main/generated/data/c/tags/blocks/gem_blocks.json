@@ -1,3 +1,8 @@
 {
-  "values": []
+  "values": [
+    "uio:block_ruby",
+    "uio:block_citrine",
+    "uio:block_sapphire",
+    "uio:block_enderite"
+  ]
 }

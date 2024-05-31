@@ -203,22 +203,23 @@ public class ModItemGroups
             Registry.register(Registries.ITEM_GROUP,
                               identifier(ModID + "_machine_group"),
                               FabricItemGroup.builder().displayName(translate("machine.group"))
-                                             .icon(() -> new ItemStack(ModBlocks.CAST_PRESS))
+                                             .icon(() -> new ItemStack(ModBlocks.ELEVATOR))
                                              .entries((displayContext, entries) ->
                                                       {
-                                                          entries.add(ModBlocks.ALLOY_SMELTER);
-                                                          entries.add(ModBlocks.CAST_PRESS);
-                                                          entries.add(ModBlocks.GEM_CLEANER);
-                                                          entries.add(ModBlocks.GENERATOR);
-                                                          entries.add(ModBlocks.OVEN);
-                                                          entries.add(ModBlocks.PULVERIZER);
-                                                          entries.add(ModBlocks.SMELTER);
-                                                          entries.add(ModBlocks.FLUID_PUMP);
-                                                          entries.add(ModBlocks.BLOCK_BREAKER);
-                                                          entries.add(ModBlocks.BLOCK_PLACER);
-                                                          entries.add(ModBlocks.WOOD_STRIPPER);
-                                                          entries.add(ModBlocks.ANIMAL_FEED);
-                                                          entries.add(ModBlocks.TESSERACT);
+                                                          //entries.add(ModBlocks.ALLOY_SMELTER);
+                                                          //entries.add(ModBlocks.CAST_PRESS);
+                                                          //entries.add(ModBlocks.GEM_CLEANER);
+                                                          //entries.add(ModBlocks.GENERATOR);
+                                                          //entries.add(ModBlocks.OVEN);
+                                                          //entries.add(ModBlocks.PULVERIZER);
+                                                          //entries.add(ModBlocks.SMELTER);
+                                                          //entries.add(ModBlocks.FLUID_PUMP);
+                                                          //entries.add(ModBlocks.BLOCK_BREAKER);
+                                                          //entries.add(ModBlocks.BLOCK_PLACER);
+                                                          //entries.add(ModBlocks.WOOD_STRIPPER);
+                                                          //entries.add(ModBlocks.ANIMAL_FEED);
+                                                          //entries.add(ModBlocks.TESSERACT);
+                                                          entries.add(ModBlocks.ELEVATOR);
 
                                                           entries.add(ModItems.CAST_AXE);
                                                           entries.add(ModItems.CAST_BINDING);
@@ -399,6 +400,18 @@ public class ModItemGroups
                                                           entries.add(ModItems.ARMOR_SAPPHIRE_CHESTPLATE);
                                                           entries.add(ModItems.ARMOR_SAPPHIRE_LEGGINGS);
                                                           entries.add(ModItems.ARMOR_SAPPHIRE_BOOTS);
+                                                      }).build());
+
+    public static final ItemGroup MISC =
+            Registry.register(Registries.ITEM_GROUP,
+                              identifier(ModID + "_misc_group"),
+                              FabricItemGroup.builder().displayName(translate("misc.group"))
+                                             .icon(() -> new ItemStack(ModItems.HOT_COAL))
+                                             .entries((displayContext, entries) ->
+                                                      {
+                                                          entries.add(ModItems.COOKED_EGG);
+                                                          entries.add(ModItems.EGG_AND_BREAD);
+                                                          entries.add(ModItems.HOT_COAL);
                                                       }).build());
 
     public ModItemGroups()

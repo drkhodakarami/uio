@@ -4,6 +4,7 @@
   "uio.tool.group": "Tools",
   "uio.block.group": "Blocks",
   "uio.armor.group": "Armors",
+  "uio.misc.group": "Misc",
   "item.uio.binding_string": "Binding String",
   "item.uio.cast_axe": "Axe Head Cast",
   "item.uio.cast_binding": "Binding String Cast",
@@ -219,6 +220,9 @@
   "item.uio.armor_sapphire_leggings": "Sapphire Leggings",
   "item.uio.armor_sapphire_boots": "Sapphire Boots",
   "item.uio.unstable_goo_core": "Unstable Goo",
+  "item.uio.cooked_egg": "Cooked Egg",
+  "item.uio.egg_and_bread": "Egg And Bread",
+  "item.uio.hot_coal": "Hot Coal",
 
   "block.uio.block_citrine": "Citrine Block",
   "block.uio.block_enderite": "Enderite Block",
@@ -299,6 +303,7 @@
   "block.uio.wood_stripper": "Wood Stripper",
   "block.uio.animal_feed": "Animal Food",
   "block.uio.tesseract": "Tesseract",
+  "block.uio.elevator": "Elevator",
   "block.uio.bridge_goo": "Bridge Goo",
   "block.uio.tunneling_goo": "Tunneling Goo",
   "block.uio.towering_goo": "Towering Goo",
@@ -306,6 +311,8 @@
   "block.uio.lava_eating_goo": "Lava Eating Goo",
   "block.uio.lava_generating_goo": "Lava Generating Goo",
   "block.uio.water_eating_goo": "Water Eating Goo",
-  "block.uio.water_generating_goo": "Water Generating Goo"
-
+  "block.uio.water_generating_goo": "Water Generating Goo",
+  "uio.tuner.tooltip": "Bound to position : (%d %d %d) - %d",
+  "uio.tuner.teleported": "Teleported to : (%d %d %d) - %d",
+  "uio.tuner.error": "Wrong dimension, your tuner bound to %d"
 }

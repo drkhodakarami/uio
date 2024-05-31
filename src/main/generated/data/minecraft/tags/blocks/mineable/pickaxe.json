@@ -29,17 +29,6 @@
     "uio:ore_world_citrine",
     "uio:ore_world_ruby",
     "uio:ore_world_sapphire",
-    "uio:alloy_smelter",
-    "uio:cast_press",
-    "uio:gem_cleaner",
-    "uio:generator",
-    "uio:oven",
-    "uio:pulverizer",
-    "uio:smelter",
-    "uio:fluid_pump",
-    "uio:block_breaker",
-    "uio:block_placer",
-    "uio:wood_stripper",
-    "uio:animal_feed"
+    "uio:elevator"
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "W": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    " E ",
+    "EWE",
+    " E "
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:elevator"
+  }
+}

@@ -25,6 +25,8 @@ public class ModRegistries
     {
         log("Registering Fuel");
         FuelRegistry registry = FuelRegistry.INSTANCE;
+
+        registry.add(ModItems.HOT_COAL, 6400);
     }
 
     private static void registerModCompostables()

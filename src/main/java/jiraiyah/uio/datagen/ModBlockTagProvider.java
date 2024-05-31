@@ -58,21 +58,23 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_WORLD_CITRINE)
                 .add(ModBlocks.ORE_WORLD_RUBY)
                 .add(ModBlocks.ORE_WORLD_SAPPHIRE)
-                .add(ModBlocks.ALLOY_SMELTER)
-                .add(ModBlocks.CAST_PRESS)
-                .add(ModBlocks.GEM_CLEANER)
-                .add(ModBlocks.GENERATOR)
-                .add(ModBlocks.OVEN)
-                .add(ModBlocks.PULVERIZER)
-                .add(ModBlocks.SMELTER)
-                .add(ModBlocks.FLUID_PUMP)
-                .add(ModBlocks.BLOCK_BREAKER)
-                .add(ModBlocks.BLOCK_PLACER)
-                .add(ModBlocks.WOOD_STRIPPER)
-                .add(ModBlocks.ANIMAL_FEED);
+                //.add(ModBlocks.ALLOY_SMELTER)
+                //.add(ModBlocks.CAST_PRESS)
+                //.add(ModBlocks.GEM_CLEANER)
+                //.add(ModBlocks.GENERATOR)
+                //.add(ModBlocks.OVEN)
+                //.add(ModBlocks.PULVERIZER)
+                //.add(ModBlocks.SMELTER)
+                //.add(ModBlocks.FLUID_PUMP)
+                //.add(ModBlocks.BLOCK_BREAKER)
+                //.add(ModBlocks.BLOCK_PLACER)
+                //.add(ModBlocks.WOOD_STRIPPER)
+                //.add(ModBlocks.ANIMAL_FEED)
+                .add(ModBlocks.ELEVATOR);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
-                .add(ModBlocks.ANIMAL_FEED);
+                //.add(ModBlocks.ANIMAL_FEED)
+                .add(ModBlocks.ELEVATOR);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.CITRINE)
@@ -98,19 +100,19 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_NETHER_SAPPHIRE)
                 .add(ModBlocks.ORE_WORLD_CITRINE)
                 .add(ModBlocks.ORE_WORLD_RUBY)
-                .add(ModBlocks.ORE_WORLD_SAPPHIRE)
-                .add(ModBlocks.ALLOY_SMELTER)
-                .add(ModBlocks.CAST_PRESS)
-                .add(ModBlocks.GEM_CLEANER)
-                .add(ModBlocks.GENERATOR)
-                .add(ModBlocks.OVEN)
-                .add(ModBlocks.PULVERIZER)
-                .add(ModBlocks.SMELTER)
-                .add(ModBlocks.FLUID_PUMP)
-                .add(ModBlocks.BLOCK_BREAKER)
-                .add(ModBlocks.BLOCK_PLACER)
-                .add(ModBlocks.WOOD_STRIPPER)
-                .add(ModBlocks.TESSERACT);
+                .add(ModBlocks.ORE_WORLD_SAPPHIRE);
+        //.add(ModBlocks.ALLOY_SMELTER)
+        //.add(ModBlocks.CAST_PRESS)
+        //.add(ModBlocks.GEM_CLEANER)
+        //.add(ModBlocks.GENERATOR)
+        //.add(ModBlocks.OVEN)
+        //.add(ModBlocks.PULVERIZER)
+        //.add(ModBlocks.SMELTER)
+        //.add(ModBlocks.FLUID_PUMP)
+        //.add(ModBlocks.BLOCK_BREAKER)
+        //.add(ModBlocks.BLOCK_PLACER)
+        //.add(ModBlocks.WOOD_STRIPPER)
+        //.add(ModBlocks.TESSERACT);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.ORE_END_ENDERITE_CRACKED)
@@ -121,6 +123,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
         getOrCreateTagBuilder(BlockTags.LOGS);
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN);
 
+        //region ORE
         getOrCreateTagBuilder(BlockTags.COPPER_ORES)
                 .add(ModBlocks.ORE_NETHER_COPPER);
 
@@ -142,7 +145,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_NETHER_COAL);
 
         getOrCreateTagBuilder(BlockTags.EMERALD_ORES);
+        //endregion
 
+        //region FENCE - WALL
         getOrCreateTagBuilder(BlockTags.FENCES)
                 .add(ModBlocks.CITRINE_FENCE)
                 .add(ModBlocks.ENDERITE_FENCE)
@@ -158,9 +163,44 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ENDERITE_WALL)
                 .add(ModBlocks.RUBY_WALL)
                 .add(ModBlocks.SAPPHIRE_WALL);
+        //endregion
 
-        getOrCreateTagBuilder(HAMMER_BLACKLIST);
-        getOrCreateTagBuilder(GEM_BLOCKS);
-        getOrCreateTagBuilder(IS_MACHINE);
+        getOrCreateTagBuilder(HAMMER_BLACKLIST)
+                //.add(ModBlocks.ALLOY_SMELTER)
+                //.add(ModBlocks.ANIMAL_FEED)
+                //.add(ModBlocks.BLOCK_BREAKER)
+                //.add(ModBlocks.BLOCK_PLACER)
+                //.add(ModBlocks.CAST_PRESS)
+                //.add(ModBlocks.FLUID_PUMP)
+                //.add(ModBlocks.GEM_CLEANER)
+                //.add(ModBlocks.GENERATOR)
+                //.add(ModBlocks.OVEN)
+                //.add(ModBlocks.PULVERIZER)
+                //.add(ModBlocks.SMELTER)
+                //.add(ModBlocks.TESSERACT)
+                //.add(ModBlocks.WOOD_STRIPPER)
+                .add(ModBlocks.ELEVATOR);
+
+        getOrCreateTagBuilder(GEM_BLOCKS)
+                .add(ModBlocks.RUBY)
+                .add(ModBlocks.CITRINE)
+                .add(ModBlocks.SAPPHIRE)
+                .add(ModBlocks.ENDERITE);
+
+        getOrCreateTagBuilder(IS_MACHINE)
+                //.add(ModBlocks.ALLOY_SMELTER)
+                //.add(ModBlocks.ANIMAL_FEED)
+                //.add(ModBlocks.BLOCK_BREAKER)
+                //.add(ModBlocks.BLOCK_PLACER)
+                //.add(ModBlocks.CAST_PRESS)
+                //.add(ModBlocks.FLUID_PUMP)
+                //.add(ModBlocks.GEM_CLEANER)
+                //.add(ModBlocks.GENERATOR)
+                //.add(ModBlocks.OVEN)
+                //.add(ModBlocks.PULVERIZER)
+                //.add(ModBlocks.SMELTER)
+                //.add(ModBlocks.TESSERACT)
+                //.add(ModBlocks.WOOD_STRIPPER)
+                .add(ModBlocks.ELEVATOR);
     }
 }
