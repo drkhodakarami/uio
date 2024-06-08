@@ -28,14 +28,10 @@ import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.entity.EntityType;
-import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static jiraiyah.uio.Reference.Tags.Item.*;
@@ -54,6 +50,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
     {
         logRGB256("Generating Item Tag Data", 0, 255, 0);
 
+        //region TOOLS
         getOrCreateTagBuilder(ItemTags.AXES)
                 .add(ModItems.TOOL_CITRINE_AXE)
                 .add(ModItems.TOOL_COPPER_AXE)
@@ -101,7 +98,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.TOOL_NETHERITE_HAMMER)
                 .add(ModItems.TOOL_STONE_HAMMER)
                 .add(ModItems.TOOL_WOOD_HAMMER);
+        //endregion
 
+        //region ARMOR
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.ARMOR_AMETHYST_BOOTS)
                 .add(ModItems.ARMOR_AMETHYST_LEGGINGS)
@@ -173,22 +172,41 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.ARMOR_ENDERITE_BOOTS)
                 .add(ModItems.ARMOR_RUBY_BOOTS)
                 .add(ModItems.ARMOR_SAPPHIRE_BOOTS);
+        //endregion
 
+        //region ORE
         getOrCreateTagBuilder(ItemTags.COPPER_ORES)
                 .add(ModBlocks.ORE_NETHER_COPPER.asItem());
+
         getOrCreateTagBuilder(ItemTags.REDSTONE_ORES)
                 .add(ModBlocks.ORE_NETHER_REDSTONE.asItem());
+
         getOrCreateTagBuilder(ItemTags.LAPIS_ORES)
                 .add(ModBlocks.ORE_NETHER_LAPIS.asItem());
+
         getOrCreateTagBuilder(ItemTags.IRON_ORES)
                 .add(ModBlocks.ORE_NETHER_IRON.asItem());
+
         getOrCreateTagBuilder(ItemTags.DIAMOND_ORES)
                 .add(ModBlocks.ORE_NETHER_DIAMOND.asItem());
+
         getOrCreateTagBuilder(ItemTags.COAL_ORES)
                 .add(ModBlocks.ORE_NETHER_COAL.asItem());
 
         getOrCreateTagBuilder(ItemTags.GOLD_ORES);
+
         getOrCreateTagBuilder(ItemTags.EMERALD_ORES);
+        //endregion
+
+        // TODO : Explain Woods
+        getOrCreateTagBuilder(ItemTags.LOGS)
+                .add(ModBlocks.RUBBER_WOOD_LOG.asItem());
+
+        getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.RUBBER_WOOD_LOG.asItem())
+                .add(ModBlocks.RUBBER_WOOD_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_RUBBER_WOOD_LOG.asItem())
+                .add(ModBlocks.STRIPPED_RUBBER_WOOD_WOOD.asItem());
 
         getOrCreateTagBuilder(ItemTags.STONE_CRAFTING_MATERIALS);
         getOrCreateTagBuilder(ItemTags.STONE_TOOL_MATERIALS);
@@ -199,6 +217,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.MILK_BUCKET)
                 .add(Items.BUCKET);
 
+        //region INGREDIENTS
         getOrCreateTagBuilder(CAST)
                 .add(ModItems.CAST_AXE)
                 .add(ModItems.CAST_BINDING)
@@ -242,6 +261,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.GEAR_QUARTZ)
                 .add(ModItems.GEAR_RUBY)
                 .add(ModItems.GEAR_SAPPHIRE)
+                .add(ModItems.GEAR_SHULKER)
                 .add(ModItems.GEAR_STONE)
                 .add(ModItems.GEAR_VIBRANT)
                 .add(ModItems.GEAR_WOOD);
@@ -254,6 +274,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.EMERALD);
 
         getOrCreateTagBuilder(DUST)
+                .add(ModItems.CRUSHED_SHULKER)
                 .add(ModItems.DUST_CONDUCTIVE)
                 .add(ModItems.DUST_COPPER)
                 .add(ModItems.DUST_ENDERITE)
@@ -273,6 +294,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.INGOT_ALLOY_PULSATING)
                 .add(ModItems.INGOT_ALLOY_RED)
                 .add(ModItems.INGOT_ALLOY_VIBRANT)
+                .add(ModItems.RAW_ALLOY_ENDERITE)
                 .add(ModItems.INGOT_ENDERITE);
 
         getOrCreateTagBuilder(ALLOY)
@@ -294,6 +316,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.PLATE_NETHERITE)
                 .add(ModItems.PLATE_RUBY)
                 .add(ModItems.PLATE_SAPPHIRE)
+                .add(ModItems.PLATE_SHULKER)
                 .add(ModItems.PLATE_STONE);
 
         getOrCreateTagBuilder(REINFORCED)
@@ -307,7 +330,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.REINFORCED_IRON)
                 .add(ModItems.REINFORCED_NETHERITE)
                 .add(ModItems.REINFORCED_RUBY)
-                .add(ModItems.REINFORCED_SAPPHIRE);
+                .add(ModItems.REINFORCED_SAPPHIRE)
+                .add(ModItems.REINFORCED_SHULKER);
 
         getOrCreateTagBuilder(ROD)
                 .add(ModItems.ROD_COPPER)
@@ -316,7 +340,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.ROD_GOLD)
                 .add(ModItems.ROD_IRON)
                 .add(ModItems.ROD_OBSIDIAN)
-                .add(ModItems.ROD_REDSTONE);
+                .add(ModItems.ROD_REDSTONE)
+                .add(ModItems.ROD_SHULKER);
 
         getOrCreateTagBuilder(TOOL_HEAD)
                 .add(ModItems.HEAD_CITRINE_AXE)
@@ -375,7 +400,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.HEAD_SAPPHIRE_SWORD)
                 .add(ModItems.HEAD_STONE_HAMMER)
                 .add(ModItems.HEAD_WOOD_HAMMER);
+        //endregion
 
+        //region MENDING WHITELIST
         getOrCreateTagBuilder(MENDING_ONLY)
                 .add(ModItems.TOOL_CITRINE_AXE)
                 .add(ModItems.TOOL_COPPER_AXE)
@@ -441,6 +468,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.ARMOR_SAPPHIRE_CHESTPLATE)
                 .add(ModItems.ARMOR_SAPPHIRE_LEGGINGS)
                 .add(ModItems.ARMOR_SAPPHIRE_BOOTS);
+        //endregion
 
         getOrCreateTagBuilder(SMELTERY)
                 .add(ModItems.GEM_CITRINE)

@@ -35,9 +35,13 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModItems
 {
+    //region FOOD FUEL MISC
     public static final Item BINDING_STRING = registerItem("binding_string", new Item(new Item.Settings()));
-
     public static final Item UNSTABLE_GOO = registerItem("unstable_goo_core", new Item(new Item.Settings()));
+    public static final Item BLUEPRINT_EMPTY = registerItem("blueprint_empty", new Item(new Item.Settings()));
+    public static final Item BLUEPRINT_PRINTED = registerItem("blueprint_printed", new Item(new Item.Settings()));
+    public static final Item RAW_RUBBER = registerItem("raw_rubber", new Item(new Item.Settings()));
+    public static final Item RUBBER = registerItem("rubber", new Item(new Item.Settings()));
 
     public static final Item COOKED_EGG = registerItem("cooked_egg", new Item(new Item.Settings()
                                                                                       .food(new FoodComponent.Builder()
@@ -52,6 +56,7 @@ public class ModItems
                                                                                                           .snack().build())));
 
     public static final Item HOT_COAL = registerItem("hot_coal", new Item(new Item.Settings()));
+    //endregion
 
     //region CAST
     public static final Item CAST_AXE = registerItem("cast_axe", new Item(new Item.Settings()));
@@ -88,6 +93,7 @@ public class ModItems
     //endregion
 
     //region DUST
+    public static final Item CRUSHED_SHULKER = registerItem("crushed_shulker_shell", new Item(new Item.Settings()));
     public static final Item DUST_CONDUCTIVE = registerItem("dust_conductive", new Item(new Item.Settings()));
     public static final Item DUST_COPPER = registerItem("dust_copper", new Item(new Item.Settings()));
     public static final Item DUST_ENDERITE = registerItem("dust_enderite", new Item(new Item.Settings()));
@@ -117,6 +123,7 @@ public class ModItems
     public static final Item GEAR_QUARTZ = registerItem("gear_quartz", new Item(new Item.Settings()));
     public static final Item GEAR_RUBY = registerItem("gear_ruby", new Item(new Item.Settings()));
     public static final Item GEAR_SAPPHIRE = registerItem("gear_sapphire", new Item(new Item.Settings()));
+    public static final Item GEAR_SHULKER = registerItem("gear_shulker", new Item(new Item.Settings()));
     public static final Item GEAR_STONE = registerItem("gear_stone", new Item(new Item.Settings()));
     public static final Item GEAR_VIBRANT = registerItem("gear_vibrant", new Item(new Item.Settings()));
     public static final Item GEAR_WOOD = registerItem("gear_wood", new Item(new Item.Settings()));
@@ -130,6 +137,7 @@ public class ModItems
     public static final Item INGOT_ALLOY_VIBRANT = registerItem("ingot_alloy_vibrant", new Item(new Item.Settings()));
 
     public static final Item INGOT_ENDERITE = registerItem("ingot_enderite", new Item(new Item.Settings()));
+    public static final Item RAW_ALLOY_ENDERITE = registerItem("raw_alloy_enderite", new Item(new Item.Settings()));
     //endregion
 
     //region PLATE
@@ -144,6 +152,7 @@ public class ModItems
     public static final Item PLATE_NETHERITE = registerItem("plate_netherite", new Item(new Item.Settings()));
     public static final Item PLATE_RUBY = registerItem("plate_ruby", new Item(new Item.Settings()));
     public static final Item PLATE_SAPPHIRE = registerItem("plate_sapphire", new Item(new Item.Settings()));
+    public static final Item PLATE_SHULKER = registerItem("plate_shulker", new Item(new Item.Settings()));
     public static final Item PLATE_STONE = registerItem("plate_stone", new Item(new Item.Settings()));
     //endregion
 
@@ -159,6 +168,7 @@ public class ModItems
     public static final Item REINFORCED_NETHERITE = registerItem("reinforced_netherite", new Item(new Item.Settings()));
     public static final Item REINFORCED_RUBY = registerItem("reinforced_ruby", new Item(new Item.Settings()));
     public static final Item REINFORCED_SAPPHIRE = registerItem("reinforced_sapphire", new Item(new Item.Settings()));
+    public static final Item REINFORCED_SHULKER = registerItem("reinforced_shulker", new Item(new Item.Settings()));
     //endregion
 
     //region ROD
@@ -169,6 +179,7 @@ public class ModItems
     public static final Item ROD_IRON = registerItem("rod_iron", new Item(new Item.Settings()));
     public static final Item ROD_OBSIDIAN = registerItem("rod_obsidian", new Item(new Item.Settings()));
     public static final Item ROD_REDSTONE = registerItem("rod_redstone", new Item(new Item.Settings()));
+    public static final Item ROD_SHULKER = registerItem("rod_shulker", new Item(new Item.Settings()));
     //endregion
 
     //region HEADS

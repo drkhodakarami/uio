@@ -116,6 +116,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.SAPPHIRE_TRAP_DOOR);
         //endregion
 
+        //region ORE DROP
         addDrop(ModBlocks.ORE_DEEP_CITRINE,
                 customOreDrops(ModBlocks.ORE_DEEP_CITRINE, ModItems.RAW_CITRINE, 2.0f, 3.0f));
         addDrop(ModBlocks.ORE_DEEP_RUBY,
@@ -124,8 +125,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
                 customOreDrops(ModBlocks.ORE_DEEP_SAPPHIRE, ModItems.RAW_SAPPHIRE, 2.0f, 3.0f));
         addDrop(ModBlocks.ORE_END_CITRINE,
                 customOreDrops(ModBlocks.ORE_END_CITRINE, ModItems.RAW_CITRINE));
-        addDrop(ModBlocks.ORE_END_ENDERITE_CRACKED,
-                customOreDrops(ModBlocks.ORE_END_ENDERITE_CRACKED, ModItems.RAW_ENDERITE, 1.0f, 2.0f));
         addDrop(ModBlocks.ORE_END_RUBY,
                 customOreDrops(ModBlocks.ORE_END_RUBY, ModItems.RAW_RUBY));
         addDrop(ModBlocks.ORE_END_SAPPHIRE,
@@ -155,7 +154,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.ORE_WORLD_SAPPHIRE,
                 customOreDrops(ModBlocks.ORE_WORLD_SAPPHIRE, ModItems.RAW_SAPPHIRE, 2.0f, 3.0f));
 
-        addDrop(ModBlocks.ORE_ENDERITE);
+        addDrop(ModBlocks.ORE_END_ENDERITE_CRACKED);
+        addDrop(ModBlocks.ORE_ENDERITE,
+                customOreDrops(ModBlocks.ORE_WORLD_SAPPHIRE, ModItems.RAW_SAPPHIRE, 1.0f, 2.0f));
+        //endregion
 
         // Ore End Enderite --> TNT --> Ore Enderite Cracked --> Blast Furnace --> End Enderite --> pick axe --> raw enderite
 
@@ -177,6 +179,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         //endregion
     }
 
+    //region HELPER METHODS
+
     private LootTable.Builder customOreDrops(Block drop, Item item, float min, float max)
     {
         return BlockLootTableGenerator.dropsWithSilkTouch(drop,
@@ -195,4 +199,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
     {
         return customOreDrops(drop, item, 2.0f, 5.0f);
     }
+
+    //endregion
 }

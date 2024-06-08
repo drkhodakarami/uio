@@ -46,6 +46,12 @@ public class ModItemGroups
                                                           entries.add(ModBlocks.RUBY);
                                                           entries.add(ModBlocks.SAPPHIRE);
 
+                                                          entries.add(ModBlocks.RUBBER_WOOD_LOG);
+                                                          entries.add(ModBlocks.STRIPPED_RUBBER_WOOD_LOG);
+                                                          entries.add(ModBlocks.RUBBER_WOOD_PLANKS);
+                                                          entries.add(ModBlocks.RUBBER_WOOD_LEAVES);
+                                                          entries.add(ModBlocks.RUBBER_WOOD_SAPLING);
+
                                                           entries.add(ModBlocks.BRIDGE_GOO);
                                                           entries.add(ModBlocks.CHUNK_GOO);
                                                           entries.add(ModBlocks.LAVA_EATING_GOO);
@@ -65,31 +71,37 @@ public class ModItemGroups
                                                           entries.add(ModBlocks.ENDERITE_BUTTON);
                                                           entries.add(ModBlocks.RUBY_BUTTON);
                                                           entries.add(ModBlocks.SAPPHIRE_BUTTON);
+                                                          entries.add(ModBlocks.RUBBER_WOOD_BUTTON);
 
                                                           entries.add(ModBlocks.CITRINE_PRESSURE_PLATE);
                                                           entries.add(ModBlocks.ENDERITE_PRESSURE_PLATE);
                                                           entries.add(ModBlocks.RUBY_PRESSURE_PLATE);
                                                           entries.add(ModBlocks.SAPPHIRE_PRESSURE_PLATE);
+                                                          entries.add(ModBlocks.RUBBER_WOOD_PRESSURE_PLATE);
 
                                                           entries.add(ModBlocks.CITRINE_DOOR);
                                                           entries.add(ModBlocks.ENDERITE_DOOR);
                                                           entries.add(ModBlocks.RUBY_DOOR);
                                                           entries.add(ModBlocks.SAPPHIRE_DOOR);
+                                                          entries.add(ModBlocks.RUBBER_WOOD_DOOR);
 
                                                           entries.add(ModBlocks.CITRINE_TRAP_DOOR);
                                                           entries.add(ModBlocks.ENDERITE_TRAP_DOOR);
                                                           entries.add(ModBlocks.RUBY_TRAP_DOOR);
                                                           entries.add(ModBlocks.SAPPHIRE_TRAP_DOOR);
+                                                          entries.add(ModBlocks.RUBBER_WOOD_TRAP_DOOR);
 
                                                           entries.add(ModBlocks.CITRINE_FENCE);
                                                           entries.add(ModBlocks.ENDERITE_FENCE);
                                                           entries.add(ModBlocks.RUBY_FENCE);
                                                           entries.add(ModBlocks.SAPPHIRE_FENCE);
+                                                          entries.add(ModBlocks.RUBBER_WOOD_FENCE);
 
                                                           entries.add(ModBlocks.CITRINE_FENCE_GATE);
                                                           entries.add(ModBlocks.ENDERITE_FENCE_GATE);
                                                           entries.add(ModBlocks.RUBY_FENCE_GATE);
                                                           entries.add(ModBlocks.SAPPHIRE_FENCE_GATE);
+                                                          entries.add(ModBlocks.RUBBER_WOOD_FENCE_GATE);
 
                                                           entries.add(ModBlocks.CITRINE_WALL);
                                                           entries.add(ModBlocks.ENDERITE_WALL);
@@ -100,11 +112,13 @@ public class ModItemGroups
                                                           entries.add(ModBlocks.ENDERITE_SLAB);
                                                           entries.add(ModBlocks.RUBY_SLAB);
                                                           entries.add(ModBlocks.SAPPHIRE_SLAB);
+                                                          entries.add(ModBlocks.RUBBER_WOOD_SLAB);
 
                                                           entries.add(ModBlocks.CITRINE_STAIRS);
                                                           entries.add(ModBlocks.ENDERITE_STAIRS);
                                                           entries.add(ModBlocks.RUBY_STAIRS);
                                                           entries.add(ModBlocks.SAPPHIRE_STAIRS);
+                                                          entries.add(ModBlocks.RUBBER_WOOD_STAIRS);
 
                                                           entries.add(ModBlocks.ORE_ENDERITE);
 
@@ -146,11 +160,14 @@ public class ModItemGroups
                                                           entries.add(ModItems.RAW_QUARTZ);
                                                           entries.add(ModItems.RAW_RUBY);
                                                           entries.add(ModItems.RAW_SAPPHIRE);
+                                                          entries.add(ModItems.RAW_RUBBER);
 
                                                           entries.add(ModItems.BINDING_STRING);
+                                                          entries.add(ModItems.RUBBER);
 
                                                           entries.add(ModItems.UNSTABLE_GOO);
 
+                                                          entries.add(ModItems.CRUSHED_SHULKER);
                                                           entries.add(ModItems.DUST_CONDUCTIVE);
                                                           entries.add(ModItems.DUST_COPPER);
                                                           entries.add(ModItems.DUST_ENDERITE);
@@ -178,6 +195,7 @@ public class ModItemGroups
                                                           entries.add(ModItems.GEAR_QUARTZ);
                                                           entries.add(ModItems.GEAR_RUBY);
                                                           entries.add(ModItems.GEAR_SAPPHIRE);
+                                                          entries.add(ModItems.GEAR_SHULKER);
                                                           entries.add(ModItems.GEAR_STONE);
                                                           entries.add(ModItems.GEAR_VIBRANT);
                                                           entries.add(ModItems.GEAR_WOOD);
@@ -187,6 +205,7 @@ public class ModItemGroups
                                                           entries.add(ModItems.INGOT_ALLOY_PULSATING);
                                                           entries.add(ModItems.INGOT_ALLOY_RED);
                                                           entries.add(ModItems.INGOT_ALLOY_VIBRANT);
+                                                          entries.add(ModItems.RAW_ALLOY_ENDERITE);
                                                           entries.add(ModItems.INGOT_ENDERITE);
 
                                                           entries.add(ModItems.PLATE_AMETHYST);
@@ -200,6 +219,7 @@ public class ModItemGroups
                                                           entries.add(ModItems.PLATE_NETHERITE);
                                                           entries.add(ModItems.PLATE_RUBY);
                                                           entries.add(ModItems.PLATE_SAPPHIRE);
+                                                          entries.add(ModItems.PLATE_SHULKER);
                                                           entries.add(ModItems.PLATE_STONE);
 
                                                           entries.add(ModItems.REINFORCED_AMETHYST);
@@ -213,6 +233,7 @@ public class ModItemGroups
                                                           entries.add(ModItems.REINFORCED_NETHERITE);
                                                           entries.add(ModItems.REINFORCED_RUBY);
                                                           entries.add(ModItems.REINFORCED_SAPPHIRE);
+                                                          entries.add(ModItems.REINFORCED_SHULKER);
 
                                                           entries.add(ModItems.ROD_COPPER);
                                                           entries.add(ModItems.ROD_ENDERITE);
@@ -221,6 +242,7 @@ public class ModItemGroups
                                                           entries.add(ModItems.ROD_IRON);
                                                           entries.add(ModItems.ROD_OBSIDIAN);
                                                           entries.add(ModItems.ROD_REDSTONE);
+                                                          entries.add(ModItems.ROD_SHULKER);
                                                       }).build());
 
     public static final ItemGroup MACHINES =
@@ -436,6 +458,7 @@ public class ModItemGroups
                                                           entries.add(ModItems.COOKED_EGG);
                                                           entries.add(ModItems.EGG_AND_BREAD);
                                                           entries.add(ModItems.HOT_COAL);
+                                                          entries.add(ModItems.BLUEPRINT_EMPTY);
                                                       }).build());
 
     public ModItemGroups()

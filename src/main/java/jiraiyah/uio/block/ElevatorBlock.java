@@ -31,6 +31,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -45,6 +46,7 @@ public class ElevatorBlock extends Block
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity)
     {
+        entity.sendMessage(Text.literal(String.valueOf(world.getTime())));
         teleportDown(world, pos, entity);
     }
 

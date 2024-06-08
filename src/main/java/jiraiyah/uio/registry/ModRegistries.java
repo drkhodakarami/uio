@@ -24,7 +24,9 @@
 
 package jiraiyah.uio.registry;
 
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 
 import static jiraiyah.uio.Reference.log;
 
@@ -81,11 +83,23 @@ public class ModRegistries
     private static void registerStrippables()
     {
         log("Registering Strippables");
+
+        // TODO : Explain Stripping a wood
+        StrippableBlockRegistry.register(ModBlocks.RUBBER_WOOD_LOG, ModBlocks.STRIPPED_RUBBER_WOOD_LOG);
+        StrippableBlockRegistry.register(ModBlocks.RUBBER_WOOD_WOOD, ModBlocks.STRIPPED_RUBBER_WOOD_WOOD);
     }
 
     private static void registerFlammables()
     {
         log("Registering Flammables");
+
+        // TODO : Explain Flammable and FireBlock lookup
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.RUBBER_WOOD_LOG, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.RUBBER_WOOD_WOOD, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_RUBBER_WOOD_LOG, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_RUBBER_WOOD_WOOD, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.RUBBER_WOOD_PLANKS, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.RUBBER_WOOD_LEAVES, 30, 60);
     }
 
     private static void registerAttributes()

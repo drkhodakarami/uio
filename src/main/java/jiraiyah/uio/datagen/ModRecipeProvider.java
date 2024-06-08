@@ -39,7 +39,6 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.SmokingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
@@ -1282,7 +1281,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
         offerBlasting(exporter, List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 5.0f, 1200, "ore_enderite");
 
-        //region FOOD AND FUEL
+        //region FOOD FUEL MISC
         offerFoodCookingRecipe(exporter,
                                "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
                                300, Items.EGG, ModItems.COOKED_EGG, 0.15F);
@@ -1303,6 +1302,48 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
                                .criterion(hasItem(Items.LAVA_BUCKET), conditionsFromItem(Items.LAVA_BUCKET))
                                .offerTo(exporter, new Identifier(getRecipeName(ModItems.HOT_COAL)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BLUEPRINT_EMPTY, 1)
+                                  .input(Items.PAPER)
+                                  .input(Items.LAPIS_LAZULI)
+                                  .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                                  .criterion(hasItem(Items.LAPIS_LAZULI), conditionsFromItem(Items.LAPIS_LAZULI))
+                                  .offerTo(exporter, new Identifier(getRecipeName(ModItems.BLUEPRINT_EMPTY) + "_shapeless"));
+        //endregion
+
+        //region RUBBER WOOD
+        createStairsRecipe(ModBlocks.RUBBER_WOOD_STAIRS, Ingredient.ofItems(ModBlocks.RUBBER_WOOD_PLANKS))
+                .criterion(hasItem(ModBlocks.RUBBER_WOOD_PLANKS), conditionsFromItem(ModBlocks.RUBBER_WOOD_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBBER_WOOD_STAIRS)));
+
+        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.RUBBER_WOOD_SLAB, Ingredient.ofItems(ModBlocks.RUBBER_WOOD_PLANKS))
+                .criterion(hasItem(ModBlocks.RUBBER_WOOD_PLANKS), conditionsFromItem(ModBlocks.RUBBER_WOOD_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBBER_WOOD_SLAB)));
+
+        createPressurePlateRecipe(RecipeCategory.REDSTONE, ModBlocks.RUBBER_WOOD_PRESSURE_PLATE, Ingredient.ofItems(ModBlocks.RUBBER_WOOD_PLANKS))
+                .criterion(hasItem(ModBlocks.RUBBER_WOOD_PLANKS), conditionsFromItem(ModBlocks.RUBBER_WOOD_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBBER_WOOD_PRESSURE_PLATE)));
+
+        createFenceRecipe(ModBlocks.RUBBER_WOOD_FENCE, Ingredient.ofItems(ModBlocks.RUBBER_WOOD_PLANKS))
+                .criterion(hasItem(ModBlocks.RUBBER_WOOD_PLANKS), conditionsFromItem(ModBlocks.RUBBER_WOOD_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBBER_WOOD_FENCE)));
+
+        createFenceGateRecipe(ModBlocks.RUBBER_WOOD_FENCE_GATE, Ingredient.ofItems(ModBlocks.RUBBER_WOOD_PLANKS))
+                .criterion(hasItem(ModBlocks.RUBBER_WOOD_PLANKS), conditionsFromItem(ModBlocks.RUBBER_WOOD_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBBER_WOOD_FENCE_GATE)));
+
+        createDoorRecipe(ModBlocks.RUBBER_WOOD_DOOR, Ingredient.ofItems(ModBlocks.RUBBER_WOOD_PLANKS))
+                .criterion(hasItem(ModBlocks.RUBBER_WOOD_PLANKS), conditionsFromItem(ModBlocks.RUBBER_WOOD_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBBER_WOOD_DOOR)));
+
+        createTrapdoorRecipe(ModBlocks.RUBBER_WOOD_TRAP_DOOR, Ingredient.ofItems(ModBlocks.RUBBER_WOOD_PLANKS))
+                .criterion(hasItem(ModBlocks.RUBBER_WOOD_PLANKS), conditionsFromItem(ModBlocks.RUBBER_WOOD_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBBER_WOOD_TRAP_DOOR)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, ModBlocks.RUBBER_WOOD_BUTTON, 1)
+                                  .input(ModBlocks.RUBBER_WOOD_PLANKS)
+                                  .criterion(hasItem(ModBlocks.RUBBER_WOOD_PLANKS), conditionsFromItem(ModBlocks.RUBBER_WOOD_PLANKS))
+                                  .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RUBBER_WOOD_BUTTON) + "_shapeless"));
         //endregion
     }
 }

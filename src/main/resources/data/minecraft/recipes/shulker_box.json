@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:chest"
+    },
+    "-": {
+      "item": "uio:plate_shulker"
+    }
+  },
+  "pattern": [
+    "---",
+    "-#-",
+    "---"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:shulker_box"
+  }
+}

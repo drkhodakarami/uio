@@ -169,6 +169,33 @@ public class ModModelProvider extends FabricModelProvider
 //        blockStateModelGenerator.registerCooker(ModBlocks.PULVERIZER, TexturedModel.ORIENTABLE);
 //        blockStateModelGenerator.registerCooker(ModBlocks.SMELTER, TexturedModel.ORIENTABLE);
         //endregion
+
+        //region RUBBER WOOD
+        blockStateModelGenerator.registerLog(ModBlocks.RUBBER_WOOD_LOG)
+                                .log(ModBlocks.RUBBER_WOOD_LOG)
+                                .wood(ModBlocks.RUBBER_WOOD_WOOD);
+
+        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_RUBBER_WOOD_LOG)
+                                .log(ModBlocks.STRIPPED_RUBBER_WOOD_LOG)
+                                .wood(ModBlocks.STRIPPED_RUBBER_WOOD_WOOD);
+
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.RUBBER_WOOD_SAPLING,
+                                                                 BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RUBBER_WOOD_LEAVES);
+
+        BlockStateModelGenerator.BlockTexturePool rubber_plank_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RUBBER_WOOD_PLANKS);
+
+        rubber_plank_pool.stairs(ModBlocks.RUBBER_WOOD_STAIRS);
+        rubber_plank_pool.slab(ModBlocks.RUBBER_WOOD_SLAB);
+        rubber_plank_pool.button(ModBlocks.RUBBER_WOOD_BUTTON);
+        rubber_plank_pool.pressurePlate(ModBlocks.RUBBER_WOOD_PRESSURE_PLATE);
+        rubber_plank_pool.fence(ModBlocks.RUBBER_WOOD_FENCE);
+        rubber_plank_pool.fenceGate(ModBlocks.RUBBER_WOOD_FENCE_GATE);
+
+        blockStateModelGenerator.registerDoor(ModBlocks.RUBBER_WOOD_DOOR);
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.RUBBER_WOOD_TRAP_DOOR);
+        //endregion
     }
 
     @Override
@@ -176,6 +203,7 @@ public class ModModelProvider extends FabricModelProvider
     {
         logRGB256("Generating Item Model Data", 0, 255, 0);
 
+        //region FOOD FUEL MISC
         itemModelGenerator.register(ModItems.BINDING_STRING, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.UNSTABLE_GOO, Models.GENERATED);
@@ -183,6 +211,13 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.COOKED_EGG, Models.GENERATED);
         itemModelGenerator.register(ModItems.EGG_AND_BREAD, Models.GENERATED);
         itemModelGenerator.register(ModItems.HOT_COAL, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.BLUEPRINT_EMPTY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BLUEPRINT_PRINTED, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.RAW_RUBBER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUBBER, Models.GENERATED);
+        //endregion
 
         //region CAST
         itemModelGenerator.register(ModItems.CAST_AXE, Models.GENERATED);
@@ -205,6 +240,7 @@ public class ModModelProvider extends FabricModelProvider
         //endregion
 
         //region DUST
+        itemModelGenerator.register(ModItems.CRUSHED_SHULKER, Models.GENERATED);
         itemModelGenerator.register(ModItems.DUST_CONDUCTIVE, Models.GENERATED);
         itemModelGenerator.register(ModItems.DUST_COPPER, Models.GENERATED);
         itemModelGenerator.register(ModItems.DUST_ENDERITE, Models.GENERATED);
@@ -234,6 +270,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.GEAR_QUARTZ, Models.GENERATED);
         itemModelGenerator.register(ModItems.GEAR_RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.GEAR_SAPPHIRE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GEAR_SHULKER, Models.GENERATED);
         itemModelGenerator.register(ModItems.GEAR_STONE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GEAR_VIBRANT, Models.GENERATED);
         itemModelGenerator.register(ModItems.GEAR_WOOD, Models.GENERATED);
@@ -253,6 +290,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.INGOT_ALLOY_VIBRANT, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.INGOT_ENDERITE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_ALLOY_ENDERITE, Models.GENERATED);
         //endregion
 
         //region PLATE
@@ -267,6 +305,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.PLATE_NETHERITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.PLATE_RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.PLATE_SAPPHIRE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PLATE_SHULKER, Models.GENERATED);
         itemModelGenerator.register(ModItems.PLATE_STONE, Models.GENERATED);
         //endregion
 
@@ -290,6 +329,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.REINFORCED_NETHERITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.REINFORCED_RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.REINFORCED_SAPPHIRE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.REINFORCED_SHULKER, Models.GENERATED);
         //endregion
 
         //region ROD
@@ -300,6 +340,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.ROD_IRON, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROD_OBSIDIAN, Models.GENERATED);
         itemModelGenerator.register(ModItems.ROD_REDSTONE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROD_SHULKER, Models.GENERATED);
         //endregion
 
         //region HEAD

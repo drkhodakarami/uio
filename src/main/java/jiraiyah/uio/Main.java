@@ -27,7 +27,6 @@ package jiraiyah.uio;
 import jiraiyah.uio.registry.*;
 import jiraiyah.uio.registry.world.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.loader.api.FabricLoader;
 
 import static jiraiyah.uio.Reference.logBackRGB256;
 

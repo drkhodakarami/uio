@@ -25,13 +25,11 @@
 package jiraiyah.uio.datagen;
 
 import jiraiyah.uio.registry.ModBlocks;
-import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
@@ -52,6 +50,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
     {
         logRGB256("Generating Block Tag Data", 0, 255, 0);
 
+        //region TOOL NEEDS
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.CITRINE)
                 .add(ModBlocks.ENDERITE)
@@ -95,7 +94,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 //.add(ModBlocks.WOOD_STRIPPER)
                 //.add(ModBlocks.ANIMAL_FEED)
                 .add(ModBlocks.ELEVATOR);
+        //endregion
 
+        //region TIER DEFINITION
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 //.add(ModBlocks.ANIMAL_FEED)
                 .add(ModBlocks.ELEVATOR);
@@ -143,9 +144,19 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_ENDERITE);
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_4"))); // Netherite
+        //endregion
 
-        getOrCreateTagBuilder(BlockTags.LOGS);
-        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN);
+        //region WOOD
+        // TODO : Explain Woods
+        getOrCreateTagBuilder(BlockTags.LOGS)
+                .add(ModBlocks.RUBBER_WOOD_LOG);
+
+        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+                .add(ModBlocks.RUBBER_WOOD_LOG)
+                .add(ModBlocks.RUBBER_WOOD_WOOD)
+                .add(ModBlocks.STRIPPED_RUBBER_WOOD_LOG)
+                .add(ModBlocks.STRIPPED_RUBBER_WOOD_WOOD);
+        //endregion
 
         //region ORE
         getOrCreateTagBuilder(BlockTags.COPPER_ORES)
