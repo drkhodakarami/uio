@@ -198,25 +198,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(ItemTags.EMERALD_ORES);
         //endregion
 
-        // TODO : Explain Woods
-        getOrCreateTagBuilder(ItemTags.LOGS)
-                .add(ModBlocks.RUBBER_WOOD_LOG.asItem());
-
-        getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
-                .add(ModBlocks.RUBBER_WOOD_LOG.asItem())
-                .add(ModBlocks.RUBBER_WOOD_WOOD.asItem())
-                .add(ModBlocks.STRIPPED_RUBBER_WOOD_LOG.asItem())
-                .add(ModBlocks.STRIPPED_RUBBER_WOOD_WOOD.asItem());
-
-        getOrCreateTagBuilder(ItemTags.STONE_CRAFTING_MATERIALS);
-        getOrCreateTagBuilder(ItemTags.STONE_TOOL_MATERIALS);
-
-        getOrCreateTagBuilder(FLUID_BUCKET)
-                .add(Items.LAVA_BUCKET)
-                .add(Items.WATER_BUCKET)
-                .add(Items.MILK_BUCKET)
-                .add(Items.BUCKET);
-
         //region INGREDIENTS
         getOrCreateTagBuilder(CAST)
                 .add(ModItems.CAST_AXE)
@@ -470,6 +451,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.ARMOR_SAPPHIRE_BOOTS);
         //endregion
 
+        //region SMELTERY
         getOrCreateTagBuilder(SMELTERY)
                 .add(ModItems.GEM_CITRINE)
                 .add(ModItems.GEM_RUBY)
@@ -496,5 +478,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.RAW_COPPER)
                 .add(Items.RAW_IRON)
                 .add(Items.RAW_GOLD);
+        //endregion
+
+        getOrCreateTagBuilder(ItemTags.STONE_CRAFTING_MATERIALS);
+        getOrCreateTagBuilder(ItemTags.STONE_TOOL_MATERIALS);
+
+        getOrCreateTagBuilder(FLUID_BUCKET)
+                .add(Items.LAVA_BUCKET)
+                .add(Items.WATER_BUCKET)
+                .add(Items.MILK_BUCKET)
+                .add(Items.BUCKET);
     }
 }

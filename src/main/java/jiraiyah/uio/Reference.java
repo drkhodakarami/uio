@@ -24,11 +24,7 @@
 
 package jiraiyah.uio;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.text.MutableText;
@@ -109,7 +105,19 @@ public class Reference
     @NotNull
     public static Identifier identifier(@NotNull String path)
     {
-        return new Identifier(ModID, path);
+        return Identifier.of(ModID, path);
+    }
+
+    @NotNull
+    public static Identifier vanillaID(@NotNull String path)
+    {
+        return Identifier.ofVanilla(path);
+    }
+
+    @NotNull
+    public static Identifier idOf(@NotNull String path)
+    {
+        return Identifier.of(path);
     }
 
     public static MutableText translate(String key, Object... params)
@@ -117,7 +125,6 @@ public class Reference
         return Text.translatable(ModID + "." + key, params);
     }
 
-    //region TAGS
     public static class Tags
     {
         public static class Block
@@ -135,7 +142,7 @@ public class Reference
 
             private static TagKey<net.minecraft.block.Block> createCommonTag(String name)
             {
-                return TagKey.of(RegistryKeys.BLOCK, new Identifier("c", name));
+                return TagKey.of(RegistryKeys.BLOCK, Identifier.tryParse("c", name));
             }
             //endregion
         }
@@ -168,7 +175,7 @@ public class Reference
 
             private static TagKey<net.minecraft.item.Item> createCommonTag(String name)
             {
-                return TagKey.of(RegistryKeys.ITEM, new Identifier("c", name));
+                return TagKey.of(RegistryKeys.ITEM, Identifier.tryParse("c", name));
             }
             //endregion
         }
@@ -177,7 +184,7 @@ public class Reference
         {
 
             public static final TagKey<EntityType<?>> TUNER_BLACKLIST = createTag("tuner_blacklist");
-            public static final TagKey<EntityType<?>> RUBY_SWORD_IGNITES = createTag("ruby_sword_ignites");
+            public static final TagKey<EntityType<?>> RUBY_SWORD_WHITELIST = createTag("ruby_sword_whitelist");
 
             //region HELPER METHODS
             private static TagKey<EntityType<?>> createTag(String name)
@@ -187,10 +194,9 @@ public class Reference
 
             private static TagKey<EntityType<?>> createCommonTag(String name)
             {
-                return TagKey.of(RegistryKeys.ENTITY_TYPE, new Identifier("c", name));
+                return TagKey.of(RegistryKeys.ENTITY_TYPE, Identifier.tryParse("c", name));
             }
             //endregion
         }
     }
-    //endregion
 }

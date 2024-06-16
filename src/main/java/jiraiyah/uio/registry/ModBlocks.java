@@ -210,78 +210,8 @@ public class ModBlocks
     //endregion
 
     //region MACHINES
-    //public static final Block ALLOY_SMELTER = registerBlock("alloy_smelter", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block CAST_PRESS = registerBlock("cast_press", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block GEM_CLEANER = registerBlock("gem_cleaner", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block GENERATOR = registerBlock("generator", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block OVEN = registerBlock("oven", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block PULVERIZER = registerBlock("pulverizer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block SMELTER = registerBlock("smelter", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block FLUID_PUMP = registerBlock("fluid_pump", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block BLOCK_BREAKER = registerBlock("block_breaker", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block BLOCK_PLACER = registerBlock("block_placer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block WOOD_STRIPPER = registerBlock("wood_stripper", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block ANIMAL_FEED = registerBlock("animal_feed", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block TESSERACT = registerBlock("tesseract", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
-    // Enderchanter
-    // Project Table
     public static final Block ELEVATOR = registerBlock("elevator", new ElevatorBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
     //endregion
-
-    // TODO : Explain pillar block, leaves block, and sappling block here
-    public static final Block RUBBER_WOOD_LOG = registerBlock("rubber_wood_log",
-                                                              new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_LOG).strength(4f)));
-    public static final Block RUBBER_WOOD_WOOD = registerBlock("rubber_wood_wood",
-                                                               new PillarBlock(AbstractBlock.Settings.copy(Blocks.OAK_WOOD).strength(4f)));
-    public static final Block STRIPPED_RUBBER_WOOD_LOG = registerBlock("stripped_rubber_wood_log",
-                                                                       new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG).strength(4f)));
-    public static final Block STRIPPED_RUBBER_WOOD_WOOD = registerBlock("stripped_rubber_wood_wood",
-                                                                        new PillarBlock(AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_WOOD).strength(4f)));
-    public static final Block RUBBER_WOOD_PLANKS = registerBlock("rubber_wood_planks",
-                                                                 new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).strength(4f)));
-    public static final Block RUBBER_WOOD_LEAVES = registerBlock("rubber_wood_leaves",
-                                                                 new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).strength(1f)));
-    // TODO : Add world gen for sapling later (generator --> null)
-    public static final Block RUBBER_WOOD_SAPLING = registerBlock("stripped_rubber_sapling",
-                                                                  new SaplingBlock(null, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
-
-    public static final Block RUBBER_WOOD_STAIRS =
-            registerBlock("rubber_wood_stairs",
-                          new StairsBlock(ModBlocks.RUBBER_WOOD_PLANKS.getDefaultState(),
-                                          AbstractBlock.Settings.copy(Blocks.OAK_STAIRS)));
-
-    public static final Block RUBBER_WOOD_SLAB =
-            registerBlock("rubber_wood_slab",
-                          new SlabBlock(AbstractBlock.Settings.copy(Blocks.OAK_SLAB)));
-
-    public static final Block RUBBER_WOOD_BUTTON =
-            registerBlock("rubber_wood_button",
-                          new ButtonBlock(BlockSetType.OAK, 30,
-                                          AbstractBlock.Settings.copy(Blocks.OAK_BUTTON)));
-
-    public static final Block RUBBER_WOOD_PRESSURE_PLATE =
-            registerBlock("rubber_wood_pressure_plate",
-                          new PressurePlateBlock(BlockSetType.OAK,
-                                                 AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE)));
-
-    public static final Block RUBBER_WOOD_FENCE =
-            registerBlock("rubber_wood_fence",
-                          new FenceBlock(AbstractBlock.Settings.copy(Blocks.OAK_FENCE)));
-
-    public static final Block RUBBER_WOOD_FENCE_GATE =
-            registerBlock("rubber_wood_fence_gate",
-                          new FenceGateBlock(WoodType.OAK,
-                                             AbstractBlock.Settings.copy(Blocks.OAK_FENCE_GATE)));
-
-    public static final Block RUBBER_WOOD_DOOR =
-            registerBlock("rubber_wood_door",
-                          new DoorBlock(BlockSetType.OAK,
-                                        AbstractBlock.Settings.copy(Blocks.OAK_DOOR)));
-
-    public static final Block RUBBER_WOOD_TRAP_DOOR =
-            registerBlock("rubber_wood_trap_door",
-                          new TrapdoorBlock(BlockSetType.OAK,
-                                            AbstractBlock.Settings.copy(Blocks.OAK_TRAPDOOR)));
 
     public ModBlocks()
     {

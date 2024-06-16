@@ -24,7 +24,6 @@
 
 package jiraiyah.uio.item;
 
-import net.minecraft.client.item.TooltipType;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.LivingEntity;
@@ -32,11 +31,15 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtHelper;
+import net.minecraft.network.packet.s2c.play.PositionFlag;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -125,7 +128,8 @@ public class TunerItem extends Item
                 var userDimension = user.getWorld().getRegistryKey().getValue().toString();
                 if (dimension.equalsIgnoreCase(userDimension))
                 {
-                    entity.teleport(pos.getX(), pos.getY(), pos.getZ());
+                    entity.teleport((ServerWorld) entity.getWorld(), entity.getX(), pos.getY() + 1, entity.getZ(),
+                                    PositionFlag.VALUES, entity.getYaw(), entity.getPitch());
                     entity.refreshPositionAfterTeleport(pos.getX(), pos.getY() + 1, pos.getZ());
                     return ActionResult.SUCCESS;
                 }

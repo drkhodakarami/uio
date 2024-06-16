@@ -81,24 +81,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_WORLD_CITRINE)
                 .add(ModBlocks.ORE_WORLD_RUBY)
                 .add(ModBlocks.ORE_WORLD_SAPPHIRE)
-                //.add(ModBlocks.ALLOY_SMELTER)
-                //.add(ModBlocks.CAST_PRESS)
-                //.add(ModBlocks.GEM_CLEANER)
-                //.add(ModBlocks.GENERATOR)
-                //.add(ModBlocks.OVEN)
-                //.add(ModBlocks.PULVERIZER)
-                //.add(ModBlocks.SMELTER)
-                //.add(ModBlocks.FLUID_PUMP)
-                //.add(ModBlocks.BLOCK_BREAKER)
-                //.add(ModBlocks.BLOCK_PLACER)
-                //.add(ModBlocks.WOOD_STRIPPER)
-                //.add(ModBlocks.ANIMAL_FEED)
                 .add(ModBlocks.ELEVATOR);
         //endregion
 
         //region TIER DEFINITION
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
-                //.add(ModBlocks.ANIMAL_FEED)
                 .add(ModBlocks.ELEVATOR);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
@@ -126,36 +113,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_WORLD_CITRINE)
                 .add(ModBlocks.ORE_WORLD_RUBY)
                 .add(ModBlocks.ORE_WORLD_SAPPHIRE);
-        //.add(ModBlocks.ALLOY_SMELTER)
-        //.add(ModBlocks.CAST_PRESS)
-        //.add(ModBlocks.GEM_CLEANER)
-        //.add(ModBlocks.GENERATOR)
-        //.add(ModBlocks.OVEN)
-        //.add(ModBlocks.PULVERIZER)
-        //.add(ModBlocks.SMELTER)
-        //.add(ModBlocks.FLUID_PUMP)
-        //.add(ModBlocks.BLOCK_BREAKER)
-        //.add(ModBlocks.BLOCK_PLACER)
-        //.add(ModBlocks.WOOD_STRIPPER)
-        //.add(ModBlocks.TESSERACT);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.ORE_END_ENDERITE_CRACKED)
                 .add(ModBlocks.ORE_ENDERITE);
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_4"))); // Netherite
-        //endregion
-
-        //region WOOD
-        // TODO : Explain Woods
-        getOrCreateTagBuilder(BlockTags.LOGS)
-                .add(ModBlocks.RUBBER_WOOD_LOG);
-
-        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
-                .add(ModBlocks.RUBBER_WOOD_LOG)
-                .add(ModBlocks.RUBBER_WOOD_WOOD)
-                .add(ModBlocks.STRIPPED_RUBBER_WOOD_LOG)
-                .add(ModBlocks.STRIPPED_RUBBER_WOOD_WOOD);
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, Identifier.of("fabric", "needs_tool_level_4"))); // Netherite
         //endregion
 
         //region ORE
@@ -201,19 +164,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
         //endregion
 
         getOrCreateTagBuilder(HAMMER_BLACKLIST)
-                //.add(ModBlocks.ALLOY_SMELTER)
-                //.add(ModBlocks.ANIMAL_FEED)
-                //.add(ModBlocks.BLOCK_BREAKER)
-                //.add(ModBlocks.BLOCK_PLACER)
-                //.add(ModBlocks.CAST_PRESS)
-                //.add(ModBlocks.FLUID_PUMP)
-                //.add(ModBlocks.GEM_CLEANER)
-                //.add(ModBlocks.GENERATOR)
-                //.add(ModBlocks.OVEN)
-                //.add(ModBlocks.PULVERIZER)
-                //.add(ModBlocks.SMELTER)
-                //.add(ModBlocks.TESSERACT)
-                //.add(ModBlocks.WOOD_STRIPPER)
                 .add(ModBlocks.ELEVATOR);
 
         getOrCreateTagBuilder(GEM_BLOCKS)
@@ -223,19 +173,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ENDERITE);
 
         getOrCreateTagBuilder(IS_MACHINE)
-                //.add(ModBlocks.ALLOY_SMELTER)
-                //.add(ModBlocks.ANIMAL_FEED)
-                //.add(ModBlocks.BLOCK_BREAKER)
-                //.add(ModBlocks.BLOCK_PLACER)
-                //.add(ModBlocks.CAST_PRESS)
-                //.add(ModBlocks.FLUID_PUMP)
-                //.add(ModBlocks.GEM_CLEANER)
-                //.add(ModBlocks.GENERATOR)
-                //.add(ModBlocks.OVEN)
-                //.add(ModBlocks.PULVERIZER)
-                //.add(ModBlocks.SMELTER)
-                //.add(ModBlocks.TESSERACT)
-                //.add(ModBlocks.WOOD_STRIPPER)
                 .add(ModBlocks.ELEVATOR);
     }
 }

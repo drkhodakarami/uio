@@ -31,7 +31,7 @@ import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
 
-import static jiraiyah.uio.Reference.Tags.Entity.RUBY_SWORD_IGNITES;
+import static jiraiyah.uio.Reference.Tags.Entity.RUBY_SWORD_WHITELIST;
 import static jiraiyah.uio.Reference.Tags.Entity.TUNER_BLACKLIST;
 import static jiraiyah.uio.Reference.logRGB256;
 
@@ -50,7 +50,7 @@ public class ModEntityTagProvider extends FabricTagProvider.EntityTypeTagProvide
         getOrCreateTagBuilder(TUNER_BLACKLIST)
                 .add(EntityType.ENDER_DRAGON);
 
-        getOrCreateTagBuilder(RUBY_SWORD_IGNITES)
+        getOrCreateTagBuilder(RUBY_SWORD_WHITELIST)
                 .add(EntityType.CAMEL)
                 .add(EntityType.CHICKEN)
                 .add(EntityType.DONKEY)

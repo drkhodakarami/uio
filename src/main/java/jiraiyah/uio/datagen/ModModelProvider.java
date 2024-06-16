@@ -143,58 +143,7 @@ public class ModModelProvider extends FabricModelProvider
         //endregion
 
         //region MACHINES
-        //blockStateModelGenerator.registerSingleton(ModBlocks.ALLOY_SMELTER, TexturedModel.ORIENTABLE);
-        //blockStateModelGenerator.registerSingleton(ModBlocks.CAST_PRESS, TexturedModel.ORIENTABLE);
-        //blockStateModelGenerator.registerSingleton(ModBlocks.GEM_CLEANER, TexturedModel.ORIENTABLE);
-        //blockStateModelGenerator.registerSingleton(ModBlocks.GENERATOR, TexturedModel.ORIENTABLE);
-        //blockStateModelGenerator.registerSingleton(ModBlocks.OVEN, TexturedModel.ORIENTABLE);
-        //blockStateModelGenerator.registerSingleton(ModBlocks.PULVERIZER, TexturedModel.ORIENTABLE);
-        //blockStateModelGenerator.registerSingleton(ModBlocks.SMELTER, TexturedModel.ORIENTABLE);
-        //blockStateModelGenerator.registerSingleton(ModBlocks.FLUID_PUMP, TexturedModel.ORIENTABLE);
-        //blockStateModelGenerator.registerSingleton(ModBlocks.BLOCK_BREAKER, TexturedModel.ORIENTABLE);
-        //blockStateModelGenerator.registerSingleton(ModBlocks.BLOCK_PLACER, TexturedModel.ORIENTABLE);
-
-        //blockStateModelGenerator.registerSingleton(ModBlocks.WOOD_STRIPPER, TexturedModel.CUBE_COLUMN);
-        //blockStateModelGenerator.registerSingleton(ModBlocks.ANIMAL_FEED, TexturedModel.CUBE_BOTTOM_TOP);
-
-        //blockStateModelGenerator.registerSimpleState(ModBlocks.TESSERACT);
-
         blockStateModelGenerator.registerSingleton(ModBlocks.ELEVATOR, TexturedModel.CUBE_BOTTOM_TOP);
-
-//        blockStateModelGenerator.registerCooker(ModBlocks.ALLOY_SMELTER, TexturedModel.ORIENTABLE);
-//        blockStateModelGenerator.registerCooker(ModBlocks.CAST_PRESS, TexturedModel.ORIENTABLE);
-//        blockStateModelGenerator.registerCooker(ModBlocks.GEM_CLEANER, TexturedModel.ORIENTABLE);
-//        blockStateModelGenerator.registerCooker(ModBlocks.GENERATOR, TexturedModel.ORIENTABLE);
-//        blockStateModelGenerator.registerCooker(ModBlocks.OVEN, TexturedModel.ORIENTABLE);
-//        blockStateModelGenerator.registerCooker(ModBlocks.PULVERIZER, TexturedModel.ORIENTABLE);
-//        blockStateModelGenerator.registerCooker(ModBlocks.SMELTER, TexturedModel.ORIENTABLE);
-        //endregion
-
-        //region RUBBER WOOD
-        blockStateModelGenerator.registerLog(ModBlocks.RUBBER_WOOD_LOG)
-                                .log(ModBlocks.RUBBER_WOOD_LOG)
-                                .wood(ModBlocks.RUBBER_WOOD_WOOD);
-
-        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_RUBBER_WOOD_LOG)
-                                .log(ModBlocks.STRIPPED_RUBBER_WOOD_LOG)
-                                .wood(ModBlocks.STRIPPED_RUBBER_WOOD_WOOD);
-
-        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.RUBBER_WOOD_SAPLING,
-                                                                 BlockStateModelGenerator.TintType.NOT_TINTED);
-
-        blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RUBBER_WOOD_LEAVES);
-
-        BlockStateModelGenerator.BlockTexturePool rubber_plank_pool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RUBBER_WOOD_PLANKS);
-
-        rubber_plank_pool.stairs(ModBlocks.RUBBER_WOOD_STAIRS);
-        rubber_plank_pool.slab(ModBlocks.RUBBER_WOOD_SLAB);
-        rubber_plank_pool.button(ModBlocks.RUBBER_WOOD_BUTTON);
-        rubber_plank_pool.pressurePlate(ModBlocks.RUBBER_WOOD_PRESSURE_PLATE);
-        rubber_plank_pool.fence(ModBlocks.RUBBER_WOOD_FENCE);
-        rubber_plank_pool.fenceGate(ModBlocks.RUBBER_WOOD_FENCE_GATE);
-
-        blockStateModelGenerator.registerDoor(ModBlocks.RUBBER_WOOD_DOOR);
-        blockStateModelGenerator.registerTrapdoor(ModBlocks.RUBBER_WOOD_TRAP_DOOR);
         //endregion
     }
 

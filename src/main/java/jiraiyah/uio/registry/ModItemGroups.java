@@ -46,12 +46,6 @@ public class ModItemGroups
                                                           entries.add(ModBlocks.RUBY);
                                                           entries.add(ModBlocks.SAPPHIRE);
 
-                                                          entries.add(ModBlocks.RUBBER_WOOD_LOG);
-                                                          entries.add(ModBlocks.STRIPPED_RUBBER_WOOD_LOG);
-                                                          entries.add(ModBlocks.RUBBER_WOOD_PLANKS);
-                                                          entries.add(ModBlocks.RUBBER_WOOD_LEAVES);
-                                                          entries.add(ModBlocks.RUBBER_WOOD_SAPLING);
-
                                                           entries.add(ModBlocks.BRIDGE_GOO);
                                                           entries.add(ModBlocks.CHUNK_GOO);
                                                           entries.add(ModBlocks.LAVA_EATING_GOO);
@@ -71,37 +65,31 @@ public class ModItemGroups
                                                           entries.add(ModBlocks.ENDERITE_BUTTON);
                                                           entries.add(ModBlocks.RUBY_BUTTON);
                                                           entries.add(ModBlocks.SAPPHIRE_BUTTON);
-                                                          entries.add(ModBlocks.RUBBER_WOOD_BUTTON);
 
                                                           entries.add(ModBlocks.CITRINE_PRESSURE_PLATE);
                                                           entries.add(ModBlocks.ENDERITE_PRESSURE_PLATE);
                                                           entries.add(ModBlocks.RUBY_PRESSURE_PLATE);
                                                           entries.add(ModBlocks.SAPPHIRE_PRESSURE_PLATE);
-                                                          entries.add(ModBlocks.RUBBER_WOOD_PRESSURE_PLATE);
 
                                                           entries.add(ModBlocks.CITRINE_DOOR);
                                                           entries.add(ModBlocks.ENDERITE_DOOR);
                                                           entries.add(ModBlocks.RUBY_DOOR);
                                                           entries.add(ModBlocks.SAPPHIRE_DOOR);
-                                                          entries.add(ModBlocks.RUBBER_WOOD_DOOR);
 
                                                           entries.add(ModBlocks.CITRINE_TRAP_DOOR);
                                                           entries.add(ModBlocks.ENDERITE_TRAP_DOOR);
                                                           entries.add(ModBlocks.RUBY_TRAP_DOOR);
                                                           entries.add(ModBlocks.SAPPHIRE_TRAP_DOOR);
-                                                          entries.add(ModBlocks.RUBBER_WOOD_TRAP_DOOR);
 
                                                           entries.add(ModBlocks.CITRINE_FENCE);
                                                           entries.add(ModBlocks.ENDERITE_FENCE);
                                                           entries.add(ModBlocks.RUBY_FENCE);
                                                           entries.add(ModBlocks.SAPPHIRE_FENCE);
-                                                          entries.add(ModBlocks.RUBBER_WOOD_FENCE);
 
                                                           entries.add(ModBlocks.CITRINE_FENCE_GATE);
                                                           entries.add(ModBlocks.ENDERITE_FENCE_GATE);
                                                           entries.add(ModBlocks.RUBY_FENCE_GATE);
                                                           entries.add(ModBlocks.SAPPHIRE_FENCE_GATE);
-                                                          entries.add(ModBlocks.RUBBER_WOOD_FENCE_GATE);
 
                                                           entries.add(ModBlocks.CITRINE_WALL);
                                                           entries.add(ModBlocks.ENDERITE_WALL);
@@ -112,13 +100,11 @@ public class ModItemGroups
                                                           entries.add(ModBlocks.ENDERITE_SLAB);
                                                           entries.add(ModBlocks.RUBY_SLAB);
                                                           entries.add(ModBlocks.SAPPHIRE_SLAB);
-                                                          entries.add(ModBlocks.RUBBER_WOOD_SLAB);
 
                                                           entries.add(ModBlocks.CITRINE_STAIRS);
                                                           entries.add(ModBlocks.ENDERITE_STAIRS);
                                                           entries.add(ModBlocks.RUBY_STAIRS);
                                                           entries.add(ModBlocks.SAPPHIRE_STAIRS);
-                                                          entries.add(ModBlocks.RUBBER_WOOD_STAIRS);
 
                                                           entries.add(ModBlocks.ORE_ENDERITE);
 
@@ -252,19 +238,6 @@ public class ModItemGroups
                                              .icon(() -> new ItemStack(ModBlocks.ELEVATOR))
                                              .entries((displayContext, entries) ->
                                                       {
-                                                          //entries.add(ModBlocks.ALLOY_SMELTER);
-                                                          //entries.add(ModBlocks.CAST_PRESS);
-                                                          //entries.add(ModBlocks.GEM_CLEANER);
-                                                          //entries.add(ModBlocks.GENERATOR);
-                                                          //entries.add(ModBlocks.OVEN);
-                                                          //entries.add(ModBlocks.PULVERIZER);
-                                                          //entries.add(ModBlocks.SMELTER);
-                                                          //entries.add(ModBlocks.FLUID_PUMP);
-                                                          //entries.add(ModBlocks.BLOCK_BREAKER);
-                                                          //entries.add(ModBlocks.BLOCK_PLACER);
-                                                          //entries.add(ModBlocks.WOOD_STRIPPER);
-                                                          //entries.add(ModBlocks.ANIMAL_FEED);
-                                                          //entries.add(ModBlocks.TESSERACT);
                                                           entries.add(ModBlocks.ELEVATOR);
 
                                                           entries.add(ModItems.CAST_AXE);

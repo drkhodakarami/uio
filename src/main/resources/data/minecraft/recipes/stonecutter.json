@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:stone"
+    },
+    "I": {
+      "item": "minecraft:diamond"
+    },
+    "R": {
+      "item": "uio:rod_iron"
+    },
+    "P": {
+      "item": "uio:plate_iron"
+    }
+  },
+  "pattern": [
+    " I ",
+    "R#R",
+    "P#P"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:stonecutter"
+  }
+}

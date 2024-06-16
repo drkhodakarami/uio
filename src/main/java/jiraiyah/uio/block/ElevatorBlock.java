@@ -28,6 +28,8 @@ package jiraiyah.uio.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.network.packet.s2c.play.PositionFlag;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -82,7 +84,8 @@ public class ElevatorBlock extends Block
             if (found == null)
                 return;
 
-            entity.teleport(entity.getX(), lookingPos.getY() + 1, entity.getZ());
+            entity.teleport(((ServerWorld) entity.getWorld()), entity.getX(), lookingPos.getY() + 1, entity.getZ(),
+                            PositionFlag.VALUES, entity.getYaw(), entity.getPitch());
             world.playSound(null, entity.getSteppingPos(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS,
                             0.5f, world.random.nextFloat() * 0.6f + 0.9f);
         }
@@ -113,7 +116,8 @@ public class ElevatorBlock extends Block
         if (found == null)
             return;
 
-        entity.teleport(entity.getX(), lookingPos.getY() + 1, entity.getZ());
+        entity.teleport(((ServerWorld) entity.getWorld()), entity.getX(), lookingPos.getY() + 1, entity.getZ(),
+                        PositionFlag.VALUES, entity.getYaw(), entity.getPitch());
         world.playSound(null, entity.getSteppingPos(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS,
                         0.5f, world.random.nextFloat() * 0.6f + 0.9f);
     }

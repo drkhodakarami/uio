@@ -30,6 +30,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.server.loottable.BlockLootTableGenerator;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
@@ -40,6 +41,7 @@ import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -162,37 +164,24 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         // Ore End Enderite --> TNT --> Ore Enderite Cracked --> Blast Furnace --> End Enderite --> pick axe --> raw enderite
 
         //region MACHINES
-        //addDrop(ModBlocks.ALLOY_SMELTER);
-        //addDrop(ModBlocks.CAST_PRESS);
-        //addDrop(ModBlocks.GEM_CLEANER);
-        //addDrop(ModBlocks.GENERATOR);
-        //addDrop(ModBlocks.OVEN);
-        //addDrop(ModBlocks.PULVERIZER);
-        //addDrop(ModBlocks.SMELTER);
-        //addDrop(ModBlocks.FLUID_PUMP);
-        //addDrop(ModBlocks.BLOCK_BREAKER);
-        //addDrop(ModBlocks.BLOCK_PLACER);
-        //addDrop(ModBlocks.WOOD_STRIPPER);
-        //addDrop(ModBlocks.ANIMAL_FEED);
-        //addDrop(ModBlocks.TESSERACT);
         addDrop(ModBlocks.ELEVATOR);
         //endregion
     }
-
     //region HELPER METHODS
 
     private LootTable.Builder customOreDrops(Block drop, Item item, float min, float max)
     {
-        return BlockLootTableGenerator.dropsWithSilkTouch(drop,
-                                                          (LootPoolEntry.Builder)
-                                                                  this.applyExplosionDecay(drop,
-                                                                                           ((LeafEntry.Builder)
-                                                                                                   ItemEntry.builder(item)
-                                                                                                            .apply(SetCountLootFunction
-                                                                                                                           .builder(UniformLootNumberProvider
-                                                                                                                                            .create(min, max))))
-                                                                                                   .apply(ApplyBonusLootFunction
-                                                                                                                  .oreDrops(Enchantments.FORTUNE))));
+        RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        return dropsWithSilkTouch(drop,
+                                  (LootPoolEntry.Builder)
+                                          this.applyExplosionDecay(drop,
+                                                                   ((LeafEntry.Builder)
+                                                                           ItemEntry.builder(item)
+                                                                                    .apply(SetCountLootFunction
+                                                                                                   .builder(UniformLootNumberProvider
+                                                                                                                    .create(min, max))))
+                                                                           .apply(ApplyBonusLootFunction
+                                                                                          .oreDrops(impl.getOrThrow(Enchantments.FORTUNE)))));
     }
 
     private LootTable.Builder customOreDrops(Block drop, Item item)
