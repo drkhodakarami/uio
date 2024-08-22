@@ -207,11 +207,22 @@ public class ModBlocks
     public static final Block TOWERING_GOO = registerBlock("towering_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
     public static final Block TUNNELING_GOO = registerBlock("tunneling_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
     public static final Block BRIDGE_GOO = registerBlock("bridge_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+
+    public static final Block AIR_BOMB_GOO = registerBlock("air_goo_bomb", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+    public static final Block CHUNK_BOMB_GOO = registerBlock("chunk_goo_bomb", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+    public static final Block LAVA_PUMP_GOO = registerBlock("lava_pump_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+    public static final Block STONE_BOMB_GOO = registerBlock("stone_goo_bomb", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+    public static final Block WATER_PUMP_GOO = registerBlock("water_pump_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+
     //endregion
 
     //region MACHINES
     public static final Block ELEVATOR = registerBlock("elevator", new ElevatorBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+    public static final Block REDSTONE_CLOCK = registerBlock("redstone_clock", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+    public static final Block CREATIVE_ENERGY = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     //endregion
+
+    public static final Block ANGEL = registerBlock("block_angel", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).strength(0.8f, 5000.0f)));
 
     public ModBlocks()
     {

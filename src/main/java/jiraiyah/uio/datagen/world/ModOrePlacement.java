@@ -40,7 +40,7 @@ public class ModOrePlacement
         return List.of(countModifier, SquarePlacementModifier.of(), heightModifier, BiomePlacementModifier.of());
     }
 
-    public static List<PlacementModifier> modifiers(int count, PlacementModifier heightModifier)
+    public static List<PlacementModifier> modifiersWithCount(int count, PlacementModifier heightModifier)
     {
         return modifiers(CountPlacementModifier.of(count), heightModifier);
     }

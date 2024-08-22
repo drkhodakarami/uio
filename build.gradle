@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -54,9 +54,8 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // REI Compatibility Dependency
-    // TODO : Track for Upgrade to 1.21
-    //modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
-    //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 
     // Cloth Config Compatibility Dependency
     modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}") {
@@ -64,26 +63,26 @@ dependencies {
     }
 
     // Architectury Compatibility Dependency
-    //modApi "dev.architectury:architectury-fabric:${project.architectury_version}"
+    modApi "dev.architectury:architectury-fabric:${project.architectury_version}"
 
     // Energy API Handling Dependency
     include modApi("teamreborn:energy:${project.energy_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
     // Tech Reborn Mod for Testing
-    modImplementation("curse.maven:reborncore-237903:${project.reborn_curse_version}")
-    modImplementation("curse.maven:techreborn-233564:${project.tech_reborn_version}")
+    //modImplementation("curse.maven:reborncore-237903:${project.reborn_curse_version}")
+    //modImplementation("curse.maven:techreborn-233564:${project.tech_reborn_version}")
 
     // Needed for LibGUI
     // TODO : Track for Upgrade to 1.21
-    //modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
+    modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
 
     // Needed for Sign and Boat
     modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_version}"
     include "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_version}"
 
     // TerraBlender Needed for Custom Biomes
-    modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.minecraft_version}-${project.terrablender_version}"
+    modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_version}"
 
     // Kyrptonaught is Needed for custom portals
     // TODO : Track for Upgrade to 1.21
@@ -128,14 +127,15 @@ java {
 
 jar {
     from("LICENSE") {
-        rename { "${it}_${project.base.archivesName.get()}" }
+        rename { "${it}_${project.base.archivesName.get()}"}
     }
 }
 
 // configure the maven publication
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        create("mavenJava", MavenPublication) {
+            artifactId = project.archives_base_name
             from components.java
         }
     }

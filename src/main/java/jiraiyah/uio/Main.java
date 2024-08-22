@@ -27,6 +27,7 @@ package jiraiyah.uio;
 import jiraiyah.uio.registry.*;
 import jiraiyah.uio.registry.world.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.loader.api.FabricLoader;
 
 import static jiraiyah.uio.Reference.logBackRGB256;
 
@@ -36,12 +37,14 @@ import static jiraiyah.uio.Reference.logBackRGB256;
 
 public class Main implements ModInitializer
 {
-    public static final boolean DEBUG = true;
+    public static boolean DEBUG;
 
     @Override
     public void onInitialize()
     {
-        logBackRGB256("Initializing", 255, 255, 0, 255, 0, 127);
+        DEBUG = FabricLoader.getInstance().isDevelopmentEnvironment();
+
+        Reference.LOGGER.info("\u001b[38;2;" + 255 + ";" + 255 + ";" + 0 + ";48;2;" + 255 + ";" + 0 + ";" + 127 + "m>>> " + "Initializing" + " " + Reference.ANSI_RESET);
 
         ModItems.register();
         ModBlocks.register();

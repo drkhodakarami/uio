@@ -74,16 +74,16 @@ public class ModPlacedFeatures
 
         //region OVERWORLD
         register(context, ORE_CITRINE_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_CITRINE_KEY),
-                 ModOrePlacement.modifiersWithRarity(10, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.fixed(-80), YOffset.fixed(55))));
+                 ModOrePlacement.modifiersWithCount(5, // Veins per chunk
+                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(64))));
 
         register(context, ORE_RUBY_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_RUBY_KEY),
-                 ModOrePlacement.modifiersWithRarity(10, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.fixed(-80), YOffset.fixed(55))));
+                 ModOrePlacement.modifiersWithCount(5, // Veins per chunk
+                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(64))));
 
         register(context, ORE_SAPPHIRE_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_SAPPHIRE_KEY),
-                 ModOrePlacement.modifiersWithRarity(10, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.fixed(-80), YOffset.fixed(55))));
+                 ModOrePlacement.modifiersWithCount(5, // Veins per chunk
+                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(64))));
         //endregion
 
         //region NETHER

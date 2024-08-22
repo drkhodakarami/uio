@@ -138,13 +138,25 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHUNK_GOO);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LAVA_EATING_GOO);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LAVA_GENERATING_GOO);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LAVA_PUMP_GOO);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WATER_EATING_GOO);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WATER_GENERATING_GOO);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WATER_PUMP_GOO);
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.AIR_BOMB_GOO);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHUNK_BOMB_GOO);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STONE_BOMB_GOO);
         //endregion
 
         //region MACHINES
         blockStateModelGenerator.registerSingleton(ModBlocks.ELEVATOR, TexturedModel.CUBE_BOTTOM_TOP);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.REDSTONE_CLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CREATIVE_ENERGY);
         //endregion
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANGEL);
+
+
     }
 
     @Override

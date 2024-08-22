@@ -319,16 +319,23 @@
   "block.uio.animal_feed": "Animal Food",
   "block.uio.tesseract": "Tesseract",
   "block.uio.elevator": "Elevator",
+  "block.uio.block_angel": "Angle Block",
+  "block.uio.redstone_clock": "Redstone Clock",
+  "block.uio.creative_energy": "Creative Energy Source",
   "block.uio.bridge_goo": "Bridge Goo",
   "block.uio.tunneling_goo": "Tunneling Goo",
   "block.uio.towering_goo": "Towering Goo",
   "block.uio.chunk_goo": "Chunk Goo",
   "block.uio.lava_eating_goo": "Lava Eating Goo",
   "block.uio.lava_generating_goo": "Lava Generating Goo",
+  "block.uio.lava_pump_goo": "Lava Pumping Goo",
   "block.uio.water_eating_goo": "Water Eating Goo",
   "block.uio.water_generating_goo": "Water Generating Goo",
+  "block.uio.water_pump_goo": "Water Pumping Goo",
 
   "uio.tuner.tooltip": "Bound to position : (%d %d %d) - %d",
   "uio.tuner.teleported": "Teleported to : (%d %d %d) - %d",
-  "uio.tuner.error": "Wrong dimension, your tuner bound to %d"
+  "uio.tuner.error": "Wrong dimension, your tuner bound to %d",
+  "uio.dclr.error": "Wrong Type, it should be one of the choices: ore, block, fluid, all",
+  "uio.dclr.start": "Starting to Clean"
 }

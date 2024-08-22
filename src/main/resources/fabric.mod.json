@@ -8,7 +8,7 @@
     "Jiraiyah"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
+    "homepage": "https://modrinth.com/mod/uio",
     "sources": "https://github.com/drkhodakarami/uio/",
     "issues": "https://github.com/drkhodakarami/uio/issues/"
   },
@@ -27,14 +27,17 @@
     ],
     "jade": [
       "jiraiyah.uio.compat.jade.ModJadePlugin"
+    ],
+    "rei_client": [
+      "jiraiyah.uio.compat.rei.ModREIClientPlugin"
     ]
   },
   "mixins": [
     "uio.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.11",
-    "minecraft": "~1.21",
+    "fabricloader": ">=0.16.2",
+    "minecraft": "~1.21.1",
     "java": ">=21",
     "fabric-api": "*"
   },

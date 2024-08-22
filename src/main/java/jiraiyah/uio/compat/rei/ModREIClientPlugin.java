@@ -24,7 +24,6 @@
 
 package jiraiyah.uio.compat.rei;
 
-/*
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
@@ -49,4 +48,4 @@ public class ModREIClientPlugin implements REIClientPlugin
     {
         REIClientPlugin.super.registerScreens(registry);
     }
-}*/
+}

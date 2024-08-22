@@ -46,15 +46,6 @@ public class ModItemGroups
                                                           entries.add(ModBlocks.RUBY);
                                                           entries.add(ModBlocks.SAPPHIRE);
 
-                                                          entries.add(ModBlocks.BRIDGE_GOO);
-                                                          entries.add(ModBlocks.CHUNK_GOO);
-                                                          entries.add(ModBlocks.LAVA_EATING_GOO);
-                                                          entries.add(ModBlocks.LAVA_GENERATING_GOO);
-                                                          entries.add(ModBlocks.TOWERING_GOO);
-                                                          entries.add(ModBlocks.TUNNELING_GOO);
-                                                          entries.add(ModBlocks.WATER_EATING_GOO);
-                                                          entries.add(ModBlocks.WATER_GENERATING_GOO);
-
                                                           entries.add(ModBlocks.RAW_CITRINE);
                                                           entries.add(ModBlocks.RAW_ENDERITE);
                                                           entries.add(ModBlocks.RAW_QUARTZ);
@@ -238,7 +229,21 @@ public class ModItemGroups
                                              .icon(() -> new ItemStack(ModBlocks.ELEVATOR))
                                              .entries((displayContext, entries) ->
                                                       {
+                                                          entries.add(ModBlocks.ANGEL);
                                                           entries.add(ModBlocks.ELEVATOR);
+                                                          entries.add(ModBlocks.REDSTONE_CLOCK);
+                                                          entries.add(ModBlocks.CREATIVE_ENERGY);
+
+                                                          entries.add(ModBlocks.BRIDGE_GOO);
+                                                          entries.add(ModBlocks.CHUNK_GOO);
+                                                          entries.add(ModBlocks.LAVA_EATING_GOO);
+                                                          entries.add(ModBlocks.LAVA_GENERATING_GOO);
+                                                          entries.add(ModBlocks.LAVA_PUMP_GOO);
+                                                          entries.add(ModBlocks.TOWERING_GOO);
+                                                          entries.add(ModBlocks.TUNNELING_GOO);
+                                                          entries.add(ModBlocks.WATER_EATING_GOO);
+                                                          entries.add(ModBlocks.WATER_GENERATING_GOO);
+                                                          entries.add(ModBlocks.WATER_PUMP_GOO);
 
                                                           entries.add(ModItems.CAST_AXE);
                                                           entries.add(ModItems.CAST_BINDING);

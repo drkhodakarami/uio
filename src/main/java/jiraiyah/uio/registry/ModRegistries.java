@@ -36,7 +36,6 @@ public class ModRegistries
     {
         registerFuels();
         registerModCompostables();
-        registerCommands();
         registerEvents();
         registerPotionRecipes();
         registerCustomTrades();
@@ -58,12 +57,6 @@ public class ModRegistries
     private static void registerModCompostables()
     {
         log("Registering Compostables");
-    }
-
-    // TODO : Remove This (Duplicate)
-    private static void registerCommands()
-    {
-        log("Registering Commands");
     }
 
     private static void registerEvents()

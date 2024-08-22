@@ -165,6 +165,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
 
         //region MACHINES
         addDrop(ModBlocks.ELEVATOR);
+        addDrop(ModBlocks.REDSTONE_CLOCK);
+        addDrop(ModBlocks.CREATIVE_ENERGY);
+
+        addDrop(ModBlocks.LAVA_PUMP_GOO);
+        addDrop(ModBlocks.WATER_PUMP_GOO);
+
+        //addDrop(ModBlocks.ANGEL);
         //endregion
     }
     //region HELPER METHODS

@@ -81,12 +81,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_WORLD_CITRINE)
                 .add(ModBlocks.ORE_WORLD_RUBY)
                 .add(ModBlocks.ORE_WORLD_SAPPHIRE)
-                .add(ModBlocks.ELEVATOR);
+                .add(ModBlocks.CREATIVE_ENERGY);
         //endregion
 
         //region TIER DEFINITION
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
-                .add(ModBlocks.ELEVATOR);
+                .add(ModBlocks.CREATIVE_ENERGY);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.CITRINE)
