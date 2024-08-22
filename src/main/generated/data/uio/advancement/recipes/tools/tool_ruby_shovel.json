@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_binding_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:binding_string"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_head_ruby_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:head_ruby_shovel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:tool_ruby_shovel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_binding_string",
+      "has_head_ruby_shovel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:tool_ruby_shovel"
+    ]
+  }
+}

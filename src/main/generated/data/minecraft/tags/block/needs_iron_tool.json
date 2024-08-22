@@ -1,0 +1,28 @@
+{
+  "values": [
+    "uio:block_citrine",
+    "uio:block_enderite",
+    "uio:block_ruby",
+    "uio:block_sapphire",
+    "uio:block_raw_citrine",
+    "uio:block_raw_enderite",
+    "uio:block_raw_quartz",
+    "uio:block_raw_ruby",
+    "uio:block_raw_sapphire",
+    "uio:ore_deep_citrine",
+    "uio:ore_deep_ruby",
+    "uio:ore_deep_sapphire",
+    "uio:ore_end_citrine",
+    "uio:ore_end_ruby",
+    "uio:ore_end_sapphire",
+    "uio:ore_nether_citrine",
+    "uio:ore_nether_diamond",
+    "uio:ore_nether_lapis",
+    "uio:ore_nether_redstone",
+    "uio:ore_nether_ruby",
+    "uio:ore_nether_sapphire",
+    "uio:ore_world_citrine",
+    "uio:ore_world_ruby",
+    "uio:ore_world_sapphire"
+  ]
+}
