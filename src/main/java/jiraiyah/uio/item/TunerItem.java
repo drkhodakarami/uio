@@ -43,6 +43,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -120,38 +121,44 @@ public class TunerItem extends Item
         if (!user.isSneaking())
         {
             NbtCompound nbt = data.copyNbt();
-            BlockPos pos = NbtHelper.toBlockPos(nbt, "uio.tuner.pos").get();
-
-            if (!user.getWorld().isClient())
-            {
-                var dimension = nbt.getString("uio.tuner.dimension");
-                var userDimension = user.getWorld().getRegistryKey().getValue().toString();
-                if (dimension.equalsIgnoreCase(userDimension))
-                {
-                    entity.teleport((ServerWorld) entity.getWorld(), entity.getX(), pos.getY() + 1, entity.getZ(),
-                                    PositionFlag.VALUES, entity.getYaw(), entity.getPitch());
-                    entity.refreshPositionAfterTeleport(pos.getX(), pos.getY() + 1, pos.getZ());
-                    return ActionResult.SUCCESS;
-                }
-                return ActionResult.FAIL;
-            }
-
-            var dimension = nbt.getString("uio.tuner.dimension");
-            var userDimension = user.getWorld().getRegistryKey().getValue().toString();
-            var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
-            if (dimension.equalsIgnoreCase(userDimension))
-            {
-                user.sendMessage(translate("tuner.teleported", pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
-                return ActionResult.SUCCESS;
-            }
-            else
-            {
-                user.sendMessage(translate("tuner.error", dimensionName), false);
-                return ActionResult.FAIL;
-            }
+            return useOnEntityResult(user, entity, nbt);
         }
 
         return super.useOnEntity(stack, user, entity, hand);
+    }
+
+    @NotNull
+    public ActionResult useOnEntityResult(PlayerEntity user, LivingEntity entity, NbtCompound nbt)
+    {
+        BlockPos pos = NbtHelper.toBlockPos(nbt, "uio.tuner.pos").get();
+
+        if (!user.getWorld().isClient())
+        {
+            var dimension = nbt.getString("uio.tuner.dimension");
+            var userDimension = user.getWorld().getRegistryKey().getValue().toString();
+            if (dimension.equalsIgnoreCase(userDimension))
+            {
+                entity.teleport((ServerWorld) entity.getWorld(), entity.getX(), pos.getY() + 1, entity.getZ(),
+                                PositionFlag.VALUES, entity.getYaw(), entity.getPitch());
+                entity.refreshPositionAfterTeleport(pos.getX(), pos.getY() + 1, pos.getZ());
+                return ActionResult.SUCCESS;
+            }
+            return ActionResult.FAIL;
+        }
+
+        var dimension = nbt.getString("uio.tuner.dimension");
+        var userDimension = user.getWorld().getRegistryKey().getValue().toString();
+        var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
+        if (dimension.equalsIgnoreCase(userDimension))
+        {
+            user.sendMessage(translate("tuner.teleported", pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
+            return ActionResult.SUCCESS;
+        }
+        else
+        {
+            user.sendMessage(translate("tuner.error", dimensionName), false);
+            return ActionResult.FAIL;
+        }
     }
 
     @Override

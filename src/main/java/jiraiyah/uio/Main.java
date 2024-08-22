@@ -24,6 +24,7 @@
 
 package jiraiyah.uio;
 
+import jiraiyah.uio.event.ModEvents;
 import jiraiyah.uio.registry.*;
 import jiraiyah.uio.registry.world.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
@@ -45,6 +46,8 @@ public class Main implements ModInitializer
         DEBUG = FabricLoader.getInstance().isDevelopmentEnvironment();
 
         Reference.LOGGER.info("\u001b[38;2;" + 255 + ";" + 255 + ";" + 0 + ";48;2;" + 255 + ";" + 0 + ";" + 127 + "m>>> " + "Initializing" + " " + Reference.ANSI_RESET);
+
+        ModEvents.addListeners();
 
         ModItems.register();
         ModBlocks.register();
