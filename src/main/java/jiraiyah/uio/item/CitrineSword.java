@@ -42,6 +42,7 @@ public class CitrineSword extends SwordItem
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker)
     {
         target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 3), attacker);
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 200, 3), attacker);
         return super.postHit(stack, target, attacker);
     }
 }

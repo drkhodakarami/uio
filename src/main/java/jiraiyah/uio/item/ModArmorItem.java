@@ -51,27 +51,36 @@ public class ModArmorItem extends ArmorItem
         addValue(ModArmorMaterials.EMERALD, StatusEffects.HERO_OF_THE_VILLAGE);
         addValue(ModArmorMaterials.EMERALD, StatusEffects.BAD_OMEN);
         addValue(ModArmorMaterials.EMERALD, StatusEffects.REGENERATION);
+        addValue(ModArmorMaterials.EMERALD, StatusEffects.LUCK);
+        addValue(ModArmorMaterials.EMERALD, StatusEffects.SATURATION);
 
         addValue(ModArmorMaterials.AMETHYST, StatusEffects.HASTE);
         addValue(ModArmorMaterials.AMETHYST, StatusEffects.NIGHT_VISION);
-        //TODO : Add Ignore Effect
+        addValue(ModArmorMaterials.AMETHYST, StatusEffects.SATURATION);
+        addValue(ModArmorMaterials.AMETHYST, StatusEffects.REGENERATION);
 
         addValue(ModArmorMaterials.CITRINE, StatusEffects.SATURATION);
         addValue(ModArmorMaterials.CITRINE, StatusEffects.HEALTH_BOOST);
+        addValue(ModArmorMaterials.CITRINE, StatusEffects.LUCK);
         //TODO : Add Ignore Effect
 
         addValue(ModArmorMaterials.RUBY, StatusEffects.FIRE_RESISTANCE);
         addValue(ModArmorMaterials.RUBY, StatusEffects.RESISTANCE);
-        //TODO : Add Ignore Effect
+        addValue(ModArmorMaterials.RUBY, StatusEffects.SATURATION);
+        addValue(ModArmorMaterials.RUBY, StatusEffects.LUCK);
 
         addValue(ModArmorMaterials.SAPPHIRE, StatusEffects.CONDUIT_POWER);
         addValue(ModArmorMaterials.SAPPHIRE, StatusEffects.DOLPHINS_GRACE);
-        addValue(ModArmorMaterials.SAPPHIRE, StatusEffects.INVISIBILITY);
+        addValue(ModArmorMaterials.SAPPHIRE, StatusEffects.SATURATION);
+        //TODO : Add Ignore Effect
 
         addValue(ModArmorMaterials.COPPER, StatusEffects.SPEED);
         addValue(ModArmorMaterials.COPPER, StatusEffects.JUMP_BOOST);
         addValue(ModArmorMaterials.COPPER, StatusEffects.SLOW_FALLING);
+        addValue(ModArmorMaterials.COPPER, StatusEffects.STRENGTH);
 
+        addValue(ModArmorMaterials.ENDERITE, StatusEffects.SATURATION);
+        addValue(ModArmorMaterials.ENDERITE, StatusEffects.REGENERATION);
         addValue(ModArmorMaterials.ENDERITE, StatusEffects.LUCK);
         addValue(ModArmorMaterials.ENDERITE, StatusEffects.NIGHT_VISION);
         //TODO : Add Ignore Effect

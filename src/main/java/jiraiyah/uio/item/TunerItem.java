@@ -52,7 +52,6 @@ import static jiraiyah.uio.Reference.Tags.Entity.TUNER_BLACKLIST;
 import static jiraiyah.uio.Reference.translate;
 
 // TODO : Use Custom DataComponentType
-// TODO : Use Events for Villager Teleportation
 public class TunerItem extends Item
 {
     public TunerItem(Settings settings)

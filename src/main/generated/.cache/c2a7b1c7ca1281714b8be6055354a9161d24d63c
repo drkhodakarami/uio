@@ -1,4 +1,4 @@
-// 1.21.1	2024-08-22T07:29:35.1702197	Ultra IO/Tags for minecraft:item
+// 1.21.1	2024-08-24T13:07:38.4740946	Ultra IO/Tags for minecraft:item
 94cbd3f9f0a6a48c5f25fe92b7e146a4bcfa1c83 data\minecraft\tags\item\hoes.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\gold_ores.json
 29aa432ed43f4c27aefde287bc6e468dac49b5e8 data\c\tags\item\plates.json
@@ -29,8 +29,8 @@ bd9ba0308bacdaa5dedb2484ed727f64c8467d1e data\c\tags\item\tool_heads.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\emerald_ores.json
 4882b18229104a5a9742419372dfbd1f7b2e332c data\c\tags\item\reinforced_plates.json
 6c4f09ba10912ea869b56cc56d6432c3d385e9b7 data\c\tags\item\alloys.json
-35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\stone_tool_materials.json
 b925cc4845015fba31cf408b010bfe680d900ce4 data\uio\tags\item\smeltery.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\stone_tool_materials.json
 511765bc6e1541882f796604f5cf696488eaa135 data\minecraft\tags\item\diamond_ores.json
 86e826c275f830d33bf3ac1b3653d56b673b92b2 data\minecraft\tags\item\coal_ores.json
 93bee778a7ab82e925600016d3541817ac52a533 data\c\tags\item\dusts.json

@@ -1,10 +1,10 @@
-// 1.21.1	2024-08-22T07:29:35.1612235	Ultra IO/Model Definitions
+// 1.21.1	2024-08-24T13:07:38.456039	Ultra IO/Model Definitions
 fd5c7e48c02e90cab088f3f6e29e9879c6811003 assets\uio\models\item\armor_amethyst_helmet_lapis_trim.json
 60225874bfb9d8b031fd9fe028268928605889e3 assets\uio\models\item\ore_deep_citrine.json
 da1c851413f27b579f2dd3febf6e447ec366cea1 assets\uio\models\block\block_citrine_fence_gate_wall.json
 3ecea7f7532db1861a58b05cd571abd0bee2201b assets\uio\models\item\armor_copper_leggings_amethyst_trim.json
-a56415b8bfb776533a6c466be536a28d7ad8e634 assets\uio\blockstates\ore_nether_lapis.json
 6738fb93be6478ef03f82c68bb525504ee73721d assets\uio\blockstates\block_raw_sapphire.json
+a56415b8bfb776533a6c466be536a28d7ad8e634 assets\uio\blockstates\ore_nether_lapis.json
 84b49454ea93fff631161bdcac394584fecd31f2 assets\uio\models\item\head_enderite_sword.json
 88a6fdcdde73100b0d9df2966380b43b3c98c67a assets\uio\blockstates\ore_world_sapphire.json
 6b6e7587aafb14fa5a4be26c9a2df0e07d127b69 assets\uio\models\item\armor_copper_helmet_quartz_trim.json
@@ -104,8 +104,8 @@ c87f5ca4013fa7c13a1ee7616d27d22cb456bac5 assets\uio\models\item\head_copper_hoe.
 7dcee449ebfd19323b5e9a659961c71e0f74460f assets\uio\models\item\armor_citrine_helmet_gold_trim.json
 3c491220c9d3cb2d2a061343265f26278dd5df6d assets\uio\models\item\armor_ruby_chestplate_netherite_trim.json
 4644e204f1d8ac84a9aa4588ddf5cf84c60ee4e0 assets\uio\blockstates\chunk_goo_bomb.json
-b0446fb7f078528ee7cc78e3d472b6ee9ed274be assets\uio\models\item\armor_copper_helmet.json
 e98bc631351c6b9835bf0d8c28aafbfbcce3e19d assets\uio\models\item\plate_emerald.json
+b0446fb7f078528ee7cc78e3d472b6ee9ed274be assets\uio\models\item\armor_copper_helmet.json
 7a33c3a34e4170b0e172048dfa8c77ef9ec903fa assets\uio\models\item\reinforced_gold.json
 919346c60492357fc4d241610e4b6a2d3c0a21ed assets\uio\models\item\armor_copper_chestplate_netherite_trim.json
 89ec0a99c1e8dc0d87ec8ee2fa9958fd11a55e23 assets\uio\models\item\reinforced_netherite.json
@@ -759,8 +759,8 @@ e850ae4ae67f8705a0601957d4dedfe2bd4e2ed7 assets\uio\blockstates\ore_nether_ruby.
 935eba9e4f844e3cf12000eff6721ec7cbb27340 assets\uio\models\block\block_sapphire.json
 c0d08e29dae049102d43eae8f16ac6a95620c013 assets\uio\models\item\head_diamond_hammer.json
 90ca07f6dee0124284452f6709f0332b18fefceb assets\uio\models\item\plate_sapphire.json
-262c7c33e877c9a3277ef752627054ed8f23d0d4 assets\uio\models\item\block_enderite_stairs.json
 ee8874dfe3e2fb25d0f8d57d34adc007ec94608f assets\uio\models\block\block_enderite_wall_side.json
+262c7c33e877c9a3277ef752627054ed8f23d0d4 assets\uio\models\item\block_enderite_stairs.json
 e2b404047dba28edb7acb393b53f5d9ea1bfbf04 assets\uio\models\item\ore_world_sapphire.json
 765ddf65f1636b561ff5b7934be38cb8a8d82381 assets\uio\models\item\armor_enderite_leggings_redstone_trim.json
 5d10ee9203cf6ad0ae65df7aab56d07d75d2a2e9 assets\uio\models\item\block_enderite_slab.json

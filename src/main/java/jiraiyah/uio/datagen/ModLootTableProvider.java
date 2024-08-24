@@ -29,7 +29,6 @@ import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
-import net.minecraft.data.server.loottable.BlockLootTableGenerator;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.Item;
@@ -158,7 +157,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
 
         addDrop(ModBlocks.ORE_END_ENDERITE_CRACKED);
         addDrop(ModBlocks.ORE_ENDERITE,
-                customOreDrops(ModBlocks.ORE_WORLD_SAPPHIRE, ModItems.RAW_SAPPHIRE, 1.0f, 2.0f));
+                customOreDrops(ModBlocks.ORE_ENDERITE, ModItems.RAW_ENDERITE, 1.0f, 2.0f));
         //endregion
 
         // Ore End Enderite --> TNT --> Ore Enderite Cracked --> Blast Furnace --> End Enderite --> pick axe --> raw enderite
@@ -170,8 +169,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
 
         addDrop(ModBlocks.LAVA_PUMP_GOO);
         addDrop(ModBlocks.WATER_PUMP_GOO);
-
-        //addDrop(ModBlocks.ANGEL);
         //endregion
     }
     //region HELPER METHODS

@@ -1,4 +1,4 @@
-// 1.21.1	2024-08-22T07:29:35.1702197	Ultra IO/Block Loot Tables
+// 1.21.1	2024-08-24T13:07:38.4760923	Ultra IO/Block Loot Tables
 8af318446e992873c41c94db7716a2ed960c4052 data\uio\loot_table\blocks\block_sapphire_trap_door.json
 ae76ee5154d97b952390bf99acd3da9b2cc31bae data\uio\loot_table\blocks\block_enderite_trap_door.json
 1b7cea6e712c6327c724163187df2103627f089d data\uio\loot_table\blocks\block_ruby_slab.json
@@ -27,7 +27,7 @@ cbeb08a30aff6a85671fa4e6a92e27e1d5303271 data\uio\loot_table\blocks\block_enderi
 3fbbcd1b86c02af8020d1fc923047baf5e74a83d data\uio\loot_table\blocks\block_sapphire_pressure_plate.json
 3e74ff1073859dd458e2e582b1eb7ae1eb647982 data\uio\loot_table\blocks\block_citrine_fence.json
 d02359a6c14f7096846a2d200531805a5f4b01c0 data\uio\loot_table\blocks\block_sapphire_fence_gate.json
-af03dbda505edee9836bb4a6875f41f031153145 data\uio\loot_table\blocks\ore_enderite.json
+42ed998c60fb47558b37eae44c376e142b28d1af data\uio\loot_table\blocks\ore_enderite.json
 5b8255c835c76d46ac1907e31bf10af6ac69ba81 data\uio\loot_table\blocks\ore_end_citrine.json
 913971fa4ff5b15e2b57484d955b60e808cffa79 data\uio\loot_table\blocks\block_ruby_wall.json
 702b630ec3ce2f5564a7a96a3d7c9b087e74224e data\uio\loot_table\blocks\block_enderite_door.json
