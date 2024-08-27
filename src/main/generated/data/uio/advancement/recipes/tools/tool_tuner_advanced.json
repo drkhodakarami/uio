@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ender_charm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:ender_charm"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_hot_coal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:hot_coal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:tool_tuner_advanced"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tool_tuner": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:tool_tuner"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tool_tuner",
+      "has_ender_charm",
+      "has_hot_coal"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:tool_tuner_advanced"
+    ]
+  }
+}

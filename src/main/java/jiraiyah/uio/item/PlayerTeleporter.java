@@ -24,18 +24,31 @@
 
 package jiraiyah.uio.item;
 
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtHelper;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+
+import static jiraiyah.uio.Reference.identifier;
+import static jiraiyah.uio.Reference.translate;
 
 public class PlayerTeleporter extends Item
 {
@@ -47,23 +60,56 @@ public class PlayerTeleporter extends Item
     @Override
     public ActionResult useOnBlock(ItemUsageContext context)
     {
-        if (context.getWorld().isClient)
+        @Nullable var data = context.getStack().get(DataComponentTypes.CUSTOM_DATA);
+
+        if (data != null)
+            return super.useOnBlock(context);
+
+        BlockPos pos = context.getBlockPos();
+        PlayerEntity player = context.getPlayer();
+
+        if (player != null)
         {
-            context.getPlayer().sendMessage(Text.literal("Use On Block from Client"));
+            if (!player.isSneaking())
+            {
+                if (!context.getWorld().isClient())
+                {
+                    NbtCompound nbt = new NbtCompound();
+                    nbt.put("uio.teleporter.pos", NbtHelper.fromBlockPos(pos));
+                    nbt.putString("uio.teleporter.dimension", player.getWorld().getRegistryKey().getValue().toString());
+                    NbtComponent component = NbtComponent.of(nbt);
+                    context.getStack().set(DataComponentTypes.CUSTOM_DATA, component);
+                }
+                else
+                {
+                    var dimension = player.getWorld().getRegistryKey().getValue().toString();
+                    dimension = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
+                    outputCoordinatesToChat(pos, dimension, player);
+                }
+            }
         }
-        else
-        {
-            context.getPlayer().sendMessage(Text.literal("Use On Block from Server"));
-        }
-        return super.useOnBlock(context);
+
+        return ActionResult.SUCCESS;
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
     {
-        if (world.isClient)
+        @Nullable var data = user.getStackInHand(hand).get(DataComponentTypes.CUSTOM_DATA);
+
+        if(user.isSneaking() && data != null)
+            user.getStackInHand(hand).set(DataComponentTypes.CUSTOM_DATA, null);
+
+        if(!user.isSneaking() && data != null)
         {
-            user.sendMessage(Text.literal("Use from Client"));
+            if (!world.isClient)
+            {
+                ItemStack stack = user.getStackInHand(hand);
+                NbtCompound nbt = data.copyNbt();
+                BlockPos pos = NbtHelper.toBlockPos(nbt, "uio.teleporter.pos").get();
+                var dimension = nbt.getString("uio.teleporter.dimension");
+                //TODO : Finish the code !
+            }
         }
         else
         {
@@ -75,12 +121,27 @@ public class PlayerTeleporter extends Item
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
     {
-        super.appendTooltip(stack, context, tooltip, type);
+        @Nullable var data = stack.get(DataComponentTypes.CUSTOM_DATA);
+        if (data != null)
+        {
+            NbtCompound nbt = data.copyNbt();
+            BlockPos pos = NbtHelper.toBlockPos(nbt, "uio.teleporter.pos").get();
+
+            var dimension = nbt.getString("uio.teleporter.dimension");
+            var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
+            tooltip.add(translate("teleporter.tooltip", pos.getX(), pos.getY(), pos.getZ(), dimensionName));
+        }
     }
 
     @Override
     public boolean hasGlint(ItemStack stack)
     {
-        return super.hasGlint(stack);
+        @Nullable var data = stack.get(DataComponentTypes.CUSTOM_DATA);
+        return data != null;
+    }
+
+    private void outputCoordinatesToChat(BlockPos pos, String dimension, PlayerEntity player)
+    {
+        player.sendMessage(translate("tuner.tooltip", pos.getX(), pos.getY(), pos.getZ(), dimension), false);
     }
 }

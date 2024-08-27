@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "uio:enderman_gland"
+    },
+    "I": {
+      "item": "uio:enderman_flesh"
+    },
+    "P": {
+      "item": "uio:enderman_eye"
+    }
+  },
+  "pattern": [
+    "PIP",
+    "IEI",
+    "PIP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:ender_charm"
+  }
+}

@@ -135,6 +135,18 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.ROD_IRON), conditionsFromItem(ModItems.ROD_IRON))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_TUNER)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_ADVANCED_TUNER, 1)
+                               .pattern("PIP")
+                               .pattern("IEI")
+                               .pattern("PIP")
+                               .input('I', ModItems.ENDER_CHARM)
+                               .input('E', ModItems.TOOL_TUNER)
+                               .input('P', ModItems.HOT_COAL)
+                               .criterion(hasItem(ModItems.TOOL_TUNER), conditionsFromItem(ModItems.TOOL_TUNER))
+                               .criterion(hasItem(ModItems.ENDER_CHARM), conditionsFromItem(ModItems.ENDER_CHARM))
+                               .criterion(hasItem(ModItems.HOT_COAL), conditionsFromItem(ModItems.HOT_COAL))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_ADVANCED_TUNER)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_WRENCH, 1)
                                .pattern("O O")
                                .pattern(" O ")
@@ -1102,8 +1114,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
         //endregion
 
         //region GOO
-        offerBlasting(exporter, List.of(Blocks.TNT), RecipeCategory.MISC, ModItems.UNSTABLE_GOO, 5.0f, 1200, "ore_enderite");
-
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.BRIDGE_GOO, 1)
                                .pattern("DED")
                                .pattern("EWE")
@@ -1281,8 +1291,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
         //endregion
 
-        offerBlasting(exporter, List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 5.0f, 1200, "ore_enderite");
-
         //region FOOD FUEL MISC
         offerFoodCookingRecipe(exporter,
                                "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
@@ -1305,12 +1313,52 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(Items.LAVA_BUCKET), conditionsFromItem(Items.LAVA_BUCKET))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.HOT_COAL)));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, ModItems.BLUEPRINT_EMPTY, 1)
-                                  .input(Items.PAPER)
-                                  .input(Items.LAPIS_LAZULI)
-                                  .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
-                                  .criterion(hasItem(Items.LAPIS_LAZULI), conditionsFromItem(Items.LAPIS_LAZULI))
-                                  .offerTo(exporter, vanillaID(getRecipeName(ModItems.BLUEPRINT_EMPTY) + "_shapeless"));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BLUEPRINT_EMPTY, 1)
+                               .pattern("RRR")
+                               .pattern("LLL")
+                               .pattern("PPP")
+                               .input('P', Items.PAPER)
+                               .input('L', Items.LAPIS_LAZULI)
+                               .input('R', Items.REDSTONE)
+                               .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                               .criterion(hasItem(Items.LAPIS_LAZULI), conditionsFromItem(Items.LAPIS_LAZULI))
+                               .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.BLUEPRINT_EMPTY)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.ENDER_CHARM, 1)
+                               .pattern("PIP")
+                               .pattern("IEI")
+                               .pattern("PIP")
+                               .input('I', ModItems.ENDERMAN_FLESH)
+                               .input('E', ModItems.ENDERMAN_GLAND)
+                               .input('P', ModItems.ENDERMAN_EYE)
+                               .criterion(hasItem(ModItems.ENDERMAN_FLESH), conditionsFromItem(ModItems.ENDERMAN_FLESH))
+                               .criterion(hasItem(ModItems.ENDERMAN_GLAND), conditionsFromItem(ModItems.ENDERMAN_GLAND))
+                               .criterion(hasItem(ModItems.ENDERMAN_EYE), conditionsFromItem(ModItems.ENDERMAN_EYE))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.ENDER_CHARM)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.VOID_PLATE_BASE, 1)
+                               .pattern("EEE")
+                               .pattern("EIE")
+                               .pattern("EEE")
+                               .input('I', ModItems.REINFORCED_EMERALD)
+                               .input('E', ModItems.INGOT_ENDERITE)
+                               .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
+                               .criterion(hasItem(ModItems.INGOT_ENDERITE), conditionsFromItem(ModItems.INGOT_ENDERITE))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.VOID_PLATE_BASE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.VOID_PLATE, 1)
+                                  .input(ModItems.VOID_PLATE_ACTIVATOR)
+                                  .input(ModItems.VOID_PLATE_BASE)
+                                  .criterion(hasItem(ModItems.VOID_PLATE_ACTIVATOR), conditionsFromItem(ModItems.VOID_PLATE_ACTIVATOR))
+                                  .criterion(hasItem(ModItems.VOID_PLATE_BASE), conditionsFromItem(ModItems.VOID_PLATE_BASE))
+                                  .offerTo(exporter, vanillaID(getRecipeName(ModItems.VOID_PLATE) + "_shapeless"));
+        //endregion
+
+        //region BLASTING
+        offerBlasting(exporter, List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 5.0f, 1200, "ore_enderite");
+        offerBlasting(exporter, List.of(ModItems.ENDER_CHARM), RecipeCategory.MISC, ModItems.VOID_PLATE_ACTIVATOR, 5.0f, 2400, "void_plate_activator");
+        offerBlasting(exporter, List.of(Blocks.TNT), RecipeCategory.MISC, ModItems.UNSTABLE_GOO, 5.0f, 3600, "enstable_goo");
         //endregion
     }
 }

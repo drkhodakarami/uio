@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ender_charm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:ender_charm"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:void_plate_activator_from_blasting_ender_charm"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ender_charm"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:void_plate_activator_from_blasting_ender_charm"
+    ]
+  }
+}

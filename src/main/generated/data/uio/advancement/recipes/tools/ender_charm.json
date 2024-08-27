@@ -1,21 +1,31 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_lapis_lazuli": {
+    "has_enderman_eye": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:lapis_lazuli"
+            "items": "uio:enderman_eye"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_paper": {
+    "has_enderman_flesh": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:paper"
+            "items": "uio:enderman_flesh"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_enderman_gland": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:enderman_gland"
           }
         ]
       },
@@ -23,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:blueprint_empty_shapeless"
+        "recipe": "minecraft:ender_charm"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,13 +41,14 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_paper",
-      "has_lapis_lazuli"
+      "has_enderman_flesh",
+      "has_enderman_gland",
+      "has_enderman_eye"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:blueprint_empty_shapeless"
+      "minecraft:ender_charm"
     ]
   }
 }

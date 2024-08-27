@@ -273,7 +273,11 @@ public class ModItemGroups
                                                       {
                                                           entries.add(ModItems.TOOL_PLAYER_TELEPORT);
                                                           entries.add(ModItems.TOOL_TUNER);
+                                                          entries.add(ModItems.TOOL_ADVANCED_TUNER);
                                                           entries.add(ModItems.TOOL_WRENCH);
+                                                          entries.add(ModItems.BACKPACK);
+                                                          entries.add(ModItems.ENDER_BACKPACK);
+                                                          entries.add(ModItems.VOID_PLATE);
 
                                                           entries.add(ModItems.TOOL_CITRINE_AXE);
                                                           entries.add(ModItems.TOOL_COPPER_AXE);
@@ -437,6 +441,12 @@ public class ModItemGroups
                                                           entries.add(ModItems.EGG_AND_BREAD);
                                                           entries.add(ModItems.HOT_COAL);
                                                           entries.add(ModItems.BLUEPRINT_EMPTY);
+                                                          entries.add(ModItems.VOID_PLATE_ACTIVATOR);
+                                                          entries.add(ModItems.VOID_PLATE_BASE);
+                                                          entries.add(ModItems.ENDER_CHARM);
+                                                          entries.add(ModItems.ENDERMAN_EYE);
+                                                          entries.add(ModItems.ENDERMAN_FLESH);
+                                                          entries.add(ModItems.ENDERMAN_GLAND);
                                                       }).build());
 
     public ModItemGroups()

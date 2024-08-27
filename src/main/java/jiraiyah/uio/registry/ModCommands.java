@@ -153,8 +153,15 @@ public class ModCommands
 
                                             String cmd = "";
 
-                                            // TODO : Research if we can set this game rule to false during runtime to suppress messages
                                             boolean rule = context.getSource().getWorld().getGameRules().getBoolean(GameRules.SEND_COMMAND_FEEDBACK);
+
+                                            cmd = "/gamerule sendCommandFeedback false";
+                                            commandManager.executeWithPrefix(commandSource, cmd);
+                                            try
+                                            {
+                                                Thread.sleep(5);
+                                            }
+                                            catch (InterruptedException ignored){}
 
                                             for (String block : fluid_block_list)
                                             {
@@ -212,6 +219,14 @@ public class ModCommands
                                                     catch (InterruptedException ignored){}
                                                 }
                                             }
+
+                                            cmd = "/gamerule sendCommandFeedback " + rule;
+                                            commandManager.executeWithPrefix(commandSource, cmd);
+                                            try
+                                            {
+                                                Thread.sleep(5);
+                                            }
+                                            catch (InterruptedException ignored){}
                                         }
                                     }
                                     return 1;

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "uio:ingot_enderite"
+    },
+    "I": {
+      "item": "uio:reinforced_emerald"
+    }
+  },
+  "pattern": [
+    "EEE",
+    "EIE",
+    "EEE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:void_plate_base"
+  }
+}

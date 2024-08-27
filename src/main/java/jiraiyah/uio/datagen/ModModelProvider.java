@@ -166,18 +166,22 @@ public class ModModelProvider extends FabricModelProvider
 
         //region FOOD FUEL MISC
         itemModelGenerator.register(ModItems.BINDING_STRING, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.UNSTABLE_GOO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RAW_RUBBER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUBBER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.VOID_PLATE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.VOID_PLATE_ACTIVATOR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.VOID_PLATE_BASE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDER_CHARM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDERMAN_EYE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDERMAN_FLESH, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDERMAN_GLAND, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.COOKED_EGG, Models.GENERATED);
         itemModelGenerator.register(ModItems.EGG_AND_BREAD, Models.GENERATED);
         itemModelGenerator.register(ModItems.HOT_COAL, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.BLUEPRINT_EMPTY, Models.GENERATED);
-        itemModelGenerator.register(ModItems.BLUEPRINT_PRINTED, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.RAW_RUBBER, Models.GENERATED);
-        itemModelGenerator.register(ModItems.RUBBER, Models.GENERATED);
         //endregion
 
         //region CAST
@@ -375,7 +379,14 @@ public class ModModelProvider extends FabricModelProvider
         //region TOOLS
         itemModelGenerator.register(ModItems.TOOL_PLAYER_TELEPORT, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOOL_TUNER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TOOL_ADVANCED_TUNER, Models.GENERATED);
         itemModelGenerator.register(ModItems.TOOL_WRENCH, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.BLUEPRINT_EMPTY, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BLUEPRINT_PRINTED, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.BACKPACK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDER_BACKPACK, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TOOL_CITRINE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_CITRINE_HAMMER, Models.HANDHELD);

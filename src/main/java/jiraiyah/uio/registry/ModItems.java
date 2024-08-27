@@ -38,10 +38,16 @@ public class ModItems
     //region FOOD FUEL MISC
     public static final Item BINDING_STRING = registerItem("binding_string", new Item(new Item.Settings()));
     public static final Item UNSTABLE_GOO = registerItem("unstable_goo_core", new Item(new Item.Settings()));
-    public static final Item BLUEPRINT_EMPTY = registerItem("blueprint_empty", new Item(new Item.Settings()));
-    public static final Item BLUEPRINT_PRINTED = registerItem("blueprint_printed", new Item(new Item.Settings()));
     public static final Item RAW_RUBBER = registerItem("raw_rubber", new Item(new Item.Settings()));
     public static final Item RUBBER = registerItem("rubber", new Item(new Item.Settings()));
+    public static final Item VOID_PLATE_BASE = registerItem("void_plate_base", new Item(new Item.Settings()));
+    public static final Item VOID_PLATE_ACTIVATOR = registerItem("void_plate_activator", new Item(new Item.Settings()));
+    public static final Item VOID_PLATE = registerItem("void_plate", new Item(new Item.Settings()));
+    public static final Item ENDER_CHARM = registerItem("ender_charm", new Item(new Item.Settings()));
+    public static final Item ENDERMAN_EYE = registerItem("enderman_eye", new Item(new Item.Settings()));
+    public static final Item ENDERMAN_FLESH = registerItem("enderman_flesh", new Item(new Item.Settings()));
+    public static final Item ENDERMAN_GLAND = registerItem("enderman_gland", new Item(new Item.Settings()));
+
 
     public static final Item COOKED_EGG = registerItem("cooked_egg", new Item(new Item.Settings()
                                                                                       .food(new FoodComponent.Builder()
@@ -496,8 +502,13 @@ public class ModItems
     //endregion
 
     //region TOOL
+    public static final Item BACKPACK = registerItem("backpack", new Item(new Item.Settings()));
+    public static final Item BLUEPRINT_EMPTY = registerItem("blueprint_empty", new Item(new Item.Settings()));
+    public static final Item BLUEPRINT_PRINTED = registerItem("blueprint_printed", new Item(new Item.Settings()));
+    public static final Item ENDER_BACKPACK = registerItem("ender_backpack", new Item(new Item.Settings()));
     public static final Item TOOL_PLAYER_TELEPORT = registerItem("tool_player_teleport", new PlayerTeleporter(new Item.Settings()));
     public static final Item TOOL_TUNER = registerItem("tool_tuner", new TunerItem(new Item.Settings()));
+    public static final Item TOOL_ADVANCED_TUNER = registerItem("tool_tuner_advanced", new TunerItem(new Item.Settings()));
     public static final Item TOOL_WRENCH = registerItem("tool_wrench", new Item(new Item.Settings()));
     //endregion
 

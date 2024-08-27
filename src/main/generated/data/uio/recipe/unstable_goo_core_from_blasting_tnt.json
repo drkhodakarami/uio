@@ -1,9 +1,9 @@
 {
   "type": "minecraft:blasting",
   "category": "misc",
-  "cookingtime": 1200,
+  "cookingtime": 3600,
   "experience": 5.0,
-  "group": "ore_enderite",
+  "group": "enstable_goo",
   "ingredient": {
     "item": "minecraft:tnt"
   },

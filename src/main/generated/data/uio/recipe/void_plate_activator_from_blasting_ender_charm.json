@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 2400,
+  "experience": 5.0,
+  "group": "void_plate_activator",
+  "ingredient": {
+    "item": "uio:ender_charm"
+  },
+  "result": {
+    "id": "uio:void_plate_activator"
+  }
+}
