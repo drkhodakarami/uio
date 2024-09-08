@@ -52,9 +52,9 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModItems.UNSTABLE_GOO, "Unstable Goo");
         builder.add(ModItems.RAW_RUBBER, "Raw Rubber");
         builder.add(ModItems.RUBBER, "Rubber");
-        builder.add(ModItems.VOID_PLATE_BASE, "Void Plate - Base");
-        builder.add(ModItems.VOID_PLATE_ACTIVATOR, "Void Plate - Activator");
-        builder.add(ModItems.VOID_PLATE, "Void Plate");
+        builder.add(ModItems.VOID_PLATE_BASE, "Portal Frame");
+        builder.add(ModItems.VOID_PLATE_ACTIVATOR, "Portal Activator");
+        builder.add(ModItems.VOID_PLATE, "Portal Key");
         builder.add(ModItems.ENDER_CHARM, "Ender Charm");
         builder.add(ModItems.ENDERMAN_EYE, "Enderman Eye");
         builder.add(ModItems.ENDERMAN_HEART, "Enderman Heart");

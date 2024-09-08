@@ -11,21 +11,21 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_enderman_flesh": {
-      "conditions": {
-        "items": [
-          {
-            "items": "uio:enderman_flesh"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_enderman_gland": {
       "conditions": {
         "items": [
           {
             "items": "uio:enderman_gland"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_enderman_heart": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:enderman_heart"
           }
         ]
       },
@@ -41,7 +41,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_enderman_flesh",
+      "has_enderman_heart",
       "has_enderman_gland",
       "has_enderman_eye"
     ]
