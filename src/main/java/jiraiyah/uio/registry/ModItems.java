@@ -33,6 +33,7 @@ import net.minecraft.registry.Registry;
 import static jiraiyah.uio.Reference.identifier;
 import static jiraiyah.uio.Reference.log;
 
+// Some of the textures are from : https://github/malcolmriley/unused-textures
 public class ModItems
 {
     // TODO : Talk about inline initialization
