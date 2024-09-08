@@ -24,7 +24,6 @@
 
 package jiraiyah.uio.datagen;
 
-import jiraiyah.uio.Reference;
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -41,7 +40,6 @@ import net.minecraft.recipe.SmokingRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.util.Identifier;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -1349,10 +1347,10 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .pattern("PIP")
                                .pattern("IEI")
                                .pattern("PIP")
-                               .input('I', ModItems.ENDERMAN_FLESH)
+                               .input('I', ModItems.ENDERMAN_HEART)
                                .input('E', ModItems.ENDERMAN_GLAND)
                                .input('P', ModItems.ENDERMAN_EYE)
-                               .criterion(hasItem(ModItems.ENDERMAN_FLESH), conditionsFromItem(ModItems.ENDERMAN_FLESH))
+                               .criterion(hasItem(ModItems.ENDERMAN_HEART), conditionsFromItem(ModItems.ENDERMAN_HEART))
                                .criterion(hasItem(ModItems.ENDERMAN_GLAND), conditionsFromItem(ModItems.ENDERMAN_GLAND))
                                .criterion(hasItem(ModItems.ENDERMAN_EYE), conditionsFromItem(ModItems.ENDERMAN_EYE))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.ENDER_CHARM)));

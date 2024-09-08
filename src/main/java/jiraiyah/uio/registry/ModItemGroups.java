@@ -25,7 +25,6 @@
 package jiraiyah.uio.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -34,10 +33,6 @@ import net.minecraft.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 import static jiraiyah.uio.Reference.*;
 
@@ -457,7 +452,7 @@ public class ModItemGroups
                                                           entries.add(ModItems.VOID_PLATE_BASE);
                                                           entries.add(ModItems.ENDER_CHARM);
                                                           entries.add(ModItems.ENDERMAN_EYE);
-                                                          entries.add(ModItems.ENDERMAN_FLESH);
+                                                          entries.add(ModItems.ENDERMAN_HEART);
                                                           entries.add(ModItems.ENDERMAN_GLAND);
 
                                                           //TODO : Talk about alternative way of adding everything to one tab

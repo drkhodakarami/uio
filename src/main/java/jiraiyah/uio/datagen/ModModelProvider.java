@@ -174,7 +174,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.VOID_PLATE_BASE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDER_CHARM, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDERMAN_EYE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ENDERMAN_FLESH, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ENDERMAN_HEART, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDERMAN_GLAND, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.COOKED_EGG, Models.GENERATED);

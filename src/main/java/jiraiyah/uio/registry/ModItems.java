@@ -25,7 +25,6 @@
 package jiraiyah.uio.registry;
 
 import jiraiyah.uio.item.*;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -47,7 +46,7 @@ public class ModItems
     public static final Item VOID_PLATE = registerItem("void_plate", new Item(new Item.Settings()));
     public static final Item ENDER_CHARM = registerItem("ender_charm", new Item(new Item.Settings()));
     public static final Item ENDERMAN_EYE = registerItem("enderman_eye", new Item(new Item.Settings()));
-    public static final Item ENDERMAN_FLESH = registerItem("enderman_flesh", new Item(new Item.Settings()));
+    public static final Item ENDERMAN_HEART = registerItem("enderman_heart", new Item(new Item.Settings()));
     public static final Item ENDERMAN_GLAND = registerItem("enderman_gland", new Item(new Item.Settings()));
 
 

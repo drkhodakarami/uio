@@ -57,7 +57,7 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModItems.VOID_PLATE, "Void Plate");
         builder.add(ModItems.ENDER_CHARM, "Ender Charm");
         builder.add(ModItems.ENDERMAN_EYE, "Enderman Eye");
-        builder.add(ModItems.ENDERMAN_FLESH, "Enderman Flesh");
+        builder.add(ModItems.ENDERMAN_HEART, "Enderman Heart");
         builder.add(ModItems.ENDERMAN_GLAND, "Enderman Gland");
         builder.add(ModItems.COOKED_EGG, "Cooked Egg");
         builder.add(ModItems.EGG_AND_BREAD, "Egg And Bread");
