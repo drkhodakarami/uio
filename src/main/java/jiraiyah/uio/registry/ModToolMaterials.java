@@ -40,6 +40,7 @@ public enum ModToolMaterials implements ToolMaterial
             () -> Ingredient.ofItems(ModItems.PLATE_CITRINE)),
     COPPER(BlockTags.INCORRECT_FOR_IRON_TOOL, 500, 6.0f, 1.0f, 0,
            () -> Ingredient.ofItems(ModItems.PLATE_COPPER)),
+    //TODO: Add custom tier that is above netherite
     ENDERITE(BlockTags.INCORRECT_FOR_NETHERITE_TOOL, 3000, 24.0f, 15.0f, 0,
              () -> Ingredient.ofItems(ModItems.PLATE_ENDERITE)),
     RUBY(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 2000, 12.0f, 4.0f, 0,

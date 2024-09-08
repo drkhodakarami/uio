@@ -28,7 +28,6 @@
     "uio:ore_nether_sapphire",
     "uio:ore_world_citrine",
     "uio:ore_world_ruby",
-    "uio:ore_world_sapphire",
-    "uio:creative_energy"
+    "uio:ore_world_sapphire"
   ]
 }

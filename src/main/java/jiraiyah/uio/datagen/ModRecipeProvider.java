@@ -107,6 +107,26 @@ public class ModRecipeProvider extends FabricRecipeProvider
         //endregion
 
         //region MAIN TOOLS
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.BACKPACK, 1)
+                               .pattern("LLL")
+                               .pattern("LCL")
+                               .pattern("LLL")
+                               .input('C', Items.CHEST)
+                               .input('L', Items.LEATHER)
+                               .criterion(hasItem(Items.CHEST), conditionsFromItem(Items.CHEST))
+                               .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.BACKPACK)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.ENDER_BACKPACK, 1)
+                               .pattern(" L ")
+                               .pattern("LCL")
+                               .pattern(" L ")
+                               .input('C', ModItems.BACKPACK)
+                               .input('L', ModItems.INGOT_ENDERITE)
+                               .criterion(hasItem(ModItems.BACKPACK), conditionsFromItem(ModItems.BACKPACK))
+                               .criterion(hasItem(ModItems.INGOT_ENDERITE), conditionsFromItem(ModItems.INGOT_ENDERITE))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.ENDER_BACKPACK)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_PLAYER_TELEPORT, 1)
                                .pattern("PEP")
                                .pattern("DCD")

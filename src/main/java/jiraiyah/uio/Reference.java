@@ -165,7 +165,7 @@ public class Reference
 
             public static final TagKey<net.minecraft.item.Item> HAMMERS = createTag("hammers");
             public static final TagKey<net.minecraft.item.Item> MENDING_ONLY = createTag("mending_only");
-            public static final TagKey<net.minecraft.item.Item> SMELTERY = createTag("smeltery");
+            public static final TagKey<net.minecraft.item.Item> SMELTABLE = createTag("smeltery");
 
             //region HELPER METHODS
             private static TagKey<net.minecraft.item.Item> createTag(String name)

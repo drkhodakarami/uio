@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "uio:backpack"
+    },
+    "L": {
+      "item": "uio:ingot_enderite"
+    }
+  },
+  "pattern": [
+    " L ",
+    "LCL",
+    " L "
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:ender_backpack"
+  }
+}

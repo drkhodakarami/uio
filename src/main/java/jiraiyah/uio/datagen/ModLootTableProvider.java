@@ -28,6 +28,7 @@ import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
@@ -164,8 +165,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
 
         //region MACHINES
         addDrop(ModBlocks.ELEVATOR);
-        addDrop(ModBlocks.REDSTONE_CLOCK);
-        addDrop(ModBlocks.CREATIVE_ENERGY);
+        //addDrop(ModBlocks.REDSTONE_CLOCK);
+        //addDrop(ModBlocks.CREATIVE_ENERGY);
 
         addDrop(ModBlocks.LAVA_PUMP_GOO);
         addDrop(ModBlocks.WATER_PUMP_GOO);
@@ -177,9 +178,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
     {
         RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         return dropsWithSilkTouch(drop,
-                                  (LootPoolEntry.Builder)
+                                  (LootPoolEntry.Builder) //TODO : Remove the cast, thanks to Natte for help
                                           this.applyExplosionDecay(drop,
-                                                                   ((LeafEntry.Builder)
+                                                                   ((LeafEntry.Builder) //TODO : Remove the cast, thanks to Natte for help
                                                                            ItemEntry.builder(item)
                                                                                     .apply(SetCountLootFunction
                                                                                                    .builder(UniformLootNumberProvider

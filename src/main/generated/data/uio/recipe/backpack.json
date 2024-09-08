@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "minecraft:chest"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "LLL",
+    "LCL",
+    "LLL"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:backpack"
+  }
+}

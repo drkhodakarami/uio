@@ -452,7 +452,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
         //endregion
 
         //region SMELTERY
-        getOrCreateTagBuilder(SMELTERY)
+        getOrCreateTagBuilder(SMELTABLE)
                 .add(ModItems.GEM_CITRINE)
                 .add(ModItems.GEM_RUBY)
                 .add(ModItems.GEM_SAPPHIRE)

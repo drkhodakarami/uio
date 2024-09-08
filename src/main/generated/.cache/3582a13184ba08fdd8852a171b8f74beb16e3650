@@ -1,5 +1,5 @@
-// 1.21.1	2024-08-27T17:49:55.3106061	Ultra IO/Tags for minecraft:block
-03fb8aeaf259eb7a675c43a5d47232696676a4cd data\minecraft\tags\block\needs_stone_tool.json
+// 1.21.1	2024-09-08T15:53:09.5472843	Ultra IO/Tags for minecraft:block
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\needs_stone_tool.json
 77e1e66c781dbab11a6010149f835af9de54042a data\c\tags\block\machines.json
 511765bc6e1541882f796604f5cf696488eaa135 data\minecraft\tags\block\diamond_ores.json
 8c5dd1647c17fc41e6fe2754c86c718d4c871d9b data\minecraft\tags\block\copper_ores.json
@@ -15,6 +15,6 @@ b3a0d88fe782590f18a678550240807e49bf50e1 data\c\tags\block\gem_blocks.json
 3a1a50db4f1dfac0fcaa4caf111889342218af5d data\minecraft\tags\block\fence_gates.json
 79f0f405cda96d6bdd4ff20c66e269c58b8dd0ea data\minecraft\tags\block\walls.json
 e8b3eabddfdf50cf8b95204f7245915f08258990 data\minecraft\tags\block\redstone_ores.json
-794f5e5d3730200d9386c0c4924ab0a091f198e7 data\minecraft\tags\block\mineable\pickaxe.json
+26e00c9367522bb994e1a5c70e176e38955fb1f8 data\minecraft\tags\block\mineable\pickaxe.json
 b7cd630377b449e6f014d7bfebb31cefea135163 data\minecraft\tags\block\iron_ores.json
 d0b538bcb989091f2ccc28d5a3e50ef0a9039606 data\minecraft\tags\block\needs_iron_tool.json

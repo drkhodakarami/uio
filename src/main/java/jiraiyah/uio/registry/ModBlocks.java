@@ -36,6 +36,7 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModBlocks
 {
+    // TODO : Talk about inline initialization
     public static final Block ENDERITE = registerBlock("block_enderite", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
 
     //region GEMS
@@ -218,11 +219,24 @@ public class ModBlocks
 
     //region MACHINES
     public static final Block ELEVATOR = registerBlock("elevator", new ElevatorBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block REDSTONE_CLOCK = registerBlock("redstone_clock", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block CREATIVE_ENERGY = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block REDSTONE_CLOCK = registerBlock("redstone_clock", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+    //public static final Block CREATIVE_ENERGY = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block ALLOY_MIXER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block CAST_PRESS = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block GEM_CLEANER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block GENERATOR = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block OVEN = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block PULVERIZER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block SMELTER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block BUCKET_FILLER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block BLOCK_BREAKER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block BLOCK_PLACER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block WOOD_STRIPPER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block ANIMAL_FEEDER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    //public static final Block TESSERACT = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
     //endregion
 
-    public static final Block ANGEL = registerBlock("block_angel", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).strength(0.8f, 5000.0f)));
+    //public static final Block ANGEL = registerBlock("block_angel", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).strength(0.8f, 5000.0f)));
 
     public ModBlocks()
     {
@@ -236,16 +250,19 @@ public class ModBlocks
         log("Registering Blocks");
     }
 
-    private static Block registerBlock(String name, Block block)
+    // TODO : Talk about generic implementation
+    //private static Block registerBlock(String name, Block block)
+    private static <T extends Block> T registerBlock(String name, T block)
     {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, identifier(name), block);
     }
 
-    private static Item registerBlockItem(String name, Block block)
+    //private static Item registerBlockItem(String name, Block block)
+    private static <T extends Item, S extends Block> T registerBlockItem(String name, S block)
     {
-        return Registry.register(Registries.ITEM, identifier(name),
-                                 new BlockItem(block, new Item.Settings()));
+        return (T) Registry.register(Registries.ITEM, identifier(name),
+                                        new BlockItem(block, new Item.Settings()));
     }
 
     //endregion

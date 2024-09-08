@@ -150,11 +150,11 @@ public class ModModelProvider extends FabricModelProvider
 
         //region MACHINES
         blockStateModelGenerator.registerSingleton(ModBlocks.ELEVATOR, TexturedModel.CUBE_BOTTOM_TOP);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.REDSTONE_CLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CREATIVE_ENERGY);
+        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.REDSTONE_CLOCK);
+        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CREATIVE_ENERGY);
         //endregion
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANGEL);
+        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANGEL);
 
 
     }

@@ -24,6 +24,12 @@
 
 package jiraiyah.uio.registry;
 
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+
+import static jiraiyah.uio.Reference.identifier;
 import static jiraiyah.uio.Reference.log;
 
 public class ModBlockEntities
@@ -36,5 +42,11 @@ public class ModBlockEntities
     public static void register()
     {
         log("Registering Block Entities");
+    }
+
+    //TODO: Talk about generic implementation here
+    public static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType<T> type)
+    {
+        return Registry.register(Registries.BLOCK_ENTITY_TYPE, identifier(name), type);
     }
 }

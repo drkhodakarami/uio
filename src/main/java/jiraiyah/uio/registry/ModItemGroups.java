@@ -25,15 +25,26 @@
 package jiraiyah.uio.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
 import static jiraiyah.uio.Reference.*;
 
 public class ModItemGroups
 {
+    public static final List<ItemConvertible> BLACK_LIST = new ArrayList<>();
+
     public static final ItemGroup BLOCKS =
             Registry.register(Registries.ITEM_GROUP,
                               identifier(ModID + "_block_group"),
@@ -229,10 +240,10 @@ public class ModItemGroups
                                              .icon(() -> new ItemStack(ModBlocks.ELEVATOR))
                                              .entries((displayContext, entries) ->
                                                       {
-                                                          entries.add(ModBlocks.ANGEL);
+                                                          //entries.add(ModBlocks.ANGEL);
                                                           entries.add(ModBlocks.ELEVATOR);
-                                                          entries.add(ModBlocks.REDSTONE_CLOCK);
-                                                          entries.add(ModBlocks.CREATIVE_ENERGY);
+                                                          //entries.add(ModBlocks.REDSTONE_CLOCK);
+                                                          //entries.add(ModBlocks.CREATIVE_ENERGY);
 
                                                           entries.add(ModBlocks.BRIDGE_GOO);
                                                           entries.add(ModBlocks.CHUNK_GOO);
@@ -434,7 +445,8 @@ public class ModItemGroups
             Registry.register(Registries.ITEM_GROUP,
                               identifier(ModID + "_misc_group"),
                               FabricItemGroup.builder().displayName(translate("misc.group"))
-                                             .icon(() -> new ItemStack(ModItems.HOT_COAL))
+                                             //TODO : Talk about calling default stack instead of initializing here for icon
+                                             .icon(ModItems.HOT_COAL::getDefaultStack)
                                              .entries((displayContext, entries) ->
                                                       {
                                                           entries.add(ModItems.COOKED_EGG);
@@ -447,6 +459,32 @@ public class ModItemGroups
                                                           entries.add(ModItems.ENDERMAN_EYE);
                                                           entries.add(ModItems.ENDERMAN_FLESH);
                                                           entries.add(ModItems.ENDERMAN_GLAND);
+
+                                                          //TODO : Talk about alternative way of adding everything to one tab
+                                                          /*Registries.ITEM.getIds()
+                                                                  .stream()
+                                                                  .filter(key -> key.getNamespace().equals(ModID))
+                                                                  .map(Registries.ITEM::getOrEmpty) //Gives an optional of an item
+                                                                  .map(Optional::orElseThrow)//This will through exception on empty optional
+                                                                  //.filter(Optional::isPresent) //Filter out empty optionals
+                                                                  //Predicate.not is acting as the predicate, but it forwards the input on to the inner predicate
+                                                                  //(in this case, BLACK_LIST.contains), but inverts the boolean result
+                                                                  .filter(Predicate.not(BLACK_LIST::contains))
+                                                                  .forEach(entries::add);*/
+
+                                                          // This is an alternative, more optimized and better code compared to above
+                                                          // Both work, but the one bellow is much cleaner and more optimized
+                                                          // Thanks to Natte (fabric discord) for providing this code snippet
+                                                          //TODO : Talk about repetitive call of this list
+                                                          //ZeroNoRyouki : It's called when the groups need to be build/updated and that not appends only once per game session
+                                                          //BSipe : Perhaps creating a static list that gets appended in the "registerItem" function... then just add the list in...
+                                                          /*List<Item> items = Registries.ITEM.getEntrySet()
+                                                                         .stream()
+                                                                         .filter(key -> key.getKey().getValue().getNamespace().equals(ModID))
+                                                                         .map(Map.Entry::getValue)
+                                                                         .collect(Collectors.toList());
+                                                          items.removeAll(BLACK_LIST);
+                                                          items.forEach(entries::add);*/
                                                       }).build());
 
     public ModItemGroups()
@@ -457,5 +495,10 @@ public class ModItemGroups
     public static void register()
     {
         log("Registering Item Groups");
+
+        //TODO : Example of adding something to black list for the case of one tab only stream
+        //Use this line in ModItems and ModBlocks register() method instead of here
+        //In this example we would put this line in ModItems to add the rubber into black list
+        //ModItemGroups.BLACK_LIST.add(RUBBER);
     }
 }

@@ -1,4 +1,4 @@
-// 1.21.1	2024-08-27T17:49:55.3275963	Ultra IO/Block Loot Tables
+// 1.21.1	2024-09-08T15:53:09.5843837	Ultra IO/Block Loot Tables
 8af318446e992873c41c94db7716a2ed960c4052 data\uio\loot_table\blocks\block_sapphire_trap_door.json
 ae76ee5154d97b952390bf99acd3da9b2cc31bae data\uio\loot_table\blocks\block_enderite_trap_door.json
 1b7cea6e712c6327c724163187df2103627f089d data\uio\loot_table\blocks\block_ruby_slab.json
@@ -12,7 +12,6 @@ ae76ee5154d97b952390bf99acd3da9b2cc31bae data\uio\loot_table\blocks\block_enderi
 fde791ae3543e6501f0e9f073ce86b750f8b5935 data\uio\loot_table\blocks\ore_nether_ruby.json
 3bc3d5ebae5bfda57db14f1b109df81c0477d593 data\uio\loot_table\blocks\block_enderite_button.json
 6cb5c3fe6715e4b713060a9beed9a117e91513c0 data\uio\loot_table\blocks\ore_world_ruby.json
-54db04a74ab2dd2550e197c5e82150807aaec635 data\uio\loot_table\blocks\redstone_clock.json
 ffe40fa3bca7f47dcdac38a44e10c4550d3699e9 data\uio\loot_table\blocks\ore_deep_ruby.json
 733fd946ca36bfdba5d296a72e765ef69f2967f3 data\uio\loot_table\blocks\block_ruby_fence.json
 1b7cea6e712c6327c724163187df2103627f089d data\uio\loot_table\blocks\block_sapphire_slab.json
@@ -34,7 +33,6 @@ d02359a6c14f7096846a2d200531805a5f4b01c0 data\uio\loot_table\blocks\block_sapphi
 702b630ec3ce2f5564a7a96a3d7c9b087e74224e data\uio\loot_table\blocks\block_sapphire_door.json
 de65fcf2a7e63fec2ed4272aecb48d9f46eb13d6 data\uio\loot_table\blocks\block_sapphire_button.json
 74d5d224d535af5dbb011bfa32a5804aa754ef9e data\uio\loot_table\blocks\elevator.json
-692981283d9f3ff4f27fc682916cd84f0fc85bac data\uio\loot_table\blocks\creative_energy.json
 1b7cea6e712c6327c724163187df2103627f089d data\uio\loot_table\blocks\block_enderite_slab.json
 a75c82841c3fcb2f1834f55268d6654f94e23e6e data\uio\loot_table\blocks\block_sapphire_wall.json
 fd17e5160529d104c3bc50b190c0223f66f18475 data\uio\loot_table\blocks\water_pump_goo.json

@@ -74,7 +74,6 @@ dependencies {
     //modImplementation("curse.maven:techreborn-233564:${project.tech_reborn_version}")
 
     // Needed for LibGUI
-    // TODO : Track for Upgrade to 1.21
     modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
 
     // Needed for Sign and Boat
@@ -85,9 +84,8 @@ dependencies {
     modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_version}"
 
     // Kyrptonaught is Needed for custom portals
-    // TODO : Track for Upgrade to 1.21
-    //modImplementation "net.kyrptonaught:customportalapi:${project.kyrptonaught_version}"
-    //include "net.kyrptonaught:customportalapi:${project.kyrptonaught_version}"
+    modImplementation "net.kyrptonaught:customportalapi:${project.kyrptonaught_version}"
+    include "net.kyrptonaught:customportalapi:${project.kyrptonaught_version}"
 
     // Needed for Fluid Handling
     //modImplementation include("com.github.drkhodakarami:fluidutils:${project.fluidutils_version}")
@@ -116,6 +114,9 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
     it.options.release = 21
+    //TODO : Talk about this build flag
+    //options.compilerArgs << '-Xlint:unchecked'
+    //options.deprecation = true
 }
 
 java {

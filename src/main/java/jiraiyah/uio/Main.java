@@ -32,7 +32,21 @@ import net.fabricmc.loader.api.FabricLoader;
 
 import static jiraiyah.uio.Reference.logBackRGB256;
 
-// This is the flat world gen custom preset I always use
+// This is a flat world gen custom preset I always use for redstone and building massive tech contraptions
+// It has 5 levels of bedrock, 30 layers of green concrete, and a black stained-glass on top layer.
+// The concrete color is such that it will let redstone dust be seen easier. The reason for glass on top layer
+// is to prevent any mob spawn if you forget to set the world to peaceful.
+// >>>
+// 5*minecraft:bedrock,30*minecraft:green_concrete,minecraft:black_stained_glass;minecraft:plains;
+//
+// This is an alternate version without any glass layer on top. If you don't set the world to peaceful, mobs will spawn on ground
+// >>>
+// 5*minecraft:bedrock,30*minecraft:green_concrete;minecraft:plains;
+// ==================================================================================================================================
+// This is the flat world gen custom preset I always use for demonstration of my mod and test the game mechanics
+// It has 5 levels of bedrock, 30 layers of light blue wool and a layer of light blue carpet on top.
+// Having carpet as top layer will make sure that even if you forget to make the game peaceful, no mod will spawn
+// >>>
 // 5*minecraft:bedrock,30*minecraft:light_blue_wool,minecraft:light_blue_carpet;minecraft:plains;village
 
 

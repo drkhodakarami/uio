@@ -25,6 +25,7 @@
 package jiraiyah.uio.registry;
 
 import jiraiyah.uio.item.*;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -35,6 +36,7 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModItems
 {
+    // TODO : Talk about inline initialization
     //region FOOD FUEL MISC
     public static final Item BINDING_STRING = registerItem("binding_string", new Item(new Item.Settings()));
     public static final Item UNSTABLE_GOO = registerItem("unstable_goo_core", new Item(new Item.Settings()));
@@ -733,9 +735,17 @@ public class ModItems
     public static void register()
     {
         log("Registering Items");
+
+        //TODO : Talk about additional comments in code remaining
+        /*ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries ->
+                                                                                {
+                                                                                    entries.add(RUBBER);
+                                                                                });*/
     }
 
-    private static Item registerItem(String name, Item item)
+    // TODO : Talk about generic implementation
+    //private static Item registerItem(String name, Item item)
+    private static <T extends Item> T registerItem(String name, T item)
     {
         return Registry.register(Registries.ITEM, identifier(name), item);
     }
