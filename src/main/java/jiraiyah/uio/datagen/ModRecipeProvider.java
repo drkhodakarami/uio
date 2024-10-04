@@ -1450,7 +1450,8 @@ public class ModRecipeProvider extends FabricRecipeProvider
         offerBlasting(exporter, List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 7.0f, 7200, "ore_enderite");
         offerBlasting(exporter, List.of(ModItems.ENDER_CHARM), RecipeCategory.MISC, ModItems.VOID_PLATE_ACTIVATOR, 5.0f, 2400, "void_plate_activator");
         offerBlasting(exporter, List.of(ModBlocks.ENDERITE), RecipeCategory.MISC, ModItems.VOID_PLATE_BASE, 5.0f, 3600, "void_plate_base");
-        offerBlasting(exporter, List.of(Blocks.TNT), RecipeCategory.MISC, ModItems.UNSTABLE_GOO, 2.0f, 2400, "enstable_goo");
+        offerBlasting(exporter, List.of(ModItems.COMBUSTION_CORE), RecipeCategory.MISC, ModItems.UNSTABLE_GOO, 2.0f, 2400, "enstable_goo");
+        offerBlasting(exporter, List.of(ModItems.HOT_COAL), RecipeCategory.MISC, ModItems.COMBUSTION_CORE, 2.0f, 1200, "enstable_goo");
         //offerBlasting(exporter, List.of(ModItems.), RecipeCategory.MISC, ModItems.RAW_RUBBER, 0.5f, 200, "rubber");
         //endregion
         //region RUBBER
@@ -1465,13 +1466,15 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
         //region MACHINES
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.THERMAL_CORE, 1)
-                               .pattern("HHH")
+                               .pattern("PPP")
                                .pattern("HIH")
-                               .pattern("HHH")
-                               .input('I', Blocks.IRON_BLOCK)
+                               .pattern("PPP")
+                               .input('I', ModItems.COMBUSTION_CORE)
                                .input('H', ModItems.HOT_COAL)
+                               .input('P', ModItems.REINFORCED_IRON)
                                .criterion(hasItem(ModItems.HOT_COAL), conditionsFromItem(ModItems.HOT_COAL))
                                .criterion(hasItem(Blocks.IRON_BLOCK), conditionsFromItem(Blocks.IRON_BLOCK))
+                               .criterion(hasItem(ModItems.REINFORCED_IRON), conditionsFromItem(ModItems.REINFORCED_IRON))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.THERMAL_CORE)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ELEVATOR, 1)

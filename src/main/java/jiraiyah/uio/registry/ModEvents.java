@@ -24,10 +24,7 @@
 
 package jiraiyah.uio.registry;
 
-import jiraiyah.uio.event.BeforePlayerBlockBreakListener;
-import jiraiyah.uio.event.KillingEntityListener;
-import jiraiyah.uio.event.ServerPlayerEquipChangeListener;
-import jiraiyah.uio.event.UseEntityCallbackListener;
+import jiraiyah.uio.event.*;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 
@@ -46,5 +43,6 @@ public class ModEvents
 
         UseEntityCallbackListener.register();
         ServerPlayerEquipChangeListener.register();
+        LootTableModifiers.register();
     }
 }

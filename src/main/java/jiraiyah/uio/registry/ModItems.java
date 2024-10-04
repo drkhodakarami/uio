@@ -45,7 +45,7 @@ public class ModItems
     public static List<Item> AllItems = new ArrayList<>();
     public static final List<Item> BLACK_LIST = new ArrayList<>();
 
-    public static Item BINDING_STRING, UNSTABLE_GOO, UNSTABLE_GOO_BASE;
+    public static Item BINDING_STRING, UNSTABLE_GOO, COMBUSTION_CORE;
     public static Item RAW_RUBBER;
     public static Item RUBBER;
     public static Item VOID_PLATE_BASE, VOID_PLATE_ACTIVATOR, VOID_PLATE;
@@ -120,7 +120,7 @@ public class ModItems
         //region FOOD FUEL MISC
         BINDING_STRING = register("binding_string", new Item.Settings().maxCount(16));
         UNSTABLE_GOO = register("unstable_goo_core");
-        UNSTABLE_GOO_BASE = register("unstable_goo_base");
+        COMBUSTION_CORE = register("unstable_goo_base");
         RAW_RUBBER = register("raw_rubber", new Item.Settings().maxCount(16));
         RUBBER = register("rubber", new Item.Settings().maxCount(16));
         VOID_PLATE_BASE = register("void_plate_base", new Item.Settings().maxCount(1));

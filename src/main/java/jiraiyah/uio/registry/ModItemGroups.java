@@ -142,7 +142,7 @@ public class ModItemGroups
         INGREDIENTS = Registry.register(Registries.ITEM_GROUP,
                                   identifier(ModID + INGREDIENT_ITEM_GROUP_NAME),
                                   FabricItemGroup.builder().displayName(INGREDIENT_TITLE)
-                                                 .icon(ModItems.GEM_RUBY::getDefaultStack)
+                                                 .icon(ModItems.UNSTABLE_GOO::getDefaultStack)
                                                  .entries((displayContext, entries) ->
                                                           {
                                                               entries.add(ModItems.GEM_CITRINE);
@@ -159,7 +159,7 @@ public class ModItemGroups
                                                               entries.add(ModItems.RUBBER);
 
                                                               entries.add(ModItems.UNSTABLE_GOO);
-                                                              entries.add(ModItems.UNSTABLE_GOO_BASE);
+                                                              entries.add(ModItems.COMBUSTION_CORE);
 
                                                               entries.add(ModItems.VOID_PLATE_ACTIVATOR);
                                                               entries.add(ModItems.VOID_PLATE_BASE);
@@ -307,7 +307,7 @@ public class ModItemGroups
         TOOLS = Registry.register(Registries.ITEM_GROUP,
                                   identifier(ModID + TOOLS_ITEM_GROUP_NAME),
                                   FabricItemGroup.builder().displayName(TOOLS_TITLE)
-                                                 .icon(ModItems.WRENCH::getDefaultStack)
+                                                 .icon(ModItems.PLAYER_TELEPORT::getDefaultStack)
                                                  .entries((displayContext, entries) ->
                                                           {
                                                               entries.add(ModItems.PLAYER_TELEPORT);

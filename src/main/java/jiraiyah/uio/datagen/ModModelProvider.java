@@ -166,7 +166,7 @@ public class ModModelProvider extends FabricModelProvider
         //region FOOD FUEL MISC
         itemModelGenerator.register(ModItems.BINDING_STRING, Models.GENERATED);
         itemModelGenerator.register(ModItems.UNSTABLE_GOO, Models.GENERATED);
-        itemModelGenerator.register(ModItems.UNSTABLE_GOO_BASE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COMBUSTION_CORE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_RUBBER, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBBER, Models.GENERATED);
         itemModelGenerator.register(ModItems.VOID_PLATE, Models.GENERATED);

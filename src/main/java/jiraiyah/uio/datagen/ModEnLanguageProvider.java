@@ -50,7 +50,7 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
     {
         builder.add(ModItems.BINDING_STRING, "Binding String");
         builder.add(ModItems.UNSTABLE_GOO, "Unstable Goo Core");
-        builder.add(ModItems.UNSTABLE_GOO_BASE, "Combustion Core");
+        builder.add(ModItems.COMBUSTION_CORE, "Combustion Core");
         builder.add(ModItems.RAW_RUBBER, "Raw Rubber");
         builder.add(ModItems.RUBBER, "Rubber");
         builder.add(ModItems.VOID_PLATE_BASE, "Portal Frame");

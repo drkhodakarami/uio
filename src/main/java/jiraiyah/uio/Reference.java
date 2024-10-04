@@ -43,11 +43,11 @@ public class Reference
 
     //region ITEM GROUP NAMES AND TITLES
     public static final String BLOCK_ITEM_GROUP_NAME = "_1_block_group";
-    public static final String INGREDIENT_ITEM_GROUP_NAME = "_6_ingredient_group";
+    public static final String INGREDIENT_ITEM_GROUP_NAME = "_5_ingredient_group";
     public static final String MACHINE_ITEM_GROUP_NAME = "_2_machine_group";
     public static final String TOOLS_ITEM_GROUP_NAME = "_3_tool_group";
     public static final String ARMOR_ITEM_GROUP_NAME = "_4_armor_group";
-    public static final String MISC_ITEM_GROUP_NAME = "_5_misc_group";
+    public static final String MISC_ITEM_GROUP_NAME = "_6_misc_group";
 
     public static final MutableText BLOCKS_TITLE = translate(BLOCK_ITEM_GROUP_NAME);
     public static final MutableText INGREDIENT_TITLE = translate(INGREDIENT_ITEM_GROUP_NAME);

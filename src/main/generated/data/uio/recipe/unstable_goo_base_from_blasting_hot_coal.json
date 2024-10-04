@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 1200,
+  "experience": 2.0,
+  "group": "enstable_goo",
+  "ingredient": {
+    "item": "uio:hot_coal"
+  },
+  "result": {
+    "id": "uio:unstable_goo_base"
+  }
+}

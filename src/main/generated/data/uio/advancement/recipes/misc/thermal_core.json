@@ -21,6 +21,16 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_reinforced_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:reinforced_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "minecraft:thermal_core"
@@ -32,7 +42,8 @@
     [
       "has_the_recipe",
       "has_hot_coal",
-      "has_iron_block"
+      "has_iron_block",
+      "has_reinforced_iron"
     ]
   ],
   "rewards": {

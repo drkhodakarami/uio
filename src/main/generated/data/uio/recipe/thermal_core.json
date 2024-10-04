@@ -6,13 +6,16 @@
       "item": "uio:hot_coal"
     },
     "I": {
-      "item": "minecraft:iron_block"
+      "item": "uio:unstable_goo_base"
+    },
+    "P": {
+      "item": "uio:reinforced_iron"
     }
   },
   "pattern": [
-    "HHH",
+    "PPP",
     "HIH",
-    "HHH"
+    "PPP"
   ],
   "result": {
     "count": 1,
