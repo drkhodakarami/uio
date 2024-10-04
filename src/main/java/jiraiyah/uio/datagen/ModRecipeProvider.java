@@ -170,7 +170,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.ROD_OBSIDIAN), conditionsFromItem(ModItems.ROD_OBSIDIAN))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.WRENCH)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.CHALICE, 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.CHALICE_EMPTY, 1)
                                .pattern("GEG")
                                .pattern(" R ")
                                .pattern("GGG")
@@ -180,7 +180,14 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.ROD_GOLD), conditionsFromItem(ModItems.ROD_GOLD))
                                .criterion(hasItem(ModItems.PLATE_GOLD), conditionsFromItem(ModItems.PLATE_GOLD))
                                .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.CHALICE)));
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.CHALICE_EMPTY)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CHALICE, 1)
+                                  .input(Items.WATER_BUCKET)
+                                  .input(ModItems.CHALICE_EMPTY)
+                                  .criterion(hasItem(Items.WATER_BUCKET), conditionsFromItem(Items.WATER_BUCKET))
+                                  .criterion(hasItem(ModItems.CHALICE_EMPTY), conditionsFromItem(ModItems.CHALICE_EMPTY))
+                                  .offerTo(exporter, vanillaID(getRecipeName(ModItems.CHALICE) + "_shapeless"));
         //endregion
         //region VANILLA
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.NAME_TAG, 1)

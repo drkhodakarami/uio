@@ -397,6 +397,8 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.TUNER, Models.GENERATED);
         itemModelGenerator.register(ModItems.ADVANCED_TUNER, Models.GENERATED);
         itemModelGenerator.register(ModItems.WRENCH, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHALICE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHALICE_EMPTY, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BLUEPRINT_EMPTY, Models.GENERATED);
         itemModelGenerator.register(ModItems.BLUEPRINT_PRINTED, Models.GENERATED);

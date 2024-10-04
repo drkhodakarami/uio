@@ -313,6 +313,8 @@ public class ModItemGroups
                                                               entries.add(ModItems.PLAYER_TELEPORT);
                                                               entries.add(ModItems.TUNER);
                                                               entries.add(ModItems.ADVANCED_TUNER);
+                                                              entries.add(ModItems.CHALICE_EMPTY);
+                                                              entries.add(ModItems.CHALICE);
                                                               entries.add(ModItems.WRENCH);
                                                               entries.add(ModItems.BACKPACK);
                                                               entries.add(ModItems.ENDER_BACKPACK);

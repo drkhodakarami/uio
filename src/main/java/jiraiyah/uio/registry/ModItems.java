@@ -49,9 +49,8 @@ public class ModItems
     public static Item RAW_RUBBER;
     public static Item RUBBER;
     public static Item VOID_PLATE_BASE, VOID_PLATE_ACTIVATOR, VOID_PLATE;
-    // TODO : Add Loot Drop for Eye, Heart, Gland
     public static Item ENDER_CHARM, ENDERMAN_EYE, ENDERMAN_HEART, ENDERMAN_GLAND;
-    public static Item ITEM_FILTER, CHALICE;
+    public static Item ITEM_FILTER, CHALICE, CHALICE_EMPTY;
     public static Item SLOT_DISABLED, SLOT_ENABLED;
     public static Item COOKED_EGG, EGG_AND_BREAD;
     public static Item HOT_COAL;
@@ -664,6 +663,7 @@ public class ModItems
                           new Item.Settings().maxCount(1));
         CHALICE = register("chalice",
                            new ChaliceItem(new Item.Settings().maxCount(1)));
+        CHALICE_EMPTY = register("chalice_empty");
         //endregion
         //region AMETHYST ARMOR
         ARMOR_AMETHYST_HELMET =

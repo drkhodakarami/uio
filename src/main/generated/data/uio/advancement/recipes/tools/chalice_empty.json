@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:chalice"
+        "recipe": "minecraft:chalice_empty"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -48,7 +48,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:chalice"
+      "minecraft:chalice_empty"
     ]
   }
 }

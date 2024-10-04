@@ -70,6 +70,8 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModItems.SLOT_ENABLED, "Enable Slot");
 
         builder.add(ModItems.BACKPACK, "Backpack");
+        builder.add(ModItems.CHALICE_EMPTY, "Empty Chalice");
+        builder.add(ModItems.CHALICE, "Chalice");
         builder.add(ModItems.ENDER_BACKPACK, "Ender Backpack");
         builder.add(ModItems.BLUEPRINT_EMPTY, "Empty Blueprint");
         builder.add(ModItems.BLUEPRINT_PRINTED, "Printed Blueprint");
@@ -481,8 +483,9 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(identifier(TELEPORTER_TOOLTIP_ID_NAME), "Bound to position : (%d %d %d) - %d");
         builder.add(identifier(TUNER_TELEPORTED_ID_NAME), "Teleported to : (%d %d %d) - %d");
         builder.add(identifier(TUNER_ERROR_ID_NAME), "Wrong dimension, your tuner bound to %d");
-        builder.add(identifier(ModCommands.DCLR_ERROR_ID_NAME), "Wrong Type, it should be one of the choices: ore, block, fluid, all");
-        builder.add(identifier(ModCommands.DCLR_START_ID_NAME), "Starting to Clean");
+        builder.add(identifier(DCLR_ERROR_ID_NAME), "Wrong Type, it should be one of the choices: ore, block, fluid, all");
+        builder.add(identifier(DCLR_START_ID_NAME), "Starting to Clean");
+        builder.add(identifier(DCLR_END_ID_NAME), "Finished Cleaning");
 
         builder.add("effect." + ModID + ".flight", "Flight");
     }

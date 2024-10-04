@@ -233,8 +233,6 @@ public class ModBlocks
         ORE_DEEP_SAPPHIRE = registerCopy("ore_deep_sapphire", Blocks.DEEPSLATE_DIAMOND_ORE);
 
         ORE_END_CITRINE = registerCopy("ore_end_citrine", Blocks.END_STONE);
-        // TODO : Add class and mechanics : End Enderite Ore ---> Blast with TNT ---> End Enderite Cracked ore
-        // TODO : Blockstate Usage and replacement example
         ORE_END_ENDERITE = register("ore_end_enderite", new OreEnderiteBlock(AbstractBlock.Settings.create()));
         ORE_END_ENDERITE_CRACKED = registerCopy("ore_end_enderite_cracked", Blocks.END_STONE);
         ORE_END_RUBY = registerCopy("ore_end_ruby", Blocks.END_STONE);

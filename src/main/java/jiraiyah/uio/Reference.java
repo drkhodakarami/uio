@@ -61,6 +61,9 @@ public class Reference
     public static final String TUNER_TELEPORTED_ID_NAME = "tuner.teleported";
     public static final String TUNER_ERROR_ID_NAME = "tuner.error";
     public static final String TELEPORTER_TOOLTIP_ID_NAME = "teleporter.tooltip";
+    public static final String DCLR_ERROR_ID_NAME = "dclr.error";
+    public static final String DCLR_START_ID_NAME = "dclr.start";
+    public static final String DCLR_END_ID_NAME = "dclr.end";
 
     //region Logging
     public static final Logger LOGGER = LoggerFactory.getLogger(ModID);

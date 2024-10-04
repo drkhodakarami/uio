@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chalice_empty": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:chalice_empty"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:chalice_shapeless"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_water_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:water_bucket"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_water_bucket",
+      "has_chalice_empty"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:chalice_shapeless"
+    ]
+  }
+}
