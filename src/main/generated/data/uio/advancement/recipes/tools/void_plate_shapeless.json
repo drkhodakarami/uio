@@ -31,8 +31,8 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_void_plate_activator",
-      "has_void_plate_base"
+      "has_void_plate_base",
+      "has_void_plate_activator"
     ]
   ],
   "rewards": {

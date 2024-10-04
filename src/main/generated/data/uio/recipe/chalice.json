@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "G": {
+      "item": "uio:plate_gold"
+    },
+    "R": {
+      "item": "uio:rod_gold"
+    }
+  },
+  "pattern": [
+    "GEG",
+    " R ",
+    "GGG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:chalice"
+  }
+}

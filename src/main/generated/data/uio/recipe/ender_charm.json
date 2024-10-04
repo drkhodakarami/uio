@@ -3,19 +3,22 @@
   "category": "equipment",
   "key": {
     "E": {
+      "item": "uio:enderman_eye"
+    },
+    "G": {
       "item": "uio:enderman_gland"
     },
-    "I": {
+    "H": {
       "item": "uio:enderman_heart"
     },
-    "P": {
-      "item": "uio:enderman_eye"
+    "I": {
+      "item": "uio:ingot_enderite"
     }
   },
   "pattern": [
-    "PIP",
-    "IEI",
-    "PIP"
+    "EIE",
+    "GIG",
+    "IHI"
   ],
   "result": {
     "count": 1,

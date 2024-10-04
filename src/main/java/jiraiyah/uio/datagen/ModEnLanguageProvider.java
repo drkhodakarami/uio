@@ -24,8 +24,8 @@
 
 package jiraiyah.uio.datagen;
 
-import jiraiyah.uio.Reference;
 import jiraiyah.uio.registry.ModBlocks;
+import jiraiyah.uio.registry.ModCommands;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -36,7 +36,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
-import static jiraiyah.uio.Reference.translate;
+import static jiraiyah.uio.Reference.*;
 
 public class ModEnLanguageProvider extends FabricLanguageProvider
 {
@@ -49,7 +49,8 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder builder)
     {
         builder.add(ModItems.BINDING_STRING, "Binding String");
-        builder.add(ModItems.UNSTABLE_GOO, "Unstable Goo");
+        builder.add(ModItems.UNSTABLE_GOO, "Unstable Goo Core");
+        builder.add(ModItems.UNSTABLE_GOO_BASE, "Combustion Core");
         builder.add(ModItems.RAW_RUBBER, "Raw Rubber");
         builder.add(ModItems.RUBBER, "Rubber");
         builder.add(ModItems.VOID_PLATE_BASE, "Portal Frame");
@@ -62,18 +63,24 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModItems.COOKED_EGG, "Cooked Egg");
         builder.add(ModItems.EGG_AND_BREAD, "Egg And Bread");
         builder.add(ModItems.HOT_COAL, "Hot Coal");
+        builder.add(ModItems.THERMAL_CORE, "Thermal Energy Core");
+
+        builder.add(ModItems.ITEM_FILTER, "Item Filter");
+        builder.add(ModItems.SLOT_DISABLED, "Disable Slot");
+        builder.add(ModItems.SLOT_ENABLED, "Enable Slot");
 
         builder.add(ModItems.BACKPACK, "Backpack");
         builder.add(ModItems.ENDER_BACKPACK, "Ender Backpack");
         builder.add(ModItems.BLUEPRINT_EMPTY, "Empty Blueprint");
         builder.add(ModItems.BLUEPRINT_PRINTED, "Printed Blueprint");
-        builder.add(ModItems.TOOL_PLAYER_TELEPORT, "Player Teleport");
-        builder.add(ModItems.TOOL_TUNER, "Tuner");
-        builder.add(ModItems.TOOL_ADVANCED_TUNER, "Advanced Tuner");
-        builder.add(ModItems.TOOL_WRENCH, "Wrench");
+        builder.add(ModItems.PLAYER_TELEPORT, "Player Teleport");
+        builder.add(ModItems.TUNER, "Tuner");
+        builder.add(ModItems.ADVANCED_TUNER, "Advanced Tuner");
+        builder.add(ModItems.WRENCH, "Wrench");
 
         builder.add(ModItems.CAST_AXE, "Axe Head Cast");
         builder.add(ModItems.CAST_BINDING, "Binding String Cast");
+        builder.add(ModItems.CAST_EXCAVATOR, "Excavator Head Cast");
         builder.add(ModItems.CAST_GEAR, "Gear Cast");
         builder.add(ModItems.CAST_GEM, "Gem Cast");
         builder.add(ModItems.CAST_HAMMER, "Hammer Head Cast");
@@ -178,98 +185,120 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModItems.ROD_SHULKER, "Shulker Shell Rod");
 
         builder.add(ModItems.HEAD_CITRINE_AXE, "Citrine Axe Head");
+        builder.add(ModItems.HEAD_CITRINE_EXCAVATOR, "Citrine Excavator Head");
         builder.add(ModItems.HEAD_CITRINE_HAMMER, "Citrine Hammer Head");
         builder.add(ModItems.HEAD_CITRINE_HOE, "Citrine Hoe Head");
         builder.add(ModItems.HEAD_CITRINE_PICKAXE, "Citrine Pickaxe Head");
         builder.add(ModItems.HEAD_CITRINE_SHOVEL, "Citrine Shovel Head");
         builder.add(ModItems.HEAD_CITRINE_SWORD, "Citrine Sword Head");
         builder.add(ModItems.HEAD_COPPER_AXE, "Copper Axe Head");
+        builder.add(ModItems.HEAD_COPPER_EXCAVATOR, "Copper Excavator Head");
         builder.add(ModItems.HEAD_COPPER_HAMMER, "Copper Hammer Head");
         builder.add(ModItems.HEAD_COPPER_HOE, "Copper Hoe Head");
         builder.add(ModItems.HEAD_COPPER_PICKAXE, "Copper Pickaxe Head");
         builder.add(ModItems.HEAD_COPPER_SHOVEL, "Copper Shovel Head");
         builder.add(ModItems.HEAD_COPPER_SWORD, "Copper Sword Head");
         builder.add(ModItems.HEAD_DIAMOND_AXE, "Diamond Axe Head");
+        builder.add(ModItems.HEAD_DIAMOND_EXCAVATOR, "Diamond Excavator Head");
         builder.add(ModItems.HEAD_DIAMOND_HAMMER, "Diamond Hammer Head");
         builder.add(ModItems.HEAD_DIAMOND_HOE, "Diamond Hoe Head");
         builder.add(ModItems.HEAD_DIAMOND_PICKAXE, "Diamond Pickaxe Head");
         builder.add(ModItems.HEAD_DIAMOND_SHOVEL, "Diamond Shovel Head");
         builder.add(ModItems.HEAD_DIAMOND_SWORD, "Diamond Sword Head");
         builder.add(ModItems.HEAD_ENDERITE_AXE, "Enderite Axe Head");
+        builder.add(ModItems.HEAD_ENDERITE_EXCAVATOR, "Enderite Excavator Head");
         builder.add(ModItems.HEAD_ENDERITE_HAMMER, "Enderite Hammer Head");
         builder.add(ModItems.HEAD_ENDERITE_HOE, "Enderite Hoe Head");
         builder.add(ModItems.HEAD_ENDERITE_PICKAXE, "Enderite Pickaxe Head");
         builder.add(ModItems.HEAD_ENDERITE_SHOVEL, "Enderite Shovel Head");
         builder.add(ModItems.HEAD_ENDERITE_SWORD, "Enderite Sword Head");
         builder.add(ModItems.HEAD_GOLD_AXE, "Gold Axe Head");
+        builder.add(ModItems.HEAD_GOLD_EXCAVATOR, "Gold Excavator Head");
         builder.add(ModItems.HEAD_GOLD_HAMMER, "Gold Hammer Head");
         builder.add(ModItems.HEAD_GOLD_HOE, "Gold Hoe Head");
         builder.add(ModItems.HEAD_GOLD_PICKAXE, "Gold Pickaxe Head");
         builder.add(ModItems.HEAD_GOLD_SHOVEL, "Gold Shovel Head");
         builder.add(ModItems.HEAD_GOLD_SWORD, "Gold Sword Head");
         builder.add(ModItems.HEAD_IRON_AXE, "Iron Axe Head");
+        builder.add(ModItems.HEAD_IRON_EXCAVATOR, "Iron Excavator Head");
         builder.add(ModItems.HEAD_IRON_HAMMER, "Iron Hammer Head");
         builder.add(ModItems.HEAD_IRON_HOE, "Iron Hoe Head");
         builder.add(ModItems.HEAD_IRON_PICKAXE, "Iron Pickaxe Head");
         builder.add(ModItems.HEAD_IRON_SHOVEL, "Iron Shovel Head");
         builder.add(ModItems.HEAD_IRON_SWORD, "Iron Sword Head");
         builder.add(ModItems.HEAD_NETHERITE_AXE, "Netherite Axe Head");
+        builder.add(ModItems.HEAD_NETHERITE_EXCAVATOR, "Netherite Excavator Head");
         builder.add(ModItems.HEAD_NETHERITE_HAMMER, "Netherite Hammer Head");
         builder.add(ModItems.HEAD_NETHERITE_HOE, "Netherite Hoe Head");
         builder.add(ModItems.HEAD_NETHERITE_PICKAXE, "Netherite Pickaxe Head");
         builder.add(ModItems.HEAD_NETHERITE_SHOVEL, "Netherite Shovel Head");
         builder.add(ModItems.HEAD_NETHERITE_SWORD, "Netherite Sword Head");
         builder.add(ModItems.HEAD_RUBY_AXE, "Ruby Axe Head");
+        builder.add(ModItems.HEAD_RUBY_EXCAVATOR, "Ruby Excavator Head");
         builder.add(ModItems.HEAD_RUBY_HAMMER, "Ruby Hammer Head");
         builder.add(ModItems.HEAD_RUBY_HOE, "Ruby Hoe Head");
         builder.add(ModItems.HEAD_RUBY_PICKAXE, "Ruby Pickaxe Head");
         builder.add(ModItems.HEAD_RUBY_SHOVEL, "Ruby Shovel Head");
         builder.add(ModItems.HEAD_RUBY_SWORD, "Ruby Sword Head");
         builder.add(ModItems.HEAD_SAPPHIRE_AXE, "Sapphire Axe Head");
+        builder.add(ModItems.HEAD_SAPPHIRE_EXCAVATOR, "Sapphire Excavator Head");
         builder.add(ModItems.HEAD_SAPPHIRE_HAMMER, "Sapphire Hammer Head");
         builder.add(ModItems.HEAD_SAPPHIRE_HOE, "Sapphire Hoe Head");
         builder.add(ModItems.HEAD_SAPPHIRE_PICKAXE, "Sapphire Pickaxe Head");
         builder.add(ModItems.HEAD_SAPPHIRE_SHOVEL, "Sapphire Shovel Head");
         builder.add(ModItems.HEAD_SAPPHIRE_SWORD, "Sapphire Sword Head");
         builder.add(ModItems.HEAD_STONE_HAMMER, "Stone Hammer Head");
+        builder.add(ModItems.HEAD_STONE_EXCAVATOR, "Stone Excavator Head");
         builder.add(ModItems.HEAD_WOOD_HAMMER, "Wooden Hammer Head");
+        builder.add(ModItems.HEAD_WOOD_EXCAVATOR, "Wooden Excavator Head");
 
         builder.add(ModItems.TOOL_CITRINE_AXE, "Citrine Axe");
+        builder.add(ModItems.TOOL_CITRINE_EXCAVATOR, "Citrine Excavator");
         builder.add(ModItems.TOOL_CITRINE_HAMMER, "Citrine Hammer");
         builder.add(ModItems.TOOL_CITRINE_HOE, "Citrine Hoe");
         builder.add(ModItems.TOOL_CITRINE_PICKAXE, "Citrine Pickaxe");
         builder.add(ModItems.TOOL_CITRINE_SHOVEL, "Citrine Shovel");
         builder.add(ModItems.TOOL_CITRINE_SWORD, "Citrine Sword");
         builder.add(ModItems.TOOL_COPPER_AXE, "Copper Axe");
+        builder.add(ModItems.TOOL_COPPER_EXCAVATOR, "Copper Excavator");
         builder.add(ModItems.TOOL_COPPER_HAMMER, "Copper Hammer");
         builder.add(ModItems.TOOL_COPPER_HOE, "Copper Hoe");
         builder.add(ModItems.TOOL_COPPER_PICKAXE, "Copper Pickaxe");
         builder.add(ModItems.TOOL_COPPER_SHOVEL, "Copper Shovel");
         builder.add(ModItems.TOOL_COPPER_SWORD, "Copper Sword");
         builder.add(ModItems.TOOL_ENDERITE_AXE, "Enderite Axe");
+        builder.add(ModItems.TOOL_ENDERITE_EXCAVATOR, "Enderite Excavator");
         builder.add(ModItems.TOOL_ENDERITE_HAMMER, "Enderite Hammer");
         builder.add(ModItems.TOOL_ENDERITE_HOE, "Enderite Hoe");
         builder.add(ModItems.TOOL_ENDERITE_PICKAXE, "Enderite Pickaxe");
         builder.add(ModItems.TOOL_ENDERITE_SHOVEL, "Enderite Shovel");
         builder.add(ModItems.TOOL_ENDERITE_SWORD, "Enderite Sword");
         builder.add(ModItems.TOOL_RUBY_AXE, "Ruby Axe");
+        builder.add(ModItems.TOOL_RUBY_EXCAVATOR, "Ruby Excavator");
         builder.add(ModItems.TOOL_RUBY_HAMMER, "Ruby Hammer");
         builder.add(ModItems.TOOL_RUBY_HOE, "Ruby Hoe");
         builder.add(ModItems.TOOL_RUBY_PICKAXE, "Ruby Pickaxe");
         builder.add(ModItems.TOOL_RUBY_SHOVEL, "Ruby Shovel");
         builder.add(ModItems.TOOL_RUBY_SWORD, "Ruby Sword");
         builder.add(ModItems.TOOL_SAPPHIRE_AXE, "Sapphire Axe");
+        builder.add(ModItems.TOOL_SAPPHIRE_EXCAVATOR, "Sapphire Excavator");
         builder.add(ModItems.TOOL_SAPPHIRE_HAMMER, "Sapphire Hammer");
         builder.add(ModItems.TOOL_SAPPHIRE_HOE, "Sapphire Hoe");
         builder.add(ModItems.TOOL_SAPPHIRE_PICKAXE, "Sapphire Pickaxe");
         builder.add(ModItems.TOOL_SAPPHIRE_SHOVEL, "Sapphire Shovel");
         builder.add(ModItems.TOOL_SAPPHIRE_SWORD, "Sapphire Sword");
         builder.add(ModItems.TOOL_DIAMOND_HAMMER, "Diamond Hammer");
+        builder.add(ModItems.TOOL_DIAMOND_EXCAVATOR, "Diamond Excavator");
         builder.add(ModItems.TOOL_GOLD_HAMMER, "Gold Hammer");
+        builder.add(ModItems.TOOL_GOLD_EXCAVATOR, "Gold Excavator");
         builder.add(ModItems.TOOL_IRON_HAMMER, "Iron Hammer");
+        builder.add(ModItems.TOOL_IRON_EXCAVATOR, "Iron Excavator");
         builder.add(ModItems.TOOL_NETHERITE_HAMMER, "Netherite Hammer");
+        builder.add(ModItems.TOOL_NETHERITE_EXCAVATOR, "Netherite Excavator");
         builder.add(ModItems.TOOL_STONE_HAMMER, "Stone Hammer");
+        builder.add(ModItems.TOOL_STONE_EXCAVATOR, "Stone Excavator");
         builder.add(ModItems.TOOL_WOOD_HAMMER, "Wood Hammer");
+        builder.add(ModItems.TOOL_WOOD_EXCAVATOR, "Wood Excavator");
 
         builder.add(ModItems.ARMOR_AMETHYST_HELMET, "Amethyst Helmet");
         builder.add(ModItems.ARMOR_AMETHYST_CHESTPLATE, "Amethyst Chestplate");
@@ -417,43 +446,45 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         //builder.add(ModBlocks.ANIMAL_FEEDER, "Animal Feeder");
         //builder.add(ModBlocks.TESSERACT, "Tesseract");
 
-        builder.add(Reference.Tags.Block.GEM_BLOCKS, "");
-        builder.add(Reference.Tags.Block.IS_MACHINE, "");
-        builder.add(Reference.Tags.Block.HAMMER_BLACKLIST, "Hammer Blacklist");
+        builder.add(Tags.Block.GEM_BLOCKS, "");
+        builder.add(Tags.Block.IS_MACHINE, "");
+        builder.add(Tags.Block.HAMMER_BLACKLIST, "Hammer Blacklist");
 
-        builder.add(Reference.Tags.Item.FLUID_BUCKET, "Fluid Buckets");
-        builder.add(Reference.Tags.Item.CAST, "Casts");
-        builder.add(Reference.Tags.Item.RAW, "Raws");
-        builder.add(Reference.Tags.Item.WOOD_CAST, "Wood Casts");
-        builder.add(Reference.Tags.Item.GEAR, "Gears");
-        builder.add(Reference.Tags.Item.DUST, "Dusts");
-        builder.add(Reference.Tags.Item.INGOT, "Ingots");
-        builder.add(Reference.Tags.Item.PLATE, "Plates");
-        builder.add(Reference.Tags.Item.REINFORCED, "Reinforced Plates");
-        builder.add(Reference.Tags.Item.ROD, "Rods");
-        builder.add(Reference.Tags.Item.TOOL_HEAD, "Tool Heads");
-        builder.add(Reference.Tags.Item.ALLOY, "Alloys");
-        builder.add(Reference.Tags.Item.GEM, "Gems");
-        builder.add(Reference.Tags.Item.HAMMERS, "Hammers");
-        builder.add(Reference.Tags.Item.MENDING_ONLY, "Mending Only");
-        builder.add(Reference.Tags.Item.SMELTABLE, "Smeltables");
+        builder.add(Tags.Item.FLUID_BUCKET, "Fluid Buckets");
+        builder.add(Tags.Item.CAST, "Casts");
+        builder.add(Tags.Item.RAW, "Raws");
+        builder.add(Tags.Item.WOOD_CAST, "Wood Casts");
+        builder.add(Tags.Item.GEAR, "Gears");
+        builder.add(Tags.Item.DUST, "Dusts");
+        builder.add(Tags.Item.INGOT, "Ingots");
+        builder.add(Tags.Item.PLATE, "Plates");
+        builder.add(Tags.Item.REINFORCED, "Reinforced Plates");
+        builder.add(Tags.Item.ROD, "Rods");
+        builder.add(Tags.Item.TOOL_HEAD, "Tool Heads");
+        builder.add(Tags.Item.ALLOY, "Alloys");
+        builder.add(Tags.Item.GEM, "Gems");
+        builder.add(Tags.Item.HAMMERS, "Hammers");
+        builder.add(Tags.Item.MENDING_ONLY, "Mending Only");
+        builder.add(Tags.Item.SMELTABLE, "Smeltables");
 
-        builder.add(Reference.Tags.Entity.TUNER_BLACKLIST, "Tuner Blacklist");
-        builder.add(Reference.Tags.Entity.RUBY_SWORD_WHITELIST, "Ruby Sword Whitelist");
+        builder.add(Tags.Entity.TUNER_BLACKLIST, "Tuner Blacklist");
+        builder.add(Tags.Entity.RUBY_SWORD_WHITELIST, "Ruby Sword Whitelist");
 
-        addText(builder, translate("block.group"), "Blocks");
-        addText(builder, translate("ingredient.group"), "Ingredients");
-        addText(builder, translate("machine.group"), "Machines");
-        addText(builder, translate("tool.group"), "Tools");
-        addText(builder, translate("armor.group"), "Armors");
-        addText(builder, translate("misc.group"), "Misc");
+        addText(builder, BLOCKS_TITLE, "Blocks");
+        addText(builder, INGREDIENT_TITLE, "Ingredients");
+        addText(builder, MACHINES_TITLE, "Machines");
+        addText(builder, TOOLS_TITLE, "Tools");
+        addText(builder, ARMORS_TITLE, "Armors");
+        addText(builder, MISC_TITLE, "Misc");
 
-        addText(builder, translate("tuner.tooltip"), "Bound to position : (%d %d %d) - %d");
-        addText(builder, translate("teleporter.tooltip"), "Bound to position : (%d %d %d) - %d");
-        addText(builder, translate("tuner.teleported"), "Teleported to : (%d %d %d) - %d");
-        addText(builder, translate("tuner.error"), "Wrong dimension, your tuner bound to %d");
-        addText(builder, translate("dclr.error"), "Wrong Type, it should be one of the choices: ore, block, fluid, all");
-        addText(builder, translate("dclr.start"), "Starting to Clean");
+        builder.add(identifier(TUNER_TOOLTIP_ID_NAME), "Bound to position : (%d %d %d) - %d");
+        builder.add(identifier(TELEPORTER_TOOLTIP_ID_NAME), "Bound to position : (%d %d %d) - %d");
+        builder.add(identifier(TUNER_TELEPORTED_ID_NAME), "Teleported to : (%d %d %d) - %d");
+        builder.add(identifier(TUNER_ERROR_ID_NAME), "Wrong dimension, your tuner bound to %d");
+        builder.add(identifier(ModCommands.DCLR_ERROR_ID_NAME), "Wrong Type, it should be one of the choices: ore, block, fluid, all");
+        builder.add(identifier(ModCommands.DCLR_START_ID_NAME), "Starting to Clean");
+
+        builder.add("effect." + ModID + ".flight", "Flight");
     }
 
     private static void addText(@NotNull TranslationBuilder builder, @NotNull MutableText text, @NotNull String value)

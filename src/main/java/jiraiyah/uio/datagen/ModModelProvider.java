@@ -156,7 +156,6 @@ public class ModModelProvider extends FabricModelProvider
 
         //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANGEL);
 
-
     }
 
     @Override
@@ -167,6 +166,7 @@ public class ModModelProvider extends FabricModelProvider
         //region FOOD FUEL MISC
         itemModelGenerator.register(ModItems.BINDING_STRING, Models.GENERATED);
         itemModelGenerator.register(ModItems.UNSTABLE_GOO, Models.GENERATED);
+        itemModelGenerator.register(ModItems.UNSTABLE_GOO_BASE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_RUBBER, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBBER, Models.GENERATED);
         itemModelGenerator.register(ModItems.VOID_PLATE, Models.GENERATED);
@@ -176,10 +176,14 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.ENDERMAN_EYE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDERMAN_HEART, Models.GENERATED);
         itemModelGenerator.register(ModItems.ENDERMAN_GLAND, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ITEM_FILTER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SLOT_DISABLED, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SLOT_ENABLED, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.COOKED_EGG, Models.GENERATED);
         itemModelGenerator.register(ModItems.EGG_AND_BREAD, Models.GENERATED);
         itemModelGenerator.register(ModItems.HOT_COAL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.THERMAL_CORE, Models.GENERATED);
 
 
         //endregion
@@ -187,6 +191,7 @@ public class ModModelProvider extends FabricModelProvider
         //region CAST
         itemModelGenerator.register(ModItems.CAST_AXE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAST_BINDING, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CAST_EXCAVATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAST_GEAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAST_GEM, Models.GENERATED);
         itemModelGenerator.register(ModItems.CAST_HAMMER, Models.GENERATED);
@@ -310,6 +315,7 @@ public class ModModelProvider extends FabricModelProvider
 
         //region HEAD
         itemModelGenerator.register(ModItems.HEAD_CITRINE_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_CITRINE_EXCAVATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_CITRINE_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_CITRINE_HOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_CITRINE_PICKAXE, Models.GENERATED);
@@ -317,6 +323,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.HEAD_CITRINE_SWORD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HEAD_COPPER_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_COPPER_EXCAVATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_COPPER_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_COPPER_HOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_COPPER_PICKAXE, Models.GENERATED);
@@ -324,6 +331,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.HEAD_COPPER_SWORD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HEAD_DIAMOND_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_DIAMOND_EXCAVATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_DIAMOND_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_DIAMOND_HOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_DIAMOND_PICKAXE, Models.GENERATED);
@@ -331,6 +339,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.HEAD_DIAMOND_SWORD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HEAD_ENDERITE_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_ENDERITE_EXCAVATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_ENDERITE_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_ENDERITE_HOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_ENDERITE_PICKAXE, Models.GENERATED);
@@ -338,6 +347,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.HEAD_ENDERITE_SWORD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HEAD_GOLD_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_GOLD_EXCAVATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_GOLD_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_GOLD_HOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_GOLD_PICKAXE, Models.GENERATED);
@@ -345,6 +355,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.HEAD_GOLD_SWORD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HEAD_IRON_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_IRON_EXCAVATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_IRON_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_IRON_HOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_IRON_PICKAXE, Models.GENERATED);
@@ -352,6 +363,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.HEAD_IRON_SWORD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HEAD_NETHERITE_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_NETHERITE_EXCAVATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_NETHERITE_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_NETHERITE_HOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_NETHERITE_PICKAXE, Models.GENERATED);
@@ -359,6 +371,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.HEAD_NETHERITE_SWORD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HEAD_RUBY_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_RUBY_EXCAVATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_RUBY_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_RUBY_HOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_RUBY_PICKAXE, Models.GENERATED);
@@ -366,6 +379,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.HEAD_RUBY_SWORD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HEAD_SAPPHIRE_AXE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_SAPPHIRE_EXCAVATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_SAPPHIRE_HAMMER, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_SAPPHIRE_HOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_SAPPHIRE_PICKAXE, Models.GENERATED);
@@ -373,14 +387,16 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.HEAD_SAPPHIRE_SWORD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.HEAD_STONE_HAMMER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_STONE_EXCAVATOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEAD_WOOD_HAMMER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEAD_WOOD_EXCAVATOR, Models.GENERATED);
         //endregion
 
         //region TOOLS
-        itemModelGenerator.register(ModItems.TOOL_PLAYER_TELEPORT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TOOL_TUNER, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TOOL_ADVANCED_TUNER, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TOOL_WRENCH, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PLAYER_TELEPORT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TUNER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ADVANCED_TUNER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WRENCH, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BLUEPRINT_EMPTY, Models.GENERATED);
         itemModelGenerator.register(ModItems.BLUEPRINT_PRINTED, Models.GENERATED);
@@ -389,6 +405,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.ENDER_BACKPACK, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TOOL_CITRINE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_CITRINE_EXCAVATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_CITRINE_HAMMER, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_CITRINE_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_CITRINE_PICKAXE, Models.HANDHELD);
@@ -396,6 +413,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.TOOL_CITRINE_SWORD, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.TOOL_COPPER_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_COPPER_EXCAVATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_COPPER_HAMMER, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_COPPER_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_COPPER_PICKAXE, Models.HANDHELD);
@@ -403,6 +421,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.TOOL_COPPER_SWORD, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.TOOL_ENDERITE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_ENDERITE_EXCAVATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_ENDERITE_HAMMER, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_ENDERITE_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_ENDERITE_PICKAXE, Models.HANDHELD);
@@ -410,6 +429,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.TOOL_ENDERITE_SWORD, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.TOOL_RUBY_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_RUBY_EXCAVATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_RUBY_HAMMER, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_RUBY_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_RUBY_PICKAXE, Models.HANDHELD);
@@ -417,6 +437,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.TOOL_RUBY_SWORD, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_EXCAVATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_HAMMER, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_PICKAXE, Models.HANDHELD);
@@ -424,11 +445,17 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.TOOL_SAPPHIRE_SWORD, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.TOOL_DIAMOND_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_DIAMOND_EXCAVATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_GOLD_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_GOLD_EXCAVATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_IRON_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_IRON_EXCAVATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_NETHERITE_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_NETHERITE_EXCAVATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_STONE_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_STONE_EXCAVATOR, Models.HANDHELD);
         itemModelGenerator.register(ModItems.TOOL_WOOD_HAMMER, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.TOOL_WOOD_EXCAVATOR, Models.HANDHELD);
         //endregion
 
         //region ARMOR

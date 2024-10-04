@@ -98,6 +98,19 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.TOOL_NETHERITE_HAMMER)
                 .add(ModItems.TOOL_STONE_HAMMER)
                 .add(ModItems.TOOL_WOOD_HAMMER);
+
+        getOrCreateTagBuilder(EXCAVATORS)
+                .add(ModItems.TOOL_CITRINE_EXCAVATOR)
+                .add(ModItems.TOOL_COPPER_EXCAVATOR)
+                .add(ModItems.TOOL_ENDERITE_EXCAVATOR)
+                .add(ModItems.TOOL_RUBY_EXCAVATOR)
+                .add(ModItems.TOOL_SAPPHIRE_EXCAVATOR)
+                .add(ModItems.TOOL_DIAMOND_EXCAVATOR)
+                .add(ModItems.TOOL_GOLD_EXCAVATOR)
+                .add(ModItems.TOOL_IRON_EXCAVATOR)
+                .add(ModItems.TOOL_NETHERITE_EXCAVATOR)
+                .add(ModItems.TOOL_STONE_EXCAVATOR)
+                .add(ModItems.TOOL_WOOD_EXCAVATOR);
         //endregion
 
         //region ARMOR
@@ -202,6 +215,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(CAST)
                 .add(ModItems.CAST_AXE)
                 .add(ModItems.CAST_BINDING)
+                .add(ModItems.CAST_EXCAVATOR)
                 .add(ModItems.CAST_GEAR)
                 .add(ModItems.CAST_GEM)
                 .add(ModItems.CAST_HAMMER)

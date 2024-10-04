@@ -42,6 +42,9 @@ import static jiraiyah.uio.Reference.*;
 
 public class ModCommands
 {
+    public static final String DCLR_ERROR_ID_NAME = "dclr.error";
+    public static final String DCLR_START_ID_NAME = "dclr.start";
+
     private static final int CLEAR_COMMAND_DISTANCE = 32;
 
     //region DCLR Lists
@@ -119,7 +122,7 @@ public class ModCommands
                                         !Objects.equals(typ, "fluid") &&
                                         !Objects.equals(typ, "all"))
                                     {
-                                        context.getSource().sendFeedback(() -> translate("dclr.error"), false);
+                                        context.getSource().sendFeedback(() -> translate(DCLR_ERROR_ID_NAME), false);
                                     }
                                     else
                                     {
@@ -149,7 +152,7 @@ public class ModCommands
                                             CommandManager commandManager = Objects.requireNonNull(server).getCommandManager();
                                             ServerCommandSource commandSource = server.getCommandSource();
 
-                                            context.getSource().sendFeedback(() -> translate("dclr.start"), false);
+                                            context.getSource().sendFeedback(() -> translate(DCLR_START_ID_NAME), false);
 
                                             String cmd = "";
 

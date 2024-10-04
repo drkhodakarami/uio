@@ -3,10 +3,10 @@
   "category": "equipment",
   "ingredients": [
     {
-      "item": "uio:void_plate_activator"
+      "item": "uio:void_plate_base"
     },
     {
-      "item": "uio:void_plate_base"
+      "item": "uio:void_plate_activator"
     }
   ],
   "result": {

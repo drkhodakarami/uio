@@ -25,245 +25,367 @@
 package jiraiyah.uio.registry;
 
 import jiraiyah.uio.block.ElevatorBlock;
+import jiraiyah.uio.block.OreEnderiteBlock;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
-import static jiraiyah.uio.Reference.identifier;
-import static jiraiyah.uio.Reference.log;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static jiraiyah.uio.Reference.*;
 
 public class ModBlocks
 {
-    // TODO : Talk about inline initialization
-    public static final Block ENDERITE = registerBlock("block_enderite", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+    public static List<Block> AllBlocks = new ArrayList<>();
+    public static final List<Block> BLACK_LIST = new ArrayList<>();
 
-    //region GEMS
-    public static final Block CITRINE = registerBlock("block_citrine", new Block(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block RUBY = registerBlock("block_ruby", new Block(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block SAPPHIRE = registerBlock("block_sapphire", new Block(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+    public static Block ENDERITE;
 
-    public static final Block RAW_CITRINE = registerBlock("block_raw_citrine", new Block(AbstractBlock.Settings.copy(Blocks.STONE)));
-    public static final Block RAW_ENDERITE = registerBlock("block_raw_enderite", new Block(AbstractBlock.Settings.copy(Blocks.STONE)));
-    public static final Block RAW_QUARTZ = registerBlock("block_raw_quartz", new Block(AbstractBlock.Settings.copy(Blocks.STONE)));
-    public static final Block RAW_RUBY = registerBlock("block_raw_ruby", new Block(AbstractBlock.Settings.copy(Blocks.STONE)));
-    public static final Block RAW_SAPPHIRE = registerBlock("block_raw_sapphire", new Block(AbstractBlock.Settings.copy(Blocks.STONE)));
+    public static Block CITRINE, RUBY, SAPPHIRE;
+    public static Block RAW_CITRINE, RAW_ENDERITE ,RAW_QUARTZ, RAW_RUBY, RAW_SAPPHIRE;
+
+    public static Block CITRINE_STAIRS, ENDERITE_STAIRS, RUBY_STAIRS, SAPPHIRE_STAIRS;
+    public static Block CITRINE_SLAB, ENDERITE_SLAB, RUBY_SLAB, SAPPHIRE_SLAB;
+    public static Block CITRINE_BUTTON, ENDERITE_BUTTON, RUBY_BUTTON, SAPPHIRE_BUTTON;
+    public static Block CITRINE_PRESSURE_PLATE, ENDERITE_PRESSURE_PLATE, RUBY_PRESSURE_PLATE, SAPPHIRE_PRESSURE_PLATE;
+    public static Block CITRINE_FENCE, ENDERITE_FENCE, RUBY_FENCE,SAPPHIRE_FENCE;
+    public static Block CITRINE_FENCE_GATE, ENDERITE_FENCE_GATE, RUBY_FENCE_GATE, SAPPHIRE_FENCE_GATE;
+    public static Block CITRINE_WALL, ENDERITE_WALL, RUBY_WALL, SAPPHIRE_WALL;
+    public static Block CITRINE_DOOR, ENDERITE_DOOR, RUBY_DOOR, SAPPHIRE_DOOR;
+    public static Block CITRINE_TRAP_DOOR, ENDERITE_TRAP_DOOR, RUBY_TRAP_DOOR, SAPPHIRE_TRAP_DOOR;
+
+    public static Block ORE_DEEP_CITRINE, ORE_DEEP_RUBY, ORE_DEEP_SAPPHIRE;
+    public static Block ORE_END_CITRINE, ORE_END_ENDERITE, ORE_END_ENDERITE_CRACKED, ORE_END_RUBY, ORE_END_SAPPHIRE;
+    public static Block ORE_NETHER_CITRINE, ORE_NETHER_RUBY, ORE_NETHER_SAPPHIRE, ORE_NETHER_COAL, ORE_NETHER_COPPER, ORE_NETHER_DIAMOND,
+                        ORE_NETHER_IRON, ORE_NETHER_LAPIS,ORE_NETHER_REDSTONE;
+    public static Block ORE_WORLD_CITRINE, ORE_WORLD_RUBY, ORE_WORLD_SAPPHIRE;
+    public static Block ORE_ENDERITE;
+
+    public static Block WATER_EATING_GOO, WATER_GENERATING_GOO, LAVA_EATING_GOO, LAVA_GENERATING_GOO, CHUNK_GOO, TOWERING_GOO,
+                        TUNNELING_GOO, BRIDGE_GOO, AIR_BOMB_GOO, CHUNK_BOMB_GOO, LAVA_PUMP_GOO, STONE_BOMB_GOO, WATER_PUMP_GOO;
+
+    public static Block ELEVATOR, ANGEL;
+    //public static Block REDSTONE_CLOCK;
+    //public static Block CREATIVE_ENERGY;
+    //public static Block ALLOY_MIXER;
+    //public static Block CAST_PRESS;
+    //public static Block GEM_CLEANER;
+    //public static Block GENERATOR;
+    //public static Block OVEN;
+    //public static Block PULVERIZER;
+    //public static Block SMELTER;
+    //public static Block BUCKET_FILLER;
+    //public static Block BLOCK_BREAKER;
+    //public static Block BLOCK_PLACER;
+    //public static Block WOOD_STRIPPER;
+    //public static Block ANIMAL_FEEDER;
+    //public static Block TESSERACT;
     //endregion
-
-    //region SPECIAL BLOCKS
-    public static final Block CITRINE_STAIRS =
-            registerBlock("block_citrine_stairs",
-                          new StairsBlock(ModBlocks.CITRINE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block ENDERITE_STAIRS =
-            registerBlock("block_enderite_stairs",
-                          new StairsBlock(ModBlocks.ENDERITE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block RUBY_STAIRS =
-            registerBlock("block_ruby_stairs",
-                          new StairsBlock(ModBlocks.RUBY.getDefaultState(), AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block SAPPHIRE_STAIRS =
-            registerBlock("block_sapphire_stairs",
-                          new StairsBlock(ModBlocks.SAPPHIRE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-
-    public static final Block CITRINE_SLAB =
-            registerBlock("block_citrine_slab",
-                          new SlabBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block ENDERITE_SLAB =
-            registerBlock("block_enderite_slab",
-                          new SlabBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block RUBY_SLAB =
-            registerBlock("block_ruby_slab",
-                          new SlabBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block SAPPHIRE_SLAB =
-            registerBlock("block_sapphire_slab",
-                          new SlabBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-
-    public static final Block CITRINE_BUTTON =
-            registerBlock("block_citrine_button",
-                          new ButtonBlock(BlockSetType.IRON, 40, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block ENDERITE_BUTTON =
-            registerBlock("block_enderite_button",
-                          new ButtonBlock(BlockSetType.IRON, 40, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block RUBY_BUTTON =
-            registerBlock("block_ruby_button",
-                          new ButtonBlock(BlockSetType.IRON, 40, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block SAPPHIRE_BUTTON =
-            registerBlock("block_sapphire_button",
-                          new ButtonBlock(BlockSetType.IRON, 40, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-
-    public static final Block CITRINE_PRESSURE_PLATE =
-            registerBlock("block_citrine_pressure_plate",
-                          new PressurePlateBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block ENDERITE_PRESSURE_PLATE =
-            registerBlock("block_enderite_pressure_plate",
-                          new PressurePlateBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block RUBY_PRESSURE_PLATE =
-            registerBlock("block_ruby_pressure_plate",
-                          new PressurePlateBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block SAPPHIRE_PRESSURE_PLATE =
-            registerBlock("block_sapphire_pressure_plate",
-                          new PressurePlateBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-
-    public static final Block CITRINE_FENCE =
-            registerBlock("block_citrine_fence",
-                          new FenceBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block ENDERITE_FENCE =
-            registerBlock("block_enderite_fence",
-                          new FenceBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block RUBY_FENCE =
-            registerBlock("block_ruby_fence",
-                          new FenceBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block SAPPHIRE_FENCE =
-            registerBlock("block_sapphire_fence",
-                          new FenceBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-
-    public static final Block CITRINE_FENCE_GATE =
-            registerBlock("block_citrine_fence_gate",
-                          new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block ENDERITE_FENCE_GATE =
-            registerBlock("block_enderite_fence_gate",
-                          new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block RUBY_FENCE_GATE =
-            registerBlock("block_ruby_fence_gate",
-                          new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block SAPPHIRE_FENCE_GATE =
-            registerBlock("block_sapphire_fence_gate",
-                          new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-
-    public static final Block CITRINE_WALL =
-            registerBlock("block_citrine_wall",
-                          new WallBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block ENDERITE_WALL =
-            registerBlock("block_enderite_wall",
-                          new WallBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    public static final Block RUBY_WALL =
-            registerBlock("block_ruby_wall",
-                          new WallBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-    public static final Block SAPPHIRE_WALL =
-            registerBlock("block_sapphire_wall",
-                          new WallBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
-
-    public static final Block CITRINE_DOOR =
-            registerBlock("block_citrine_door",
-                          new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_DOOR)));
-    public static final Block ENDERITE_DOOR =
-            registerBlock("block_enderite_door",
-                          new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_DOOR)));
-    public static final Block RUBY_DOOR =
-            registerBlock("block_ruby_door",
-                          new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_DOOR)));
-    public static final Block SAPPHIRE_DOOR =
-            registerBlock("block_sapphire_door",
-                          new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_DOOR)));
-
-    public static final Block CITRINE_TRAP_DOOR =
-            registerBlock("block_citrine_trap_door",
-                          new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_TRAPDOOR)));
-    public static final Block ENDERITE_TRAP_DOOR =
-            registerBlock("block_enderite_trap_door",
-                          new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_TRAPDOOR)));
-    public static final Block RUBY_TRAP_DOOR =
-            registerBlock("block_ruby_trap_door",
-                          new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_TRAPDOOR)));
-    public static final Block SAPPHIRE_TRAP_DOOR =
-            registerBlock("block_sapphire_trap_door",
-                          new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_TRAPDOOR)));
-    //endregion
-
-    //region ORE
-    public static final Block ORE_DEEP_CITRINE = registerBlock("ore_deep_citrine", new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_IRON_ORE)));
-    public static final Block ORE_DEEP_RUBY = registerBlock("ore_deep_ruby", new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE)));
-    public static final Block ORE_DEEP_SAPPHIRE = registerBlock("ore_deep_sapphire", new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE_DIAMOND_ORE)));
-
-    public static final Block ORE_END_CITRINE = registerBlock("ore_end_citrine", new Block(AbstractBlock.Settings.copy(Blocks.END_STONE)));
-    public static final Block ORE_END_ENDERITE = registerBlock("ore_end_enderite", new Block(AbstractBlock.Settings.copy(Blocks.END_STONE)));
-    public static final Block ORE_END_ENDERITE_CRACKED = registerBlock("ore_end_enderite_cracked", new Block(AbstractBlock.Settings.copy(Blocks.END_STONE)));
-    public static final Block ORE_END_RUBY = registerBlock("ore_end_ruby", new Block(AbstractBlock.Settings.copy(Blocks.END_STONE)));
-    public static final Block ORE_END_SAPPHIRE = registerBlock("ore_end_sapphire", new Block(AbstractBlock.Settings.copy(Blocks.END_STONE)));
-
-    public static final Block ORE_NETHER_CITRINE = registerBlock("ore_nether_citrine", new Block(AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE)));
-    public static final Block ORE_NETHER_RUBY = registerBlock("ore_nether_ruby", new Block(AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE)));
-    public static final Block ORE_NETHER_SAPPHIRE = registerBlock("ore_nether_sapphire", new Block(AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE)));
-    public static final Block ORE_NETHER_COAL = registerBlock("ore_nether_coal", new Block(AbstractBlock.Settings.copy(Blocks.NETHER_QUARTZ_ORE)));
-    public static final Block ORE_NETHER_COPPER = registerBlock("ore_nether_copper", new Block(AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE)));
-    public static final Block ORE_NETHER_DIAMOND = registerBlock("ore_nether_diamond", new Block(AbstractBlock.Settings.copy(Blocks.NETHER_QUARTZ_ORE)));
-    public static final Block ORE_NETHER_IRON = registerBlock("ore_nether_iron", new Block(AbstractBlock.Settings.copy(Blocks.NETHER_QUARTZ_ORE)));
-    public static final Block ORE_NETHER_LAPIS = registerBlock("ore_nether_lapis", new Block(AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE)));
-    public static final Block ORE_NETHER_REDSTONE = registerBlock("ore_nether_redstone", new Block(AbstractBlock.Settings.copy(Blocks.NETHER_GOLD_ORE)));
-
-    public static final Block ORE_WORLD_CITRINE = registerBlock("ore_world_citrine", new Block(AbstractBlock.Settings.copy(Blocks.IRON_ORE)));
-    public static final Block ORE_WORLD_RUBY = registerBlock("ore_world_ruby", new Block(AbstractBlock.Settings.copy(Blocks.IRON_ORE)));
-    public static final Block ORE_WORLD_SAPPHIRE = registerBlock("ore_world_sapphire", new Block(AbstractBlock.Settings.copy(Blocks.IRON_ORE)));
-
-    public static final Block ORE_ENDERITE = registerBlock("ore_enderite", new Block(AbstractBlock.Settings.copy(Blocks.ANCIENT_DEBRIS)));
-    //endregion
-
-    //region GOO
-
-    public static final Block WATER_EATING_GOO = registerBlock("water_eating_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block WATER_GENERATING_GOO = registerBlock("water_generating_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block LAVA_EATING_GOO = registerBlock("lava_eating_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block LAVA_GENERATING_GOO = registerBlock("lava_generating_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block CHUNK_GOO = registerBlock("chunk_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block TOWERING_GOO = registerBlock("towering_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block TUNNELING_GOO = registerBlock("tunneling_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block BRIDGE_GOO = registerBlock("bridge_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-
-    public static final Block AIR_BOMB_GOO = registerBlock("air_goo_bomb", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block CHUNK_BOMB_GOO = registerBlock("chunk_goo_bomb", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block LAVA_PUMP_GOO = registerBlock("lava_pump_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block STONE_BOMB_GOO = registerBlock("stone_goo_bomb", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    public static final Block WATER_PUMP_GOO = registerBlock("water_pump_goo", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-
-    //endregion
-
-    //region MACHINES
-    public static final Block ELEVATOR = registerBlock("elevator", new ElevatorBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    //public static final Block REDSTONE_CLOCK = registerBlock("redstone_clock", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-    //public static final Block CREATIVE_ENERGY = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block ALLOY_MIXER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block CAST_PRESS = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block GEM_CLEANER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block GENERATOR = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block OVEN = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block PULVERIZER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block SMELTER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block BUCKET_FILLER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block BLOCK_BREAKER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block BLOCK_PLACER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block WOOD_STRIPPER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block ANIMAL_FEEDER = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //public static final Block TESSERACT = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-    //endregion
-
-    //public static final Block ANGEL = registerBlock("block_angel", new Block(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).strength(0.8f, 5000.0f)));
 
     public ModBlocks()
     {
         throw new AssertionError();
     }
 
-    //region HELPER METHODS
-
     public static void register()
     {
         log("Registering Blocks");
+
+        ENDERITE = registerCopy("block_enderite", Blocks.IRON_BLOCK);
+        //region GEMS
+        CITRINE = registerCopy("block_citrine", Blocks.AMETHYST_BLOCK);
+        RUBY = registerCopy("block_ruby", Blocks.AMETHYST_BLOCK);
+        SAPPHIRE = registerCopy("block_sapphire", Blocks.AMETHYST_BLOCK);
+
+        RAW_CITRINE = registerCopy("block_raw_citrine", Blocks.STONE);
+        RAW_ENDERITE = registerCopy("block_raw_enderite", Blocks.STONE);
+        RAW_QUARTZ = registerCopy("block_raw_quartz", Blocks.STONE);
+        RAW_RUBY = registerCopy("block_raw_ruby", Blocks.STONE);
+        RAW_SAPPHIRE = registerCopy("block_raw_sapphire", Blocks.STONE);
+        //endregion
+        //region SPECIAL BLOCKS
+        CITRINE_STAIRS =
+                register("block_citrine_stairs",
+                         new StairsBlock(ModBlocks.CITRINE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        ENDERITE_STAIRS =
+                register("block_enderite_stairs",
+                         new StairsBlock(ModBlocks.ENDERITE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        RUBY_STAIRS =
+                register("block_ruby_stairs",
+                         new StairsBlock(ModBlocks.RUBY.getDefaultState(), AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        SAPPHIRE_STAIRS =
+                register("block_sapphire_stairs",
+                         new StairsBlock(ModBlocks.SAPPHIRE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+
+        CITRINE_SLAB =
+                register("block_citrine_slab",
+                         new SlabBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        ENDERITE_SLAB =
+                register("block_enderite_slab",
+                         new SlabBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        RUBY_SLAB =
+                register("block_ruby_slab",
+                         new SlabBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        SAPPHIRE_SLAB =
+                register("block_sapphire_slab",
+                         new SlabBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+
+        CITRINE_BUTTON =
+                register("block_citrine_button",
+                         new ButtonBlock(BlockSetType.IRON, 40, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        ENDERITE_BUTTON =
+                register("block_enderite_button",
+                         new ButtonBlock(BlockSetType.IRON, 40, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        RUBY_BUTTON =
+                register("block_ruby_button",
+                         new ButtonBlock(BlockSetType.IRON, 40, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        SAPPHIRE_BUTTON =
+                register("block_sapphire_button",
+                         new ButtonBlock(BlockSetType.IRON, 40, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+
+        CITRINE_PRESSURE_PLATE =
+                register("block_citrine_pressure_plate",
+                         new PressurePlateBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        ENDERITE_PRESSURE_PLATE =
+                register("block_enderite_pressure_plate",
+                         new PressurePlateBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        RUBY_PRESSURE_PLATE =
+                register("block_ruby_pressure_plate",
+                         new PressurePlateBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        SAPPHIRE_PRESSURE_PLATE =
+                register("block_sapphire_pressure_plate",
+                         new PressurePlateBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+
+        CITRINE_FENCE =
+                register("block_citrine_fence",
+                         new FenceBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        ENDERITE_FENCE =
+                register("block_enderite_fence",
+                         new FenceBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        RUBY_FENCE =
+                register("block_ruby_fence",
+                         new FenceBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        SAPPHIRE_FENCE =
+                register("block_sapphire_fence",
+                         new FenceBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+
+        CITRINE_FENCE_GATE =
+                register("block_citrine_fence_gate",
+                         new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        ENDERITE_FENCE_GATE =
+                register("block_enderite_fence_gate",
+                         new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        RUBY_FENCE_GATE =
+                register("block_ruby_fence_gate",
+                         new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        SAPPHIRE_FENCE_GATE =
+                register("block_sapphire_fence_gate",
+                         new FenceGateBlock(WoodType.OAK, AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+
+        CITRINE_WALL =
+                register("block_citrine_wall",
+                         new WallBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        ENDERITE_WALL =
+                register("block_enderite_wall",
+                         new WallBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        RUBY_WALL =
+                register("block_ruby_wall",
+                         new WallBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+        SAPPHIRE_WALL =
+                register("block_sapphire_wall",
+                         new WallBlock(AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+
+        CITRINE_DOOR =
+                register("block_citrine_door",
+                         new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_DOOR)));
+        ENDERITE_DOOR =
+                register("block_enderite_door",
+                         new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_DOOR)));
+        RUBY_DOOR =
+                register("block_ruby_door",
+                         new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_DOOR)));
+        SAPPHIRE_DOOR =
+                register("block_sapphire_door",
+                         new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_DOOR)));
+
+        CITRINE_TRAP_DOOR =
+                register("block_citrine_trap_door",
+                         new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_TRAPDOOR)));
+        ENDERITE_TRAP_DOOR =
+                register("block_enderite_trap_door",
+                         new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_TRAPDOOR)));
+        RUBY_TRAP_DOOR =
+                register("block_ruby_trap_door",
+                         new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_TRAPDOOR)));
+        SAPPHIRE_TRAP_DOOR =
+                register("block_sapphire_trap_door",
+                         new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.copy(Blocks.IRON_TRAPDOOR)));
+        //endregion
+        //region ORE
+        ORE_DEEP_CITRINE = registerCopy("ore_deep_citrine", Blocks.DEEPSLATE_IRON_ORE);
+        ORE_DEEP_RUBY = registerCopy("ore_deep_ruby", Blocks.DEEPSLATE_DIAMOND_ORE);
+        ORE_DEEP_SAPPHIRE = registerCopy("ore_deep_sapphire", Blocks.DEEPSLATE_DIAMOND_ORE);
+
+        ORE_END_CITRINE = registerCopy("ore_end_citrine", Blocks.END_STONE);
+        // TODO : Add class and mechanics : End Enderite Ore ---> Blast with TNT ---> End Enderite Cracked ore
+        // TODO : Blockstate Usage and replacement example
+        ORE_END_ENDERITE = register("ore_end_enderite", new OreEnderiteBlock(AbstractBlock.Settings.create()));
+        ORE_END_ENDERITE_CRACKED = registerCopy("ore_end_enderite_cracked", Blocks.END_STONE);
+        ORE_END_RUBY = registerCopy("ore_end_ruby", Blocks.END_STONE);
+        ORE_END_SAPPHIRE = registerCopy("ore_end_sapphire", Blocks.END_STONE);
+
+        ORE_NETHER_CITRINE = registerCopy("ore_nether_citrine", Blocks.NETHER_GOLD_ORE);
+        ORE_NETHER_RUBY = registerCopy("ore_nether_ruby", Blocks.NETHER_GOLD_ORE);
+        ORE_NETHER_SAPPHIRE = registerCopy("ore_nether_sapphire", Blocks.NETHER_GOLD_ORE);
+        ORE_NETHER_COAL = registerCopy("ore_nether_coal", Blocks.NETHER_QUARTZ_ORE);
+        ORE_NETHER_COPPER = registerCopy("ore_nether_copper", Blocks.NETHER_GOLD_ORE);
+        ORE_NETHER_DIAMOND = registerCopy("ore_nether_diamond", Blocks.NETHER_QUARTZ_ORE);
+        ORE_NETHER_IRON = registerCopy("ore_nether_iron", Blocks.NETHER_QUARTZ_ORE);
+        ORE_NETHER_LAPIS = registerCopy("ore_nether_lapis", Blocks.NETHER_GOLD_ORE);
+        ORE_NETHER_REDSTONE = registerCopy("ore_nether_redstone", Blocks.NETHER_GOLD_ORE);
+
+        ORE_WORLD_CITRINE = registerCopy("ore_world_citrine", Blocks.IRON_ORE);
+        ORE_WORLD_RUBY = registerCopy("ore_world_ruby", Blocks.IRON_ORE);
+        ORE_WORLD_SAPPHIRE = registerCopy("ore_world_sapphire", Blocks.IRON_ORE);
+
+        ORE_ENDERITE = registerCopy("ore_enderite", Blocks.ANCIENT_DEBRIS);
+        //endregion
+        //region GOO
+        WATER_EATING_GOO = registerCopy("water_eating_goo", Blocks.GRAY_WOOL);
+        WATER_GENERATING_GOO = registerCopy("water_generating_goo", Blocks.GRAY_WOOL);
+        LAVA_EATING_GOO = registerCopy("lava_eating_goo", Blocks.GRAY_WOOL);
+        LAVA_GENERATING_GOO = registerCopy("lava_generating_goo", Blocks.GRAY_WOOL);
+        CHUNK_GOO = registerCopy("chunk_goo", Blocks.GRAY_WOOL);
+        TOWERING_GOO = registerCopy("towering_goo", Blocks.GRAY_WOOL);
+        TUNNELING_GOO = registerCopy("tunneling_goo", Blocks.GRAY_WOOL);
+        BRIDGE_GOO = registerCopy("bridge_goo", Blocks.GRAY_WOOL);
+
+        AIR_BOMB_GOO = registerCopy("air_goo_bomb", Blocks.GRAY_WOOL);
+        CHUNK_BOMB_GOO = registerCopy("chunk_goo_bomb", Blocks.GRAY_WOOL);
+        LAVA_PUMP_GOO = registerCopy("lava_pump_goo", Blocks.GRAY_WOOL);
+        STONE_BOMB_GOO = registerCopy("stone_goo_bomb", Blocks.GRAY_WOOL);
+        WATER_PUMP_GOO = registerCopy("water_pump_goo", Blocks.GRAY_WOOL);
+        //endregion
+        //region MACHINES
+        ELEVATOR = registerCopy("elevator", Blocks.GRAY_WOOL);
+        //REDSTONE_CLOCK = registerBlock("redstone_clock", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        //CREATIVE_ENERGY = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //ALLOY_MIXER = registerBlock("alloy_mixer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //CAST_PRESS = registerBlock("cast_press", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //GEM_CLEANER = registerBlock("gem_cleaner", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //GENERATOR = registerBlock("generator", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //OVEN = registerBlock("oven", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //PULVERIZER = registerBlock("pulverizer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //SMELTER = registerBlock("smelter", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //BUCKET_FILLER = registerBlock("bucket_filler", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //BLOCK_BREAKER = registerBlock("block_breaker", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //BLOCK_PLACER = registerBlock("block_placer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //WOOD_STRIPPER = registerBlock("wood_stripper", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //ANIMAL_FEEDER = registerBlock("animal_feeder", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //TESSERACT = registerBlock("tesseract", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        //endregion
+
+        //TODO: Generate Custom Block Item(Use registerBlock and then manually register custom block item)
+        ANGEL = register("block_angel", AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).strength(0.1f, 5000.0f));
+
+        AllBlocks = Registries.BLOCK.getEntrySet()
+                                  .stream()
+                                  .filter(key -> key.getKey().getValue().getNamespace().equals(ModID))
+                                  .map(Map.Entry::getValue)
+                                  .collect(Collectors.toList());
+
+
+        BLACK_LIST.add(AIR_BOMB_GOO);
+        BLACK_LIST.add(CHUNK_BOMB_GOO);
+        BLACK_LIST.add(STONE_BOMB_GOO);
     }
 
-    // TODO : Talk about generic implementation
-    //private static Block registerBlock(String name, Block block)
-    private static <T extends Block> T registerBlock(String name, T block)
+    //region HELPER METHODS
+    private static Block register(String name, Block block, boolean hasItem)
     {
-        registerBlockItem(name, block);
+        if(hasItem)
+            registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, identifier(name), block);
     }
 
-    //private static Item registerBlockItem(String name, Block block)
-    private static <T extends Item, S extends Block> T registerBlockItem(String name, S block)
+    private static Block register(String name, boolean hasItem)
     {
-        return (T) Registry.register(Registries.ITEM, identifier(name),
-                                        new BlockItem(block, new Item.Settings()));
+        return register(name, new Block(AbstractBlock.Settings.create()), hasItem);
     }
 
+    private static Block register(String name, AbstractBlock.Settings settings, boolean hasItem)
+    {
+        return register(name, new Block(settings), hasItem);
+    }
+
+    private static Block register(String name, AbstractBlock.Settings settings)
+    {
+        return register(name, new Block(settings), true);
+    }
+
+    private static Block register(String name, Block block)
+    {
+        return register(name, block, true);
+    }
+
+    private static Block register(String name)
+    {
+        return register(name, new Block(AbstractBlock.Settings.create()), true);
+    }
+
+    private static Block registerBlock(String name, Block block)
+    {
+        return register(name, block, false);
+    }
+
+    private static Block registerBlock(String name)
+    {
+        return register(name, new Block(AbstractBlock.Settings.create()), false);
+    }
+
+    private static Block registerCopy(String name, Block block, boolean hasItem)
+    {
+        return register(name, new Block(AbstractBlock.Settings.copy(block)), hasItem);
+    }
+
+    private static Block registerCopy(String name, Block block)
+    {
+        return register(name, new Block(AbstractBlock.Settings.copy(block)), true);
+    }
+
+    private static Block registerBlockCopy(String name, Block block)
+    {
+        return register(name, new Block(AbstractBlock.Settings.copy(block)), false);
+    }
+
+    private static Block register(String name, Block block, BlockItem blockItem)
+    {
+        Registry.register(Registries.ITEM, identifier(name), blockItem);
+        return Registry.register(Registries.BLOCK, identifier(name), block);
+    }
+
+    private static Block register(String name, BlockItem blockItem)
+    {
+        Registry.register(Registries.ITEM, identifier(name), blockItem);
+        return Registry.register(Registries.BLOCK, identifier(name), new Block(AbstractBlock.Settings.create()));
+    }
+
+    private static Block registerCopy(String name, Block block, BlockItem blockItem)
+    {
+        Registry.register(Registries.ITEM, identifier(name), blockItem);
+        return Registry.register(Registries.BLOCK, identifier(name), new Block(AbstractBlock.Settings.copy(block)));
+    }
+
+    private static void registerBlockItem(String name, Block block)
+    {
+        Registry.register(Registries.ITEM, identifier(name),
+                                        new BlockItem(block, new Item.Settings()));
+    }
     //endregion
 }

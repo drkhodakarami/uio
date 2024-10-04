@@ -40,9 +40,31 @@ public class Reference
 {
 
     public static final String ModID = "uio";
-    public static final Logger LOGGER = LoggerFactory.getLogger(ModID);
+
+    //region ITEM GROUP NAMES AND TITLES
+    public static final String BLOCK_ITEM_GROUP_NAME = "_1_block_group";
+    public static final String INGREDIENT_ITEM_GROUP_NAME = "_6_ingredient_group";
+    public static final String MACHINE_ITEM_GROUP_NAME = "_2_machine_group";
+    public static final String TOOLS_ITEM_GROUP_NAME = "_3_tool_group";
+    public static final String ARMOR_ITEM_GROUP_NAME = "_4_armor_group";
+    public static final String MISC_ITEM_GROUP_NAME = "_5_misc_group";
+
+    public static final MutableText BLOCKS_TITLE = translate(BLOCK_ITEM_GROUP_NAME);
+    public static final MutableText INGREDIENT_TITLE = translate(INGREDIENT_ITEM_GROUP_NAME);
+    public static final MutableText MACHINES_TITLE = translate(MACHINE_ITEM_GROUP_NAME);
+    public static final MutableText TOOLS_TITLE = translate(TOOLS_ITEM_GROUP_NAME);
+    public static final MutableText ARMORS_TITLE = translate(ARMOR_ITEM_GROUP_NAME);
+    public static final MutableText MISC_TITLE = translate(MISC_ITEM_GROUP_NAME);
+    //endregion
+
+    public static final String TUNER_TOOLTIP_ID_NAME = "tuner.tooltip";
+    public static final String TUNER_TELEPORTED_ID_NAME = "tuner.teleported";
+    public static final String TUNER_ERROR_ID_NAME = "tuner.error";
+    public static final String TELEPORTER_TOOLTIP_ID_NAME = "teleporter.tooltip";
 
     //region Logging
+    public static final Logger LOGGER = LoggerFactory.getLogger(ModID);
+
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";
@@ -77,6 +99,12 @@ public class Reference
     public static final String ANSI_BRIGHT_CYAN_BACK = "\u001B[106m";
     public static final String ANSI_BRIGHT_WHITE_BACK = "\u001B[107m";
 
+    public static void logMain()
+    {
+        LOGGER.info("\u001b[38;2;" + 255 + ";" + 255 + ";" + 0 + ";48;2;" + 255 + ";" + 0 + ";" + 127 +
+                    "m>>> " + "Initializing" + " " + Reference.ANSI_RESET);
+    }
+
     public static void log(String message)
     {
         if (DEBUG)
@@ -88,7 +116,6 @@ public class Reference
         if (DEBUG)
             LOGGER.info(">>> " + message);
     }
-    //endregion
 
     public static void logRGB256(String message, int r, int g, int b)
     {
@@ -101,7 +128,9 @@ public class Reference
         if (DEBUG)
             LOGGER.info("\u001b[38;2;" + rf + ";" + gf + ";" + bf + ";48;2;" + rb + ";" + gb + ";" + bb + "m>>> " + message + " " + ANSI_RESET);
     }
+    //endregion
 
+    //region IDENTIFIERS
     @NotNull
     public static Identifier identifier(@NotNull String path)
     {
@@ -119,6 +148,7 @@ public class Reference
     {
         return Identifier.of(path);
     }
+    //endregion
 
     public static MutableText translate(String key, Object... params)
     {
@@ -127,12 +157,15 @@ public class Reference
 
     public static class Tags
     {
+
         public static class Block
         {
             public static final TagKey<net.minecraft.block.Block> GEM_BLOCKS = createCommonTag("gem_blocks");
             public static final TagKey<net.minecraft.block.Block> IS_MACHINE = createCommonTag("machines");
 
             public static final TagKey<net.minecraft.block.Block> HAMMER_BLACKLIST = createTag("hammer_blacklist");
+            public static final TagKey<net.minecraft.block.Block> EXCAVATOR_BLACKLIST = createTag("excavator_blacklist");
+            public static final TagKey<net.minecraft.block.Block> INCORRECT_FOR_ENDERITE_TOOL = createTag("incorrect_for_enderite_tool");
 
             //region HELPER METHODS
             private static TagKey<net.minecraft.block.Block> createTag(String name)
@@ -164,6 +197,7 @@ public class Reference
             public static final TagKey<net.minecraft.item.Item> GEM = createCommonTag("gems");
 
             public static final TagKey<net.minecraft.item.Item> HAMMERS = createTag("hammers");
+            public static final TagKey<net.minecraft.item.Item> EXCAVATORS = createTag("excavators");
             public static final TagKey<net.minecraft.item.Item> MENDING_ONLY = createTag("mending_only");
             public static final TagKey<net.minecraft.item.Item> SMELTABLE = createTag("smeltery");
 
@@ -198,5 +232,13 @@ public class Reference
             }
             //endregion
         }
+    }
+
+    public static class Keys
+    {
+        public static final String TUNER_POS = ModID + ".tuner.pos";
+        public static final String TUNER_DIMENSION = ModID + ".tuner.dimension";
+        public static final String TELEPORTER_POS = ModID + ".teleporter.pos";
+        public static final String TELEPORTER_DIMENSION = ModID + ".teleporter.dimension";
     }
 }

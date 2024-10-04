@@ -114,9 +114,8 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
     it.options.release = 21
-    //TODO : Talk about this build flag
-    //options.compilerArgs << '-Xlint:unchecked'
-    //options.deprecation = true
+    options.compilerArgs << '-Xlint:unchecked'
+    options.deprecation = true
 }
 
 java {

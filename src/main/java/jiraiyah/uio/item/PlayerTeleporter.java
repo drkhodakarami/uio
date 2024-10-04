@@ -33,20 +33,27 @@ import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtHelper;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import static jiraiyah.uio.Reference.translate;
+import static jiraiyah.uio.Reference.*;
 
 public class PlayerTeleporter extends Item
 {
+
     public PlayerTeleporter(Settings settings)
     {
         super(settings);
@@ -70,8 +77,8 @@ public class PlayerTeleporter extends Item
                 if (!context.getWorld().isClient())
                 {
                     NbtCompound nbt = new NbtCompound();
-                    nbt.put("uio.teleporter.pos", NbtHelper.fromBlockPos(pos));
-                    nbt.putString("uio.teleporter.dimension", player.getWorld().getRegistryKey().getValue().toString());
+                    nbt.put(Keys.TELEPORTER_POS, NbtHelper.fromBlockPos(pos));
+                    nbt.putString(Keys.TELEPORTER_DIMENSION, player.getWorld().getRegistryKey().getValue().toString());
                     NbtComponent component = NbtComponent.of(nbt);
                     context.getStack().set(DataComponentTypes.CUSTOM_DATA, component);
                 }
@@ -101,14 +108,30 @@ public class PlayerTeleporter extends Item
             {
                 ItemStack stack = user.getStackInHand(hand);
                 NbtCompound nbt = data.copyNbt();
-                BlockPos pos = NbtHelper.toBlockPos(nbt, "uio.teleporter.pos").get();
-                var dimension = nbt.getString("uio.teleporter.dimension");
-                //TODO : Finish the code !
+                if(nbt == null || NbtHelper.toBlockPos(nbt, Keys.TELEPORTER_POS).isEmpty())
+                    return super.use(world, user, hand);
+                BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.TELEPORTER_POS).get();
+                var dimension = nbt.getString(Keys.TELEPORTER_DIMENSION);
+                MinecraftServer server = world.getServer();
+                RegistryKey<World> storedKey = RegistryKey.of(RegistryKeys.WORLD, idOf(dimension));
+                if(storedKey == null || server == null)
+                    return super.use(world, user, hand);
+                TeleportTarget target = new TeleportTarget(server.getWorld(storedKey),
+                                                           new Vec3d(pos.getX() + 0.5f, pos.getY() + 1.0f, pos.getZ() + 0.5f),
+                                                           new Vec3d(0, 0, 0),
+                                                           user.getYaw(),
+                                                           user.getPitch(),
+                                                           TeleportTarget.NO_OP);
+                if(user.getWorld().getRegistryKey().equals(storedKey))
+                    ((ServerPlayerEntity) user).networkHandler.requestTeleport(target.pos().getX(),
+                                                                               target.pos().getY(),
+                                                                               target.pos().getZ(),
+                                                                               target.yaw(),
+                                                                               target.pitch());
+                else
+                    user.teleportTo(target);
+
             }
-        }
-        else
-        {
-            user.sendMessage(Text.literal("Use from Server"));
         }
         return super.use(world, user, hand);
     }
@@ -120,11 +143,13 @@ public class PlayerTeleporter extends Item
         if (data != null)
         {
             NbtCompound nbt = data.copyNbt();
-            BlockPos pos = NbtHelper.toBlockPos(nbt, "uio.teleporter.pos").get();
+            if(NbtHelper.toBlockPos(nbt, Keys.TELEPORTER_POS).isEmpty())
+                return;
+            BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.TELEPORTER_POS).get();
 
-            var dimension = nbt.getString("uio.teleporter.dimension");
+            var dimension = nbt.getString(Keys.TELEPORTER_DIMENSION);
             var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
-            tooltip.add(translate("teleporter.tooltip", pos.getX(), pos.getY(), pos.getZ(), dimensionName));
+            tooltip.add(translate(TELEPORTER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
         }
     }
 
@@ -137,6 +162,6 @@ public class PlayerTeleporter extends Item
 
     private void outputCoordinatesToChat(BlockPos pos, String dimension, PlayerEntity player)
     {
-        player.sendMessage(translate("tuner.tooltip", pos.getX(), pos.getY(), pos.getZ(), dimension), false);
+        player.sendMessage(translate(TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimension), false);
     }
 }

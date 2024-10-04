@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "uio:plate_stone"
+    },
+    "W": {
+      "item": "minecraft:lapis_lazuli"
+    }
+  },
+  "pattern": [
+    "   ",
+    "RWR",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:slot_disabled"
+  }
+}

@@ -24,14 +24,18 @@
 
 package jiraiyah.uio;
 
-import jiraiyah.uio.event.ModEvents;
+import jiraiyah.uio.registry.ModEvents;
 import jiraiyah.uio.registry.*;
+import jiraiyah.uio.registry.misc.*;
 import jiraiyah.uio.registry.world.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.util.math.BlockPos;
 
-import static jiraiyah.uio.Reference.logBackRGB256;
+import static jiraiyah.uio.Reference.LOGGER;
+import static jiraiyah.uio.Reference.logMain;
 
+//region CUSTOM FLAT WORLD GEN PRESETS
 // This is a flat world gen custom preset I always use for redstone and building massive tech contraptions
 // It has 5 levels of bedrock, 30 layers of green concrete, and a black stained-glass on top layer.
 // The concrete color is such that it will let redstone dust be seen easier. The reason for glass on top layer
@@ -48,7 +52,39 @@ import static jiraiyah.uio.Reference.logBackRGB256;
 // Having carpet as top layer will make sure that even if you forget to make the game peaceful, no mod will spawn
 // >>>
 // 5*minecraft:bedrock,30*minecraft:light_blue_wool,minecraft:light_blue_carpet;minecraft:plains;village
+//endregion
 
+//region FACING CHEAT SHEET
+// ======================
+// FACING GUIDE LINE :
+// ======================
+// Blocks that are facing Opposite directions on placement will have the opposite
+// relative facing compared to the direction the player is facing.
+// >>>>>>>>>> NORTH <<<<<<<<<<<<<
+// ======== Negative Z ========
+// Left  : West, Negative X
+// Right : East, Positive X
+// Front : South, Positive Z
+// Back  : North, Negative Z
+// >>>>>>>>>> SOUTH <<<<<<<<<<<<<
+// ======== Positive Z ========
+// Left  : East, Positive X
+// Right : West, Negative X
+// Front : North, Negative Z
+// Back  : South, Positive Z
+// >>>>>>>>>> EAST <<<<<<<<<<<<<<
+// ======== Positive X ========
+// Left  : North, Negative Y
+// Right : South, Positive Y
+// Front : West, Negative Z
+// Back  : East, Positive Z
+// >>>>>>>>>> WEST <<<<<<<<<<<<<<
+// ======== Negative X ========
+// Left  : South, Positive Y
+// Right : North, Negative Y
+// Front : East, Positive Z
+// Back  : West, Negative Z
+//endregion
 
 public class Main implements ModInitializer
 {
@@ -59,21 +95,35 @@ public class Main implements ModInitializer
     {
         DEBUG = FabricLoader.getInstance().isDevelopmentEnvironment();
 
-        Reference.LOGGER.info("\u001b[38;2;" + 255 + ";" + 255 + ";" + 0 + ";48;2;" + 255 + ";" + 0 + ";" + 127 + "m>>> " + "Initializing" + " " + Reference.ANSI_RESET);
+        logMain();
 
-        ModEvents.addListeners();
+        //region REGISTER CALLS
+        ModEvents.register();
 
         ModItems.register();
         ModBlocks.register();
-        ModItemGroups.register();
-        ModCommands.register();
-        ModBlockEntities.register();
-        ModScreenHandlers.register();
-        ModRecipes.register();
-        ModWorldGeneration.register();
-        ModMessages.registerC2SPackets();
-        ModEffects.register();
 
-        ModRegistries.register();
+        ModRecipes.register(); // Should happen after item and block registration
+        ModItemGroups.register(); // Should happen after Items and Block Registration
+        ModBlockEntities.register(); // Should happen after block registration
+        ModScreenHandlers.register(); // Should happen after block and block entity registration
+
+        ModWorldGeneration.register(); // Should happen after Items and Block Registration
+        ModPortals.register(); // Should happen after Items and Block Registration
+        ModStrippables.register(); // Should happen after Items and Block Registration
+
+        ModAttributes.register();
+        ModCompostables.register();
+        ModEffects.register();
+        ModFlammables.register();
+        ModFuels.register();
+        ModOxidizables.register();
+        ModPotionRecipes.register();
+        ModTrades.register();
+
+        ModCommands.register();
+
+        ModMessages.registerC2SPackets();
+        //endregion
     }
 }

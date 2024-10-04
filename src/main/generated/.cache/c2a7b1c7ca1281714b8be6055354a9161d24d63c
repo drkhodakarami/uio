@@ -1,5 +1,6 @@
-// 1.21.1	2024-09-08T19:56:32.2097342	Ultra IO/Tags for minecraft:item
+// 1.21.1	2024-10-04T12:18:52.744924	Ultra IO/Tags for minecraft:item
 94cbd3f9f0a6a48c5f25fe92b7e146a4bcfa1c83 data\minecraft\tags\item\hoes.json
+84f5c8fcc124cffc09f6c8b7299dc91a762cd6b3 data\uio\tags\item\excavators.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\gold_ores.json
 29aa432ed43f4c27aefde287bc6e468dac49b5e8 data\c\tags\item\plates.json
 9b5864e8b7f1465d4b7efaaa8c673573605bf6ae data\minecraft\tags\item\shovels.json
@@ -21,7 +22,7 @@ b7cd630377b449e6f014d7bfebb31cefea135163 data\minecraft\tags\item\iron_ores.json
 e8b3eabddfdf50cf8b95204f7245915f08258990 data\minecraft\tags\item\redstone_ores.json
 376da3cd6f332bdd77b628c5294e2e89c11a2c53 data\c\tags\item\rods.json
 ab1f4c96a2f02509fcb7edafb009c1618e976de7 data\minecraft\tags\item\foot_armor.json
-2cbd7645e17ad9ddec09f88b2b8e72a42f81ef2e data\c\tags\item\casts.json
+096a6813fdb5c1cbf7a5bacd161478f87199f0b9 data\c\tags\item\casts.json
 8c5dd1647c17fc41e6fe2754c86c718d4c871d9b data\minecraft\tags\item\copper_ores.json
 bd9ba0308bacdaa5dedb2484ed727f64c8467d1e data\c\tags\item\tool_heads.json
 52c8a207f1c3c181afa45cb10f005d7111cffcb2 data\uio\tags\item\hammers.json

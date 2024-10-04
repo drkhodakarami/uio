@@ -164,7 +164,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
         //endregion
 
         getOrCreateTagBuilder(HAMMER_BLACKLIST)
-                .add(ModBlocks.ELEVATOR);
+                .add(ModBlocks.ELEVATOR)
+                .add(ModBlocks.ANGEL);
+
+        getOrCreateTagBuilder(EXCAVATOR_BLACKLIST)
+                .add(ModBlocks.ELEVATOR)
+                .add(ModBlocks.ANGEL);
 
         getOrCreateTagBuilder(GEM_BLOCKS)
                 .add(ModBlocks.RUBY)
@@ -174,5 +179,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
         getOrCreateTagBuilder(IS_MACHINE)
                 .add(ModBlocks.ELEVATOR);
+
+        getOrCreateTagBuilder(INCORRECT_FOR_ENDERITE_TOOL);
     }
 }

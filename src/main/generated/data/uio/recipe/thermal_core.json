@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "H": {
+      "item": "uio:hot_coal"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "pattern": [
+    "HHH",
+    "HIH",
+    "HHH"
+  ],
+  "result": {
+    "count": 1,
+    "id": "uio:thermal_core"
+  }
+}

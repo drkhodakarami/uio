@@ -94,16 +94,11 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                          RecipeCategory.BUILDING_BLOCKS, ModItems.RAW_SAPPHIRE,
                                          RecipeCategory.DECORATIONS, ModBlocks.RAW_SAPPHIRE);
         //endregion
-
         //region LEATHER
         offerFoodCookingRecipe(exporter,
                                "smoking", RecipeSerializer.SMOKING, SmokingRecipe::new,
                                400, Items.ROTTEN_FLESH, Items.LEATHER, 0.1F);
-        offerFoodCookingRecipe(exporter,
-                               "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
-                               2400, Items.ROTTEN_FLESH, Items.LEATHER, 0.1F);
         //endregion
-
         //region MAIN TOOLS
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.BACKPACK, 1)
                                .pattern("LLL")
@@ -125,7 +120,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.INGOT_ENDERITE), conditionsFromItem(ModItems.INGOT_ENDERITE))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.ENDER_BACKPACK)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_PLAYER_TELEPORT, 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.PLAYER_TELEPORT, 1)
                                .pattern("PEP")
                                .pattern("DCD")
                                .pattern("GGG")
@@ -139,9 +134,9 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
                                .criterion(hasItem(ModItems.REINFORCED_DIAMOND), conditionsFromItem(ModItems.REINFORCED_DIAMOND))
                                .criterion(hasItem(ModItems.REINFORCED_GOLD), conditionsFromItem(ModItems.REINFORCED_GOLD))
-                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_PLAYER_TELEPORT)));
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.PLAYER_TELEPORT)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_TUNER, 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TUNER, 1)
                                .pattern("P P")
                                .pattern("IEI")
                                .pattern(" I ")
@@ -151,21 +146,21 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(Items.ENDER_EYE), conditionsFromItem(Items.ENDER_EYE))
                                .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
                                .criterion(hasItem(ModItems.ROD_IRON), conditionsFromItem(ModItems.ROD_IRON))
-                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_TUNER)));
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TUNER)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_ADVANCED_TUNER, 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.ADVANCED_TUNER, 1)
                                .pattern("PIP")
                                .pattern("IEI")
                                .pattern("PIP")
                                .input('I', ModItems.ENDER_CHARM)
-                               .input('E', ModItems.TOOL_TUNER)
+                               .input('E', ModItems.TUNER)
                                .input('P', ModItems.HOT_COAL)
-                               .criterion(hasItem(ModItems.TOOL_TUNER), conditionsFromItem(ModItems.TOOL_TUNER))
+                               .criterion(hasItem(ModItems.TUNER), conditionsFromItem(ModItems.TUNER))
                                .criterion(hasItem(ModItems.ENDER_CHARM), conditionsFromItem(ModItems.ENDER_CHARM))
                                .criterion(hasItem(ModItems.HOT_COAL), conditionsFromItem(ModItems.HOT_COAL))
-                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_ADVANCED_TUNER)));
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.ADVANCED_TUNER)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_WRENCH, 1)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.WRENCH, 1)
                                .pattern("O O")
                                .pattern(" O ")
                                .pattern(" I ")
@@ -173,9 +168,20 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .input('I', ModItems.ROD_IRON)
                                .criterion(hasItem(ModItems.ROD_IRON), conditionsFromItem(ModItems.ROD_IRON))
                                .criterion(hasItem(ModItems.ROD_OBSIDIAN), conditionsFromItem(ModItems.ROD_OBSIDIAN))
-                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_WRENCH)));
-        //endregion
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.WRENCH)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.CHALICE, 1)
+                               .pattern("GEG")
+                               .pattern(" R ")
+                               .pattern("GGG")
+                               .input('G', ModItems.PLATE_GOLD)
+                               .input('R', ModItems.ROD_GOLD)
+                               .input('E', Items.ENDER_PEARL)
+                               .criterion(hasItem(ModItems.ROD_GOLD), conditionsFromItem(ModItems.ROD_GOLD))
+                               .criterion(hasItem(ModItems.PLATE_GOLD), conditionsFromItem(ModItems.PLATE_GOLD))
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.CHALICE)));
+        //endregion
         //region VANILLA
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.NAME_TAG, 1)
                                   .input(Items.PAPER)
@@ -184,7 +190,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                   .criterion(hasItem(ModItems.ROD_IRON), conditionsFromItem(ModItems.ROD_IRON))
                                   .offerTo(exporter, vanillaID(getRecipeName(Items.NAME_TAG) + "_shapeless"));
         //endregion
-
         //region STAIRS
         /*createStairsRecipe(ModBlocks.CITRINE_STAIRS, Ingredient.ofItems(ModItems.GEM_CITRINE))
                 .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
@@ -204,7 +209,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
         offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.RUBY_STAIRS, ModBlocks.RUBY, 9);
         offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.SAPPHIRE_STAIRS, ModBlocks.SAPPHIRE, 9);
         //endregion
-
         //region SLABS
         /*createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.CITRINE_SLAB, Ingredient.ofItems(ModItems.GEM_CITRINE))
                 .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
@@ -224,7 +228,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
         offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.RUBY_SLAB, ModItems.GEM_RUBY, 18);
         offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.SAPPHIRE_SLAB, ModItems.GEM_SAPPHIRE, 18);
         //endregion
-
         //region PRESSURE PLATE
         createPressurePlateRecipe(RecipeCategory.REDSTONE, ModBlocks.CITRINE_PRESSURE_PLATE, Ingredient.ofItems(ModItems.GEM_CITRINE))
                 .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
@@ -239,7 +242,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(ModItems.GEM_SAPPHIRE), conditionsFromItem(ModItems.GEM_SAPPHIRE))
                 .offerTo(exporter, vanillaID(getRecipeName(ModBlocks.SAPPHIRE_PRESSURE_PLATE)));
         //endregion
-
         //region FENCE
         /*createFenceRecipe(ModBlocks.CITRINE_FENCE, Ingredient.ofItems(ModItems.GEM_CITRINE))
                 .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
@@ -259,7 +261,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
         offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.RUBY_FENCE, ModItems.GEM_RUBY, 9);
         offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.SAPPHIRE_FENCE, ModItems.GEM_SAPPHIRE, 9);
         //endregion
-
         //region FENCE GATE
         /*createFenceGateRecipe(ModBlocks.CITRINE_FENCE_GATE, Ingredient.ofItems(ModItems.GEM_CITRINE))
                 .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
@@ -279,7 +280,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
         offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.RUBY_FENCE_GATE, ModItems.GEM_RUBY, 9);
         offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.SAPPHIRE_FENCE_GATE, ModItems.GEM_SAPPHIRE, 9);
         //endregion
-
         //region DOOR
         createDoorRecipe(ModBlocks.CITRINE_DOOR, Ingredient.ofItems(ModItems.GEM_CITRINE))
                 .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
@@ -294,7 +294,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(ModItems.GEM_SAPPHIRE), conditionsFromItem(ModItems.GEM_SAPPHIRE))
                 .offerTo(exporter, vanillaID(getRecipeName(ModBlocks.SAPPHIRE_DOOR)));
         //endregion
-
         //region TRAP DOOR
         createTrapdoorRecipe(ModBlocks.CITRINE_TRAP_DOOR, Ingredient.ofItems(ModItems.GEM_CITRINE))
                 .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
@@ -309,7 +308,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 .criterion(hasItem(ModItems.GEM_SAPPHIRE), conditionsFromItem(ModItems.GEM_SAPPHIRE))
                 .offerTo(exporter, vanillaID(getRecipeName(ModBlocks.SAPPHIRE_TRAP_DOOR)));
         //endregion
-
         //region WALL
         /*offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CITRINE_WALL, ModBlocks.CITRINE_FENCE);
         offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENDERITE_WALL, ModBlocks.ENDERITE_FENCE);
@@ -321,7 +319,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
         offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.RUBY_WALL, ModBlocks.RUBY, 9);
         offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, ModBlocks.SAPPHIRE_WALL, ModBlocks.SAPPHIRE, 9);
         //endregion
-
         //region BUTTON
         ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE, ModBlocks.CITRINE_BUTTON, 1)
                                   .input(ModItems.GEM_CITRINE)
@@ -340,7 +337,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                   .criterion(hasItem(ModItems.GEM_SAPPHIRE), conditionsFromItem(ModItems.GEM_SAPPHIRE))
                                   .offerTo(exporter, vanillaID(getRecipeName(ModBlocks.SAPPHIRE_BUTTON) + "_shapeless"));
         //endregion
-
         //region CITRINE TOOLS
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_AXE, 1)
                                .pattern("H")
@@ -354,6 +350,19 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.HEAD_CITRINE_AXE),
                                           conditionsFromItem(ModItems.HEAD_CITRINE_AXE))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_CITRINE_AXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_EXCAVATOR, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_CITRINE_EXCAVATOR)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_CITRINE_EXCAVATOR),
+                                          conditionsFromItem(ModItems.HEAD_CITRINE_EXCAVATOR))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_CITRINE_EXCAVATOR)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_HAMMER, 1)
                                .pattern("H")
@@ -420,7 +429,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                           conditionsFromItem(ModItems.HEAD_CITRINE_SWORD))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_CITRINE_SWORD)));
         //endregion
-
         //region COPPER TOOLS
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_AXE, 1)
                                .pattern("H")
@@ -434,6 +442,19 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.HEAD_COPPER_AXE),
                                           conditionsFromItem(ModItems.HEAD_COPPER_AXE))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_COPPER_AXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_EXCAVATOR, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_COPPER_EXCAVATOR)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_COPPER_EXCAVATOR),
+                                          conditionsFromItem(ModItems.HEAD_COPPER_EXCAVATOR))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_COPPER_EXCAVATOR)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_HAMMER, 1)
                                .pattern("H")
@@ -500,7 +521,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                           conditionsFromItem(ModItems.HEAD_COPPER_SWORD))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_COPPER_SWORD)));
         //endregion
-
         //region ENDERITE TOOLS
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_AXE, 1)
                                .pattern("H")
@@ -514,6 +534,19 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.HEAD_ENDERITE_AXE),
                                           conditionsFromItem(ModItems.HEAD_ENDERITE_AXE))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_ENDERITE_AXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_EXCAVATOR, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_ENDERITE_EXCAVATOR)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_ENDERITE_EXCAVATOR),
+                                          conditionsFromItem(ModItems.HEAD_ENDERITE_EXCAVATOR))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_ENDERITE_EXCAVATOR)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_HAMMER, 1)
                                .pattern("H")
@@ -580,7 +613,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                           conditionsFromItem(ModItems.HEAD_ENDERITE_SWORD))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_ENDERITE_SWORD)));
         //endregion
-
         //region RUBY TOOLS
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_AXE, 1)
                                .pattern("H")
@@ -594,6 +626,19 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.HEAD_RUBY_AXE),
                                           conditionsFromItem(ModItems.HEAD_RUBY_AXE))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_RUBY_AXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_EXCAVATOR, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_RUBY_EXCAVATOR)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_RUBY_EXCAVATOR),
+                                          conditionsFromItem(ModItems.HEAD_RUBY_EXCAVATOR))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_RUBY_EXCAVATOR)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_HAMMER, 1)
                                .pattern("H")
@@ -660,7 +705,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                           conditionsFromItem(ModItems.HEAD_RUBY_SWORD))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_RUBY_SWORD)));
         //endregion
-
         //region SAPPHIRE TOOLS
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_AXE, 1)
                                .pattern("H")
@@ -674,6 +718,19 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.HEAD_SAPPHIRE_AXE),
                                           conditionsFromItem(ModItems.HEAD_SAPPHIRE_AXE))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_SAPPHIRE_AXE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_EXCAVATOR, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_SAPPHIRE_EXCAVATOR)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_SAPPHIRE_EXCAVATOR),
+                                          conditionsFromItem(ModItems.HEAD_SAPPHIRE_EXCAVATOR))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_SAPPHIRE_EXCAVATOR)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_HAMMER, 1)
                                .pattern("H")
@@ -740,7 +797,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                           conditionsFromItem(ModItems.HEAD_SAPPHIRE_SWORD))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_SAPPHIRE_SWORD)));
         //endregion
-
         //region VANILLA HAMMERS
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_DIAMOND_HAMMER, 1)
                                .pattern("H")
@@ -755,6 +811,19 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                           conditionsFromItem(ModItems.HEAD_DIAMOND_HAMMER))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_DIAMOND_HAMMER)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_DIAMOND_EXCAVATOR, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_DIAMOND_EXCAVATOR)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_DIAMOND_EXCAVATOR),
+                                          conditionsFromItem(ModItems.HEAD_DIAMOND_EXCAVATOR))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_DIAMOND_EXCAVATOR)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_GOLD_HAMMER, 1)
                                .pattern("H")
                                .pattern("B")
@@ -767,6 +836,19 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.HEAD_GOLD_HAMMER),
                                           conditionsFromItem(ModItems.HEAD_GOLD_HAMMER))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_GOLD_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_GOLD_EXCAVATOR, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_GOLD_EXCAVATOR)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_GOLD_EXCAVATOR),
+                                          conditionsFromItem(ModItems.HEAD_GOLD_EXCAVATOR))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_GOLD_EXCAVATOR)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_IRON_HAMMER, 1)
                                .pattern("H")
@@ -781,6 +863,19 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                           conditionsFromItem(ModItems.HEAD_IRON_HAMMER))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_IRON_HAMMER)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_IRON_EXCAVATOR, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_IRON_EXCAVATOR)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_IRON_EXCAVATOR),
+                                          conditionsFromItem(ModItems.HEAD_IRON_EXCAVATOR))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_IRON_EXCAVATOR)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_NETHERITE_HAMMER, 1)
                                .pattern("H")
                                .pattern("B")
@@ -793,6 +888,19 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.HEAD_NETHERITE_HAMMER),
                                           conditionsFromItem(ModItems.HEAD_NETHERITE_HAMMER))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_NETHERITE_HAMMER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_NETHERITE_EXCAVATOR, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_NETHERITE_EXCAVATOR)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_NETHERITE_EXCAVATOR),
+                                          conditionsFromItem(ModItems.HEAD_NETHERITE_EXCAVATOR))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_NETHERITE_EXCAVATOR)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_STONE_HAMMER, 1)
                                .pattern("H")
@@ -807,6 +915,19 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                           conditionsFromItem(ModItems.HEAD_STONE_HAMMER))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_STONE_HAMMER)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_STONE_EXCAVATOR, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_STONE_EXCAVATOR)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_STONE_EXCAVATOR),
+                                          conditionsFromItem(ModItems.HEAD_STONE_EXCAVATOR))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_STONE_EXCAVATOR)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_WOOD_HAMMER, 1)
                                .pattern("H")
                                .pattern("B")
@@ -819,8 +940,20 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.HEAD_WOOD_HAMMER),
                                           conditionsFromItem(ModItems.HEAD_WOOD_HAMMER))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_WOOD_HAMMER)));
-        //endregion
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.TOOL_WOOD_EXCAVATOR, 1)
+                               .pattern("H")
+                               .pattern("B")
+                               .pattern("S")
+                               .input('B', ModItems.BINDING_STRING)
+                               .input('S', Items.STICK)
+                               .input('H', ModItems.HEAD_WOOD_EXCAVATOR)
+                               .criterion(hasItem(ModItems.BINDING_STRING),
+                                          conditionsFromItem(ModItems.BINDING_STRING))
+                               .criterion(hasItem(ModItems.HEAD_WOOD_EXCAVATOR),
+                                          conditionsFromItem(ModItems.HEAD_WOOD_EXCAVATOR))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.TOOL_WOOD_EXCAVATOR)));
+        //endregion
         //region AMETHYST ARMOR
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_AMETHYST_HELMET, 1)
                                .pattern("III")
@@ -859,7 +992,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.ARMOR_AMETHYST_BOOTS)));
         //endregion
-
         //region CITRINE ARMOR
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_CITRINE_HELMET, 1)
                                .pattern("III")
@@ -898,7 +1030,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.ARMOR_CITRINE_BOOTS)));
         //endregion
-
         //region COPPER ARMOR
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_COPPER_HELMET, 1)
                                .pattern("III")
@@ -937,7 +1068,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.ARMOR_COPPER_BOOTS)));
         //endregion
-
         // region EMERALD ARMOR
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_EMERALD_HELMET, 1)
                                .pattern("III")
@@ -976,7 +1106,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.ARMOR_EMERALD_BOOTS)));
         //endregion
-
         // region ENDERITE ARMOR
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_ENDERITE_HELMET, 1)
                                .pattern("III")
@@ -1015,7 +1144,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.ARMOR_ENDERITE_BOOTS)));
         //endregion
-
         // region RUBY ARMOR
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_RUBY_HELMET, 1)
                                .pattern("III")
@@ -1054,7 +1182,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.ARMOR_RUBY_BOOTS)));
         //endregion
-
         // region SAPPHIRE ARMOR
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.ARMOR_SAPPHIRE_HELMET, 1)
                                .pattern("III")
@@ -1093,7 +1220,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.ARMOR_SAPPHIRE_BOOTS)));
         //endregion
-
         // region NETHERITE ARMOR
         ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, Items.NETHERITE_HELMET, 1)
                                .pattern("IRI")
@@ -1130,7 +1256,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
                                .offerTo(exporter, vanillaID(getRecipeName(Items.NETHERITE_BOOTS)));
         //endregion
-
         //region GOO
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.BRIDGE_GOO, 1)
                                .pattern("DED")
@@ -1228,88 +1353,11 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion(hasItem(Items.BLUE_DYE), conditionsFromItem(Items.BLUE_DYE))
                                .offerTo(exporter, vanillaID(getRecipeName(ModBlocks.WATER_GENERATING_GOO)));
         //endregion
-
-        //region MACHINES
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ELEVATOR, 1)
-                               .pattern(" E ")
-                               .pattern("EWE")
-                               .pattern(" E ")
-                               .input('E', Items.ENDER_PEARL)
-                               .input('W', ItemTags.WOOL)
-                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                               .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
-                               .offerTo(exporter, vanillaID(getRecipeName(ModBlocks.ELEVATOR)));
-
-        // ALLOY_SMELTER
-        // CAST_PRESS
-        // GEM_CLEANER
-        // GENERATOR
-        // OVEN
-        // PULVERIZER
-        // SMELTER
-        // FLUID_PUMP
-        // BLOCK_BREAKER
-        // BLOCK_PLACER
-        // WOOD_STRIPPER
-        // ANIMAL_FEED
-        // TESSERACT
-        // Enderchanter
-        // Project Table
-        //endregion
-
-        //region ALLOY SMELTER
-
-        // Iron + Soul + Glass --> Pulsating --> Base Cable Alloy
-        // Iron + Soul + Sand --> Pulsating --> Base Cable Alloy
-        // Obsidian + Copper + Wither --> Conductive --> Fluid Cable
-        // Gold + Citrine + Sapphire --> Energetic --> Energy Cable
-        // Ruby + Redstone + Quartz --> Red Alloy --> Redstone Cable
-        // Citrine + Enderite + Diamond --> Vibrant --> Item Cable
-
-        //endregion
-
-        //region PULVERIZER
-
-        // Enderite --> Enderite Dust
-        // Wither Bone --> Withering Dust
-        // Soul Sand --> Soul Dust
-        // Obsidian --> Obsidian Dust
-        // Copper --> Copper Dust
-        // Gold --> Gold Dust
-        // Iron --> Iron Dust
-
-        //endregion
-
-        //region OVEN
-
-        // Dust --> Ingot
-        // Raw --> Ingot
-        // Plate
-        // Reinforced Plate
-        // Gear
-        // Head
-        // Nugget
-        // Rod
-
-        //endregion
-
-        //region GEM CLEANER
-        // Raw Gem --> Gem
-        // Wool --> Binding
-        // String --> Binding
-        //endregion
-
-        //region SMELTERY
-
-        // Ingot --> Liquid
-
-        //endregion
-
         //region WOOD STRIPPER
 
         //endregion
-
         //region FOOD FUEL MISC
+        offerSmelting(exporter, List.of(Items.EGG), RecipeCategory.FOOD, ModItems.COOKED_EGG, 0.15f, 100, "cooked_egg_smelting");
         offerFoodCookingRecipe(exporter,
                                "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
                                300, Items.EGG, ModItems.COOKED_EGG, 0.15F);
@@ -1344,39 +1392,163 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.BLUEPRINT_EMPTY)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.ENDER_CHARM, 1)
-                               .pattern("PIP")
-                               .pattern("IEI")
-                               .pattern("PIP")
-                               .input('I', ModItems.ENDERMAN_HEART)
-                               .input('E', ModItems.ENDERMAN_GLAND)
-                               .input('P', ModItems.ENDERMAN_EYE)
-                               .criterion(hasItem(ModItems.ENDERMAN_HEART), conditionsFromItem(ModItems.ENDERMAN_HEART))
-                               .criterion(hasItem(ModItems.ENDERMAN_GLAND), conditionsFromItem(ModItems.ENDERMAN_GLAND))
+                               .pattern("EIE")
+                               .pattern("GIG")
+                               .pattern("IHI")
+                               .input('E', ModItems.ENDERMAN_EYE)
+                               .input('I', ModItems.INGOT_ENDERITE)
+                               .input('G', ModItems.ENDERMAN_GLAND)
+                               .input('H', ModItems.ENDERMAN_HEART)
                                .criterion(hasItem(ModItems.ENDERMAN_EYE), conditionsFromItem(ModItems.ENDERMAN_EYE))
+                               .criterion(hasItem(ModItems.INGOT_ENDERITE), conditionsFromItem(ModItems.INGOT_ENDERITE))
+                               .criterion(hasItem(ModItems.ENDERMAN_GLAND), conditionsFromItem(ModItems.ENDERMAN_GLAND))
+                               .criterion(hasItem(ModItems.ENDERMAN_HEART), conditionsFromItem(ModItems.ENDERMAN_HEART))
                                .offerTo(exporter, vanillaID(getRecipeName(ModItems.ENDER_CHARM)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.VOID_PLATE_BASE, 1)
-                               .pattern("EEE")
-                               .pattern("EIE")
-                               .pattern("EEE")
-                               .input('I', ModItems.REINFORCED_EMERALD)
-                               .input('E', ModItems.INGOT_ENDERITE)
-                               .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
-                               .criterion(hasItem(ModItems.INGOT_ENDERITE), conditionsFromItem(ModItems.INGOT_ENDERITE))
-                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.VOID_PLATE_BASE)));
-
         ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.VOID_PLATE, 1)
-                                  .input(ModItems.VOID_PLATE_ACTIVATOR)
                                   .input(ModItems.VOID_PLATE_BASE)
-                                  .criterion(hasItem(ModItems.VOID_PLATE_ACTIVATOR), conditionsFromItem(ModItems.VOID_PLATE_ACTIVATOR))
+                                  .input(ModItems.VOID_PLATE_ACTIVATOR)
                                   .criterion(hasItem(ModItems.VOID_PLATE_BASE), conditionsFromItem(ModItems.VOID_PLATE_BASE))
+                                  .criterion(hasItem(ModItems.VOID_PLATE_ACTIVATOR), conditionsFromItem(ModItems.VOID_PLATE_ACTIVATOR))
                                   .offerTo(exporter, vanillaID(getRecipeName(ModItems.VOID_PLATE) + "_shapeless"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ITEM_FILTER, 1)
+                               .pattern("   ")
+                               .pattern("RRR")
+                               .pattern("PPP")
+                               .input('R', Items.REDSTONE)
+                               .input('P', Items.PAPER)
+                               .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                               .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.ITEM_FILTER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SLOT_DISABLED, 1)
+                               .pattern("   ")
+                               .pattern("RWR")
+                               .pattern("SSS")
+                               .input('R', Items.REDSTONE)
+                               .input('W', Items.LAPIS_LAZULI)
+                               .input('S', ModItems.PLATE_STONE)
+                               .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                               .criterion(hasItem(Items.LAPIS_LAZULI), conditionsFromItem(Items.LAPIS_LAZULI))
+                               .criterion(hasItem(ModItems.PLATE_STONE), conditionsFromItem(ModItems.PLATE_STONE))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.SLOT_DISABLED)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SLOT_ENABLED, 1)
+                               .pattern("   ")
+                               .pattern("RWR")
+                               .pattern("SSS")
+                               .input('R', Items.REDSTONE)
+                               .input('W', Items.EMERALD)
+                               .input('S', ModItems.PLATE_STONE)
+                               .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                               .criterion(hasItem(Items.EMERALD), conditionsFromItem(Items.EMERALD))
+                               .criterion(hasItem(ModItems.PLATE_STONE), conditionsFromItem(ModItems.PLATE_STONE))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.SLOT_ENABLED)));
+        //endregion
+        //region BLASTING
+        offerBlasting(exporter, List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 7.0f, 7200, "ore_enderite");
+        offerBlasting(exporter, List.of(ModItems.ENDER_CHARM), RecipeCategory.MISC, ModItems.VOID_PLATE_ACTIVATOR, 5.0f, 2400, "void_plate_activator");
+        offerBlasting(exporter, List.of(ModBlocks.ENDERITE), RecipeCategory.MISC, ModItems.VOID_PLATE_BASE, 5.0f, 3600, "void_plate_base");
+        offerBlasting(exporter, List.of(Blocks.TNT), RecipeCategory.MISC, ModItems.UNSTABLE_GOO, 2.0f, 2400, "enstable_goo");
+        //offerBlasting(exporter, List.of(ModItems.), RecipeCategory.MISC, ModItems.RAW_RUBBER, 0.5f, 200, "rubber");
+        //endregion
+        //region RUBBER
+        offerSmelting(exporter, List.of(ModItems.RAW_RUBBER), RecipeCategory.MISC, ModItems.RUBBER, 0.1f, 100, "rubber_smelting");
+        offerFoodCookingRecipe(exporter,
+                               "smoking", RecipeSerializer.SMOKING, SmokingRecipe::new,
+                               400, ModItems.RAW_RUBBER, ModItems.RUBBER, 0.1F);
+        offerFoodCookingRecipe(exporter,
+                               "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
+                               2400, ModItems.RAW_RUBBER, ModItems.RUBBER, 0.1F);
         //endregion
 
-        //region BLASTING
-        offerBlasting(exporter, List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 5.0f, 1200, "ore_enderite");
-        offerBlasting(exporter, List.of(ModItems.ENDER_CHARM), RecipeCategory.MISC, ModItems.VOID_PLATE_ACTIVATOR, 5.0f, 2400, "void_plate_activator");
-        offerBlasting(exporter, List.of(Blocks.TNT), RecipeCategory.MISC, ModItems.UNSTABLE_GOO, 5.0f, 3600, "enstable_goo");
+        //region MACHINES
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.THERMAL_CORE, 1)
+                               .pattern("HHH")
+                               .pattern("HIH")
+                               .pattern("HHH")
+                               .input('I', Blocks.IRON_BLOCK)
+                               .input('H', ModItems.HOT_COAL)
+                               .criterion(hasItem(ModItems.HOT_COAL), conditionsFromItem(ModItems.HOT_COAL))
+                               .criterion(hasItem(Blocks.IRON_BLOCK), conditionsFromItem(Blocks.IRON_BLOCK))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModItems.THERMAL_CORE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ELEVATOR, 1)
+                               .pattern(" E ")
+                               .pattern("EWE")
+                               .pattern(" E ")
+                               .input('E', Items.ENDER_PEARL)
+                               .input('W', ItemTags.WOOL)
+                               .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                               .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModBlocks.ELEVATOR)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModBlocks.ANGEL, 1)
+                                  .input(ItemTags.WOOL)
+                                  .input(Items.ENDER_PEARL)
+                                  .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                                  .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
+                                  .offerTo(exporter, vanillaID(getRecipeName(ModBlocks.ANGEL) + "_shapeless"));
+
+        // ALLOY_SMELTER
+        // CAST_PRESS
+        // GEM_CLEANER
+        // GENERATOR
+        // OVEN
+        // PULVERIZER
+        // SMELTER
+        // FLUID_PUMP
+        // BLOCK_BREAKER
+        // BLOCK_PLACER
+        // WOOD_STRIPPER
+        // ANIMAL_FEED
+        // TESSERACT
+        // Enderchanter
+        // Project Table
+        //endregion
+        //region ALLOY SMELTER
+
+        // Iron + Soul + Glass --> Pulsating --> Base Cable Alloy
+        // Iron + Soul + Sand --> Pulsating --> Base Cable Alloy
+        // Obsidian + Copper + Wither --> Conductive --> Fluid Cable
+        // Gold + Citrine + Sapphire --> Energetic --> Energy Cable
+        // Ruby + Redstone + Quartz --> Red Alloy --> Redstone Cable
+        // Citrine + Enderite + Diamond --> Vibrant --> Item Cable
+
+        //endregion
+        //region PULVERIZER
+
+        // Enderite --> Enderite Dust
+        // Wither Bone --> Withering Dust
+        // Soul Sand --> Soul Dust
+        // Obsidian --> Obsidian Dust
+        // Copper --> Copper Dust
+        // Gold --> Gold Dust
+        // Iron --> Iron Dust
+
+        //endregion
+        //region OVEN
+
+        // Dust --> Ingot
+        // Raw --> Ingot
+        // Plate
+        // Reinforced Plate
+        // Gear
+        // Head
+        // Nugget
+        // Rod
+
+        //endregion
+        //region GEM CLEANER
+        // Raw Gem --> Gem
+        // Wool --> Binding
+        // String --> Binding
+        //endregion
+        //region SMELTERY
+
+        // Ingot --> Liquid
+
         //endregion
     }
 }

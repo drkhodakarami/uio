@@ -39,7 +39,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -48,8 +47,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+import static jiraiyah.uio.Reference.*;
 import static jiraiyah.uio.Reference.Tags.Entity.TUNER_BLACKLIST;
-import static jiraiyah.uio.Reference.translate;
 
 // TODO : Use Custom DataComponentType
 public class TunerItem extends Item
@@ -77,8 +76,8 @@ public class TunerItem extends Item
                 if (!context.getWorld().isClient())
                 {
                     NbtCompound nbt = new NbtCompound();
-                    nbt.put("uio.tuner.pos", NbtHelper.fromBlockPos(pos));
-                    nbt.putString("uio.tuner.dimension", player.getWorld().getRegistryKey().getValue().toString());
+                    nbt.put(Keys.TUNER_POS, NbtHelper.fromBlockPos(pos));
+                    nbt.putString(Keys.TUNER_DIMENSION, player.getWorld().getRegistryKey().getValue().toString());
                     NbtComponent component = NbtComponent.of(nbt);
                     context.getStack().set(DataComponentTypes.CUSTOM_DATA, component);
                 }
@@ -127,13 +126,15 @@ public class TunerItem extends Item
     }
 
     @NotNull
-    public ActionResult useOnEntityResult(PlayerEntity user, LivingEntity entity, NbtCompound nbt)
+    protected ActionResult useOnEntityResult(PlayerEntity user, LivingEntity entity, NbtCompound nbt)
     {
-        BlockPos pos = NbtHelper.toBlockPos(nbt, "uio.tuner.pos").get();
+        if(NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).isEmpty())
+            return ActionResult.PASS;
+        BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).get();
 
         if (!user.getWorld().isClient())
         {
-            var dimension = nbt.getString("uio.tuner.dimension");
+            var dimension = nbt.getString(Keys.TUNER_DIMENSION);
             var userDimension = user.getWorld().getRegistryKey().getValue().toString();
             if (dimension.equalsIgnoreCase(userDimension))
             {
@@ -145,17 +146,17 @@ public class TunerItem extends Item
             return ActionResult.FAIL;
         }
 
-        var dimension = nbt.getString("uio.tuner.dimension");
+        var dimension = nbt.getString(Keys.TUNER_DIMENSION);
         var userDimension = user.getWorld().getRegistryKey().getValue().toString();
         var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
         if (dimension.equalsIgnoreCase(userDimension))
         {
-            user.sendMessage(translate("tuner.teleported", pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
+            user.sendMessage(translate(TUNER_TELEPORTED_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
             return ActionResult.SUCCESS;
         }
         else
         {
-            user.sendMessage(translate("tuner.error", dimensionName), false);
+            user.sendMessage(translate(TUNER_ERROR_ID_NAME, dimensionName), false);
             return ActionResult.FAIL;
         }
     }
@@ -167,11 +168,13 @@ public class TunerItem extends Item
         if (data != null)
         {
             NbtCompound nbt = data.copyNbt();
-            BlockPos pos = NbtHelper.toBlockPos(nbt, "uio.tuner.pos").get();
+            if(NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).isEmpty())
+                return;
+            BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).get();
 
-            var dimension = nbt.getString("uio.tuner.dimension");
+            var dimension = nbt.getString(Keys.TUNER_DIMENSION);
             var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
-            tooltip.add(translate("tuner.tooltip", pos.getX(), pos.getY(), pos.getZ(), dimensionName));
+            tooltip.add(translate(TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
         }
     }
 
@@ -182,8 +185,8 @@ public class TunerItem extends Item
         return data != null;
     }
 
-    private void outputCoordinatesToChat(BlockPos pos, String dimension, PlayerEntity player)
+    protected void outputCoordinatesToChat(BlockPos pos, String dimension, PlayerEntity player)
     {
-        player.sendMessage(translate("tuner.tooltip", pos.getX(), pos.getY(), pos.getZ(), dimension), false);
+        player.sendMessage(translate(TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimension), false);
     }
 }

@@ -178,15 +178,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
     {
         RegistryWrapper.Impl<Enchantment> impl = this.registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         return dropsWithSilkTouch(drop,
-                                  (LootPoolEntry.Builder) //TODO : Remove the cast, thanks to Natte for help
-                                          this.applyExplosionDecay(drop,
-                                                                   ((LeafEntry.Builder) //TODO : Remove the cast, thanks to Natte for help
-                                                                           ItemEntry.builder(item)
-                                                                                    .apply(SetCountLootFunction
-                                                                                                   .builder(UniformLootNumberProvider
-                                                                                                                    .create(min, max))))
-                                                                           .apply(ApplyBonusLootFunction
-                                                                                          .oreDrops(impl.getOrThrow(Enchantments.FORTUNE)))));
+                                    this.applyExplosionDecay(drop,
+                                                               (ItemEntry.builder(item)
+                                                                            .apply(SetCountLootFunction
+                                                                                           .builder(UniformLootNumberProvider
+                                                                                                            .create(min, max))))
+                                                                       .apply(ApplyBonusLootFunction
+                                                                              .oreDrops(impl.getOrThrow(Enchantments.FORTUNE)))));
     }
 
     private LootTable.Builder customOreDrops(Block drop, Item item)

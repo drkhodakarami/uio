@@ -26,7 +26,7 @@ package jiraiyah.uio;
 
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModMessages;
-import jiraiyah.uio.registry.ModModelPredicateProvider;
+import jiraiyah.uio.registry.misc.ModModelPredicateProvider;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
