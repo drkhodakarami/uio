@@ -1501,6 +1501,18 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                   .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
                                   .offerTo(exporter, vanillaID(getRecipeName(ModBlocks.ANGEL) + "_shapeless"));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.REDSTONE_CLOCK, 1)
+                               .pattern("EEE")
+                               .pattern("ECE")
+                               .pattern("ERE")
+                               .input('R', Blocks.REDSTONE_BLOCK)
+                               .input('E', ItemTags.WOOL)
+                               .input('C', Items.CLOCK)
+                               .criterion(hasItem(Items.CLOCK), conditionsFromItem(Items.CLOCK))
+                               .criterion(hasItem(Blocks.REDSTONE_BLOCK), conditionsFromItem(Blocks.REDSTONE_BLOCK))
+                               .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
+                               .offerTo(exporter, vanillaID(getRecipeName(ModBlocks.REDSTONE_CLOCK)));
+
         // ALLOY_SMELTER
         // CAST_PRESS
         // GEM_CLEANER

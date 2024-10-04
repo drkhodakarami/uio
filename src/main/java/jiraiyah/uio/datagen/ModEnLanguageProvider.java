@@ -433,7 +433,7 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         //builder.add(ModBlocks.ANGEL, "Angle Block");
 
         //builder.add(ModBlocks.CREATIVE_ENERGY, "Creative Energy Source");
-        //builder.add(ModBlocks.REDSTONE_CLOCK, "Redstone Clock");
+        builder.add(ModBlocks.REDSTONE_CLOCK, "Redstone Clock");
         //builder.add(ModBlocks.ALLOY_MIXER, "Alloy Mixer");
         //builder.add(ModBlocks.CAST_PRESS, "Cast Press");
         //builder.add(ModBlocks.GEM_CLEANER, "Gem Cleaner");

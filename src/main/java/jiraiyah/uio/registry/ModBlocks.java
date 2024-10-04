@@ -24,12 +24,11 @@
 
 package jiraiyah.uio.registry;
 
-import jiraiyah.uio.block.ElevatorBlock;
-import jiraiyah.uio.block.OreEnderiteBlock;
+import jiraiyah.uio.block.OreEnderite;
+import jiraiyah.uio.block.RedstoneClock;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
@@ -70,8 +69,7 @@ public class ModBlocks
     public static Block WATER_EATING_GOO, WATER_GENERATING_GOO, LAVA_EATING_GOO, LAVA_GENERATING_GOO, CHUNK_GOO, TOWERING_GOO,
                         TUNNELING_GOO, BRIDGE_GOO, AIR_BOMB_GOO, CHUNK_BOMB_GOO, LAVA_PUMP_GOO, STONE_BOMB_GOO, WATER_PUMP_GOO;
 
-    public static Block ELEVATOR, ANGEL;
-    //public static Block REDSTONE_CLOCK;
+    public static Block ELEVATOR, ANGEL, REDSTONE_CLOCK;
     //public static Block CREATIVE_ENERGY;
     //public static Block ALLOY_MIXER;
     //public static Block CAST_PRESS;
@@ -233,7 +231,7 @@ public class ModBlocks
         ORE_DEEP_SAPPHIRE = registerCopy("ore_deep_sapphire", Blocks.DEEPSLATE_DIAMOND_ORE);
 
         ORE_END_CITRINE = registerCopy("ore_end_citrine", Blocks.END_STONE);
-        ORE_END_ENDERITE = register("ore_end_enderite", new OreEnderiteBlock(AbstractBlock.Settings.create()));
+        ORE_END_ENDERITE = register("ore_end_enderite", new OreEnderite(AbstractBlock.Settings.create()));
         ORE_END_ENDERITE_CRACKED = registerCopy("ore_end_enderite_cracked", Blocks.END_STONE);
         ORE_END_RUBY = registerCopy("ore_end_ruby", Blocks.END_STONE);
         ORE_END_SAPPHIRE = registerCopy("ore_end_sapphire", Blocks.END_STONE);
@@ -272,7 +270,8 @@ public class ModBlocks
         //endregion
         //region MACHINES
         ELEVATOR = registerCopy("elevator", Blocks.GRAY_WOOL);
-        //REDSTONE_CLOCK = registerBlock("redstone_clock", new Block(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        REDSTONE_CLOCK = registerBlock("redstone_clock",
+                                       new RedstoneClock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
         //CREATIVE_ENERGY = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
         //ALLOY_MIXER = registerBlock("alloy_mixer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
         //CAST_PRESS = registerBlock("cast_press", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));

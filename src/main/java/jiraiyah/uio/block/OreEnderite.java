@@ -6,9 +6,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
-public class OreEnderiteBlock extends Block
+public class OreEnderite extends Block
 {
-    public OreEnderiteBlock(Settings settings)
+    public OreEnderite(Settings settings)
     {
         super(settings);
     }

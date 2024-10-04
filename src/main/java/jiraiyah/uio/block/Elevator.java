@@ -37,9 +37,9 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ElevatorBlock extends Block
+public class Elevator extends Block
 {
-    public ElevatorBlock(Settings settings)
+    public Elevator(Settings settings)
     {
         super(settings.sounds(BlockSoundGroup.HONEY));
     }
@@ -74,7 +74,7 @@ public class ElevatorBlock extends Block
                 lookingPos = lookingPos.add(0, -1, 0);
 
                 BlockState blockState = world.getBlockState(lookingPos);
-                if (blockState.getBlock() instanceof ElevatorBlock)
+                if (blockState.getBlock() instanceof Elevator)
                 {
                     found = blockState;
                     break;
