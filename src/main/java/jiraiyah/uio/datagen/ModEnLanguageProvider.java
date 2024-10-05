@@ -430,23 +430,30 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModBlocks.STONE_BOMB_GOO, "Stone Bomb Goo");
 
         builder.add(ModBlocks.ELEVATOR, "Elevator");
-        //builder.add(ModBlocks.ANGEL, "Angle Block");
-
-        //builder.add(ModBlocks.CREATIVE_ENERGY, "Creative Energy Source");
+        builder.add(ModBlocks.ANGEL, "Angel Block");
         builder.add(ModBlocks.REDSTONE_CLOCK, "Redstone Clock");
-        //builder.add(ModBlocks.ALLOY_MIXER, "Alloy Mixer");
-        //builder.add(ModBlocks.CAST_PRESS, "Cast Press");
-        //builder.add(ModBlocks.GEM_CLEANER, "Gem Cleaner");
-        //builder.add(ModBlocks.GENERATOR, "Power Generator");
-        //builder.add(ModBlocks.OVEN, "Oven");
-        //builder.add(ModBlocks.PULVERIZER, "Pulverizer");
-        //builder.add(ModBlocks.SMELTER, "Smelter");
-        //builder.add(ModBlocks.BUCKET_FILLER, "Bucket Filler");
-        //builder.add(ModBlocks.BLOCK_BREAKER, "Block Breaker");
-        //builder.add(ModBlocks.BLOCK_PLACER, "Block Placer");
-        //builder.add(ModBlocks.WOOD_STRIPPER, "Wood Stripper");
-        //builder.add(ModBlocks.ANIMAL_FEEDER, "Animal Feeder");
-        //builder.add(ModBlocks.TESSERACT, "Tesseract");
+        builder.add(ModBlocks.ALLOY_MIXER, "Alloy Mixer");
+        builder.add(ModBlocks.CAST_PRESS, "Cast Press");
+        builder.add(ModBlocks.GEM_CLEANER, "Gem Cleaner");
+        builder.add(ModBlocks.OVEN, "Oven");
+        builder.add(ModBlocks.PULVERIZER, "Pulverizer");
+        builder.add(ModBlocks.SMELTER, "Smelter");
+        builder.add(ModBlocks.WOOD_STRIPPER, "Wood Stripper");
+        builder.add(ModBlocks.ANIMAL_FEED, "Animal Feeder");
+        builder.add(ModBlocks.BLOCK_BREAKER, "Block Breaker");
+        builder.add(ModBlocks.BLOCK_PLACER, "Block Placer");
+        builder.add(ModBlocks.BUILDER, "Schema Builder");
+        builder.add(ModBlocks.PRINTER, "Schema Printer");
+        builder.add(ModBlocks.ENDER_CHANTER, "Ender Chanter");
+        builder.add(ModBlocks.PROJECT_TABLE, "Project Table");
+        builder.add(ModBlocks.FLUID_PUMP, "Fluid Pump");
+        builder.add(ModBlocks.CHUNK_LOADER, "Chunk Loader");
+        builder.add(ModBlocks.TESSERACT, "Tesseract");
+        builder.add(ModBlocks.GENERATOR, "Power Generator");
+        builder.add(ModBlocks.SOLAR_PANEL, "Solar Panel Generator");
+        builder.add(ModBlocks.BATTERY_BANK, "Energy Bank");
+        builder.add(ModBlocks.CREATIVE_BANK, "Creative Energy Bank");
+        builder.add(ModBlocks.MINER, "Miner");
 
         builder.add(Tags.Block.GEM_BLOCKS, "");
         builder.add(Tags.Block.IS_MACHINE, "");

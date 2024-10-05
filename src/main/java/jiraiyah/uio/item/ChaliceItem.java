@@ -117,7 +117,7 @@ public class ChaliceItem extends Item
             return true;
         }
 
-        if (!world.isClient && canPlace && world.getFluidState(pos).isEmpty())
+        if (!world.isClient && canPlace && world.getFluidState(pos).isEmpty()) //targetBS.isLiquid()
             world.breakBlock(pos, true);
 
         if (!world.setBlockState(pos, Fluids.WATER.getDefaultState().getBlockState(), Block.NOTIFY_ALL_AND_REDRAW) &&

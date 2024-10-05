@@ -51,6 +51,10 @@ import java.util.List;
 
 import static jiraiyah.uio.Reference.*;
 
+//TODO : Add the ability to name the teleporter using shift click
+// - The name should be shown in the tooltip when hovering over the teleporter
+// - The name should be saved in the custom data of the teleporter
+// - The name should be editable using shift click
 public class PlayerTeleporter extends Item
 {
 

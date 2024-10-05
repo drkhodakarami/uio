@@ -22,7 +22,7 @@
  * SOFTWARE.                                                                       *
  ***********************************************************************************/
 
-package jiraiyah.uio.command;
+package jiraiyah.uio.command.suggestion;
 
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;

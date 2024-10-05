@@ -80,8 +80,30 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ORE_NETHER_SAPPHIRE)
                 .add(ModBlocks.ORE_WORLD_CITRINE)
                 .add(ModBlocks.ORE_WORLD_RUBY)
-                .add(ModBlocks.ORE_WORLD_SAPPHIRE);
-                //.add(ModBlocks.CREATIVE_ENERGY);
+                .add(ModBlocks.ORE_WORLD_SAPPHIRE)
+                .add(ModBlocks.ALLOY_MIXER)
+                .add(ModBlocks.CAST_PRESS)
+                .add(ModBlocks.GEM_CLEANER)
+                .add(ModBlocks.OVEN)
+                .add(ModBlocks.PULVERIZER)
+                .add(ModBlocks.SMELTER)
+                .add(ModBlocks.GENERATOR)
+                .add(ModBlocks.SOLAR_PANEL)
+                .add(ModBlocks.BLOCK_BREAKER)
+                .add(ModBlocks.BLOCK_PLACER)
+                .add(ModBlocks.BUILDER)
+                .add(ModBlocks.CREATIVE_BANK)
+                .add(ModBlocks.ENDER_CHANTER)
+                .add(ModBlocks.FLUID_PUMP)
+                .add(ModBlocks.TESSERACT)
+                .add(ModBlocks.WOOD_STRIPPER)
+                .add(ModBlocks.BATTERY_BANK)
+                .add(ModBlocks.MINER);
+
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(ModBlocks.ANIMAL_FEED)
+                .add(ModBlocks.PRINTER)
+                .add(ModBlocks.PROJECT_TABLE);
         //endregion
 
         //region TIER DEFINITION
@@ -165,7 +187,30 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
         getOrCreateTagBuilder(HAMMER_BLACKLIST)
                 .add(ModBlocks.ELEVATOR)
-                .add(ModBlocks.ANGEL);
+                .add(ModBlocks.ANGEL)
+                .add(ModBlocks.REDSTONE_CLOCK)
+                .add(ModBlocks.ALLOY_MIXER)
+                .add(ModBlocks.CAST_PRESS)
+                .add(ModBlocks.GEM_CLEANER)
+                .add(ModBlocks.OVEN)
+                .add(ModBlocks.PULVERIZER)
+                .add(ModBlocks.SMELTER)
+                .add(ModBlocks.ANIMAL_FEED)
+                .add(ModBlocks.GENERATOR)
+                .add(ModBlocks.SOLAR_PANEL)
+                .add(ModBlocks.BLOCK_BREAKER)
+                .add(ModBlocks.BLOCK_PLACER)
+                .add(ModBlocks.BUILDER)
+                .add(ModBlocks.CHUNK_LOADER)
+                .add(ModBlocks.CREATIVE_BANK)
+                .add(ModBlocks.ENDER_CHANTER)
+                .add(ModBlocks.FLUID_PUMP)
+                .add(ModBlocks.PRINTER)
+                .add(ModBlocks.PROJECT_TABLE)
+                .add(ModBlocks.TESSERACT)
+                .add(ModBlocks.WOOD_STRIPPER)
+                .add(ModBlocks.BATTERY_BANK)
+                .add(ModBlocks.MINER);
 
         getOrCreateTagBuilder(EXCAVATOR_BLACKLIST)
                 .add(ModBlocks.ELEVATOR)
@@ -178,7 +223,31 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.ENDERITE);
 
         getOrCreateTagBuilder(IS_MACHINE)
-                .add(ModBlocks.ELEVATOR);
+                .add(ModBlocks.ELEVATOR)
+                .add(ModBlocks.ANGEL)
+                .add(ModBlocks.REDSTONE_CLOCK)
+                .add(ModBlocks.ALLOY_MIXER)
+                .add(ModBlocks.CAST_PRESS)
+                .add(ModBlocks.GEM_CLEANER)
+                .add(ModBlocks.OVEN)
+                .add(ModBlocks.PULVERIZER)
+                .add(ModBlocks.SMELTER)
+                .add(ModBlocks.ANIMAL_FEED)
+                .add(ModBlocks.GENERATOR)
+                .add(ModBlocks.SOLAR_PANEL)
+                .add(ModBlocks.BLOCK_BREAKER)
+                .add(ModBlocks.BLOCK_PLACER)
+                .add(ModBlocks.BUILDER)
+                .add(ModBlocks.CHUNK_LOADER)
+                .add(ModBlocks.CREATIVE_BANK)
+                .add(ModBlocks.ENDER_CHANTER)
+                .add(ModBlocks.FLUID_PUMP)
+                .add(ModBlocks.PRINTER)
+                .add(ModBlocks.PROJECT_TABLE)
+                .add(ModBlocks.TESSERACT)
+                .add(ModBlocks.WOOD_STRIPPER)
+                .add(ModBlocks.BATTERY_BANK)
+                .add(ModBlocks.MINER);
 
         getOrCreateTagBuilder(INCORRECT_FOR_ENDERITE_TOOL);
     }

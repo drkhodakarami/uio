@@ -166,9 +166,39 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         //region MACHINES
         addDrop(ModBlocks.ELEVATOR);
         addDrop(ModBlocks.REDSTONE_CLOCK);
-        //addDrop(ModBlocks.CREATIVE_ENERGY);
+        addDrop(ModBlocks.ALLOY_MIXER);
+        addDrop(ModBlocks.CAST_PRESS);
+        addDrop(ModBlocks.GEM_CLEANER);
+        addDrop(ModBlocks.OVEN);
+        addDrop(ModBlocks.PULVERIZER);
+        addDrop(ModBlocks.SMELTER);
+        addDrop(ModBlocks.ANIMAL_FEED);
+        addDrop(ModBlocks.GENERATOR);
+        addDrop(ModBlocks.SOLAR_PANEL);
+        addDrop(ModBlocks.BLOCK_BREAKER);
+        addDrop(ModBlocks.BLOCK_PLACER);
+        addDrop(ModBlocks.BUILDER);
+        addDrop(ModBlocks.CHUNK_LOADER);
+        addDrop(ModBlocks.CREATIVE_BANK);
+        addDrop(ModBlocks.ENDER_CHANTER);
+        addDrop(ModBlocks.FLUID_PUMP);
+        addDrop(ModBlocks.PRINTER);
+        addDrop(ModBlocks.PROJECT_TABLE);
+        addDrop(ModBlocks.TESSERACT);
+        addDrop(ModBlocks.WOOD_STRIPPER);
+        addDrop(ModBlocks.BATTERY_BANK);
+        addDrop(ModBlocks.MINER);
+        //endregion
 
+        //region GOO
+        addDrop(ModBlocks.BRIDGE_GOO);
+        addDrop(ModBlocks.CHUNK_GOO);
+        addDrop(ModBlocks.LAVA_EATING_GOO);
+        addDrop(ModBlocks.LAVA_GENERATING_GOO);
         addDrop(ModBlocks.LAVA_PUMP_GOO);
+        addDrop(ModBlocks.TOWERING_GOO);
+        addDrop(ModBlocks.TUNNELING_GOO);
+        addDrop(ModBlocks.WATER_GENERATING_GOO);
         addDrop(ModBlocks.WATER_PUMP_GOO);
         //endregion
     }

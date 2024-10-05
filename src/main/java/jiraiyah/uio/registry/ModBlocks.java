@@ -24,8 +24,7 @@
 
 package jiraiyah.uio.registry;
 
-import jiraiyah.uio.block.OreEnderite;
-import jiraiyah.uio.block.RedstoneClock;
+import jiraiyah.uio.block.*;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -69,21 +68,9 @@ public class ModBlocks
     public static Block WATER_EATING_GOO, WATER_GENERATING_GOO, LAVA_EATING_GOO, LAVA_GENERATING_GOO, CHUNK_GOO, TOWERING_GOO,
                         TUNNELING_GOO, BRIDGE_GOO, AIR_BOMB_GOO, CHUNK_BOMB_GOO, LAVA_PUMP_GOO, STONE_BOMB_GOO, WATER_PUMP_GOO;
 
-    public static Block ELEVATOR, ANGEL, REDSTONE_CLOCK;
-    //public static Block CREATIVE_ENERGY;
-    //public static Block ALLOY_MIXER;
-    //public static Block CAST_PRESS;
-    //public static Block GEM_CLEANER;
-    //public static Block GENERATOR;
-    //public static Block OVEN;
-    //public static Block PULVERIZER;
-    //public static Block SMELTER;
-    //public static Block BUCKET_FILLER;
-    //public static Block BLOCK_BREAKER;
-    //public static Block BLOCK_PLACER;
-    //public static Block WOOD_STRIPPER;
-    //public static Block ANIMAL_FEEDER;
-    //public static Block TESSERACT;
+    public static Block ELEVATOR, ANGEL, REDSTONE_CLOCK, ALLOY_MIXER, CAST_PRESS, GEM_CLEANER, OVEN, PULVERIZER, SMELTER, ANIMAL_FEED,
+                        GENERATOR, BLOCK_BREAKER, BLOCK_PLACER, BUILDER, CHUNK_LOADER, CREATIVE_BANK, ENDER_CHANTER, FLUID_PUMP,
+                        PRINTER, PROJECT_TABLE, TESSERACT, WOOD_STRIPPER, BATTERY_BANK, SOLAR_PANEL, MINER;
     //endregion
 
     public ModBlocks()
@@ -95,7 +82,7 @@ public class ModBlocks
     {
         log("Registering Blocks");
 
-        ENDERITE = registerCopy("block_enderite", Blocks.IRON_BLOCK);
+        ENDERITE = registerCopy("block_enderite", Blocks.NETHERITE_BLOCK);
         //region GEMS
         CITRINE = registerCopy("block_citrine", Blocks.AMETHYST_BLOCK);
         RUBY = registerCopy("block_ruby", Blocks.AMETHYST_BLOCK);
@@ -270,26 +257,56 @@ public class ModBlocks
         //endregion
         //region MACHINES
         ELEVATOR = registerCopy("elevator", Blocks.GRAY_WOOL);
-        REDSTONE_CLOCK = registerBlock("redstone_clock",
+        REDSTONE_CLOCK = register("redstone_clock",
                                        new RedstoneClock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
-        //CREATIVE_ENERGY = registerBlock("creative_energy", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //ALLOY_MIXER = registerBlock("alloy_mixer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //CAST_PRESS = registerBlock("cast_press", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //GEM_CLEANER = registerBlock("gem_cleaner", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //GENERATOR = registerBlock("generator", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //OVEN = registerBlock("oven", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //PULVERIZER = registerBlock("pulverizer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //SMELTER = registerBlock("smelter", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //BUCKET_FILLER = registerBlock("bucket_filler", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //BLOCK_BREAKER = registerBlock("block_breaker", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //BLOCK_PLACER = registerBlock("block_placer", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //WOOD_STRIPPER = registerBlock("wood_stripper", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //ANIMAL_FEEDER = registerBlock("animal_feeder", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //TESSERACT = registerBlock("tesseract", new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //endregion
-
+        CREATIVE_BANK = register("creative_bank",
+                                      new CreativeEnergyBank(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        BATTERY_BANK = register("battery_bank",
+                                     new BatteryBank(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        ALLOY_MIXER = register("alloy_mixer",
+                                    new AlloyMixer(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        BUILDER = register("builder",
+                                new BuilderBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        CAST_PRESS = register("cast_press",
+                                  new CastPress(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        GEM_CLEANER = register("gem_cleaner",
+                                    new GemCleaner(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        GENERATOR = register("generator",
+                                  new Generator(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        SOLAR_PANEL = register("solar_panel",
+                                  new SolarPanel(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        OVEN = register("oven",
+                             new Oven(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        PULVERIZER = register("pulverizer",
+                                   new Pulverizer(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        SMELTER = register("smelter",
+                                new Smelter(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        FLUID_PUMP = register("fluid_pump",
+                                   new FluidPump(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        BLOCK_BREAKER = register("block_breaker",
+                                      new BlockBreaker(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        BLOCK_PLACER = register("block_placer",
+                                     new BlockPlacer(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        WOOD_STRIPPER = register("wood_stripper",
+                                      new WoodStripper(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        ANIMAL_FEED = register("animal_feed",
+                                    new AnimalFeed(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE)));
+        TESSERACT = register("tesseract",
+                                  new Tesseract(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+        ENDER_CHANTER = register("enderchanter",
+                                      new EnderChanter(AbstractBlock.Settings.copy(Blocks.ENCHANTING_TABLE)));
+        PRINTER = register("printer",
+                                new Printer(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE)));
+        PROJECT_TABLE = register("project_table",
+                                      new ProjectTable(AbstractBlock.Settings.copy(Blocks.CRAFTING_TABLE)));
+        CHUNK_LOADER = register("chunk_loader",
+                                     new ChunkLoader(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        MINER = register("miner",
+                                     new Miner(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
         //TODO: Generate Custom Block Item(Use registerBlock and then manually register custom block item)
-        ANGEL = register("block_angel", AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).strength(0.1f, 5000.0f));
+        ANGEL = register("block_angel",
+                         AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).strength(0.1f, 5000.0f));
+        //endregion
 
         AllBlocks = Registries.BLOCK.getEntrySet()
                                   .stream()

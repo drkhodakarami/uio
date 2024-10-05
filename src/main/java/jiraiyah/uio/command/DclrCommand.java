@@ -1,18 +1,16 @@
 package jiraiyah.uio.command;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
+import jiraiyah.uio.command.suggestion.DevCleanSuggestionProvider;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.registry.Registries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.CommandManager;
-import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -22,7 +20,9 @@ import static jiraiyah.uio.Reference.*;
 
 public class DclrCommand
 {
-    private static final int CLEAR_COMMAND_DISTANCE = 32;
+    private static final int CLEAR_COMMAND_DISTANCE = 128;
+    private static final int Y_MIN = -64;
+    private static final int Y_MAX = 128;
 
     //region DCLR Lists
     static String[] block_clear_list =
@@ -82,77 +82,82 @@ public class DclrCommand
                   .then(CommandManager.argument("clear_operation_type", StringArgumentType.string())
                       .suggests(new DevCleanSuggestionProvider())
                       .executes(context ->
+                        {
+                            String typ = StringArgumentType.getString(context, "clear_operation_type");
+                            if (Objects.equals(typ, ""))
+                                typ = "all";
+
+                            if (!Objects.equals(typ, "ore") &&
+                                !Objects.equals(typ, "block") &&
+                                !Objects.equals(typ, "fluid") &&
+                                !Objects.equals(typ, "all"))
+                            {
+                                context.getSource().sendFeedback(() -> translate(DCLR_ERROR_ID_NAME), false);
+                            }
+                            else
+                            {
+                                String[] blocks = Objects.equals(typ, "ore")
+                                                  ? ArrayUtils.addAll(ore_clear_list)
+                                                  : Objects.equals(typ, "block")
+                                                    ? ArrayUtils.addAll(block_clear_list)
+                                                    : Objects.equals(typ, "fluid")
+                                                      ? ArrayUtils.addAll(fluid_block_list)
+                                                      : ArrayUtils.addAll(block_clear_list, ore_clear_list);
+
+                                if (blocks.length == 0)
+                                    return 1;
+
+                                PlayerEntity player = context.getSource().getPlayer();
+
+                                if (player != null)
                                 {
-                                    String typ = StringArgumentType.getString(context, "clear_operation_type");
-                                    if (Objects.equals(typ, ""))
-                                        typ = "all";
+                                    MinecraftServer server = player.getServer();
+                                    BlockPos position = player.getBlockPos();
 
-                                    if (!Objects.equals(typ, "ore") &&
-                                        !Objects.equals(typ, "block") &&
-                                        !Objects.equals(typ, "fluid") &&
-                                        !Objects.equals(typ, "all"))
+                                    int minX = position.getX() - CLEAR_COMMAND_DISTANCE;
+                                    int maxX = position.getX() + CLEAR_COMMAND_DISTANCE;
+                                    int minZ = position.getZ() - CLEAR_COMMAND_DISTANCE;
+                                    int maxZ = position.getZ() + CLEAR_COMMAND_DISTANCE;
+
+                                    context.getSource().sendFeedback(() -> translate(DCLR_START_ID_NAME), false);
+
+                                    BlockState state;
+                                    String name;
+                                    BlockPos pos;
+
+                                    World world = player.getWorld();
+
+                                    for (int y = -64; y <= 128; y++)
                                     {
-                                        context.getSource().sendFeedback(() -> translate(DCLR_ERROR_ID_NAME), false);
-                                    }
-                                    else
-                                    {
-                                        String[] blocks = Objects.equals(typ, "ore")
-                                                          ? ArrayUtils.addAll(ore_clear_list)
-                                                          : Objects.equals(typ, "block")
-                                                            ? ArrayUtils.addAll(block_clear_list)
-                                                            : Objects.equals(typ, "fluid")
-                                                              ? ArrayUtils.addAll(fluid_block_list)
-                                                              : ArrayUtils.addAll(block_clear_list, ore_clear_list);
-
-                                        if (blocks.length == 0)
-                                            return 1;
-
-                                        PlayerEntity player = context.getSource().getPlayer();
-
-                                        if (player != null)
+                                        for (int x = minX; x <= maxX; x++)
                                         {
-                                            MinecraftServer server = player.getServer();
-                                            BlockPos position = player.getBlockPos();
-
-                                            int minX = position.getX() - CLEAR_COMMAND_DISTANCE;
-                                            int maxX = position.getX() + CLEAR_COMMAND_DISTANCE;
-                                            int minZ = position.getZ() - CLEAR_COMMAND_DISTANCE;
-                                            int maxZ = position.getZ() + CLEAR_COMMAND_DISTANCE;
-
-                                            context.getSource().sendFeedback(() -> translate(DCLR_START_ID_NAME), false);
-
-                                            BlockState state;
-                                            String name;
-                                            BlockPos pos;
-
-                                            World world = player.getWorld();
-
-                                            for (int y = -64; y <= 128; y++)
+                                            for (int z = minZ; z <= maxZ; z++)
                                             {
-                                                for (int x = minX; x <= maxX; x++)
+                                                pos = new BlockPos(x, y, z);
+                                                state = world.getBlockState(pos);
+                                                name = state.getBlock().getTranslationKey().split("\\.")[2];
+                                                if(x == minX || x == maxX || z == minZ || z == maxZ)
                                                 {
-                                                    for (int z = minZ; z <= maxZ; z++)
-                                                    {
-                                                        pos = new BlockPos(x, y, z);
-                                                        state = world.getBlockState(pos);
-                                                        name = state.getBlock().getTranslationKey().split("\\.")[2];
-                                                        if((x == minX || x == maxX || z == minZ || z == maxZ) &&
-                                                           ArrayUtils.contains(fluid_block_list, name))
-                                                                world.setBlockState(pos, Blocks.OBSIDIAN.getDefaultState(), Block.NOTIFY_ALL);
-
-                                                        else if( minX < x && x < maxX &&
-                                                                 minZ < z && z < maxZ &&
-                                                                 ArrayUtils.contains(blocks, name))
-                                                                    world.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
-                                                    }
+                                                    if(y <= 65 &&
+                                                       ArrayUtils.contains(fluid_block_list, name))
+                                                        world.setBlockState(pos, Blocks.OBSIDIAN.getDefaultState(), Block.NOTIFY_ALL);
+                                                    else if(ArrayUtils.contains(fluid_block_list, name) &&
+                                                            !name.equals("air"))
+                                                        world.setBlockState(pos, Blocks.OBSIDIAN.getDefaultState(), Block.NOTIFY_ALL);
                                                 }
+                                                else if( minX < x && x < maxX &&
+                                                         minZ < z && z < maxZ &&
+                                                         ArrayUtils.contains(blocks, name))
+                                                            world.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
                                             }
-
-                                            context.getSource().sendFeedback(() -> translate(DCLR_END_ID_NAME), false);
                                         }
                                     }
-                                    return 1;
-                                })));
+
+                                    context.getSource().sendFeedback(() -> translate(DCLR_END_ID_NAME), false);
+                                }
+                            }
+                            return 1;
+                        })));
             })));
         }
     }

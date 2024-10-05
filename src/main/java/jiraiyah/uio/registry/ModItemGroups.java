@@ -260,18 +260,40 @@ public class ModItemGroups
                                                  .icon(ModBlocks.ELEVATOR.asItem()::getDefaultStack)
                                                  .entries((displayContext, entries) ->
                                                           {
-                                                              //entries.add(ModBlocks.ANGEL);
+                                                              entries.add(ModBlocks.WOOD_STRIPPER);
+                                                              entries.add(ModBlocks.CAST_PRESS);
+                                                              entries.add(ModBlocks.SMELTER);
+                                                              entries.add(ModBlocks.GEM_CLEANER);
+                                                              entries.add(ModBlocks.PULVERIZER);
+                                                              entries.add(ModBlocks.ALLOY_MIXER);
+                                                              entries.add(ModBlocks.OVEN);
+                                                              entries.add(ModBlocks.BLOCK_BREAKER);
+                                                              entries.add(ModBlocks.BLOCK_PLACER);
+                                                              entries.add(ModBlocks.FLUID_PUMP);
+                                                              entries.add(ModBlocks.MINER);
+
+                                                              entries.add(ModBlocks.GENERATOR);
+                                                              entries.add(ModBlocks.SOLAR_PANEL);
+                                                              entries.add(ModBlocks.BATTERY_BANK);
+                                                              entries.add(ModBlocks.CREATIVE_BANK);
+
+                                                              entries.add(ModBlocks.CHUNK_LOADER);
+                                                              entries.add(ModBlocks.ANGEL);
                                                               entries.add(ModBlocks.ELEVATOR);
-                                                              //entries.add(ModBlocks.REDSTONE_CLOCK);
-                                                              //entries.add(ModBlocks.CREATIVE_ENERGY);
+                                                              entries.add(ModBlocks.REDSTONE_CLOCK);
+                                                              entries.add(ModBlocks.ANIMAL_FEED);
+                                                              entries.add(ModBlocks.TESSERACT);
+                                                              entries.add(ModBlocks.ENDER_CHANTER);
+                                                              entries.add(ModBlocks.PROJECT_TABLE);
+                                                              entries.add(ModBlocks.PRINTER);
+                                                              entries.add(ModBlocks.BUILDER);
 
                                                               entries.add(ModItems.THERMAL_CORE);
+                                                              entries.add(ModItems.BLUEPRINT_EMPTY);
 
                                                               entries.add(ModItems.ITEM_FILTER);
                                                               entries.add(ModItems.SLOT_DISABLED);
                                                               entries.add(ModItems.SLOT_ENABLED);
-
-                                                              entries.add(ModItems.BLUEPRINT_EMPTY);
 
                                                               entries.add(ModBlocks.BRIDGE_GOO);
                                                               entries.add(ModBlocks.CHUNK_GOO);

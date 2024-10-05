@@ -1,5 +1,29 @@
 {
   "values": [
-    "uio:elevator"
+    "uio:elevator",
+    "uio:block_angel",
+    "uio:redstone_clock",
+    "uio:alloy_mixer",
+    "uio:cast_press",
+    "uio:gem_cleaner",
+    "uio:oven",
+    "uio:pulverizer",
+    "uio:smelter",
+    "uio:animal_feed",
+    "uio:generator",
+    "uio:solar_panel",
+    "uio:block_breaker",
+    "uio:block_placer",
+    "uio:builder",
+    "uio:chunk_loader",
+    "uio:creative_bank",
+    "uio:enderchanter",
+    "uio:fluid_pump",
+    "uio:printer",
+    "uio:project_table",
+    "uio:tesseract",
+    "uio:wood_stripper",
+    "uio:battery_bank",
+    "uio:miner"
   ]
 }

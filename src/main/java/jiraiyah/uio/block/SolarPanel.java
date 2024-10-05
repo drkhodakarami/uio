@@ -2,9 +2,9 @@ package jiraiyah.uio.block;
 
 import net.minecraft.block.Block;
 
-public class AlloySmelter extends Block
+public class SolarPanel extends Block
 {
-    public AlloySmelter(Settings settings)
+    public SolarPanel(Settings settings)
     {
         super(settings);
     }

@@ -1,22 +1,23 @@
-// 1.21.1	2024-10-04T17:57:23.3747437	Ultra IO/Tags for minecraft:block
+// 1.21.1	2024-10-05T16:17:49.2946766	Ultra IO/Tags for minecraft:block
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\needs_stone_tool.json
-77e1e66c781dbab11a6010149f835af9de54042a data\c\tags\block\machines.json
+208d11e81f6c54a13976f5d3bbb21cf2a1170209 data\c\tags\block\machines.json
 511765bc6e1541882f796604f5cf696488eaa135 data\minecraft\tags\block\diamond_ores.json
 8c5dd1647c17fc41e6fe2754c86c718d4c871d9b data\minecraft\tags\block\copper_ores.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\gold_ores.json
+a8d0a19800213dbd9e6353309f2e0d52710deacb data\minecraft\tags\block\mineable\axe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\emerald_ores.json
-263ead7b86b0916fc757d5a2ea54c6345aee7e4b data\uio\tags\block\hammer_blacklist.json
+208d11e81f6c54a13976f5d3bbb21cf2a1170209 data\uio\tags\block\hammer_blacklist.json
 0e343d9b05722811b7b05da28ddf677404e73206 data\minecraft\tags\block\needs_diamond_tool.json
 86e826c275f830d33bf3ac1b3653d56b673b92b2 data\minecraft\tags\block\coal_ores.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\uio\tags\block\incorrect_for_enderite_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\fabric\tags\block\needs_tool_level_4.json
 7793c36a86fa13490b61d16a705473146b9c0eef data\minecraft\tags\block\lapis_ores.json
 bc1b84bdfdf4163c9f1c338c1a80d51d306fab5f data\minecraft\tags\block\fences.json
-b3a0d88fe782590f18a678550240807e49bf50e1 data\c\tags\block\gem_blocks.json
 263ead7b86b0916fc757d5a2ea54c6345aee7e4b data\uio\tags\block\excavator_blacklist.json
+b3a0d88fe782590f18a678550240807e49bf50e1 data\c\tags\block\gem_blocks.json
 3a1a50db4f1dfac0fcaa4caf111889342218af5d data\minecraft\tags\block\fence_gates.json
 79f0f405cda96d6bdd4ff20c66e269c58b8dd0ea data\minecraft\tags\block\walls.json
 e8b3eabddfdf50cf8b95204f7245915f08258990 data\minecraft\tags\block\redstone_ores.json
-26e00c9367522bb994e1a5c70e176e38955fb1f8 data\minecraft\tags\block\mineable\pickaxe.json
+bc7c8bc12ad53f92f70f3983ee6b9e5e76e3b1e5 data\minecraft\tags\block\mineable\pickaxe.json
 b7cd630377b449e6f014d7bfebb31cefea135163 data\minecraft\tags\block\iron_ores.json
 d0b538bcb989091f2ccc28d5a3e50ef0a9039606 data\minecraft\tags\block\needs_iron_tool.json

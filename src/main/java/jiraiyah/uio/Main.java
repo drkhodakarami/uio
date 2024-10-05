@@ -86,6 +86,26 @@ import static jiraiyah.uio.Reference.logMain;
 // Back  : West, Negative Z
 //endregion
 
+//TODO : Add void dimension
+//TODO : Add Mining dimension (maybe)
+//TODO : Add Crops (maybe corn or something more useful)
+//TODO : Add Rubber Tree with everything related to wood
+//TODO : Add Villager Trades and New Villager Type
+//TODO : Add Ender Shulker Boxes
+//TODO : Add redstone logic gates
+//TODO : Add Fluid Tanks
+//TODO : Rotate Blocks Using Wrench
+//TODO : Draw extra info in world when have wrench in hand (maybe)
+//TODO : Add new rideable entity that moves faster than player
+//TODO : Add new projectile (maybe tnt / torch arrow?)
+//TODO : Add new aggressive mob (maybe with new AI?)
+//TODO : Make different goo blocks functional
+//TODO : Add new flower (not sure what)
+//TODO : Add new biome (maybe planes with less bump and more flatness with more rubber trees)
+//TODO : Add player starting inventory kit
+//TODO : Add custom structures (maybe ruined portals to custom mod dimensions)
+//TODO : Add new enchantment (Lava Walking)
+
 public class Main implements ModInitializer
 {
     public static boolean DEBUG;

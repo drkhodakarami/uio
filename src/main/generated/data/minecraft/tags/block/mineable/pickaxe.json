@@ -28,6 +28,24 @@
     "uio:ore_nether_sapphire",
     "uio:ore_world_citrine",
     "uio:ore_world_ruby",
-    "uio:ore_world_sapphire"
+    "uio:ore_world_sapphire",
+    "uio:alloy_mixer",
+    "uio:cast_press",
+    "uio:gem_cleaner",
+    "uio:oven",
+    "uio:pulverizer",
+    "uio:smelter",
+    "uio:generator",
+    "uio:solar_panel",
+    "uio:block_breaker",
+    "uio:block_placer",
+    "uio:builder",
+    "uio:creative_bank",
+    "uio:enderchanter",
+    "uio:fluid_pump",
+    "uio:tesseract",
+    "uio:wood_stripper",
+    "uio:battery_bank",
+    "uio:miner"
   ]
 }

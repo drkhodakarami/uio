@@ -145,10 +145,33 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHUNK_BOMB_GOO);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STONE_BOMB_GOO);
         //endregion
-
+       
         //region MACHINES
         blockStateModelGenerator.registerSingleton(ModBlocks.ELEVATOR, TexturedModel.CUBE_BOTTOM_TOP);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANGEL);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.REDSTONE_CLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ALLOY_MIXER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CAST_PRESS);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GEM_CLEANER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.OVEN);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PULVERIZER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SMELTER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANIMAL_FEED);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GENERATOR);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SOLAR_PANEL);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BLOCK_BREAKER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BLOCK_PLACER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BUILDER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHUNK_LOADER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CREATIVE_BANK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDER_CHANTER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FLUID_PUMP);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PRINTER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PROJECT_TABLE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.TESSERACT);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.WOOD_STRIPPER);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BATTERY_BANK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MINER);
 
         /*Identifier clockOff = TexturedModel.CUBE_ALL.upload(ModBlocks.REDSTONE_CLOCK, blockStateModelGenerator.modelCollector);
         Identifier clockOn = blockStateModelGenerator.createSubModel(ModBlocks.REDSTONE_CLOCK, "_on", Models.CUBE_ALL,
@@ -157,10 +180,7 @@ public class ModModelProvider extends FabricModelProvider
                                                             .coordinate(BlockStateModelGenerator.createBooleanModelMap(RedstoneClock.ACTIVE,
                                                                                                                        clockOn, clockOff)));*/
 
-        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CREATIVE_ENERGY);
         //endregion
-
-        //blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ANGEL);
 
     }
 

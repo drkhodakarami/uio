@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-04T17:57:23.378743	Ultra IO/Recipes
+// 1.21.1	2024-10-05T16:17:49.2966749	Ultra IO/Recipes
 30feefd3031fb4b4626608ce97c0edb98b8b4fe0 data\uio\recipe\gem_ruby.json
 0c557c47f6d8430b6bc3d815343c5ca96f016f00 data\uio\recipe\block_enderite_trap_door.json
 e933debc4c29b6d6cbb678195ebecb650d2a0240 data\uio\advancement\recipes\decorations\block_ruby_fence_from_gem_ruby_stonecutting.json
@@ -158,6 +158,7 @@ a2ed0b16e0b6ab2b8b21d6e478a377f33ec219de data\uio\recipe\tool_gold_excavator.jso
 380db4da9fcdc21416b111856398a19d60031e81 data\uio\advancement\recipes\decorations\block_raw_quartz.json
 39acd6b5861dc53389bcce26afb0dc8a8a496527 data\uio\advancement\recipes\tools\tool_wood_hammer.json
 99555c2fc0437edb371006fc247bea298f8a21b1 data\uio\advancement\recipes\tools\tool_player_teleport.json
+156f61d886eaabd17d2942cc3b2bac7b46bd3807 data\uio\advancement\recipes\misc\redstone_clock.json
 5f141412966e0564e802e8ba6f37beb40691715e data\uio\advancement\recipes\redstone\block_enderite_trap_door.json
 3952648052ee1c9321b1616f3fb4a71a5a3cc78f data\uio\recipe\void_plate_base_from_blasting_block_enderite.json
 853ccb68e054f39f338b050ff1ebdcdab462d8f1 data\uio\advancement\recipes\tools\tool_enderite_excavator.json
@@ -244,8 +245,8 @@ e837276e0aa3187981194a8aae1ad023f47443c8 data\uio\recipe\block_citrine.json
 81d968feca1b6cdd607f01428741436db223a0ce data\uio\advancement\recipes\food\egg_and_bread_shapeless.json
 cd7966d1b1d746b36d65dc8364d68cad5dd5d66b data\uio\recipe\block_sapphire_stairs_from_block_sapphire_stonecutting.json
 e1224a49bdd83e53ab274a7d50f58840d5dd0a4f data\uio\recipe\tool_netherite_excavator.json
-6b13bdaf8a5cdfd5cd4438d7df9374725fd103d8 data\uio\recipe\tool_ruby_excavator.json
 d0fcb1100c586abcd3b233a952d963873aa883ca data\uio\recipe\block_raw_citrine.json
+6b13bdaf8a5cdfd5cd4438d7df9374725fd103d8 data\uio\recipe\tool_ruby_excavator.json
 a8394a264db0c304449909ac4a1c71f95a4a1492 data\uio\recipe\water_eating_goo.json
 a4ca1fe74ff54fe4b04c694cb988bc66fcbf0699 data\uio\advancement\recipes\tools\ender_backpack.json
 acf943268c15f55c609ee93a332f2bb5173b81cb data\uio\recipe\block_ruby_stairs_from_block_ruby_stonecutting.json
@@ -309,6 +310,7 @@ cce9a5f72dacda90add960379265984633f4e5f7 data\uio\recipe\tool_wood_hammer.json
 7c38e79a168de76f7795f5bdd97b584bf8f7fd46 data\uio\advancement\recipes\combat\armor_amethyst_helmet.json
 4daa62e435f95d89edd12ecafff08726357e93dd data\uio\recipe\block_enderite.json
 66cbbb3a612c2c99b8bfd631197427a14ec7eacf data\uio\advancement\recipes\food\cooked_egg_from_campfire_cooking.json
+b8db90b3c21fa67c89e47406585bc35dc2afc987 data\uio\recipe\redstone_clock.json
 f462a99f5eb402792661b74fdd52e607a644b5cb data\uio\recipe\tool_player_teleport.json
 bd3df432cf06b59708a275a478bd1719e69a47e2 data\uio\recipe\backpack.json
 f671accc65849cdc73d29fddc4280fa96bf9c821 data\uio\advancement\recipes\misc\water_eating_goo.json
