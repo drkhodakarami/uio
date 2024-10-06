@@ -86,6 +86,9 @@ import static jiraiyah.uio.Reference.logMain;
 // Back  : West, Negative Z
 //endregion
 
+// Simple Config System: https://github.com/magistermaks/fabric-simplelibs/blob/master/simple-config/SimpleConfig.java
+
+//region FUTURE TODO LIST
 //TODO : Add void dimension
 //TODO : Add Mining dimension (maybe)
 //TODO : Add Crops (maybe corn or something more useful)
@@ -105,6 +108,7 @@ import static jiraiyah.uio.Reference.logMain;
 //TODO : Add player starting inventory kit
 //TODO : Add custom structures (maybe ruined portals to custom mod dimensions)
 //TODO : Add new enchantment (Lava Walking)
+//endregion
 
 public class Main implements ModInitializer
 {

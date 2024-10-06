@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.util.math.BlockPos;
@@ -20,6 +21,7 @@ import static jiraiyah.uio.Reference.*;
 
 public class DclrCommand
 {
+    //TODO: Use Config for radius
     private static final int CLEAR_COMMAND_DISTANCE = 128;
     private static final int Y_MIN = -64;
     private static final int Y_MAX = 128;
@@ -52,7 +54,12 @@ public class DclrCommand
                     "light_blue_concrete_powder", "yellow_concrete_powder", "lime_concrete_powder", "pink_concrete_powder", "gray_concrete_powder",
                     "light_gray_concrete_powder", "cyan_concrete_powder", "purple_concrete_powder", "blue_concrete_powder", "brown_concrete_powder",
                     "green_concrete_powder", "red_concrete_powder", "black_concrete_powder", "brown_mushroom", "red_mushroom", "brown_mushroom_block",
-                    "red_mushroom_block", "mushroom_stem"
+                    "red_mushroom_block", "mushroom_stem",
+                    "oak_stairs", "spruce_stairs", "birch_stairs", "jungle_stairs", "acacia_stairs", "cherry_stairs", "dark_oak_stairs", "mangrove_stairs",
+                    "oak_trapdoor", "spruce_trapdoor", "birch_trapdoor", "jungle_trapdoor", "acacia_trapdoor", "cherry_trapdoor",
+                    "dark_oak_trapdoor", "mangrove_trapdoor", "iron_trapdoor",
+                    "pumpkin","chain", "bee_nest", "melon", "polished_blackstone_bricks", "cracked_polished_blackstone_bricks",
+                    "chiseled_polished_blackstone", "cracked_deepslate_bricks", "cracked_stone_bricks", "mossy_stone_bricks"
             };
 
     static String[] ore_clear_list =
@@ -64,7 +71,7 @@ public class DclrCommand
                     "prismarine", "prismarine_bricks", "dark_prismarine", "sea_lantern"
             };
 
-    static String[] fluid_block_list ={"water", "lava", "kelp", "kelp_plant", "seagrass", "tall_seagrass", "air"};
+    static String[] fluid_block_list ={"water", "lava", "kelp", "kelp_plant", "seagrass", "tall_seagrass", "air", "bubble_column", "glow_lichen"};
     //endregion
 
     public DclrCommand()
@@ -92,7 +99,7 @@ public class DclrCommand
                                 !Objects.equals(typ, "fluid") &&
                                 !Objects.equals(typ, "all"))
                             {
-                                context.getSource().sendFeedback(() -> translate(DCLR_ERROR_ID_NAME), false);
+                                context.getSource().sendFeedback(() -> translate(Constants.DCLR_ERROR_ID_NAME), false);
                             }
                             else
                             {
@@ -119,7 +126,7 @@ public class DclrCommand
                                     int minZ = position.getZ() - CLEAR_COMMAND_DISTANCE;
                                     int maxZ = position.getZ() + CLEAR_COMMAND_DISTANCE;
 
-                                    context.getSource().sendFeedback(() -> translate(DCLR_START_ID_NAME), false);
+                                    context.getSource().sendFeedback(() -> translate(Constants.DCLR_START_ID_NAME), false);
 
                                     BlockState state;
                                     String name;
@@ -135,7 +142,7 @@ public class DclrCommand
                                             {
                                                 pos = new BlockPos(x, y, z);
                                                 state = world.getBlockState(pos);
-                                                name = state.getBlock().getTranslationKey().split("\\.")[2];
+                                                name = Registries.BLOCK.getEntry(state.getBlock()).getKey().orElseThrow().getValue().getPath();
                                                 if(x == minX || x == maxX || z == minZ || z == maxZ)
                                                 {
                                                     if(y <= 65 &&
@@ -153,7 +160,7 @@ public class DclrCommand
                                         }
                                     }
 
-                                    context.getSource().sendFeedback(() -> translate(DCLR_END_ID_NAME), false);
+                                    context.getSource().sendFeedback(() -> translate(Constants.DCLR_END_ID_NAME), false);
                                 }
                             }
                             return 1;

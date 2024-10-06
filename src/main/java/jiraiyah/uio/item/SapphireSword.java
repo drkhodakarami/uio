@@ -41,8 +41,10 @@ public class SapphireSword extends SwordItem
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker)
     {
+        //TODO: Use Config for effect duration
         target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 3), attacker);
 
+        //TODO: Use Config for pushback multiplier values
         var vector = target.getPos().subtract(attacker.getPos()).normalize().multiply(5, 1, 5);
         target.setVelocity(vector);
 

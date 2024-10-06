@@ -41,30 +41,6 @@ public class Reference
 
     public static final String ModID = "uio";
 
-    //region ITEM GROUP NAMES AND TITLES
-    public static final String BLOCK_ITEM_GROUP_NAME = "_1_block_group";
-    public static final String INGREDIENT_ITEM_GROUP_NAME = "_5_ingredient_group";
-    public static final String MACHINE_ITEM_GROUP_NAME = "_2_machine_group";
-    public static final String TOOLS_ITEM_GROUP_NAME = "_3_tool_group";
-    public static final String ARMOR_ITEM_GROUP_NAME = "_4_armor_group";
-    public static final String MISC_ITEM_GROUP_NAME = "_6_misc_group";
-
-    public static final MutableText BLOCKS_TITLE = translate(BLOCK_ITEM_GROUP_NAME);
-    public static final MutableText INGREDIENT_TITLE = translate(INGREDIENT_ITEM_GROUP_NAME);
-    public static final MutableText MACHINES_TITLE = translate(MACHINE_ITEM_GROUP_NAME);
-    public static final MutableText TOOLS_TITLE = translate(TOOLS_ITEM_GROUP_NAME);
-    public static final MutableText ARMORS_TITLE = translate(ARMOR_ITEM_GROUP_NAME);
-    public static final MutableText MISC_TITLE = translate(MISC_ITEM_GROUP_NAME);
-    //endregion
-
-    public static final String TUNER_TOOLTIP_ID_NAME = "tuner.tooltip";
-    public static final String TUNER_TELEPORTED_ID_NAME = "tuner.teleported";
-    public static final String TUNER_ERROR_ID_NAME = "tuner.error";
-    public static final String TELEPORTER_TOOLTIP_ID_NAME = "teleporter.tooltip";
-    public static final String DCLR_ERROR_ID_NAME = "dclr.error";
-    public static final String DCLR_START_ID_NAME = "dclr.start";
-    public static final String DCLR_END_ID_NAME = "dclr.end";
-
     //region Logging
     public static final Logger LOGGER = LoggerFactory.getLogger(ModID);
 
@@ -239,9 +215,55 @@ public class Reference
 
     public static class Keys
     {
-        public static final String TUNER_POS = ModID + ".tuner.pos";
-        public static final String TUNER_DIMENSION = ModID + ".tuner.dimension";
-        public static final String TELEPORTER_POS = ModID + ".teleporter.pos";
-        public static final String TELEPORTER_DIMENSION = ModID + ".teleporter.dimension";
+        public static class Items
+        {
+            public static final String TUNER_POS = ModID + ".tuner.pos";
+            public static final String TUNER_DIMENSION = ModID + ".tuner.dimension";
+            public static final String TELEPORTER_POS = ModID + ".teleporter.pos";
+            public static final String TELEPORTER_DIMENSION = ModID + ".teleporter.dimension";
+        }
+
+        public static class BlockEntities
+        {
+            public static final String ENERGY_AMOUNT = ModID + ".energy.amount";
+            public static final String ENERGY_CAPACITY = ModID + ".energy.capacity";
+            public static final String FLUID_AMOUNT = ModID + ".fluid.amount";
+            public static final String FLUID_CAPACITY = ModID + ".fluid.capacity";
+            public static final String PROGRESS_AMOUNT = ModID + ".progress.amount";
+            public static final String PROGRESS_COOLDOWN = ModID + ".progress.cooldown";
+            public static final String PROGRESS_MAX = ModID + ".progress.max";
+        }
+    }
+
+    public static class Constants
+    {
+        //region ITEM GROUP NAMES AND TITLES
+        public static final String BLOCK_ITEM_GROUP_NAME = "_1_block_group";
+        public static final String INGREDIENT_ITEM_GROUP_NAME = "_5_ingredient_group";
+        public static final String MACHINE_ITEM_GROUP_NAME = "_2_machine_group";
+        public static final String TOOLS_ITEM_GROUP_NAME = "_3_tool_group";
+        public static final String ARMOR_ITEM_GROUP_NAME = "_4_armor_group";
+        public static final String MISC_ITEM_GROUP_NAME = "_6_misc_group";
+
+        public static final MutableText BLOCKS_TITLE = translate(BLOCK_ITEM_GROUP_NAME);
+        public static final MutableText INGREDIENT_TITLE = translate(INGREDIENT_ITEM_GROUP_NAME);
+        public static final MutableText MACHINES_TITLE = translate(MACHINE_ITEM_GROUP_NAME);
+        public static final MutableText TOOLS_TITLE = translate(TOOLS_ITEM_GROUP_NAME);
+        public static final MutableText ARMORS_TITLE = translate(ARMOR_ITEM_GROUP_NAME);
+        public static final MutableText MISC_TITLE = translate(MISC_ITEM_GROUP_NAME);
+        //endregion
+        //region TOOLTIPS
+        public static final String TUNER_TOOLTIP_ID_NAME = "tuner.tooltip";
+        public static final String TUNER_TELEPORTED_ID_NAME = "tuner.teleported";
+        public static final String TUNER_ERROR_ID_NAME = "tuner.error";
+        public static final String TELEPORTER_TOOLTIP_ID_NAME = "teleporter.tooltip";
+        public static final String HAMMER_PARAM_TOOLTIP = "hammer.tooltip";
+        public static final String EXCAVATOR_PARAM_TOOLTIP = "excavator.tooltip";
+        //endregion
+        //region COMMAND MESSAGES
+        public static final String DCLR_ERROR_ID_NAME = "dclr.error";
+        public static final String DCLR_START_ID_NAME = "dclr.start";
+        public static final String DCLR_END_ID_NAME = "dclr.end";
+        //endregion
     }
 }

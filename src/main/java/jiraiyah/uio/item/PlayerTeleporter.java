@@ -81,8 +81,8 @@ public class PlayerTeleporter extends Item
                 if (!context.getWorld().isClient())
                 {
                     NbtCompound nbt = new NbtCompound();
-                    nbt.put(Keys.TELEPORTER_POS, NbtHelper.fromBlockPos(pos));
-                    nbt.putString(Keys.TELEPORTER_DIMENSION, player.getWorld().getRegistryKey().getValue().toString());
+                    nbt.put(Keys.Items.TELEPORTER_POS, NbtHelper.fromBlockPos(pos));
+                    nbt.putString(Keys.Items.TELEPORTER_DIMENSION, player.getWorld().getRegistryKey().getValue().toString());
                     NbtComponent component = NbtComponent.of(nbt);
                     context.getStack().set(DataComponentTypes.CUSTOM_DATA, component);
                 }
@@ -112,10 +112,10 @@ public class PlayerTeleporter extends Item
             {
                 ItemStack stack = user.getStackInHand(hand);
                 NbtCompound nbt = data.copyNbt();
-                if(nbt == null || NbtHelper.toBlockPos(nbt, Keys.TELEPORTER_POS).isEmpty())
+                if(nbt == null || NbtHelper.toBlockPos(nbt, Keys.Items.TELEPORTER_POS).isEmpty())
                     return super.use(world, user, hand);
-                BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.TELEPORTER_POS).get();
-                var dimension = nbt.getString(Keys.TELEPORTER_DIMENSION);
+                BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TELEPORTER_POS).get();
+                var dimension = nbt.getString(Keys.Items.TELEPORTER_DIMENSION);
                 MinecraftServer server = world.getServer();
                 RegistryKey<World> storedKey = RegistryKey.of(RegistryKeys.WORLD, idOf(dimension));
                 if(storedKey == null || server == null)
@@ -147,13 +147,13 @@ public class PlayerTeleporter extends Item
         if (data != null)
         {
             NbtCompound nbt = data.copyNbt();
-            if(NbtHelper.toBlockPos(nbt, Keys.TELEPORTER_POS).isEmpty())
+            if(NbtHelper.toBlockPos(nbt, Keys.Items.TELEPORTER_POS).isEmpty())
                 return;
-            BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.TELEPORTER_POS).get();
+            BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TELEPORTER_POS).get();
 
-            var dimension = nbt.getString(Keys.TELEPORTER_DIMENSION);
+            var dimension = nbt.getString(Keys.Items.TELEPORTER_DIMENSION);
             var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
-            tooltip.add(translate(TELEPORTER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
+            tooltip.add(translate(Constants.TELEPORTER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
         }
     }
 
@@ -166,6 +166,6 @@ public class PlayerTeleporter extends Item
 
     private void outputCoordinatesToChat(BlockPos pos, String dimension, PlayerEntity player)
     {
-        player.sendMessage(translate(TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimension), false);
+        player.sendMessage(translate(Constants.TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimension), false);
     }
 }

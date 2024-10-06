@@ -40,12 +40,12 @@ public class UseEntityCallbackListener
                         return ActionResult.PASS;
                     if(entity.getType() == EntityType.VILLAGER)
                     {
-                        if(NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).isEmpty())
+                        if(NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).isEmpty())
                             return ActionResult.PASS;
-                        BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).get();
+                        BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).get();
                         if(!player.getWorld().isClient)
                         {
-                            var dimension = nbt.getString(Keys.TUNER_DIMENSION);
+                            var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
                             var userDimension = player.getWorld().getRegistryKey().getValue().toString();
                             if (dimension.equalsIgnoreCase(userDimension))
                             {
@@ -56,17 +56,17 @@ public class UseEntityCallbackListener
                             }
                             return ActionResult.FAIL;
                         }
-                        var dimension = nbt.getString(Keys.TUNER_DIMENSION);
+                        var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
                         var userDimension = player.getWorld().getRegistryKey().getValue().toString();
                         var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
                         if (dimension.equalsIgnoreCase(userDimension))
                         {
-                            player.sendMessage(translate(TUNER_TELEPORTED_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
+                            player.sendMessage(translate(Constants.TUNER_TELEPORTED_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
                             return ActionResult.SUCCESS;
                         }
                         else
                         {
-                            player.sendMessage(translate(TUNER_ERROR_ID_NAME, dimensionName), false);
+                            player.sendMessage(translate(Constants.TUNER_ERROR_ID_NAME, dimensionName), false);
                             return ActionResult.FAIL;
                         }
                     }

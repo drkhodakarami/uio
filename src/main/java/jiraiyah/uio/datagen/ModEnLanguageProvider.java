@@ -25,7 +25,6 @@
 package jiraiyah.uio.datagen;
 
 import jiraiyah.uio.registry.ModBlocks;
-import jiraiyah.uio.registry.ModCommands;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -479,20 +478,22 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(Tags.Entity.TUNER_BLACKLIST, "Tuner Blacklist");
         builder.add(Tags.Entity.RUBY_SWORD_WHITELIST, "Ruby Sword Whitelist");
 
-        addText(builder, BLOCKS_TITLE, "Blocks");
-        addText(builder, INGREDIENT_TITLE, "Ingredients");
-        addText(builder, MACHINES_TITLE, "Machines");
-        addText(builder, TOOLS_TITLE, "Tools");
-        addText(builder, ARMORS_TITLE, "Armors");
-        addText(builder, MISC_TITLE, "Misc");
+        addText(builder, Constants.BLOCKS_TITLE, "Blocks");
+        addText(builder, Constants.INGREDIENT_TITLE, "Ingredients");
+        addText(builder, Constants.MACHINES_TITLE, "Machines");
+        addText(builder, Constants.TOOLS_TITLE, "Tools");
+        addText(builder, Constants.ARMORS_TITLE, "Armors");
+        addText(builder, Constants.MISC_TITLE, "Misc");
 
-        builder.add(identifier(TUNER_TOOLTIP_ID_NAME), "Bound to position : (%d %d %d) - %d");
-        builder.add(identifier(TELEPORTER_TOOLTIP_ID_NAME), "Bound to position : (%d %d %d) - %d");
-        builder.add(identifier(TUNER_TELEPORTED_ID_NAME), "Teleported to : (%d %d %d) - %d");
-        builder.add(identifier(TUNER_ERROR_ID_NAME), "Wrong dimension, your tuner bound to %d");
-        builder.add(identifier(DCLR_ERROR_ID_NAME), "Wrong Type, it should be one of the choices: ore, block, fluid, all");
-        builder.add(identifier(DCLR_START_ID_NAME), "Starting to Clean");
-        builder.add(identifier(DCLR_END_ID_NAME), "Finished Cleaning");
+        builder.add(identifier(Constants.TUNER_TOOLTIP_ID_NAME), "Bound to position : (%d %d %d) - %d");
+        builder.add(identifier(Constants.TELEPORTER_TOOLTIP_ID_NAME), "Bound to position : (%d %d %d) - %d");
+        builder.add(identifier(Constants.TUNER_TELEPORTED_ID_NAME), "Teleported to : (%d %d %d) - %d");
+        builder.add(identifier(Constants.TUNER_ERROR_ID_NAME), "Wrong dimension, your tuner bound to %d");
+        builder.add(identifier(Constants.DCLR_ERROR_ID_NAME), "Wrong Type, it should be one of the choices: ore, block, fluid, all");
+        builder.add(identifier(Constants.DCLR_START_ID_NAME), "Starting to Clean");
+        builder.add(identifier(Constants.DCLR_END_ID_NAME), "Finished Cleaning");
+        builder.add(identifier(Constants.HAMMER_PARAM_TOOLTIP), "Size : %d * %d * %d");
+        builder.add(identifier(Constants.EXCAVATOR_PARAM_TOOLTIP), "Size : %d * %d * %d");
 
         builder.add("effect." + ModID + ".flight", "Flight");
     }

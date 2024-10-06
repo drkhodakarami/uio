@@ -76,8 +76,8 @@ public class TunerItem extends Item
                 if (!context.getWorld().isClient())
                 {
                     NbtCompound nbt = new NbtCompound();
-                    nbt.put(Keys.TUNER_POS, NbtHelper.fromBlockPos(pos));
-                    nbt.putString(Keys.TUNER_DIMENSION, player.getWorld().getRegistryKey().getValue().toString());
+                    nbt.put(Keys.Items.TUNER_POS, NbtHelper.fromBlockPos(pos));
+                    nbt.putString(Keys.Items.TUNER_DIMENSION, player.getWorld().getRegistryKey().getValue().toString());
                     NbtComponent component = NbtComponent.of(nbt);
                     context.getStack().set(DataComponentTypes.CUSTOM_DATA, component);
                 }
@@ -128,13 +128,13 @@ public class TunerItem extends Item
     @NotNull
     protected ActionResult useOnEntityResult(PlayerEntity user, LivingEntity entity, NbtCompound nbt)
     {
-        if(NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).isEmpty())
+        if(NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).isEmpty())
             return ActionResult.PASS;
-        BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).get();
+        BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).get();
 
         if (!user.getWorld().isClient())
         {
-            var dimension = nbt.getString(Keys.TUNER_DIMENSION);
+            var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
             var userDimension = user.getWorld().getRegistryKey().getValue().toString();
             if (dimension.equalsIgnoreCase(userDimension))
             {
@@ -146,17 +146,17 @@ public class TunerItem extends Item
             return ActionResult.FAIL;
         }
 
-        var dimension = nbt.getString(Keys.TUNER_DIMENSION);
+        var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
         var userDimension = user.getWorld().getRegistryKey().getValue().toString();
         var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
         if (dimension.equalsIgnoreCase(userDimension))
         {
-            user.sendMessage(translate(TUNER_TELEPORTED_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
+            user.sendMessage(translate(Constants.TUNER_TELEPORTED_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
             return ActionResult.SUCCESS;
         }
         else
         {
-            user.sendMessage(translate(TUNER_ERROR_ID_NAME, dimensionName), false);
+            user.sendMessage(translate(Constants.TUNER_ERROR_ID_NAME, dimensionName), false);
             return ActionResult.FAIL;
         }
     }
@@ -168,13 +168,13 @@ public class TunerItem extends Item
         if (data != null)
         {
             NbtCompound nbt = data.copyNbt();
-            if(NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).isEmpty())
+            if(NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).isEmpty())
                 return;
-            BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).get();
+            BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).get();
 
-            var dimension = nbt.getString(Keys.TUNER_DIMENSION);
+            var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
             var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
-            tooltip.add(translate(TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
+            tooltip.add(translate(Constants.TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
         }
     }
 
@@ -187,6 +187,6 @@ public class TunerItem extends Item
 
     protected void outputCoordinatesToChat(BlockPos pos, String dimension, PlayerEntity player)
     {
-        player.sendMessage(translate(TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimension), false);
+        player.sendMessage(translate(Constants.TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimension), false);
     }
 }

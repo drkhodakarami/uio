@@ -1,11 +1,11 @@
-// 1.21.1	2024-10-05T16:17:49.3075062	Ultra IO/Model Definitions
+// 1.21.1	2024-10-05T19:32:23.4183665	Ultra IO/Model Definitions
 fd5c7e48c02e90cab088f3f6e29e9879c6811003 assets\uio\models\item\armor_amethyst_helmet_lapis_trim.json
 60225874bfb9d8b031fd9fe028268928605889e3 assets\uio\models\item\ore_deep_citrine.json
 46e25d4d177a5b75be276f305e8a9e37b86fa04e assets\uio\models\item\head_gold_excavator.json
 3ecea7f7532db1861a58b05cd571abd0bee2201b assets\uio\models\item\armor_copper_leggings_amethyst_trim.json
 da1c851413f27b579f2dd3febf6e447ec366cea1 assets\uio\models\block\block_citrine_fence_gate_wall.json
-6738fb93be6478ef03f82c68bb525504ee73721d assets\uio\blockstates\block_raw_sapphire.json
 a56415b8bfb776533a6c466be536a28d7ad8e634 assets\uio\blockstates\ore_nether_lapis.json
+6738fb93be6478ef03f82c68bb525504ee73721d assets\uio\blockstates\block_raw_sapphire.json
 84b49454ea93fff631161bdcac394584fecd31f2 assets\uio\models\item\head_enderite_sword.json
 88a6fdcdde73100b0d9df2966380b43b3c98c67a assets\uio\blockstates\ore_world_sapphire.json
 6b6e7587aafb14fa5a4be26c9a2df0e07d127b69 assets\uio\models\item\armor_copper_helmet_quartz_trim.json
@@ -424,8 +424,8 @@ a91fccba21474db66163450d163018986ffd5e46 assets\uio\models\item\armor_amethyst_b
 4a779bc3a51bc8d144ed54946f13e12eb1b8a391 assets\uio\blockstates\block_ruby_fence_gate.json
 e4ee27405c60eedc68c7d66fd998e069297c1705 assets\uio\models\item\tool_iron_excavator.json
 a4b190131457eb84a28c33cc80cad33ea5c1f843 assets\uio\blockstates\block_ruby_trap_door.json
-addcf9d1849ef918df0554da21be4014cd1caba6 assets\uio\models\item\armor_enderite_chestplate_emerald_trim.json
 9413d4b5dc5a76eaaa40559564779bfc2945ef1d assets\uio\models\item\armor_enderite_helmet_emerald_trim.json
+addcf9d1849ef918df0554da21be4014cd1caba6 assets\uio\models\item\armor_enderite_chestplate_emerald_trim.json
 60f64fd23fc1f4d99d0eebc80eef6758672d0fb0 assets\uio\models\item\slot_disabled.json
 880b322dcafc3efc973790d07e5b27f909c767b3 assets\uio\models\item\armor_citrine_chestplate_quartz_trim.json
 f16597fb72006dc975adae044b8de791a7c0e366 assets\uio\models\item\armor_citrine_boots_lapis_trim.json

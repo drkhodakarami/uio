@@ -45,8 +45,8 @@ public class ModItemGroups
         log("Registering Item Groups");
 
         BLOCKS = Registry.register(Registries.ITEM_GROUP,
-                                  identifier(ModID + BLOCK_ITEM_GROUP_NAME),
-                                  FabricItemGroup.builder().displayName(BLOCKS_TITLE)
+                                  identifier(ModID + Constants.BLOCK_ITEM_GROUP_NAME),
+                                  FabricItemGroup.builder().displayName(Constants.BLOCKS_TITLE)
                                                  .icon(ModBlocks.CITRINE.asItem()::getDefaultStack)
                                                  .entries((displayContext, entries) ->
                                                           {
@@ -140,8 +140,8 @@ public class ModItemGroups
                                                           }).build());
 
         INGREDIENTS = Registry.register(Registries.ITEM_GROUP,
-                                  identifier(ModID + INGREDIENT_ITEM_GROUP_NAME),
-                                  FabricItemGroup.builder().displayName(INGREDIENT_TITLE)
+                                  identifier(ModID + Constants.INGREDIENT_ITEM_GROUP_NAME),
+                                  FabricItemGroup.builder().displayName(Constants.INGREDIENT_TITLE)
                                                  .icon(ModItems.UNSTABLE_GOO::getDefaultStack)
                                                  .entries((displayContext, entries) ->
                                                           {
@@ -255,8 +255,8 @@ public class ModItemGroups
                                                           }).build());
 
         MACHINES = Registry.register(Registries.ITEM_GROUP,
-                                  identifier(ModID + MACHINE_ITEM_GROUP_NAME),
-                                  FabricItemGroup.builder().displayName(MACHINES_TITLE)
+                                  identifier(ModID + Constants.MACHINE_ITEM_GROUP_NAME),
+                                  FabricItemGroup.builder().displayName(Constants.MACHINES_TITLE)
                                                  .icon(ModBlocks.ELEVATOR.asItem()::getDefaultStack)
                                                  .entries((displayContext, entries) ->
                                                           {
@@ -327,8 +327,8 @@ public class ModItemGroups
                                                           }).build());
 
         TOOLS = Registry.register(Registries.ITEM_GROUP,
-                                  identifier(ModID + TOOLS_ITEM_GROUP_NAME),
-                                  FabricItemGroup.builder().displayName(TOOLS_TITLE)
+                                  identifier(ModID + Constants.TOOLS_ITEM_GROUP_NAME),
+                                  FabricItemGroup.builder().displayName(Constants.TOOLS_TITLE)
                                                  .icon(ModItems.PLAYER_TELEPORT::getDefaultStack)
                                                  .entries((displayContext, entries) ->
                                                           {
@@ -398,8 +398,8 @@ public class ModItemGroups
                                                           }).build());
 
         ARMORS = Registry.register(Registries.ITEM_GROUP,
-                                  identifier(ModID + ARMOR_ITEM_GROUP_NAME),
-                                  FabricItemGroup.builder().displayName(ARMORS_TITLE)
+                                  identifier(ModID + Constants.ARMOR_ITEM_GROUP_NAME),
+                                  FabricItemGroup.builder().displayName(Constants.ARMORS_TITLE)
                                                  .icon(ModItems.ARMOR_AMETHYST_CHESTPLATE::getDefaultStack)
                                                  .entries((displayContext, entries) ->
                                                           {
@@ -440,8 +440,8 @@ public class ModItemGroups
                                                           }).build());
 
         MISC = Registry.register(Registries.ITEM_GROUP,
-                                  identifier(ModID + MISC_ITEM_GROUP_NAME),
-                                  FabricItemGroup.builder().displayName(MISC_TITLE)
+                                  identifier(ModID + Constants.MISC_ITEM_GROUP_NAME),
+                                  FabricItemGroup.builder().displayName(Constants.MISC_TITLE)
                                                  .icon(ModItems.HOT_COAL::getDefaultStack)
                                                  .entries((displayContext, entries) ->
                                                           {

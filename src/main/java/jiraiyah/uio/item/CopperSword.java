@@ -41,6 +41,7 @@ public class CopperSword extends SwordItem
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker)
     {
+        //TODO: Use Config for effect duration
         target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 200, 3), attacker);
         target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 200, 3), attacker);
         return super.postHit(stack, target, attacker);

@@ -1,6 +1,5 @@
 package jiraiyah.uio.item;
 
-import jiraiyah.uio.Reference;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -28,13 +27,13 @@ public class AdvancedTuner extends TunerItem
     @NotNull
     protected ActionResult useOnEntityResult(PlayerEntity user, LivingEntity entity, NbtCompound nbt)
     {
-        if(NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).isEmpty())
+        if(NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).isEmpty())
             return ActionResult.PASS;
-        BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.TUNER_POS).get();
+        BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).get();
 
         if (!user.getWorld().isClient())
         {
-            var dimension = nbt.getString(Keys.TUNER_DIMENSION);
+            var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
             MinecraftServer server = user.getWorld().getServer();
             RegistryKey<World> storedKey = RegistryKey.of(RegistryKeys.WORLD, idOf(dimension));
             if (storedKey == null || server == null || server.getWorld(storedKey) == null)

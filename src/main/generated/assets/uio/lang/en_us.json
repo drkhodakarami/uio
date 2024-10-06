@@ -402,6 +402,8 @@
   "uio.dclr.end": "Finished Cleaning",
   "uio.dclr.error": "Wrong Type, it should be one of the choices: ore, block, fluid, all",
   "uio.dclr.start": "Starting to Clean",
+  "uio.excavator.tooltip": "Size : %d * %d * %d",
+  "uio.hammer.tooltip": "Size : %d * %d * %d",
   "uio.teleporter.tooltip": "Bound to position : (%d %d %d) - %d",
   "uio.tuner.error": "Wrong dimension, your tuner bound to %d",
   "uio.tuner.teleported": "Teleported to : (%d %d %d) - %d",
