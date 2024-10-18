@@ -24,6 +24,7 @@
 
 package jiraiyah.uio.item;
 
+import jiraiyah.uio.Configs;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -41,9 +42,8 @@ public class CopperSword extends SwordItem
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker)
     {
-        //TODO: Use Config for effect duration
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 200, 3), attacker);
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 200, 3), attacker);
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, Configs.COPPER_SWORD_DURATION, 3), attacker);
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, Configs.COPPER_SWORD_DURATION, 3), attacker);
         return super.postHit(stack, target, attacker);
     }
 }

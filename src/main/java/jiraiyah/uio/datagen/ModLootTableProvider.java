@@ -190,6 +190,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.MINER);
         //endregion
 
+        addDrop(ModBlocks.CARROT_BOX);
+        addDrop(ModBlocks.POTATO_BOX);
+
         //region GOO
         addDrop(ModBlocks.BRIDGE_GOO);
         addDrop(ModBlocks.CHUNK_GOO);

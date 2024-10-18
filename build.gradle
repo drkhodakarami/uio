@@ -53,17 +53,21 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+    // EMI Compatibility Dependency
+    modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
+    modLocalRuntime "dev.emi:emi-fabric:${emi_version}"
+
     // REI Compatibility Dependency
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
-    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+    //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 
     // Cloth Config Compatibility Dependency
-    modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}") {
-        exclude(group: "net.fabricmc.fabric-api")
-    }
+    //modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}") {
+    //    exclude(group: "net.fabricmc.fabric-api")
+    //}
 
     // Architectury Compatibility Dependency
-    modApi "dev.architectury:architectury-fabric:${project.architectury_version}"
+    //modApi "dev.architectury:architectury-fabric:${project.architectury_version}"
 
     // Energy API Handling Dependency
     include modApi("teamreborn:energy:${project.energy_version}") {

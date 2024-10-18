@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-05T19:32:23.4603492	Ultra IO/Tags for minecraft:item
+// 1.21.1	2024-10-18T20:39:03.5384999	Ultra IO/Tags for minecraft:item
 94cbd3f9f0a6a48c5f25fe92b7e146a4bcfa1c83 data\minecraft\tags\item\hoes.json
 84f5c8fcc124cffc09f6c8b7299dc91a762cd6b3 data\uio\tags\item\excavators.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\gold_ores.json
@@ -10,7 +10,7 @@ e4cafe68e8c1b398efba175d669eab6eca670cb0 data\c\tags\item\fluid_buckets.json
 80310861d2986868b7f6e7d70b85db955750cab6 data\c\tags\item\wood_casts.json
 f5150fcbd0d1e70130a3451defd8a56565cc70af data\minecraft\tags\item\leg_armor.json
 9708cc83ac7124111d261476018e050340902f25 data\uio\tags\item\mending_only.json
-e44e3fa60efe9cb187f0923ac503015beec526ef data\c\tags\item\ingots.json
+8be147d198923f9021fa78549f709e7568448a64 data\c\tags\item\ingots.json
 defb525a048f09a28a4697f12384aae3e3ffc1cc data\c\tags\item\gems.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\stone_crafting_materials.json
 5aaa7b83b0ca788dabee7be55ae52ae1d000a179 data\minecraft\tags\item\chest_armor.json
@@ -29,9 +29,9 @@ bd9ba0308bacdaa5dedb2484ed727f64c8467d1e data\c\tags\item\tool_heads.json
 65e8e7ac11cc21aad00cb7b5a9730dc8260c147a data\c\tags\item\gears.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\emerald_ores.json
 4882b18229104a5a9742419372dfbd1f7b2e332c data\c\tags\item\reinforced_plates.json
-6c4f09ba10912ea869b56cc56d6432c3d385e9b7 data\c\tags\item\alloys.json
-b925cc4845015fba31cf408b010bfe680d900ce4 data\uio\tags\item\smeltery.json
+c245477a4f40f623f532fd098c09c5f4e3991309 data\uio\tags\item\smeltery.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\stone_tool_materials.json
+6c4f09ba10912ea869b56cc56d6432c3d385e9b7 data\c\tags\item\alloys.json
 511765bc6e1541882f796604f5cf696488eaa135 data\minecraft\tags\item\diamond_ores.json
 86e826c275f830d33bf3ac1b3653d56b673b92b2 data\minecraft\tags\item\coal_ores.json
 93bee778a7ab82e925600016d3541817ac52a533 data\c\tags\item\dusts.json

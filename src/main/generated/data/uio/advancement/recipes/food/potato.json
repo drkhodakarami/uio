@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_potato_box": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:potato_box"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:potato"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_potato_box"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:potato"
+    ]
+  }
+}

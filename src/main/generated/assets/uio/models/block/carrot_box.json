@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "uio:block/carrot_box_bottom",
+    "side": "uio:block/carrot_box_side",
+    "top": "uio:block/carrot_box_top"
+  }
+}

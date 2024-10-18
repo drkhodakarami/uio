@@ -1457,8 +1457,8 @@ public class ModRecipeProvider extends FabricRecipeProvider
         offerBlasting(exporter, List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 7.0f, 7200, "ore_enderite");
         offerBlasting(exporter, List.of(ModItems.ENDER_CHARM), RecipeCategory.MISC, ModItems.VOID_PLATE_ACTIVATOR, 5.0f, 2400, "void_plate_activator");
         offerBlasting(exporter, List.of(ModBlocks.ENDERITE), RecipeCategory.MISC, ModItems.VOID_PLATE_BASE, 5.0f, 3600, "void_plate_base");
-        offerBlasting(exporter, List.of(ModItems.COMBUSTION_CORE), RecipeCategory.MISC, ModItems.UNSTABLE_GOO, 2.0f, 2400, "enstable_goo");
-        offerBlasting(exporter, List.of(ModItems.HOT_COAL), RecipeCategory.MISC, ModItems.COMBUSTION_CORE, 2.0f, 1200, "enstable_goo");
+        offerBlasting(exporter, List.of(ModItems.COMBUSTION_CORE), RecipeCategory.MISC, ModItems.UNSTABLE_GOO, 2.0f, 2400, "unstable_goo");
+        offerBlasting(exporter, List.of(ModItems.HOT_COAL), RecipeCategory.MISC, ModItems.COMBUSTION_CORE, 2.0f, 1200, "combustion_core");
         //offerBlasting(exporter, List.of(ModItems.), RecipeCategory.MISC, ModItems.RAW_RUBBER, 0.5f, 200, "rubber");
         //endregion
         //region RUBBER
@@ -1469,6 +1469,14 @@ public class ModRecipeProvider extends FabricRecipeProvider
         offerFoodCookingRecipe(exporter,
                                "campfire_cooking", RecipeSerializer.CAMPFIRE_COOKING, CampfireCookingRecipe::new,
                                2400, ModItems.RAW_RUBBER, ModItems.RUBBER, 0.1F);
+        //endregion
+        //region FOOD BOX
+        offerReversibleCompactingRecipes(exporter,
+                                         RecipeCategory.FOOD, Items.CARROT,
+                                         RecipeCategory.FOOD, ModBlocks.CARROT_BOX);
+        offerReversibleCompactingRecipes(exporter,
+                                         RecipeCategory.FOOD, Items.POTATO,
+                                         RecipeCategory.FOOD, ModBlocks.POTATO_BOX);
         //endregion
 
         //region MACHINES
@@ -1513,7 +1521,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
                                .offerTo(exporter, vanillaID(getRecipeName(ModBlocks.REDSTONE_CLOCK)));
 
-        // ALLOY_SMELTER
+        // ALLOY_MIXER
         // CAST_PRESS
         // GEM_CLEANER
         // GENERATOR
@@ -1551,16 +1559,13 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
         //endregion
         //region OVEN
-
-        // Dust --> Ingot
-        // Raw --> Ingot
-        // Plate
-        // Reinforced Plate
-        // Gear
-        // Head
-        // Nugget
-        // Rod
-
+        //TODO: Move alloy creation from blast furnace to the oven!
+        offerBlasting(exporter, List.of(ModItems.RAW_ALLOY_ENDERITE), RecipeCategory.MISC, ModItems.INGOT_ALLOY_ENDERITE, 3.0f, 4800, "enderite_alloy");
+        offerBlasting(exporter, List.of(ModItems.DUST_VIBRANT), RecipeCategory.MISC, ModItems.INGOT_ALLOY_VIBRANT, 3.0f, 4800, "vibrant_alloy");
+        offerBlasting(exporter, List.of(ModItems.DUST_RED_ALLOY), RecipeCategory.MISC, ModItems.INGOT_ALLOY_RED, 3.0f, 4800, "red_alloy");
+        offerBlasting(exporter, List.of(ModItems.DUST_PULSATING), RecipeCategory.MISC, ModItems.INGOT_ALLOY_PULSATING, 3.0f, 4800, "pulsating_alloy");
+        offerBlasting(exporter, List.of(ModItems.DUST_ENERGETIC), RecipeCategory.MISC, ModItems.INGOT_ALLOY_ENERGETIC, 3.0f, 4800, "energetic_alloy");
+        offerBlasting(exporter, List.of(ModItems.DUST_CONDUCTIVE), RecipeCategory.MISC, ModItems.INGOT_ALLOY_CONDUCTIVE, 3.0f, 4800, "conductive_alloy");
         //endregion
         //region GEM CLEANER
         // Raw Gem --> Gem

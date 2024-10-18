@@ -287,6 +287,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.INGOT_ALLOY_RED)
                 .add(ModItems.INGOT_ALLOY_VIBRANT)
                 .add(ModItems.RAW_ALLOY_ENDERITE)
+                .add(ModItems.INGOT_ALLOY_ENDERITE)
                 .add(ModItems.INGOT_ENDERITE);
 
         getOrCreateTagBuilder(Tags.Item.ALLOY)
@@ -470,7 +471,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.PRISMARINE_SHARD)
                 .add(Items.AMETHYST_SHARD)
                 .add(Items.COPPER_INGOT)
-                .add(ModItems.INGOT_ENDERITE)
+                .add(ModItems.INGOT_ALLOY_ENDERITE)
                 .add(Items.GLOWSTONE)
                 .add(Items.GOLD_INGOT)
                 .add(Items.IRON_INGOT)

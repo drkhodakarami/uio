@@ -30,10 +30,8 @@ import jiraiyah.uio.registry.misc.*;
 import jiraiyah.uio.registry.world.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.util.math.BlockPos;
 
-import static jiraiyah.uio.Reference.LOGGER;
-import static jiraiyah.uio.Reference.logMain;
+import static jiraiyah.uio.Reference.*;
 
 //region CUSTOM FLAT WORLD GEN PRESETS
 // This is a flat world gen custom preset I always use for redstone and building massive tech contraptions
@@ -86,8 +84,6 @@ import static jiraiyah.uio.Reference.logMain;
 // Back  : West, Negative Z
 //endregion
 
-// Simple Config System: https://github.com/magistermaks/fabric-simplelibs/blob/master/simple-config/SimpleConfig.java
-
 //region FUTURE TODO LIST
 //TODO : Add void dimension
 //TODO : Add Mining dimension (maybe)
@@ -120,6 +116,8 @@ public class Main implements ModInitializer
         DEBUG = FabricLoader.getInstance().isDevelopmentEnvironment();
 
         logMain();
+
+        Configs.load();
 
         //region REGISTER CALLS
         ModEvents.register();

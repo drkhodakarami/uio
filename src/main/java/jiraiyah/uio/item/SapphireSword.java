@@ -24,6 +24,7 @@
 
 package jiraiyah.uio.item;
 
+import jiraiyah.uio.Configs;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -41,11 +42,9 @@ public class SapphireSword extends SwordItem
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker)
     {
-        //TODO: Use Config for effect duration
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 3), attacker);
+        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, Configs.SAPPHIRE_SWORD_DURATION, 3), attacker);
 
-        //TODO: Use Config for pushback multiplier values
-        var vector = target.getPos().subtract(attacker.getPos()).normalize().multiply(5, 1, 5);
+        var vector = target.getPos().subtract(attacker.getPos()).normalize().multiply(Configs.SAPPHIRE_SWORD_MULTIPLIER, 1, Configs.SAPPHIRE_SWORD_MULTIPLIER);
         target.setVelocity(vector);
 
         return super.postHit(stack, target, attacker);

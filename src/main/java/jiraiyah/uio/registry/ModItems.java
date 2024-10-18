@@ -24,6 +24,7 @@
 
 package jiraiyah.uio.registry;
 
+import jiraiyah.uio.Configs;
 import jiraiyah.uio.item.*;
 import jiraiyah.uio.registry.misc.ModArmorMaterials;
 import jiraiyah.uio.registry.misc.ModToolMaterials;
@@ -65,7 +66,7 @@ public class ModItems
                        GEAR_NETHERITE, GEAR_OBSIDIAN, GEAR_PRISMARINE, GEAR_QUARTZ, GEAR_RUBY, GEAR_SAPPHIRE, GEAR_SHULKER, GEAR_STONE,
                        GEAR_VIBRANT, GEAR_WOOD;
     public static Item INGOT_ALLOY_CONDUCTIVE, INGOT_ALLOY_ENERGETIC, INGOT_ALLOY_PULSATING, INGOT_ALLOY_RED, INGOT_ALLOY_VIBRANT,
-                       INGOT_ENDERITE, RAW_ALLOY_ENDERITE;
+                       INGOT_ALLOY_ENDERITE, RAW_ALLOY_ENDERITE, INGOT_ENDERITE;
     public static Item PLATE_AMETHYST, PLATE_CITRINE, PLATE_COPPER, PLATE_DIAMOND, PLATE_EMERALD, PLATE_ENDERITE,PLATE_GOLD,
                        PLATE_IRON, PLATE_NETHERITE, PLATE_RUBY, PLATE_SAPPHIRE, PLATE_SHULKER, PLATE_STONE;
     public static Item REINFORCED_AMETHYST, REINFORCED_CITRINE, REINFORCED_COPPER, REINFORCED_DIAMOND, REINFORCED_EMERALD, REINFORCED_ENDERITE,
@@ -212,15 +213,17 @@ public class ModItems
         GEAR_VIBRANT = register("gear_vibrant", new Item.Settings().maxCount(16));
         GEAR_WOOD = register("gear_wood", new Item.Settings().maxCount(16));
         //endregion
-        //region INGOT
+        //region INGOT - ALLOY
         INGOT_ALLOY_CONDUCTIVE = register("ingot_alloy_conductive");
         INGOT_ALLOY_ENERGETIC = register("ingot_alloy_energetic");
         INGOT_ALLOY_PULSATING = register("ingot_alloy_pulsating");
         INGOT_ALLOY_RED = register("ingot_alloy_red");
         INGOT_ALLOY_VIBRANT = register("ingot_alloy_vibrant");
+        INGOT_ALLOY_ENDERITE = register("ingot_alloy_enderite");
+        
+        RAW_ALLOY_ENDERITE = register("raw_alloy_enderite");
 
         INGOT_ENDERITE = register("ingot_enderite");
-        RAW_ALLOY_ENDERITE = register("raw_alloy_enderite");
         //endregion
         //region PLATE
         PLATE_AMETHYST = register("plate_amethyst");
@@ -348,13 +351,15 @@ public class ModItems
                                                                  6.0f, -3.1f))));
 
         TOOL_CITRINE_EXCAVATOR = register("tool_citrine_excavator",
-                                       new ExcavatorItem(ModToolMaterials.CITRINE, 0, 2,
-                                                      new Item.Settings().attributeModifiers(
+                                       new ExcavatorItem(ModToolMaterials.CITRINE,
+                                                         Configs.CITRINE_EXCAVATOR_DEPTH, Configs.CITRINE_EXCAVATOR_WIDTH,
+                                                         new Item.Settings().attributeModifiers(
                                                               ShovelItem.createAttributeModifiers(
                                                                       ModToolMaterials.CITRINE,
                                                                       0.0f, -0.0f))));
         TOOL_CITRINE_HAMMER = register("tool_citrine_hammer",
-                                       new HammerItem(ModToolMaterials.CITRINE, 1, 1,
+                                       new HammerItem(ModToolMaterials.CITRINE,
+                                                      Configs.CITRINE_HAMMER_DEPTH, Configs.CITRINE_HAMMER_WIDTH,
                                                       new Item.Settings().attributeModifiers(
                                                               PickaxeItem.createAttributeModifiers(
                                                                       ModToolMaterials.CITRINE,
@@ -393,13 +398,15 @@ public class ModItems
                                                                     6.0f, -1.5f))));
 
         TOOL_COPPER_EXCAVATOR = register("tool_copper_excavator",
-                                          new ExcavatorItem(ModToolMaterials.COPPER, 0, 1,
+                                          new ExcavatorItem(ModToolMaterials.COPPER,
+                                                            Configs.COPPER_EXCAVATOR_DEPTH, Configs.COPPER_EXCAVATOR_WIDTH,
                                                             new Item.Settings().attributeModifiers(
                                                                     ShovelItem.createAttributeModifiers(
                                                                             ModToolMaterials.COPPER,
                                                                             0.0f, -0.0f))));
         TOOL_COPPER_HAMMER = register("tool_copper_hammer",
-                                      new HammerItem(ModToolMaterials.COPPER, 1, 1,
+                                      new HammerItem(ModToolMaterials.COPPER,
+                                                     Configs.COPPER_HAMMER_DEPTH, Configs.COPPER_HAMMER_WIDTH,
                                                      new Item.Settings().attributeModifiers(
                                                              PickaxeItem.createAttributeModifiers(
                                                                      ModToolMaterials.COPPER,
@@ -438,13 +445,15 @@ public class ModItems
                                                                       20.0f, -2.5f))));
 
         TOOL_ENDERITE_EXCAVATOR = register("tool_enderite_excavator",
-                                         new ExcavatorItem(ModToolMaterials.ENDERITE, 0, 4,
+                                         new ExcavatorItem(ModToolMaterials.ENDERITE,
+                                                           Configs.ENDERITE_EXCAVATOR_DEPTH, Configs.ENDERITE_EXCAVATOR_WIDTH,
                                                            new Item.Settings().attributeModifiers(
                                                                    ShovelItem.createAttributeModifiers(
                                                                            ModToolMaterials.ENDERITE,
                                                                            0.0f, -0.0f))));
         TOOL_ENDERITE_HAMMER = register("tool_enderite_hammer",
-                                        new HammerItem(ModToolMaterials.ENDERITE, 4, 2,
+                                        new HammerItem(ModToolMaterials.ENDERITE,
+                                                       Configs.ENDERITE_HAMMER_DEPTH, Configs.ENDERITE_HAMMER_WIDTH,
                                                        new Item.Settings().attributeModifiers(
                                                                PickaxeItem.createAttributeModifiers(
                                                                        ModToolMaterials.ENDERITE,
@@ -468,11 +477,11 @@ public class ModItems
                                                                             ModToolMaterials.ENDERITE,
                                                                             0.0f, -0.0f))));
         TOOL_ENDERITE_SWORD = register("tool_enderite_sword",
-                                            new SwordItem(ModToolMaterials.ENDERITE,
+                                            new EnderiteSword(ModToolMaterials.ENDERITE,
                                                           new Item.Settings().attributeModifiers(
                                                                   SwordItem.createAttributeModifiers(
                                                                           ModToolMaterials.ENDERITE,
-                                                                          35, 3.0f))));
+                                                                          3, 3.0f))));
         //endregion
         //region RUBY TOOLS
         TOOL_RUBY_AXE = register("tool_ruby_axe",
@@ -483,13 +492,15 @@ public class ModItems
                                                                   5.0f, -1.5f))));
 
         TOOL_RUBY_EXCAVATOR = register("tool_ruby_excavator",
-                                         new ExcavatorItem(ModToolMaterials.RUBY, 0, 2,
+                                         new ExcavatorItem(ModToolMaterials.RUBY,
+                                                           Configs.RUBY_EXCAVATOR_DEPTH, Configs.RUBY_EXCAVATOR_WIDTH,
                                                            new Item.Settings().attributeModifiers(
                                                                    ShovelItem.createAttributeModifiers(
                                                                            ModToolMaterials.RUBY,
                                                                            0.0f, -0.0f))));
         TOOL_RUBY_HAMMER = register("tool_ruby_hammer",
-                                    new HammerItem(ModToolMaterials.RUBY, 1, 2,
+                                    new HammerItem(ModToolMaterials.RUBY,
+                                                   Configs.RUBY_HAMMER_DEPTH, Configs.RUBY_HAMMER_WIDTH,
                                                    new Item.Settings().attributeModifiers(
                                                            PickaxeItem.createAttributeModifiers(
                                                                    ModToolMaterials.RUBY,
@@ -528,13 +539,15 @@ public class ModItems
                                                                       5.0f, -1.5f))));
 
         TOOL_SAPPHIRE_EXCAVATOR = register("tool_sapphire_excavator",
-                                         new ExcavatorItem(ModToolMaterials.SAPPHIRE, 0, 2,
+                                         new ExcavatorItem(ModToolMaterials.SAPPHIRE,
+                                                           Configs.SAPPHIRE_EXCAVATOR_DEPTH, Configs.SAPPHIRE_EXCAVATOR_WIDTH,
                                                            new Item.Settings().attributeModifiers(
                                                                    ShovelItem.createAttributeModifiers(
                                                                            ModToolMaterials.SAPPHIRE,
                                                                            0.0f, -0.0f))));
         TOOL_SAPPHIRE_HAMMER = register("tool_sapphire_hammer",
-                                        new HammerItem(ModToolMaterials.SAPPHIRE, 1, 2,
+                                        new HammerItem(ModToolMaterials.SAPPHIRE,
+                                                       Configs.SAPPHIRE_HAMMER_DEPTH, Configs.SAPPHIRE_HAMMER_WIDTH,
                                                        new Item.Settings().attributeModifiers(
                                                                PickaxeItem.createAttributeModifiers(
                                                                        ModToolMaterials.SAPPHIRE,
@@ -566,79 +579,91 @@ public class ModItems
         //endregion
         //region VANILLA HAMMERS
         TOOL_DIAMOND_HAMMER = register("tool_diamond_hammer",
-                                       new HammerItem(ToolMaterials.DIAMOND, 1, 2,
+                                       new HammerItem(ToolMaterials.DIAMOND,
+                                                      Configs.DIAMOND_HAMMER_DEPTH, Configs.DIAMOND_HAMMER_WIDTH,
                                                       new Item.Settings().attributeModifiers(
                                                               PickaxeItem.createAttributeModifiers(
                                                                       ToolMaterials.DIAMOND,
                                                                       1.0f, -2.8f))));
 
         TOOL_DIAMOND_EXCAVATOR = register("tool_diamond_excavator",
-                                           new ExcavatorItem(ToolMaterials.DIAMOND, 0, 2,
+                                           new ExcavatorItem(ToolMaterials.DIAMOND,
+                                                             Configs.DIAMOND_EXCAVATOR_DEPTH, Configs.DIAMOND_EXCAVATOR_WIDTH,
                                                              new Item.Settings().attributeModifiers(
                                                                      ShovelItem.createAttributeModifiers(
                                                                              ToolMaterials.DIAMOND,
                                                                              0.0f, -0.0f))));
         TOOL_GOLD_HAMMER = register("tool_gold_hammer",
-                                    new HammerItem(ToolMaterials.GOLD, 0, 2,
+                                    new HammerItem(ToolMaterials.GOLD,
+                                                   Configs.GOLD_HAMMER_DEPTH, Configs.GOLD_HAMMER_WIDTH,
                                                    new Item.Settings().attributeModifiers(
                                                            PickaxeItem.createAttributeModifiers(
                                                                    ToolMaterials.GOLD,
                                                                    1.0f, -2.8f))));
 
         TOOL_GOLD_EXCAVATOR = register("tool_gold_excavator",
-                                           new ExcavatorItem(ToolMaterials.GOLD, 0, 2,
+                                           new ExcavatorItem(ToolMaterials.GOLD,
+                                                             Configs.GOLD_EXCAVATOR_DEPTH, Configs.GOLD_EXCAVATOR_WIDTH,
                                                              new Item.Settings().attributeModifiers(
                                                                      ShovelItem.createAttributeModifiers(
                                                                              ToolMaterials.GOLD,
                                                                              0.0f, -0.0f))));
         TOOL_IRON_HAMMER = register("tool_iron_hammer",
-                                    new HammerItem(ToolMaterials.IRON, 0, 2,
+                                    new HammerItem(ToolMaterials.IRON,
+                                                   Configs.IRON_HAMMER_DEPTH, Configs.IRON_HAMMER_WIDTH,
                                                    new Item.Settings().attributeModifiers(
                                                            PickaxeItem.createAttributeModifiers(
                                                                    ToolMaterials.IRON,
                                                                    1.0f, -2.8f))));
 
         TOOL_IRON_EXCAVATOR = register("tool_iron_excavator",
-                                       new ExcavatorItem(ToolMaterials.IRON, 0, 2,
+                                       new ExcavatorItem(ToolMaterials.IRON,
+                                                         Configs.IRON_EXCAVATOR_DEPTH, Configs.IRON_EXCAVATOR_WIDTH,
                                                          new Item.Settings().attributeModifiers(
                                                                  ShovelItem.createAttributeModifiers(
                                                                          ToolMaterials.IRON,
                                                                          0.0f, -0.0f))));
         TOOL_NETHERITE_HAMMER = register("tool_netherite_hammer",
-                                         new HammerItem(ToolMaterials.NETHERITE, 2, 2,
+                                         new HammerItem(ToolMaterials.NETHERITE,
+                                                        Configs.NETHERITE_HAMMER_DEPTH, Configs.NETHERITE_HAMMER_WIDTH,
                                                         new Item.Settings().attributeModifiers(
                                                                 PickaxeItem.createAttributeModifiers(
                                                                         ToolMaterials.NETHERITE,
                                                                         1.0f, -2.8f))));
 
         TOOL_NETHERITE_EXCAVATOR = register("tool_netherite_excavator",
-                                       new ExcavatorItem(ToolMaterials.NETHERITE, 0, 3,
+                                       new ExcavatorItem(ToolMaterials.NETHERITE,
+                                                         Configs.NETHERITE_EXCAVATOR_DEPTH, Configs.NETHERITE_EXCAVATOR_WIDTH,
                                                          new Item.Settings().attributeModifiers(
                                                                  ShovelItem.createAttributeModifiers(
                                                                          ToolMaterials.NETHERITE,
                                                                          0.0f, -0.0f))));
         TOOL_STONE_HAMMER = register("tool_stone_hammer",
-                                     new HammerItem(ToolMaterials.STONE, 0, 1,
+                                     new HammerItem(ToolMaterials.STONE,
+                                                    Configs.STONE_HAMMER_DEPTH, Configs.STONE_HAMMER_WIDTH,
                                                     new Item.Settings().attributeModifiers(
                                                             PickaxeItem.createAttributeModifiers(
                                                                     ToolMaterials.STONE,
                                                                     1.0f, -2.8f))));
 
         TOOL_STONE_EXCAVATOR = register("tool_stone_excavator",
-                                       new ExcavatorItem(ToolMaterials.STONE, 0, 1,
+                                       new ExcavatorItem(ToolMaterials.STONE,
+                                                         Configs.STONE_EXCAVATOR_DEPTH, Configs.STONE_EXCAVATOR_WIDTH,
                                                          new Item.Settings().attributeModifiers(
                                                                  ShovelItem.createAttributeModifiers(
                                                                          ToolMaterials.STONE,
                                                                          0.0f, -0.0f))));
         TOOL_WOOD_HAMMER = register("tool_wood_hammer",
-                                    new HammerItem(ToolMaterials.WOOD, 0, 1,
+                                    new HammerItem(ToolMaterials.WOOD,
+                                                   Configs.WOOD_HAMMER_DEPTH, Configs.WOOD_HAMMER_WIDTH,
                                                    new Item.Settings().attributeModifiers(
                                                            PickaxeItem.createAttributeModifiers(
                                                                    ToolMaterials.WOOD,
                                                                    1.0f, -2.8f))));
 
         TOOL_WOOD_EXCAVATOR = register("tool_wood_excavator",
-                                       new ExcavatorItem(ToolMaterials.WOOD, 0, 1,
+                                       new ExcavatorItem(ToolMaterials.WOOD,
+                                                         Configs.WOOD_EXCAVATOR_DEPTH, Configs.WOOD_EXCAVATOR_WIDTH,
                                                          new Item.Settings().attributeModifiers(
                                                                  ShovelItem.createAttributeModifiers(
                                                                          ToolMaterials.WOOD,

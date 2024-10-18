@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 4800,
+  "experience": 3.0,
+  "group": "enderite_alloy",
+  "ingredient": {
+    "item": "uio:raw_alloy_enderite"
+  },
+  "result": {
+    "id": "uio:ingot_alloy_enderite"
+  }
+}

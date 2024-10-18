@@ -1,6 +1,7 @@
 package jiraiyah.uio.command;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
+import jiraiyah.uio.Configs;
 import jiraiyah.uio.command.suggestion.DevCleanSuggestionProvider;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
@@ -21,8 +22,6 @@ import static jiraiyah.uio.Reference.*;
 
 public class DclrCommand
 {
-    //TODO: Use Config for radius
-    private static final int CLEAR_COMMAND_DISTANCE = 128;
     private static final int Y_MIN = -64;
     private static final int Y_MAX = 128;
 
@@ -121,10 +120,10 @@ public class DclrCommand
                                     MinecraftServer server = player.getServer();
                                     BlockPos position = player.getBlockPos();
 
-                                    int minX = position.getX() - CLEAR_COMMAND_DISTANCE;
-                                    int maxX = position.getX() + CLEAR_COMMAND_DISTANCE;
-                                    int minZ = position.getZ() - CLEAR_COMMAND_DISTANCE;
-                                    int maxZ = position.getZ() + CLEAR_COMMAND_DISTANCE;
+                                    int minX = position.getX() - Configs.DCLR_RADIUS;
+                                    int maxX = position.getX() + Configs.DCLR_RADIUS;
+                                    int minZ = position.getZ() - Configs.DCLR_RADIUS;
+                                    int maxZ = position.getZ() + Configs.DCLR_RADIUS;
 
                                     context.getSource().sendFeedback(() -> translate(Constants.DCLR_START_ID_NAME), false);
 

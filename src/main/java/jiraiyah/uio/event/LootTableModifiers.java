@@ -31,7 +31,7 @@ public class LootTableModifiers
                                             {
                                                 LootPool eye = LootPool.builder()
                                                         .rolls(ConstantLootNumberProvider.create(1))
-                                                        .conditionally(RandomChanceLootCondition.builder(0.05f)) //5%
+                                                        .conditionally(RandomChanceLootCondition.builder(0.025f)) //2.5%
                                                         .with(ItemEntry.builder(ModItems.ENDERMAN_EYE))
                                                         .apply(SetCountLootFunction
                                                                        .builder(UniformLootNumberProvider.create(1.0f, 2.0f))
@@ -40,7 +40,7 @@ public class LootTableModifiers
 
                                                 LootPool heart = LootPool.builder()
                                                       .rolls(ConstantLootNumberProvider.create(1))
-                                                      .conditionally(RandomChanceLootCondition.builder(0.1f)) //10%
+                                                      .conditionally(RandomChanceLootCondition.builder(0.05f)) //5%
                                                       .with(ItemEntry.builder(ModItems.ENDERMAN_HEART))
                                                       .apply(SetCountLootFunction
                                                                      .builder(UniformLootNumberProvider.create(1.0f, 1.0f))
@@ -49,7 +49,7 @@ public class LootTableModifiers
 
                                                 LootPool gland = LootPool.builder()
                                                       .rolls(ConstantLootNumberProvider.create(1))
-                                                      .conditionally(RandomChanceLootCondition.builder(0.05f)) //5%
+                                                      .conditionally(RandomChanceLootCondition.builder(0.025f)) //2.5%
                                                       .with(ItemEntry.builder(ModItems.ENDERMAN_GLAND))
                                                       .apply(SetCountLootFunction
                                                                      .builder(UniformLootNumberProvider.create(1.0f, 2.0f))

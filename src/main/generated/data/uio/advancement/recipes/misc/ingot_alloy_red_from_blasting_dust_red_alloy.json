@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dust_red_alloy": {
+      "conditions": {
+        "items": [
+          {
+            "items": "uio:dust_red_alloy"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:ingot_alloy_red_from_blasting_dust_red_alloy"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dust_red_alloy"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:ingot_alloy_red_from_blasting_dust_red_alloy"
+    ]
+  }
+}

@@ -146,7 +146,8 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModItems.INGOT_ALLOY_PULSATING, "Pulsating Alloy");
         builder.add(ModItems.INGOT_ALLOY_RED, "Red Alloy");
         builder.add(ModItems.INGOT_ALLOY_VIBRANT, "Vibrant Alloy");
-        builder.add(ModItems.INGOT_ENDERITE, "Enderite Alloy");
+        builder.add(ModItems.INGOT_ALLOY_ENDERITE, "Enderite Alloy");
+        builder.add(ModItems.INGOT_ENDERITE, "Enderite Ingot");
         builder.add(ModItems.RAW_ALLOY_ENDERITE, "Raw Enderite Alloy");
 
         builder.add(ModItems.PLATE_AMETHYST, "Amethyst Plate");
@@ -454,6 +455,9 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModBlocks.CREATIVE_BANK, "Creative Energy Bank");
         builder.add(ModBlocks.MINER, "Miner");
 
+        builder.add(ModBlocks.CARROT_BOX, "Box of Carrots");
+        builder.add(ModBlocks.POTATO_BOX, "Box of Potatoes");
+
         builder.add(Tags.Block.GEM_BLOCKS, "");
         builder.add(Tags.Block.IS_MACHINE, "");
         builder.add(Tags.Block.HAMMER_BLACKLIST, "Hammer Blacklist");
@@ -472,6 +476,7 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(Tags.Item.ALLOY, "Alloys");
         builder.add(Tags.Item.GEM, "Gems");
         builder.add(Tags.Item.HAMMERS, "Hammers");
+        builder.add(Tags.Item.EXCAVATORS, "Excavators");
         builder.add(Tags.Item.MENDING_ONLY, "Mending Only");
         builder.add(Tags.Item.SMELTABLE, "Smeltables");
 

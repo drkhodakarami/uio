@@ -70,6 +70,9 @@ public class ModItemGroups
                                                               entries.add(ModBlocks.RAW_RUBY);
                                                               entries.add(ModBlocks.RAW_SAPPHIRE);
 
+                                                              entries.add(ModBlocks.CARROT_BOX);
+                                                              entries.add(ModBlocks.POTATO_BOX);
+
                                                               entries.add(ModBlocks.CITRINE_BUTTON);
                                                               entries.add(ModBlocks.ENDERITE_BUTTON);
                                                               entries.add(ModBlocks.RUBY_BUTTON);
@@ -160,6 +163,7 @@ public class ModItemGroups
 
                                                               entries.add(ModItems.UNSTABLE_GOO);
                                                               entries.add(ModItems.COMBUSTION_CORE);
+                                                              entries.add(ModItems.THERMAL_CORE);
 
                                                               entries.add(ModItems.VOID_PLATE_ACTIVATOR);
                                                               entries.add(ModItems.VOID_PLATE_BASE);
@@ -175,6 +179,8 @@ public class ModItemGroups
                                                               entries.add(ModItems.RAW_RUBY);
                                                               entries.add(ModItems.RAW_SAPPHIRE);
                                                               entries.add(ModItems.RAW_RUBBER);
+
+                                                              entries.add(ModItems.INGOT_ENDERITE);
 
                                                               entries.add(ModItems.CRUSHED_SHULKER);
                                                               entries.add(ModItems.DUST_CONDUCTIVE);
@@ -215,7 +221,7 @@ public class ModItemGroups
                                                               entries.add(ModItems.INGOT_ALLOY_PULSATING);
                                                               entries.add(ModItems.INGOT_ALLOY_RED);
                                                               entries.add(ModItems.INGOT_ALLOY_VIBRANT);
-                                                              entries.add(ModItems.INGOT_ENDERITE);
+                                                              entries.add(ModItems.INGOT_ALLOY_ENDERITE);
 
                                                               entries.add(ModItems.PLATE_AMETHYST);
                                                               entries.add(ModItems.PLATE_CITRINE);
@@ -288,7 +294,6 @@ public class ModItemGroups
                                                               entries.add(ModBlocks.PRINTER);
                                                               entries.add(ModBlocks.BUILDER);
 
-                                                              entries.add(ModItems.THERMAL_CORE);
                                                               entries.add(ModItems.BLUEPRINT_EMPTY);
 
                                                               entries.add(ModItems.ITEM_FILTER);

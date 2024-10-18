@@ -1,5 +1,6 @@
 package jiraiyah.uio.item;
 
+import jiraiyah.uio.Configs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MiningToolItem;
 import net.minecraft.item.ToolMaterial;
@@ -25,8 +26,8 @@ public class ExcavatorItem extends MiningToolItem
     public ExcavatorItem(ToolMaterial material, int depth, int radius, Settings settings)
     {
         super(material, BlockTags.SHOVEL_MINEABLE, settings);
-        this.depth = depth;
-        this.radius = radius;
+        this.depth = depth / 2;
+        this.radius = radius - 1;
     }
 
     public int getDepth()
@@ -43,8 +44,7 @@ public class ExcavatorItem extends MiningToolItem
     {
         List<BlockPos> positions = new ArrayList<>();
 
-        //TODO: Use Config for Max Distance Value
-        HitResult hit = player.raycast(8, 0, false);
+        HitResult hit = player.raycast(Configs.EXCAVATOR_MAX_DISTANCE, 0, false);
 
         if(hit.getType() != HitResult.Type.BLOCK)
             return positions;

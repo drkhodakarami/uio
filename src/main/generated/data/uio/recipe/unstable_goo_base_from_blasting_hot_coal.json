@@ -3,7 +3,7 @@
   "category": "misc",
   "cookingtime": 1200,
   "experience": 2.0,
-  "group": "enstable_goo",
+  "group": "combustion_core",
   "ingredient": {
     "item": "uio:hot_coal"
   },

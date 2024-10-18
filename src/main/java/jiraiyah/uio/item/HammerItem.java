@@ -1,5 +1,6 @@
 package jiraiyah.uio.item;
 
+import jiraiyah.uio.Configs;
 import jiraiyah.uio.Reference;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
@@ -30,8 +31,8 @@ public class HammerItem extends MiningToolItem
     public HammerItem(ToolMaterial material, int depth, int radius, Settings settings)
     {
         super(material, BlockTags.PICKAXE_MINEABLE, settings);
-        this.depth = depth;
-        this.radius = radius;
+        this.depth = depth / 2;
+        this.radius = radius - 1;
     }
 
     public int getDepth()
@@ -49,8 +50,7 @@ public class HammerItem extends MiningToolItem
     {
         List<BlockPos> positions = new ArrayList<>();
 
-        //TODO: Use Config for Max Distance Value
-        HitResult hit = player.raycast(8, 0, false);
+        HitResult hit = player.raycast(Configs.HAMMER_MAX_DISTANCE, 0, false);
 
         if(hit.getType() != HitResult.Type.BLOCK)
             return positions;

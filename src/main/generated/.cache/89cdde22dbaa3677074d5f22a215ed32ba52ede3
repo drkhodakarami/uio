@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-05T19:32:23.4623473	Ultra IO/Block Loot Tables
+// 1.21.1	2024-10-18T20:39:03.540498	Ultra IO/Block Loot Tables
 73ba53b25bc5651e38dac538809abdc155152bf6 data\uio\loot_table\blocks\animal_feed.json
 8af318446e992873c41c94db7716a2ed960c4052 data\uio\loot_table\blocks\block_sapphire_trap_door.json
 ae76ee5154d97b952390bf99acd3da9b2cc31bae data\uio\loot_table\blocks\block_enderite_trap_door.json
@@ -16,6 +16,7 @@ ffe40fa3bca7f47dcdac38a44e10c4550d3699e9 data\uio\loot_table\blocks\ore_deep_rub
 733fd946ca36bfdba5d296a72e765ef69f2967f3 data\uio\loot_table\blocks\block_ruby_fence.json
 ed41756173fe28d6b57dc3d92d353d3363d5b507 data\uio\loot_table\blocks\alloy_mixer.json
 c17e0afb92d6fcff9fdfcba5c14dc682b0b923a1 data\uio\loot_table\blocks\chunk_loader.json
+a33fec300c34887936e51de82b7215bad996cfbd data\uio\loot_table\blocks\potato_box.json
 a5a66257230cd5d9693655e639cc51e16729d015 data\uio\loot_table\blocks\block_citrine_fence_gate.json
 3e758cb14aa1e6b9c97ef1ec55833612091db45f data\uio\loot_table\blocks\block_ruby_fence_gate.json
 58952e8b98898036e40149fef00696f00a5526f7 data\uio\loot_table\blocks\block_enderite_stairs.json
@@ -54,6 +55,7 @@ c30fbaeba48f225028140c44c251180c0df8729d data\uio\loot_table\blocks\cast_press.j
 ed19bc2794dc1e5f237af51b2422cb6c46f52056 data\uio\loot_table\blocks\ore_nether_lapis.json
 0c1c34e089048961f5159ac7ca8760bcacabd1e6 data\uio\loot_table\blocks\miner.json
 1a79a5d2cf77480175ae7bc3103286fd21e269b2 data\uio\loot_table\blocks\lava_eating_goo.json
+52ef95b478e6e15e6de8dfe1d9f59dd628ff0f65 data\uio\loot_table\blocks\carrot_box.json
 702b630ec3ce2f5564a7a96a3d7c9b087e74224e data\uio\loot_table\blocks\block_ruby_door.json
 318b3e98a7c1fa2e98ff1905260dcc4d755d564d data\uio\loot_table\blocks\block_ruby.json
 3bc3d5ebae5bfda57db14f1b109df81c0477d593 data\uio\loot_table\blocks\block_enderite_button.json

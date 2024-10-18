@@ -44,6 +44,7 @@ public class ModBlocks
     public static final List<Block> BLACK_LIST = new ArrayList<>();
 
     public static Block ENDERITE;
+    public static Block CARROT_BOX, POTATO_BOX;
 
     public static Block CITRINE, RUBY, SAPPHIRE;
     public static Block RAW_CITRINE, RAW_ENDERITE ,RAW_QUARTZ, RAW_RUBY, RAW_SAPPHIRE;
@@ -257,6 +258,10 @@ public class ModBlocks
         //endregion
         //region MACHINES
         ELEVATOR = registerCopy("elevator", Blocks.GRAY_WOOL);
+
+        CARROT_BOX = registerCopy("carrot_box", Blocks.OAK_PLANKS);
+        POTATO_BOX = registerCopy("potato_box", Blocks.OAK_PLANKS);
+
         REDSTONE_CLOCK = register("redstone_clock",
                                        new RedstoneClock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
         CREATIVE_BANK = register("creative_bank",

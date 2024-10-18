@@ -168,6 +168,7 @@ public class TunerItem extends Item
         if (data != null)
         {
             NbtCompound nbt = data.copyNbt();
+
             if(NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).isEmpty())
                 return;
             BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).get();

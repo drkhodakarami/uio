@@ -24,14 +24,12 @@
 
 package jiraiyah.uio.datagen;
 
-import jiraiyah.uio.block.RedstoneClock;
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.util.Identifier;
 
 import static jiraiyah.uio.Reference.logRGB256;
 
@@ -173,6 +171,9 @@ public class ModModelProvider extends FabricModelProvider
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BATTERY_BANK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MINER);
 
+        blockStateModelGenerator.registerSingleton(ModBlocks.CARROT_BOX, TexturedModel.CUBE_BOTTOM_TOP);
+        blockStateModelGenerator.registerSingleton(ModBlocks.POTATO_BOX, TexturedModel.CUBE_BOTTOM_TOP);
+
         /*Identifier clockOff = TexturedModel.CUBE_ALL.upload(ModBlocks.REDSTONE_CLOCK, blockStateModelGenerator.modelCollector);
         Identifier clockOn = blockStateModelGenerator.createSubModel(ModBlocks.REDSTONE_CLOCK, "_on", Models.CUBE_ALL,
                                                                      TextureMap::all);
@@ -280,6 +281,7 @@ public class ModModelProvider extends FabricModelProvider
         itemModelGenerator.register(ModItems.INGOT_ALLOY_RED, Models.GENERATED);
         itemModelGenerator.register(ModItems.INGOT_ALLOY_VIBRANT, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.INGOT_ALLOY_ENDERITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.INGOT_ENDERITE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_ALLOY_ENDERITE, Models.GENERATED);
         //endregion
