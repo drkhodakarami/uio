@@ -34,23 +34,13 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModRecipes
 {
-    public ModRecipes()
+    ModRecipes()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    public static void init()
     {
         log("Registering Recipes");
-    }
-
-    private static void register(String name, RecipeSerializer<?> serializer)
-    {
-        Registry.register(Registries.RECIPE_SERIALIZER, identifier(name), serializer);
-    }
-
-    private static void register(String name, RecipeType<?> recipeType)
-    {
-        Registry.register(Registries.RECIPE_TYPE, identifier(name), recipeType);
     }
 }

@@ -1,6 +1,7 @@
 package jiraiyah.uio.event;
 
 import jiraiyah.uio.registry.ModItems;
+import jiraiyah.uio.registry.misc.ModDataComponentTypes;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EntityType;
@@ -30,22 +31,17 @@ public class UseEntityCallbackListener
             ItemStack stack = player.getStackInHand(hand);
             if(stack.isOf(ModItems.TUNER))
             {
-                @Nullable var data = stack.get(DataComponentTypes.CUSTOM_DATA);
+                @Nullable var data = stack.get(ModDataComponentTypes.COORDINATE);
                 if (data != null)
                 {
-                    NbtCompound nbt = data.copyNbt();
-                    if(nbt == null)
-                        return ActionResult.PASS;
                     if(entity.getType().isIn(TUNER_BLACKLIST))
                         return ActionResult.PASS;
                     if(entity.getType() == EntityType.VILLAGER)
                     {
-                        if(NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).isEmpty())
-                            return ActionResult.PASS;
-                        BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).get();
+                        BlockPos pos = data.pos();
                         if(!player.getWorld().isClient)
                         {
-                            var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
+                            var dimension = data.dimension();
                             var userDimension = player.getWorld().getRegistryKey().getValue().toString();
                             if (dimension.equalsIgnoreCase(userDimension))
                             {
@@ -56,7 +52,7 @@ public class UseEntityCallbackListener
                             }
                             return ActionResult.FAIL;
                         }
-                        var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
+                        var dimension = data.dimension();
                         var userDimension = player.getWorld().getRegistryKey().getValue().toString();
                         var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
                         if (dimension.equalsIgnoreCase(userDimension))

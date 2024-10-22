@@ -28,12 +28,12 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModModelPredicateProvider
 {
-    public ModModelPredicateProvider()
+    ModModelPredicateProvider()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    public static void init()
     {
         log("Registering Model Predicates");
     }

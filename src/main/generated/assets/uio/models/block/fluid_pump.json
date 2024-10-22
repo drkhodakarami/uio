@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/orientable",
   "textures": {
-    "all": "uio:block/fluid_pump"
+    "front": "uio:block/fluid_pump_front",
+    "side": "uio:block/fluid_pump_side",
+    "top": "uio:block/fluid_pump_top"
   }
 }

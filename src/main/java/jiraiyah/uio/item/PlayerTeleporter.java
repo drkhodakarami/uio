@@ -24,6 +24,8 @@
 
 package jiraiyah.uio.item;
 
+import jiraiyah.uio.registry.misc.ModDataComponentTypes;
+import jiraiyah.uio.util.record.CoordinateData;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.player.PlayerEntity;
@@ -80,11 +82,9 @@ public class PlayerTeleporter extends Item
             {
                 if (!context.getWorld().isClient())
                 {
-                    NbtCompound nbt = new NbtCompound();
-                    nbt.put(Keys.Items.TELEPORTER_POS, NbtHelper.fromBlockPos(pos));
-                    nbt.putString(Keys.Items.TELEPORTER_DIMENSION, player.getWorld().getRegistryKey().getValue().toString());
-                    NbtComponent component = NbtComponent.of(nbt);
-                    context.getStack().set(DataComponentTypes.CUSTOM_DATA, component);
+                    context.getStack().set(ModDataComponentTypes.COORDINATE,
+                                           new CoordinateData(context.getBlockPos(),
+                                  player.getWorld().getRegistryKey().getValue().toString()));
                 }
                 else
                 {
@@ -101,21 +101,18 @@ public class PlayerTeleporter extends Item
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
     {
-        @Nullable var data = user.getStackInHand(hand).get(DataComponentTypes.CUSTOM_DATA);
+        @Nullable var data = user.getStackInHand(hand).get(ModDataComponentTypes.COORDINATE);
 
         if(user.isSneaking() && data != null)
-            user.getStackInHand(hand).set(DataComponentTypes.CUSTOM_DATA, null);
+            user.getStackInHand(hand).set(ModDataComponentTypes.COORDINATE, null);
 
         if(!user.isSneaking() && data != null)
         {
             if (!world.isClient)
             {
                 ItemStack stack = user.getStackInHand(hand);
-                NbtCompound nbt = data.copyNbt();
-                if(nbt == null || NbtHelper.toBlockPos(nbt, Keys.Items.TELEPORTER_POS).isEmpty())
-                    return super.use(world, user, hand);
-                BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TELEPORTER_POS).get();
-                var dimension = nbt.getString(Keys.Items.TELEPORTER_DIMENSION);
+                BlockPos pos = data.pos();
+                var dimension = data.dimension();
                 MinecraftServer server = world.getServer();
                 RegistryKey<World> storedKey = RegistryKey.of(RegistryKeys.WORLD, idOf(dimension));
                 if(storedKey == null || server == null)
@@ -143,15 +140,11 @@ public class PlayerTeleporter extends Item
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
     {
-        @Nullable var data = stack.get(DataComponentTypes.CUSTOM_DATA);
+        @Nullable var data = stack.get(ModDataComponentTypes.COORDINATE);
         if (data != null)
         {
-            NbtCompound nbt = data.copyNbt();
-            if(NbtHelper.toBlockPos(nbt, Keys.Items.TELEPORTER_POS).isEmpty())
-                return;
-            BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TELEPORTER_POS).get();
-
-            var dimension = nbt.getString(Keys.Items.TELEPORTER_DIMENSION);
+            BlockPos pos = data.pos();
+            var dimension = data.dimension();
             var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
             tooltip.add(translate(Constants.TELEPORTER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
         }
@@ -160,7 +153,7 @@ public class PlayerTeleporter extends Item
     @Override
     public boolean hasGlint(ItemStack stack)
     {
-        @Nullable var data = stack.get(DataComponentTypes.CUSTOM_DATA);
+        @Nullable var data = stack.get(ModDataComponentTypes.COORDINATE);
         return data != null;
     }
 

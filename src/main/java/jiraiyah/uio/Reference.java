@@ -217,12 +217,7 @@ public class Reference
     public static class Keys
     {
         public static class Items
-        {
-            public static final String TUNER_POS = ModID + ".tuner.pos";
-            public static final String TUNER_DIMENSION = ModID + ".tuner.dimension";
-            public static final String TELEPORTER_POS = ModID + ".teleporter.pos";
-            public static final String TELEPORTER_DIMENSION = ModID + ".teleporter.dimension";
-        }
+        {}
 
         public static class BlockEntities
         {

@@ -30,12 +30,12 @@ import static jiraiyah.uio.Reference.*;
 
 public class ModCommands
 {
-    public ModCommands()
+    ModCommands()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    public static void init()
     {
         log("Registering Commands");
 

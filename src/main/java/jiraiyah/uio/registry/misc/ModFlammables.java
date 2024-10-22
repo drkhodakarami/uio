@@ -4,12 +4,12 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModFlammables
 {
-    public ModFlammables()
+    ModFlammables()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    public static void init()
     {
         log("Registering Flammables");
     }

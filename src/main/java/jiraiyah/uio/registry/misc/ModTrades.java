@@ -4,12 +4,12 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModTrades
 {
-    public ModTrades()
+    ModTrades()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    public static void init()
     {
         log("Registering Custom Trades");
     }

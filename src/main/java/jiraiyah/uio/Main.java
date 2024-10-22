@@ -98,7 +98,6 @@ import static jiraiyah.uio.Reference.*;
 //TODO : Add new rideable entity that moves faster than player
 //TODO : Add new projectile (maybe tnt / torch arrow?)
 //TODO : Add new aggressive mob (maybe with new AI?)
-//TODO : Make different goo blocks functional
 //TODO : Add new flower (not sure what)
 //TODO : Add new biome (maybe planes with less bump and more flatness with more rubber trees)
 //TODO : Add player starting inventory kit
@@ -118,32 +117,36 @@ public class Main implements ModInitializer
         logMain();
 
         Configs.load();
+        GameRules.init();
 
         //region REGISTER CALLS
-        ModEvents.register();
+        ModDataComponentTypes.init(); // Should happen before events
+        ModEvents.init();
 
-        ModItems.register();
-        ModBlocks.register();
+        ModBlocks.init();
 
-        ModRecipes.register(); // Should happen after item and block registration
-        ModItemGroups.register(); // Should happen after Items and Block Registration
-        ModBlockEntities.register(); // Should happen after block registration
-        ModScreenHandlers.register(); // Should happen after block and block entity registration
+        ModArmorMaterials.init(); // Should happen before item
+        ModItems.init();
+
+        ModRecipes.init(); // Should happen after item and block registration
+        ModItemGroups.init(); // Should happen after Items and Block Registration
+        ModBlockEntities.init(); // Should happen after block registration
+        ModScreenHandlers.init(); // Should happen after block and block entity registration
 
         ModWorldGeneration.register(); // Should happen after Items and Block Registration
-        ModPortals.register(); // Should happen after Items and Block Registration
-        ModStrippables.register(); // Should happen after Items and Block Registration
+        ModPortals.init(); // Should happen after Items and Block Registration
+        ModStrippables.init(); // Should happen after Items and Block Registration
 
-        ModAttributes.register();
-        ModCompostables.register();
-        ModEffects.register();
-        ModFlammables.register();
-        ModFuels.register();
-        ModOxidizables.register();
-        ModPotionRecipes.register();
-        ModTrades.register();
+        ModAttributes.init();
+        ModCompostables.init();
+        ModEffects.init();
+        ModFlammables.init();
+        ModFuels.init();
+        ModOxidizables.init();
+        ModPotionRecipes.init();
+        ModTrades.init();
 
-        ModCommands.register();
+        ModCommands.init();
 
         ModMessages.registerC2SPackets();
         //endregion

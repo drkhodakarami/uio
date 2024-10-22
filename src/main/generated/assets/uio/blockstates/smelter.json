@@ -1,7 +1,34 @@
 {
   "variants": {
-    "": {
+    "activated=false,facing=east": {
+      "model": "uio:block/smelter",
+      "y": 90
+    },
+    "activated=false,facing=north": {
       "model": "uio:block/smelter"
+    },
+    "activated=false,facing=south": {
+      "model": "uio:block/smelter",
+      "y": 180
+    },
+    "activated=false,facing=west": {
+      "model": "uio:block/smelter",
+      "y": 270
+    },
+    "activated=true,facing=east": {
+      "model": "uio:block/smelter_on",
+      "y": 90
+    },
+    "activated=true,facing=north": {
+      "model": "uio:block/smelter_on"
+    },
+    "activated=true,facing=south": {
+      "model": "uio:block/smelter_on",
+      "y": 180
+    },
+    "activated=true,facing=west": {
+      "model": "uio:block/smelter_on",
+      "y": 270
     }
   }
 }

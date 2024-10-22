@@ -29,12 +29,12 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModScreenHandlers
 {
-    public ModScreenHandlers()
+    ModScreenHandlers()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    public static void init()
     {
         log("Registering Screen Handlers");
     }

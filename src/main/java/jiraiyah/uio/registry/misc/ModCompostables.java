@@ -4,12 +4,12 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModCompostables
 {
-    public ModCompostables()
+    ModCompostables()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    public static void init()
     {
         log("Registering Compostables");
     }

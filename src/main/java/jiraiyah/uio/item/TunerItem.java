@@ -24,15 +24,15 @@
 
 package jiraiyah.uio.item;
 
+import jiraiyah.uio.registry.misc.ModDataComponentTypes;
+import jiraiyah.uio.util.record.CoordinateData;
 import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.network.packet.s2c.play.PositionFlag;
 import net.minecraft.server.world.ServerWorld;
@@ -50,7 +50,6 @@ import java.util.List;
 import static jiraiyah.uio.Reference.*;
 import static jiraiyah.uio.Reference.Tags.Entity.TUNER_BLACKLIST;
 
-// TODO : Use Custom DataComponentType
 public class TunerItem extends Item
 {
     public TunerItem(Settings settings)
@@ -61,7 +60,7 @@ public class TunerItem extends Item
     @Override
     public ActionResult useOnBlock(ItemUsageContext context)
     {
-        @Nullable var data = context.getStack().get(DataComponentTypes.CUSTOM_DATA);
+        @Nullable var data = context.getStack().get(ModDataComponentTypes.COORDINATE);
 
         if (data != null)
             return super.useOnBlock(context);
@@ -75,11 +74,9 @@ public class TunerItem extends Item
             {
                 if (!context.getWorld().isClient())
                 {
-                    NbtCompound nbt = new NbtCompound();
-                    nbt.put(Keys.Items.TUNER_POS, NbtHelper.fromBlockPos(pos));
-                    nbt.putString(Keys.Items.TUNER_DIMENSION, player.getWorld().getRegistryKey().getValue().toString());
-                    NbtComponent component = NbtComponent.of(nbt);
-                    context.getStack().set(DataComponentTypes.CUSTOM_DATA, component);
+                    context.getStack().set(ModDataComponentTypes.COORDINATE,
+                                           new CoordinateData(context.getBlockPos(),
+                                                    player.getWorld().getRegistryKey().getValue().toString()));
                 }
                 else
                 {
@@ -98,10 +95,10 @@ public class TunerItem extends Item
     {
         if (!world.isClient())
         {
-            @Nullable var data = user.getStackInHand(hand).get(DataComponentTypes.CUSTOM_DATA);
+            @Nullable var data = user.getStackInHand(hand).get(ModDataComponentTypes.COORDINATE);
 
             if (user.isSneaking() && data != null)
-                user.getStackInHand(hand).set(DataComponentTypes.CUSTOM_DATA, null);
+                user.getStackInHand(hand).set(ModDataComponentTypes.COORDINATE, null);
         }
         return super.use(world, user, hand);
     }
@@ -109,7 +106,7 @@ public class TunerItem extends Item
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand)
     {
-        @Nullable var data = stack.get(DataComponentTypes.CUSTOM_DATA);
+        @Nullable var data = stack.get(ModDataComponentTypes.COORDINATE);
 
         if (entity.isPlayer() ||
             data == null ||
@@ -118,23 +115,23 @@ public class TunerItem extends Item
 
         if (!user.isSneaking())
         {
-            NbtCompound nbt = data.copyNbt();
-            return useOnEntityResult(user, entity, nbt);
+            return useOnEntityResult(user, entity, data);
         }
 
         return super.useOnEntity(stack, user, entity, hand);
     }
 
     @NotNull
-    protected ActionResult useOnEntityResult(PlayerEntity user, LivingEntity entity, NbtCompound nbt)
+    protected ActionResult useOnEntityResult(PlayerEntity user, LivingEntity entity, @Nullable CoordinateData data)
     {
-        if(NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).isEmpty())
+        if(data == null)
             return ActionResult.PASS;
-        BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).get();
+
+        BlockPos pos = data.pos();
 
         if (!user.getWorld().isClient())
         {
-            var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
+            var dimension = data.dimension();
             var userDimension = user.getWorld().getRegistryKey().getValue().toString();
             if (dimension.equalsIgnoreCase(userDimension))
             {
@@ -146,7 +143,7 @@ public class TunerItem extends Item
             return ActionResult.FAIL;
         }
 
-        var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
+        var dimension = data.dimension();
         var userDimension = user.getWorld().getRegistryKey().getValue().toString();
         var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
         if (dimension.equalsIgnoreCase(userDimension))
@@ -164,16 +161,11 @@ public class TunerItem extends Item
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
     {
-        @Nullable var data = stack.get(DataComponentTypes.CUSTOM_DATA);
+        @Nullable var data = stack.get(ModDataComponentTypes.COORDINATE);
         if (data != null)
         {
-            NbtCompound nbt = data.copyNbt();
-
-            if(NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).isEmpty())
-                return;
-            BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).get();
-
-            var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
+            BlockPos pos = data.pos();
+            var dimension = data.dimension();
             var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
             tooltip.add(translate(Constants.TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
         }
@@ -182,7 +174,7 @@ public class TunerItem extends Item
     @Override
     public boolean hasGlint(ItemStack stack)
     {
-        @Nullable var data = stack.get(DataComponentTypes.CUSTOM_DATA);
+        @Nullable var data = stack.get(ModDataComponentTypes.COORDINATE);
         return data != null;
     }
 

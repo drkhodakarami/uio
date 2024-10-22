@@ -7,14 +7,15 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModFuels
 {
-    public ModFuels()
+    ModFuels()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    public static void init()
     {
         log("Registering Fuel");
+
         FuelRegistry registry = FuelRegistry.INSTANCE;
 
         registry.add(ModItems.HOT_COAL, 6400);

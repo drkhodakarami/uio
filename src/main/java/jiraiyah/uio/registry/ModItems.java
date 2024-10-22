@@ -26,23 +26,26 @@ package jiraiyah.uio.registry;
 
 import jiraiyah.uio.Configs;
 import jiraiyah.uio.item.*;
+import jiraiyah.uio.item.blockitem.AngelBlockItem;
 import jiraiyah.uio.registry.misc.ModArmorMaterials;
 import jiraiyah.uio.registry.misc.ModToolMaterials;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.*;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.util.Registers.Items.*;
 
 // Some of the textures are from : https://github/malcolmriley/unused-textures
 public class ModItems
 {
+    ModItems()
+    {
+        throw new AssertionError();
+    }
+
     public static List<Item> AllItems = new ArrayList<>();
     public static final List<Item> BLACK_LIST = new ArrayList<>();
 
@@ -93,8 +96,11 @@ public class ModItems
                        TOOL_NETHERITE_HAMMER, TOOL_NETHERITE_EXCAVATOR,
                        TOOL_STONE_HAMMER, TOOL_STONE_EXCAVATOR,
                        TOOL_WOOD_HAMMER, TOOL_WOOD_EXCAVATOR;
-    public static Item BACKPACK, BLUEPRINT_EMPTY, BLUEPRINT_PRINTED, ENDER_BACKPACK, PLAYER_TELEPORT, TUNER, ADVANCED_TUNER,
-                       WRENCH;
+    public static Item BACKPACK, BLUEPRINT_EMPTY, BLUEPRINT_PRINTED, ENDER_BACKPACK, PLAYER_TELEPORT, WRENCH;
+
+    public static TunerItem TUNER;
+    public static AdvancedTuner ADVANCED_TUNER;
+
     public static Item ARMOR_AMETHYST_HELMET, ARMOR_AMETHYST_CHESTPLATE, ARMOR_AMETHYST_LEGGINGS, ARMOR_AMETHYST_BOOTS,
                        ARMOR_CITRINE_HELMET, ARMOR_CITRINE_CHESTPLATE, ARMOR_CITRINE_LEGGINGS, ARMOR_CITRINE_BOOTS,
                        ARMOR_COPPER_HELMET, ARMOR_COPPER_CHESTPLATE, ARMOR_COPPER_LEGGINGS,ARMOR_COPPER_BOOTS,
@@ -103,12 +109,9 @@ public class ModItems
                        ARMOR_RUBY_HELMET, ARMOR_RUBY_CHESTPLATE, ARMOR_RUBY_LEGGINGS, ARMOR_RUBY_BOOTS,
                        ARMOR_SAPPHIRE_HELMET, ARMOR_SAPPHIRE_CHESTPLATE, ARMOR_SAPPHIRE_LEGGINGS, ARMOR_SAPPHIRE_BOOTS;
 
-    public ModItems()
-    {
-        throw new AssertionError();
-    }
+    public static Item ANGEL_BLOCK_ITEM;
 
-    public static void register()
+    public static void init()
     {
         log("Registering Items");
 
@@ -877,29 +880,14 @@ public class ModItems
                                                .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(36)).maxCount(1)));
         //endregion
 
-        AllItems = Registries.ITEM.getEntrySet()
-                                          .stream()
-                                          .filter(key -> key.getKey().getValue().getNamespace().equals(ModID))
-                                          .map(Map.Entry::getValue)
-                                          .collect(Collectors.toList());
+        ANGEL_BLOCK_ITEM = registerBlockItem("block_angel",
+                                             new AngelBlockItem(ModBlocks.ANGEL, new Item.Settings()));
+
+        AllItems = getAllItems(ModID);
     }
 
     //region HELPER METHODS
 
-    private static Item register(String name, Item item)
-    {
-        return Registry.register(Registries.ITEM, identifier(name), item);
-    }
-
-    private static Item register(String name)
-    {
-        return Registry.register(Registries.ITEM, identifier(name), new Item(new Item.Settings()));
-    }
-
-    private static Item register(String name, Item.Settings settings)
-    {
-        return Registry.register(Registries.ITEM, identifier(name), new Item(settings));
-    }
 
     //endregion
 }

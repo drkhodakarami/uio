@@ -1,5 +1,6 @@
 package jiraiyah.uio.item;
 
+import jiraiyah.uio.util.record.CoordinateData;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -13,6 +14,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import static jiraiyah.uio.Reference.*;
 
@@ -25,15 +27,16 @@ public class AdvancedTuner extends TunerItem
 
     @Override
     @NotNull
-    protected ActionResult useOnEntityResult(PlayerEntity user, LivingEntity entity, NbtCompound nbt)
+    protected ActionResult useOnEntityResult(PlayerEntity user, LivingEntity entity, @Nullable CoordinateData data)
     {
-        if(NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).isEmpty())
+        if(data == null)
             return ActionResult.PASS;
-        BlockPos pos = NbtHelper.toBlockPos(nbt, Keys.Items.TUNER_POS).get();
+
+        BlockPos pos = data.pos();
 
         if (!user.getWorld().isClient())
         {
-            var dimension = nbt.getString(Keys.Items.TUNER_DIMENSION);
+            var dimension = data.dimension();
             MinecraftServer server = user.getWorld().getServer();
             RegistryKey<World> storedKey = RegistryKey.of(RegistryKeys.WORLD, idOf(dimension));
             if (storedKey == null || server == null || server.getWorld(storedKey) == null)

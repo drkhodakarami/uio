@@ -4,12 +4,12 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModStrippables
 {
-    public ModStrippables()
+    ModStrippables()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    public static void init()
     {
         log("Registering Strippables");
     }

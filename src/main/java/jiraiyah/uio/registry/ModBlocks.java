@@ -25,21 +25,24 @@
 package jiraiyah.uio.registry;
 
 import jiraiyah.uio.block.*;
+import jiraiyah.uio.block.goo.*;
+import jiraiyah.uio.block.machine.*;
 import net.minecraft.block.*;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.block.Blocks;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.util.Registers.Blocks.*;
 
 public class ModBlocks
 {
+    ModBlocks()
+    {
+        throw new AssertionError();
+    }
+
     public static List<Block> AllBlocks = new ArrayList<>();
     public static final List<Block> BLACK_LIST = new ArrayList<>();
 
@@ -74,12 +77,7 @@ public class ModBlocks
                         PRINTER, PROJECT_TABLE, TESSERACT, WOOD_STRIPPER, BATTERY_BANK, SOLAR_PANEL, MINER;
     //endregion
 
-    public ModBlocks()
-    {
-        throw new AssertionError();
-    }
-
-    public static void register()
+    public static void init()
     {
         log("Registering Blocks");
 
@@ -98,10 +96,10 @@ public class ModBlocks
         //region SPECIAL BLOCKS
         CITRINE_STAIRS =
                 register("block_citrine_stairs",
-                         new StairsBlock(ModBlocks.CITRINE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
+                                new StairsBlock(ModBlocks.CITRINE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
         ENDERITE_STAIRS =
                 register("block_enderite_stairs",
-                         new StairsBlock(ModBlocks.ENDERITE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
+                                new StairsBlock(ModBlocks.ENDERITE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
         RUBY_STAIRS =
                 register("block_ruby_stairs",
                          new StairsBlock(ModBlocks.RUBY.getDefaultState(), AbstractBlock.Settings.copy(Blocks.AMETHYST_BLOCK)));
@@ -241,20 +239,34 @@ public class ModBlocks
         ORE_ENDERITE = registerCopy("ore_enderite", Blocks.ANCIENT_DEBRIS);
         //endregion
         //region GOO
-        WATER_EATING_GOO = registerCopy("water_eating_goo", Blocks.GRAY_WOOL);
-        WATER_GENERATING_GOO = registerCopy("water_generating_goo", Blocks.GRAY_WOOL);
-        LAVA_EATING_GOO = registerCopy("lava_eating_goo", Blocks.GRAY_WOOL);
-        LAVA_GENERATING_GOO = registerCopy("lava_generating_goo", Blocks.GRAY_WOOL);
-        CHUNK_GOO = registerCopy("chunk_goo", Blocks.GRAY_WOOL);
-        TOWERING_GOO = registerCopy("towering_goo", Blocks.GRAY_WOOL);
-        TUNNELING_GOO = registerCopy("tunneling_goo", Blocks.GRAY_WOOL);
-        BRIDGE_GOO = registerCopy("bridge_goo", Blocks.GRAY_WOOL);
+        WATER_EATING_GOO = register("water_eating_goo",
+                                    new WaterEatingGoo(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        WATER_GENERATING_GOO = register("water_generating_goo",
+                                        new WaterGeneratingGoo(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        LAVA_EATING_GOO = register("lava_eating_goo",
+                                   new LavaEatingGoo(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        LAVA_GENERATING_GOO = register("lava_generating_goo",
+                                       new LavaGeneratingGoo(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        CHUNK_GOO = register("chunk_goo",
+                             new ChunkGoo(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        TOWERING_GOO = register("towering_goo",
+                                new ToweringGoo(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        TUNNELING_GOO = register("tunneling_goo",
+                                 new TunnelingGoo(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        BRIDGE_GOO = register("bridge_goo",
+                              new BridgeGoo(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
 
-        AIR_BOMB_GOO = registerCopy("air_goo_bomb", Blocks.GRAY_WOOL);
-        CHUNK_BOMB_GOO = registerCopy("chunk_goo_bomb", Blocks.GRAY_WOOL);
-        LAVA_PUMP_GOO = registerCopy("lava_pump_goo", Blocks.GRAY_WOOL);
-        STONE_BOMB_GOO = registerCopy("stone_goo_bomb", Blocks.GRAY_WOOL);
-        WATER_PUMP_GOO = registerCopy("water_pump_goo", Blocks.GRAY_WOOL);
+        AIR_BOMB_GOO = register("air_goo_bomb",
+                                new AirGooBomb(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        CHUNK_BOMB_GOO = register("chunk_goo_bomb",
+                                  new ChunkGooBomb(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        STONE_BOMB_GOO = register("stone_goo_bomb",
+                                  new StoneGooBomb(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+
+        LAVA_PUMP_GOO = register("lava_pump_goo",
+                                 new LavaPumpGoo(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
+        WATER_PUMP_GOO = register("water_pump_goo",
+                                  new WaterPumpGoo(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
         //endregion
         //region MACHINES
         ELEVATOR = registerCopy("elevator", Blocks.GRAY_WOOL);
@@ -308,103 +320,15 @@ public class ModBlocks
                                      new ChunkLoader(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL)));
         MINER = register("miner",
                                      new Miner(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)));
-        //TODO: Generate Custom Block Item(Use registerBlock and then manually register custom block item)
         ANGEL = register("block_angel",
-                         AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).strength(0.1f, 5000.0f));
+                         new AngelBlock(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).strength(0.1f, 5000.0f)),
+                         false);
         //endregion
 
-        AllBlocks = Registries.BLOCK.getEntrySet()
-                                  .stream()
-                                  .filter(key -> key.getKey().getValue().getNamespace().equals(ModID))
-                                  .map(Map.Entry::getValue)
-                                  .collect(Collectors.toList());
-
+        AllBlocks = getAllBlocks(ModID);
 
         BLACK_LIST.add(AIR_BOMB_GOO);
         BLACK_LIST.add(CHUNK_BOMB_GOO);
         BLACK_LIST.add(STONE_BOMB_GOO);
     }
-
-    //region HELPER METHODS
-    private static Block register(String name, Block block, boolean hasItem)
-    {
-        if(hasItem)
-            registerBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, identifier(name), block);
-    }
-
-    private static Block register(String name, boolean hasItem)
-    {
-        return register(name, new Block(AbstractBlock.Settings.create()), hasItem);
-    }
-
-    private static Block register(String name, AbstractBlock.Settings settings, boolean hasItem)
-    {
-        return register(name, new Block(settings), hasItem);
-    }
-
-    private static Block register(String name, AbstractBlock.Settings settings)
-    {
-        return register(name, new Block(settings), true);
-    }
-
-    private static Block register(String name, Block block)
-    {
-        return register(name, block, true);
-    }
-
-    private static Block register(String name)
-    {
-        return register(name, new Block(AbstractBlock.Settings.create()), true);
-    }
-
-    private static Block registerBlock(String name, Block block)
-    {
-        return register(name, block, false);
-    }
-
-    private static Block registerBlock(String name)
-    {
-        return register(name, new Block(AbstractBlock.Settings.create()), false);
-    }
-
-    private static Block registerCopy(String name, Block block, boolean hasItem)
-    {
-        return register(name, new Block(AbstractBlock.Settings.copy(block)), hasItem);
-    }
-
-    private static Block registerCopy(String name, Block block)
-    {
-        return register(name, new Block(AbstractBlock.Settings.copy(block)), true);
-    }
-
-    private static Block registerBlockCopy(String name, Block block)
-    {
-        return register(name, new Block(AbstractBlock.Settings.copy(block)), false);
-    }
-
-    private static Block register(String name, Block block, BlockItem blockItem)
-    {
-        Registry.register(Registries.ITEM, identifier(name), blockItem);
-        return Registry.register(Registries.BLOCK, identifier(name), block);
-    }
-
-    private static Block register(String name, BlockItem blockItem)
-    {
-        Registry.register(Registries.ITEM, identifier(name), blockItem);
-        return Registry.register(Registries.BLOCK, identifier(name), new Block(AbstractBlock.Settings.create()));
-    }
-
-    private static Block registerCopy(String name, Block block, BlockItem blockItem)
-    {
-        Registry.register(Registries.ITEM, identifier(name), blockItem);
-        return Registry.register(Registries.BLOCK, identifier(name), new Block(AbstractBlock.Settings.copy(block)));
-    }
-
-    private static void registerBlockItem(String name, Block block)
-    {
-        Registry.register(Registries.ITEM, identifier(name),
-                                        new BlockItem(block, new Item.Settings()));
-    }
-    //endregion
 }

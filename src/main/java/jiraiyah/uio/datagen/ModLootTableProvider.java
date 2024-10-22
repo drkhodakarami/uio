@@ -67,7 +67,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.RUBY);
         addDrop(ModBlocks.SAPPHIRE);
         //endregion
-
         //region RAW
         addDrop(ModBlocks.RAW_CITRINE);
         addDrop(ModBlocks.RAW_ENDERITE);
@@ -75,7 +74,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.RAW_RUBY);
         addDrop(ModBlocks.RAW_SAPPHIRE);
         //endregion
-
         //region SPECIAL BLOCKS
         addDrop(ModBlocks.CITRINE_STAIRS);
         addDrop(ModBlocks.CITRINE_SLAB, slabDrops(ModBlocks.CITRINE_SLAB));
@@ -117,7 +115,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.SAPPHIRE_DOOR, doorDrops(ModBlocks.CITRINE_DOOR));
         addDrop(ModBlocks.SAPPHIRE_TRAP_DOOR);
         //endregion
-
         //region ORE DROP
         addDrop(ModBlocks.ORE_DEEP_CITRINE,
                 customOreDrops(ModBlocks.ORE_DEEP_CITRINE, ModItems.RAW_CITRINE, 2.0f, 3.0f));
@@ -160,9 +157,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.ORE_ENDERITE,
                 customOreDrops(ModBlocks.ORE_ENDERITE, ModItems.RAW_ENDERITE, 1.0f, 2.0f));
         //endregion
-
         // Ore End Enderite --> TNT --> Ore Enderite Cracked --> Blast Furnace --> End Enderite --> pick axe --> raw enderite
-
         //region MACHINES
         addDrop(ModBlocks.ELEVATOR);
         addDrop(ModBlocks.REDSTONE_CLOCK);
@@ -189,10 +184,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.BATTERY_BANK);
         addDrop(ModBlocks.MINER);
         //endregion
-
         addDrop(ModBlocks.CARROT_BOX);
         addDrop(ModBlocks.POTATO_BOX);
-
         //region GOO
         addDrop(ModBlocks.BRIDGE_GOO);
         addDrop(ModBlocks.CHUNK_GOO);

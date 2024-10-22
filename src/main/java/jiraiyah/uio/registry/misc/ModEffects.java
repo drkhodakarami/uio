@@ -36,14 +36,14 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModEffects
 {
-    public static RegistryEntry<StatusEffect> FLIGHT_EFFECT;
-
-    public ModEffects()
+    ModEffects()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    public static RegistryEntry<StatusEffect> FLIGHT_EFFECT;
+
+    public static void init()
     {
         log("Registering Effects");
 

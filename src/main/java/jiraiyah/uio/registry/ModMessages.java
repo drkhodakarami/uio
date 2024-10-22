@@ -37,7 +37,7 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModMessages
 {
-    public ModMessages()
+    ModMessages()
     {
         throw new AssertionError();
     }

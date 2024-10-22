@@ -52,6 +52,6 @@ public class Client implements ClientModInitializer
 
         ModMessages.registerS2CPackets();
 
-        ModModelPredicateProvider.register();
+        ModModelPredicateProvider.init();
     }
 }

@@ -33,14 +33,14 @@ import static jiraiyah.uio.Reference.*;
 
 public class ModItemGroups
 {
-    public static ItemGroup BLOCKS, INGREDIENTS, MACHINES, TOOLS, ARMORS, MISC;
-
-    public ModItemGroups()
+    ModItemGroups()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    public static ItemGroup BLOCKS, INGREDIENTS, MACHINES, TOOLS, ARMORS, MISC;
+
+    public static void init()
     {
         log("Registering Item Groups");
 

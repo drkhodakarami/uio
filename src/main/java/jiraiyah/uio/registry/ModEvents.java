@@ -32,9 +32,9 @@ import static jiraiyah.uio.Reference.log;
 
 public class ModEvents
 {
-    public ModEvents() { throw new AssertionError(); }
+    ModEvents() { throw new AssertionError(); }
 
-    public static void register()
+    public static void init()
     {
         log("Registering Events");
 

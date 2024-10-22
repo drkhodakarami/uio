@@ -1,21 +1,24 @@
 package jiraiyah.uio.block;
 
+import jiraiyah.uio.registry.ModItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
-//TODO : Create Block Item Class
-//TODO : Create Model
-//TODO : Create Block Recipe
-//TODO : Handle Block Entity
-//TODO : Add GUI
-//TODO : Add Custom Recipe
-//TODO : Add Custom Recipe Datagen
-
-// Ideas :
-// - A block that can be placed in void without any blocks around it
 public class AngelBlock extends Block
 {
     public AngelBlock(Settings settings)
     {
         super(settings);
+    }
+
+    @Override
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player)
+    {
+        if(!player.isCreative())
+            player.getInventory().insertStack(ModItems.ANGEL_BLOCK_ITEM.getDefaultStack());
+        return super.onBreak(world, pos, state, player);
     }
 }

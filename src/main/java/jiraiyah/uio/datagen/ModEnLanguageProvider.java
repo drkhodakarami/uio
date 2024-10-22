@@ -330,6 +330,7 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModItems.ARMOR_SAPPHIRE_CHESTPLATE, "Sapphire Chestplate");
         builder.add(ModItems.ARMOR_SAPPHIRE_LEGGINGS, "Sapphire Leggings");
         builder.add(ModItems.ARMOR_SAPPHIRE_BOOTS, "Sapphire Boots");
+        builder.add(ModItems.ANGEL_BLOCK_ITEM, "Angel Block");
 
         builder.add(ModBlocks.CITRINE, "Citrine Block");
         builder.add(ModBlocks.ENDERITE, "Enderite Block");
@@ -430,7 +431,7 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModBlocks.STONE_BOMB_GOO, "Stone Bomb Goo");
 
         builder.add(ModBlocks.ELEVATOR, "Elevator");
-        builder.add(ModBlocks.ANGEL, "Angel Block");
+        //builder.add(ModBlocks.ANGEL, "Angel Block");
         builder.add(ModBlocks.REDSTONE_CLOCK, "Redstone Clock");
         builder.add(ModBlocks.ALLOY_MIXER, "Alloy Mixer");
         builder.add(ModBlocks.CAST_PRESS, "Cast Press");

@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "activated=false": {
       "model": "uio:block/redstone_clock"
+    },
+    "activated=true": {
+      "model": "uio:block/redstone_clock_on"
     }
   }
 }
