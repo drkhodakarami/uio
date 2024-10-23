@@ -44,10 +44,11 @@ public class Registers
         public static <T extends Block> T register(String name, T block, boolean hasItem)
         {
             if (hasItem)
-                registerBlockItem(name, block);
+                Items.registerBlockItem(name, new BlockItem(block, new Item.Settings()));
             return Registry.register(Registries.BLOCK, identifier(name), block);
         }
 
+        //region OVERLOADS & HELPERS
         public static <T extends Block> T register(String name, T block)
         {
             return register(name, block, true);
@@ -60,8 +61,8 @@ public class Registers
 
         public static <T extends Block> T register(String name, T block, BlockItem blockItem)
         {
-            Registry.register(Registries.ITEM, identifier(name), blockItem);
-            return Registry.register(Registries.BLOCK, identifier(name), block);
+            Items.register(name, blockItem);
+            return register(name, block);
         }
 
         public static Block register(String name, boolean hasItem)
@@ -86,9 +87,8 @@ public class Registers
 
         public static Block register(String name, BlockItem blockItem)
         {
-            Registry.register(Registries.ITEM, identifier(name), blockItem);
-            return Registry.register(Registries.BLOCK, identifier(name),
-                                     new Block(AbstractBlock.Settings.create()));
+            Items.register(name, blockItem);
+            return register(name, new Block(AbstractBlock.Settings.create()));
         }
 
         public static Block registerBlock(String name)
@@ -113,25 +113,19 @@ public class Registers
 
         public static Block registerCopy(String name, Block block, BlockItem blockItem)
         {
-            Registry.register(Registries.ITEM, identifier(name), blockItem);
-            return Registry.register(Registries.BLOCK, identifier(name),
-                                     new Block(AbstractBlock.Settings.copy(block)));
-        }
-
-        public static void registerBlockItem(String name, Block block)
-        {
-            Registry.register(Registries.ITEM, identifier(name),
-                              new BlockItem(block, new net.minecraft.item.Item.Settings()));
+            Items.register(name, blockItem);
+            return register(name, new Block(AbstractBlock.Settings.copy(block)));
         }
 
         public static List<Block> getAllBlocks(String modID)
         {
             return Registries.BLOCK.getEntrySet()
-                            .stream()
-                            .filter(key -> key.getKey().getValue().getNamespace().equals(modID))
-                            .map(Map.Entry::getValue)
-                            .collect(Collectors.toList());
+                                   .stream()
+                                   .filter(key -> key.getKey().getValue().getNamespace().equals(modID))
+                                   .map(Map.Entry::getValue)
+                                   .collect(Collectors.toList());
         }
+        //endregion
     }
 
     public static class BlockEntities
@@ -159,30 +153,36 @@ public class Registers
             return Registry.register(Registries.ITEM, identifier(name), item);
         }
 
+        //region OVERLOADS & HELPERS
+        public static <T extends BlockItem> T registerBlockItem(String name, T item)
+        {
+            return register(name, item);
+        }
+
         public static Item register(String name)
         {
-            return Registry.register(Registries.ITEM, identifier(name),
-                                     new Item(new Item.Settings()));
+            return register(name, new Item(new Item.Settings()));
         }
 
         public static Item register(String name, Item.Settings settings)
         {
-            return Registry.register(Registries.ITEM, identifier(name), new Item(settings));
+            return register(name, new Item(settings));
         }
 
-        public static Item registerBlockItem(String name, BlockItem blockitem)
+        public static <T extends Block> BlockItem registerBlockItem(String name, T block)
         {
-            return Registry.register(Registries.ITEM, identifier(name),blockitem);
+            return register(name, new BlockItem(block, new Item.Settings()));
         }
 
         public static List<Item> getAllItems(String modID)
         {
             return Registries.ITEM.getEntrySet()
-                                   .stream()
-                                   .filter(key -> key.getKey().getValue().getNamespace().equals(modID))
-                                   .map(Map.Entry::getValue)
-                                   .collect(Collectors.toList());
+                                  .stream()
+                                  .filter(key -> key.getKey().getValue().getNamespace().equals(modID))
+                                  .map(Map.Entry::getValue)
+                                  .collect(Collectors.toList());
         }
+        //endregion
     }
 
     public static class Recipes

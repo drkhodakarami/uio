@@ -29,7 +29,13 @@
       "jiraiyah.uio.compat.jade.ModJadePlugin"
     ],
     "rei_client": [
-      "jiraiyah.uio.compat.rei.ModREIClientPlugin"
+      "jiraiyah.uio.compat.rei.ModREIPlugin"
+    ],
+    "emi": [
+      "jiraiyah.uio.compat.emi.ModEMIPlugin"
+    ],
+    "jei_mod_plugin": [
+      "jiraiyah.uio.compat.jei.ModJEIPlugin"
     ]
   },
   "mixins": [

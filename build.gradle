@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'fabric-loom' version '1.7-SNAPSHOT' //'1.8-SNAPSHOT' for 1.21.2
     id 'maven-publish'
 }
 
@@ -40,7 +40,28 @@ repositories {
     maven { url 'https://jitpack.io' }
 
     maven { url = "https://api.modrinth.com/maven" }
+
+    maven {
+        // location of the maven that hosts JEI files since January 2023
+        name = "Jared's maven"
+        url = "https://maven.blamejared.com/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
+    }
 }
+
+//loom {
+//    splitEnvironmentSourceSets()
+//    mods {
+//        "${archives_base_name}" {
+//            sourceSet sourceSets.main
+//            sourceSet sourceSets.client
+//        }
+//    }
+//}
 
 fabricApi {
     configureDataGeneration()
@@ -53,59 +74,72 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    // EMI Compatibility Dependency
-    modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
-    modLocalRuntime "dev.emi:emi-fabric:${emi_version}"
+    // Energy API Handling Dependency <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    //include modApi("teamreborn:energy:${project.energy_version}") {
+    //    exclude(group: "net.fabricmc.fabric-api")
+    //}
 
-    // REI Compatibility Dependency
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
+    // PAL <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    modImplementation "io.github.ladysnake:PlayerAbilityLib:${project.pal_version}"
+    include "io.github.ladysnake:PlayerAbilityLib:${project.pal_version}"
+
+    // LibGUI <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    //modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
+
+    // Terra Former Wood: Needed for Sign and Boat <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    //modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_version}"
+    //include "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_version}"
+
+    // Kyrptonaught <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    //modImplementation "net.kyrptonaught:customportalapi:${project.kyrptonaught_version}"
+    //include "net.kyrptonaught:customportalapi:${project.kyrptonaught_version}"
+
+    // EMI Compatibility <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    //modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
+
+    // REI Compatibility <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    //modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${project.rei_version}"
     //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 
-    // Cloth Config Compatibility Dependency
+    // JEI Compatibility <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    //modCompileOnlyApi("mezz.jei:jei-${project.jei_mc_version}-fabric-api:${project.jei_version}")
+    //modRuntimeOnly("mezz.jei:jei-${project.jei_mc_version}-fabric:${project.jei_version}")
+
+    // Jade
+    modImplementation "curse.maven:jade-324717:${project.jade_version}"
+
+    // Mod Menu
+    modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
+
+    // Mod Menu Badges Lib <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    include(modImplementation("maven.modrinth:modmenu-badges-lib:${badges_lib_version}"))
+
+    // Fluid Utils:Needed for Fluid Handling
+    //modImplementation include("com.github.drkhodakarami:fluidutils:${project.fluidutils_version}")
+
+    // Cloth Config
     //modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}") {
     //    exclude(group: "net.fabricmc.fabric-api")
     //}
 
-    // Architectury Compatibility Dependency
+    // Architectury
     //modApi "dev.architectury:architectury-fabric:${project.architectury_version}"
 
-    // Energy API Handling Dependency
-    include modApi("teamreborn:energy:${project.energy_version}") {
-        exclude(group: "net.fabricmc.fabric-api")
-    }
-    // Tech Reborn Mod for Testing
-    //modImplementation("curse.maven:reborncore-237903:${project.reborn_curse_version}")
-    //modImplementation("curse.maven:techreborn-233564:${project.tech_reborn_version}")
+    // TerraBlender
+    //modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_mc_version}-${project.terrablender_version}"
 
-    // Needed for LibGUI
-    modImplementation include("io.github.cottonmc:LibGui:${project.libgui_version}")
+    // Tech Reborn Runtime Only
+    //modRuntimeOnly("curse.maven:reborncore-237903:${project.reborn_curse_version}")
+    //modRuntimeOnly("curse.maven:techreborn-233564:${project.tech_reborn_version}")
 
-    // Needed for Sign and Boat
-    modImplementation "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_version}"
-    include "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_version}"
+    // EMI Runtime Only
+    //modLocalRuntime "dev.emi:emi-fabric:${emi_version}"
 
-    // TerraBlender Needed for Custom Biomes
-    modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_version}"
+    // REI Runtime Only
+    //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 
-    // Kyrptonaught is Needed for custom portals
-    modImplementation "net.kyrptonaught:customportalapi:${project.kyrptonaught_version}"
-    include "net.kyrptonaught:customportalapi:${project.kyrptonaught_version}"
-
-    // Needed for Fluid Handling
-    //modImplementation include("com.github.drkhodakarami:fluidutils:${project.fluidutils_version}")
-
-    // Needed for Custom Player Effects
-    modImplementation "io.github.ladysnake:PlayerAbilityLib:${project.pal_version}"
-    include "io.github.ladysnake:PlayerAbilityLib:${project.pal_version}"
-
-    // to get the latest jade
-    modImplementation "curse.maven:jade-324717:${project.jade_version}"
-
-    // Mod Menu Dependency
-    modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
-
-    // Mod Menu Badges Lib
-    include(modImplementation("maven.modrinth:modmenu-badges-lib:${badges_lib_version}"))
+    // JEI Runtime Only
+    //modRuntimeOnly("mezz.jei:jei-${project.jei_mc_version}-fabric:${project.jei_version}")
 }
 
 processResources {

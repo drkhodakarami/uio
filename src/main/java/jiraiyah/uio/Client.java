@@ -50,6 +50,8 @@ public class Client implements ClientModInitializer
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SAPPHIRE_TRAP_DOOR, RenderLayer.getCutout());
         //endregion
 
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TESSERACT, RenderLayer.getTranslucent());
+
         ModMessages.registerS2CPackets();
 
         ModModelPredicateProvider.init();

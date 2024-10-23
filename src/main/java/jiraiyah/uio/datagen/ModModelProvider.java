@@ -187,7 +187,7 @@ public class ModModelProvider extends FabricModelProvider
         generator.registerSimpleState(ModBlocks.TESSERACT);
         generator.registerSimpleState(ModBlocks.PRINTER);
         generator.registerSimpleState(ModBlocks.ANIMAL_FEED);
-        generator.registerSimpleState(ModBlocks.SOLAR_PANEL);
+        generator.registerNorthDefaultHorizontalRotation(ModBlocks.SOLAR_PANEL);
         //endregion
     }
 

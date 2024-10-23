@@ -8,6 +8,7 @@
 	},
 	"elements": [
 		{
+			"name": "base",
 			"from": [2, 0, 3],
 			"to": [14, 1, 13],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 3, 8]},
@@ -21,6 +22,7 @@
 			}
 		},
 		{
+			"name": "column",
 			"from": [7, 1, 7],
 			"to": [9, 10.3, 9],
 			"rotation": {"angle": 0, "axis": "y", "origin": [5, 10, 10]},
@@ -34,6 +36,7 @@
 			}
 		},
 		{
+			"name": "connector_south",
 			"from": [7.5, 7.5, 8.95],
 			"to": [8.5, 8.5, 15.949],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
@@ -47,6 +50,7 @@
 			}
 		},
 		{
+			"name": "pad_south",
 			"from": [6.5, 6.5, 15.5],
 			"to": [9.5, 9.5, 16],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
@@ -60,6 +64,7 @@
 			}
 		},
 		{
+			"name": "connector_west",
 			"from": [0.02, 7.5, 7.5],
 			"to": [7.019, 8.5, 8.5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
@@ -73,6 +78,7 @@
 			}
 		},
 		{
+			"name": "pad_west",
 			"from": [0, 6.5, 6.5],
 			"to": [0.5, 9.5, 9.5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
@@ -86,6 +92,7 @@
 			}
 		},
 		{
+			"name": "connector_east",
 			"from": [8.95, 7.5, 7.5],
 			"to": [15.949, 8.5, 8.5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
@@ -99,6 +106,7 @@
 			}
 		},
 		{
+			"name": "pad_east",
 			"from": [15.5, 6.5, 6.5],
 			"to": [16, 9.5, 9.5],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
@@ -112,6 +120,7 @@
 			}
 		},
 		{
+			"name": "hing",
 			"from": [4.001, 9.86036, 7.78256],
 			"to": [12.001, 11.86036, 9.78256],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8.001, 9.82899, 8.69555]},
@@ -125,6 +134,7 @@
 			}
 		},
 		{
+			"name": "panel",
 			"from": [1.001, 11.27547, 3.05745],
 			"to": [15.001, 12.02547, 15.05745],
 			"rotation": {"angle": -45, "axis": "x", "origin": [8.001, 9.82899, 8.69555]},
@@ -161,19 +171,20 @@
 		},
 		"ground": {
 			"translation": [0, 3, 0],
-			"scale": [0.4, 0.4, 0.4]
+			"scale": [0.35, 0.35, 0.35]
 		},
 		"gui": {
 			"rotation": [30, 225, 0],
 			"scale": [0.625, 0.625, 0.625]
 		},
 		"fixed": {
+			"rotation": [-19, 0, 0],
 			"scale": [0.5, 0.5, 0.5]
 		}
 	},
 	"groups": [
 		{
-			"name": "solar_panel",
+			"name": "main_root",
 			"origin": [8, 8, 8],
 			"color": 0,
 			"children": [
@@ -185,19 +196,19 @@
 						0,
 						1,
 						{
-							"name": "connection_s",
+							"name": "connection_south",
 							"origin": [0, 0, 0],
 							"color": 0,
 							"children": [2, 3]
 						},
 						{
-							"name": "connection_w",
+							"name": "connection_west",
 							"origin": [0, 0, 0],
 							"color": 0,
 							"children": [4, 5]
 						},
 						{
-							"name": "connection_e",
+							"name": "connection_east",
 							"origin": [0, 0, 0],
 							"color": 0,
 							"children": [6, 7]

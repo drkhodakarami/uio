@@ -51,7 +51,8 @@ public class AnimalFeed extends AbstractMachineBlock
             VoxelShapes.cuboid(0, 0.125, 0.9375, 0.0625, 0.375, 1),
             VoxelShapes.cuboid(0.9375, 0.125, 0.9375, 1, 0.375, 1),
             VoxelShapes.cuboid(0.9375, 0.125, 0, 1, 0.375, 0.0625),
-            VoxelShapes.cuboid(0.0628125, 0.3125, 0.0628125, 0.9371875000000001, 0.375, 0.9371875000000001));
+            VoxelShapes.cuboid(0.0628125, 0.3125, 0.0628125, 0.9371875000000001, 0.375, 0.9371875000000001))
+                       .simplify();;
 
     public AnimalFeed(Settings settings)
     {
