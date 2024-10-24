@@ -24,81 +24,37 @@
 
 package jiraiyah.uio.registry.misc;
 
-import com.google.common.base.Suppliers;
-import jiraiyah.uio.registry.ModItems;
-import net.minecraft.block.Block;
+import jiraiyah.uio.Reference.Tags;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.TagKey;
 
-import java.util.function.Supplier;
-
-import static jiraiyah.uio.Reference.Tags.Block.INCORRECT_FOR_ENDERITE_TOOL;
-
-public enum ModToolMaterials implements ToolMaterial
+public class ModToolMaterials
 {
-    CITRINE(BlockTags.INCORRECT_FOR_IRON_TOOL, 1000, 10.0f, 3.0f, 0,
-            () -> Ingredient.ofItems(ModItems.PLATE_CITRINE)),
-    COPPER(BlockTags.INCORRECT_FOR_IRON_TOOL, 500, 6.0f, 1.0f, 0,
-           () -> Ingredient.ofItems(ModItems.PLATE_COPPER)),
-    ENDERITE(INCORRECT_FOR_ENDERITE_TOOL, 3000, 24.0f, 15.0f, 0,
-             () -> Ingredient.ofItems(ModItems.PLATE_ENDERITE)),
-    RUBY(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 2000, 12.0f, 4.0f, 0,
-         () -> Ingredient.ofItems(ModItems.PLATE_RUBY)),
-    SAPPHIRE(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 2000, 12.0f, 4.0f, 0,
-             () -> Ingredient.ofItems(ModItems.PLATE_SAPPHIRE));
-
-    private final TagKey<Block> inverseTag;
-    private final int itemDurability;
-    private final float miningSpeed;
-    private final float attackDamage;
-    private final int enchantability;
-    private final Supplier<Ingredient> repairIngredient;
-
-    ModToolMaterials(TagKey<Block> inverseTag, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient)
+    public ModToolMaterials()
     {
-        this.inverseTag = inverseTag;
-        this.itemDurability = itemDurability;
-        this.miningSpeed = miningSpeed;
-        this.attackDamage = attackDamage;
-        this.enchantability = enchantability;
-        this.repairIngredient = Suppliers.memoize(repairIngredient::get);
+        throw new AssertionError();
     }
 
-    @Override
-    public int getDurability()
-    {
-        return itemDurability;
-    }
+    public static ToolMaterial CITRINE, COPPER, ENDERITE, RUBY, SAPPHIRE;
 
-    @Override
-    public float getMiningSpeedMultiplier()
+    //TODO: Tool Materials Changed to Record in 1.21.2
+    //I: Durability : Wood: 59, Stone: 131, Iron: 250, Diamond: 1561, Gold: 32, Netherite: 2031
+    //F: Mining Speed: Wood: 2.0f, Stone: 4.0f, Iron: 6.0f, Diamond: 8.0f, Gold: 12.0f, Netherite: 9.0f
+    //G: Attack Damage: Wood: 0.0f, Stone: 1.0f, Iron: 2.0f, Diamond: 3.0f, Gold: 0.0f, Netherite: 4.0f
+    //J: Enchantability: Wood: 15, Stone: 5, Iron: 14, Diamond: 10, Gold: 22, Netherite: 15
+    //Enchantability can't be 0 any more, take a look at Item Tag Provider Datagen
+    //TODO: Repair Item now works using tags!
+    public static void init()
     {
-        return miningSpeed;
-    }
-
-    @Override
-    public float getAttackDamage()
-    {
-        return attackDamage;
-    }
-
-    @Override
-    public TagKey<Block> getInverseTag()
-    {
-        return inverseTag;
-    }
-
-    @Override
-    public int getEnchantability()
-    {
-        return enchantability;
-    }
-
-    @Override
-    public Ingredient getRepairIngredient()
-    {
-        return repairIngredient.get();
+        CITRINE = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 1000, 10.0f, 3.0f, 22,
+                                   Tags.Item.REPAIRS_CITRINE_TOOL);
+        COPPER = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 500, 6.0f, 1.0f, 14,
+                                  Tags.Item.REPAIRS_COPPER_TOOL);
+        ENDERITE = new ToolMaterial(Tags.Block.INCORRECT_FOR_ENDERITE_TOOL, 3000, 24.0f, 15.0f, 32,
+                                    Tags.Item.REPAIRS_ENDERITE_TOOL);
+        RUBY = new ToolMaterial(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 2000, 12.0f, 4.0f, 22,
+                                Tags.Item.REPAIRS_RUBY_TOOL);
+        SAPPHIRE = new ToolMaterial(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 2000, 12.0f, 4.0f, 22,
+                                    Tags.Item.REPAIRS_SAPPHIRE_TOOL);
     }
 }

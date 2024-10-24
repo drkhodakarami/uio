@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:tesseract"
+          "name": "minecraft:tesseract"
         }
       ],
       "rolls": 1.0

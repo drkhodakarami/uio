@@ -27,14 +27,11 @@ package jiraiyah.uio.item;
 import jiraiyah.uio.registry.misc.ModDataComponentTypes;
 import jiraiyah.uio.util.record.CoordinateData;
 import net.minecraft.component.DataComponentTypes;
-import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtHelper;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.MinecraftServer;
@@ -42,7 +39,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.TeleportTarget;
@@ -98,8 +94,9 @@ public class PlayerTeleporter extends Item
         return ActionResult.SUCCESS;
     }
 
+    //TODO: Return of Action Result in 1.21.2
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
+    public ActionResult use(World world, PlayerEntity user, Hand hand)
     {
         @Nullable var data = user.getStackInHand(hand).get(ModDataComponentTypes.COORDINATE);
 
@@ -124,9 +121,10 @@ public class PlayerTeleporter extends Item
                                                            user.getPitch(),
                                                            TeleportTarget.NO_OP);
                 if(user.getWorld().getRegistryKey().equals(storedKey))
-                    ((ServerPlayerEntity) user).networkHandler.requestTeleport(target.pos().getX(),
-                                                                               target.pos().getY(),
-                                                                               target.pos().getZ(),
+                    //TODO: pos() -> position()
+                    ((ServerPlayerEntity) user).networkHandler.requestTeleport(target.position().getX(),
+                                                                               target.position().getY(),
+                                                                               target.position().getZ(),
                                                                                target.yaw(),
                                                                                target.pitch());
                 else

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "I": {
-      "item": "uio:reinforced_emerald"
-    }
+    "I": "uio:reinforced_emerald"
   },
   "pattern": [
     "I I",

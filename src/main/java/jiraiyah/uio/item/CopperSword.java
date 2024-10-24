@@ -34,9 +34,9 @@ import net.minecraft.item.ToolMaterial;
 
 public class CopperSword extends SwordItem
 {
-    public CopperSword(ToolMaterial toolMaterial, Settings settings)
+    public CopperSword(ToolMaterial toolMaterial, float attackDamage, float attackSpeed, Settings settings)
     {
-        super(toolMaterial, settings);
+        super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
     @Override

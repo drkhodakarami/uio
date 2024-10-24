@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:chunk_goo"
+          "name": "minecraft:chunk_goo"
         }
       ],
       "rolls": 1.0

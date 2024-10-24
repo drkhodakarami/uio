@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "uio:gem_sapphire"
-  },
+  "ingredient": "uio:gem_sapphire",
   "result": {
     "count": 18,
     "id": "uio:block_sapphire_slab"

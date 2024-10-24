@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "uio:cooked_egg"
-    },
-    {
-      "item": "minecraft:bread"
-    }
+    "uio:cooked_egg",
+    "minecraft:bread"
   ],
   "result": {
     "count": 1,

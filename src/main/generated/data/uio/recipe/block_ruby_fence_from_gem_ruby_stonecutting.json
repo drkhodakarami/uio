@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "uio:gem_ruby"
-  },
+  "ingredient": "uio:gem_ruby",
   "result": {
     "count": 9,
     "id": "uio:block_ruby_fence"

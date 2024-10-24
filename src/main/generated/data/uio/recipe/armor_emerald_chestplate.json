@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "G": {
-      "item": "uio:gear_emerald"
-    },
-    "I": {
-      "item": "uio:reinforced_emerald"
-    }
+    "G": "uio:gear_emerald",
+    "I": "uio:reinforced_emerald"
   },
   "pattern": [
     "IGI",

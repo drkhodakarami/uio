@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "C": {
-      "item": "minecraft:chest"
-    },
-    "L": {
-      "item": "minecraft:leather"
-    }
+    "C": "minecraft:chest",
+    "L": "minecraft:leather"
   },
   "pattern": [
     "LLL",

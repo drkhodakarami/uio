@@ -1,15 +1,15 @@
 {
   "values": [
-    "uio:tool_citrine_hammer",
-    "uio:tool_copper_hammer",
-    "uio:tool_enderite_hammer",
-    "uio:tool_ruby_hammer",
-    "uio:tool_sapphire_hammer",
-    "uio:tool_diamond_hammer",
-    "uio:tool_gold_hammer",
-    "uio:tool_iron_hammer",
-    "uio:tool_netherite_hammer",
-    "uio:tool_stone_hammer",
-    "uio:tool_wood_hammer"
+    "minecraft:tool_citrine_hammer",
+    "minecraft:tool_copper_hammer",
+    "minecraft:tool_enderite_hammer",
+    "minecraft:tool_ruby_hammer",
+    "minecraft:tool_sapphire_hammer",
+    "minecraft:tool_diamond_hammer",
+    "minecraft:tool_gold_hammer",
+    "minecraft:tool_iron_hammer",
+    "minecraft:tool_netherite_hammer",
+    "minecraft:tool_stone_hammer",
+    "minecraft:tool_wood_hammer"
   ]
 }

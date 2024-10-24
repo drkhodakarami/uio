@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "E": {
-      "item": "uio:tool_tuner"
-    },
-    "I": {
-      "item": "uio:ender_charm"
-    },
-    "P": {
-      "item": "uio:hot_coal"
-    }
+    "E": "uio:tool_tuner",
+    "I": "uio:ender_charm",
+    "P": "uio:hot_coal"
   },
   "pattern": [
     "PIP",

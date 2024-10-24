@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:block_citrine_stairs"
+          "name": "minecraft:block_citrine_stairs"
         }
       ],
       "rolls": 1.0

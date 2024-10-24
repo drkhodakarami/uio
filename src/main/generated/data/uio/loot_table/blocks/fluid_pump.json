@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:fluid_pump"
+          "name": "minecraft:fluid_pump"
         }
       ],
       "rolls": 1.0

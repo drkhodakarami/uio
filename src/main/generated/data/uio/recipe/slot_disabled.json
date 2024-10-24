@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "R": {
-      "item": "minecraft:redstone"
-    },
-    "S": {
-      "item": "uio:plate_stone"
-    },
-    "W": {
-      "item": "minecraft:lapis_lazuli"
-    }
+    "R": "minecraft:redstone",
+    "S": "uio:plate_stone",
+    "W": "minecraft:lapis_lazuli"
   },
   "pattern": [
     "   ",

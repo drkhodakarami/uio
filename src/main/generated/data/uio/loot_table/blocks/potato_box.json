@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:potato_box"
+          "name": "minecraft:potato_box"
         }
       ],
       "rolls": 1.0

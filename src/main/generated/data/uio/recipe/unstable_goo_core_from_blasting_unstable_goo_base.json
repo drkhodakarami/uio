@@ -4,9 +4,7 @@
   "cookingtime": 2400,
   "experience": 2.0,
   "group": "unstable_goo",
-  "ingredient": {
-    "item": "uio:unstable_goo_base"
-  },
+  "ingredient": "uio:unstable_goo_base",
   "result": {
     "id": "uio:unstable_goo_core"
   }

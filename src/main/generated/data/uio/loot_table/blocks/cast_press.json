@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:cast_press"
+          "name": "minecraft:cast_press"
         }
       ],
       "rolls": 1.0

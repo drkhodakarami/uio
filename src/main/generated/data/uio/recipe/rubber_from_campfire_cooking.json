@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 2400,
   "experience": 0.1,
-  "ingredient": {
-    "item": "uio:raw_rubber"
-  },
+  "ingredient": "uio:raw_rubber",
   "result": {
     "id": "uio:rubber"
   }

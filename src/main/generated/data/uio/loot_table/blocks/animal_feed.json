@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:animal_feed"
+          "name": "minecraft:animal_feed"
         }
       ],
       "rolls": 1.0

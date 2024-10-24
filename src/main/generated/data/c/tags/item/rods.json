@@ -1,12 +1,12 @@
 {
   "values": [
-    "uio:rod_copper",
-    "uio:rod_enderite",
-    "uio:rod_glowstone",
-    "uio:rod_gold",
-    "uio:rod_iron",
-    "uio:rod_obsidian",
-    "uio:rod_redstone",
-    "uio:rod_shulker"
+    "minecraft:rod_copper",
+    "minecraft:rod_enderite",
+    "minecraft:rod_glowstone",
+    "minecraft:rod_gold",
+    "minecraft:rod_iron",
+    "minecraft:rod_obsidian",
+    "minecraft:rod_redstone",
+    "minecraft:rod_shulker"
   ]
 }

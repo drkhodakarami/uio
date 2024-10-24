@@ -13,8 +13,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
@@ -31,22 +31,26 @@ public class ChaliceItem extends Item
         super(settings);
     }
 
+    //TODO: Return of Action Result in 1.21.2
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
+    public ActionResult use(World world, PlayerEntity user, Hand hand)
     {
         ItemStack itemStack = user.getStackInHand(hand);
         BlockHitResult blockHitResult = raycast(world, user, RaycastContext.FluidHandling.NONE);
 
         if (blockHitResult.getType() == HitResult.Type.MISS ||
             blockHitResult.getType() != HitResult.Type.BLOCK)
-            return TypedActionResult.pass(itemStack);
+            //TODO: Return of Action Result in 1.21.2
+            //We didn't change the item in hand so this is enough for everywhere in this class
+            return ActionResult.PASS;
 
         BlockPos origin = blockHitResult.getBlockPos();
         Direction direction = blockHitResult.getSide();
         BlockPos offset = origin.offset(direction);
 
         if (!world.canPlayerModifyAt(user, origin) || !user.canPlaceOn(offset, direction, itemStack))
-            return TypedActionResult.fail(itemStack);
+            //TODO: Return of Action Result in 1.21.2
+            return ActionResult.FAIL;
 
         BlockState originalBS = world.getBlockState(origin);
         BlockPos finalPos = originalBS.getBlock() instanceof FluidFillable ? origin : offset;
@@ -56,9 +60,11 @@ public class ChaliceItem extends Item
             if (user instanceof ServerPlayerEntity)
                 Criteria.PLACED_BLOCK.trigger((ServerPlayerEntity)user, finalPos, itemStack);
             user.incrementStat(Stats.USED.getOrCreateStat(this));
-            return TypedActionResult.success(itemStack, world.isClient());
+            //TODO: Return of Action Result in 1.21.2
+            return ActionResult.SUCCESS;
         }
-        return TypedActionResult.fail(itemStack);
+        //TODO: Return of Action Result in 1.21.2
+        return ActionResult.FAIL;
     }
 
     private boolean placeFluid(@Nullable PlayerEntity player, World world, BlockPos pos, @Nullable BlockHitResult hitResult)
@@ -98,10 +104,13 @@ public class ChaliceItem extends Item
             int i = pos.getX();
             int j = pos.getY();
             int k = pos.getZ();
-            world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 0.5F, 2.6F + (world.random.nextFloat() - world.random.nextFloat()) * 0.8F);
+            world.playSound(player, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS,
+                            0.5F, 2.6F + (world.random.nextFloat() - world.random.nextFloat()) * 0.8F);
 
             for (int l = 0; l < 8; l++)
-                world.addParticle(ParticleTypes.LARGE_SMOKE, (double) i + Math.random(), (double) j + Math.random(), (double) k + Math.random(), 0.0, 0.0, 0.0);
+                world.addParticle(ParticleTypes.LARGE_SMOKE,
+                                  (double) i + Math.random(), (double) j + Math.random(), (double) k + Math.random(),
+                                  0.0, 0.0, 0.0);
 
             return true;
         }
@@ -114,7 +123,7 @@ public class ChaliceItem extends Item
             return true;
         }
 
-        if (!world.isClient && canPlace && world.getFluidState(pos).isEmpty()) //targetBS.isLiquid()
+        if (!world.isClient && canPlace && world.getFluidState(pos).isEmpty())
             world.breakBlock(pos, true);
 
         if (!world.setBlockState(pos, Fluids.WATER.getDefaultState().getBlockState(), Block.NOTIFY_ALL_AND_REDRAW) &&

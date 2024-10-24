@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "G": {
-      "item": "uio:gear_enderite"
-    },
-    "I": {
-      "item": "uio:reinforced_enderite"
-    }
+    "G": "uio:gear_enderite",
+    "I": "uio:reinforced_enderite"
   },
   "pattern": [
     "IGI",

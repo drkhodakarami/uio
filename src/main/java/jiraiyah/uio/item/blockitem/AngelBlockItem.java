@@ -4,9 +4,8 @@ import jiraiyah.uio.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -17,8 +16,9 @@ public class AngelBlockItem extends BlockItem
         super(block, settings);
     }
 
+    //TODO: Return of Action Result for 1.21.2
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
+    public ActionResult use(World world, PlayerEntity user, Hand hand)
     {
         if(world.isClient)
             return super.use(world, user, hand);

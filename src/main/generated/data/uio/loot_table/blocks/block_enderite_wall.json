@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:block_enderite_wall"
+          "name": "minecraft:block_enderite_wall"
         }
       ],
       "rolls": 1.0

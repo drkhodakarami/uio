@@ -3,19 +3,17 @@ package jiraiyah.uio.event;
 import jiraiyah.uio.registry.ModItems;
 import jiraiyah.uio.registry.misc.ModDataComponentTypes;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtHelper;
 import net.minecraft.network.packet.s2c.play.PositionFlag;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Reference.Constants;
 import static jiraiyah.uio.Reference.Tags.Entity.TUNER_BLACKLIST;
+import static jiraiyah.uio.Reference.translate;
 
 public class UseEntityCallbackListener
 {
@@ -45,8 +43,11 @@ public class UseEntityCallbackListener
                             var userDimension = player.getWorld().getRegistryKey().getValue().toString();
                             if (dimension.equalsIgnoreCase(userDimension))
                             {
-                                entity.teleport((ServerWorld) entity.getWorld(), entity.getX(), pos.getY() + 1, entity.getZ(),
-                                                PositionFlag.VALUES, entity.getYaw(), entity.getPitch());
+                                //TODO: Use of server world for 1.21.2
+                                //TODO: Teleport now asks for boolean at the end (resetCamera)
+                                if(entity.getWorld() instanceof ServerWorld sw)
+                                    entity.teleport(sw , entity.getX(), pos.getY() + 1, entity.getZ(),
+                                                    PositionFlag.VALUES, entity.getYaw(), entity.getPitch(), false);
                                 entity.refreshPositionAfterTeleport(pos.getX(), pos.getY() + 1, pos.getZ());
                                 return ActionResult.SUCCESS;
                             }

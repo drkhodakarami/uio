@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "G": {
-      "item": "uio:gear_sapphire"
-    },
-    "I": {
-      "item": "uio:reinforced_sapphire"
-    }
+    "G": "uio:gear_sapphire",
+    "I": "uio:reinforced_sapphire"
   },
   "pattern": [
     "III",

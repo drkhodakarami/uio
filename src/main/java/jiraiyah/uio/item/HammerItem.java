@@ -1,14 +1,10 @@
 package jiraiyah.uio.item;
 
 import jiraiyah.uio.Configs;
-import jiraiyah.uio.Reference;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MiningToolItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtHelper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
@@ -16,23 +12,36 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Reference.Constants;
+import static jiraiyah.uio.Reference.translate;
 
 public class HammerItem extends MiningToolItem
 {
-    private final int depth;
-    private final int radius;
+    private int depth;
+    private int radius;
 
-    public HammerItem(ToolMaterial material, int depth, int radius, Settings settings)
+    //TODO: Change of ctor
+    public HammerItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings)
     {
-        super(material, BlockTags.PICKAXE_MINEABLE, settings);
+        super(material, BlockTags.PICKAXE_MINEABLE, attackDamage,attackSpeed,settings);
         this.depth = depth / 2;
         this.radius = radius - 1;
+    }
+
+    public HammerItem setDepth(int depth)
+    {
+        this.depth = depth / 2;
+        return this;
+    }
+
+    public HammerItem setRadius(int depth)
+    {
+        this.radius = radius - 1;
+        return this;
     }
 
     public int getDepth()

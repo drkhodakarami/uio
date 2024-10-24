@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": {
-      "item": "minecraft:clock"
-    },
-    "E": {
-      "tag": "minecraft:wool"
-    },
-    "R": {
-      "item": "minecraft:redstone_block"
-    }
+    "C": "minecraft:clock",
+    "E": "#minecraft:wool",
+    "R": "minecraft:redstone_block"
   },
   "pattern": [
     "EEE",

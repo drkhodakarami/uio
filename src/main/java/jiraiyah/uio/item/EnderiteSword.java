@@ -11,13 +11,12 @@ import net.minecraft.world.World;
 import java.util.List;
 
 import static jiraiyah.uio.Reference.Tags.Entity.ENDERITE_SWORD_BLACKLIST;
-import static jiraiyah.uio.Reference.logN;
 
 public class EnderiteSword extends SwordItem
 {
-    public EnderiteSword(ToolMaterial toolMaterial, Settings settings)
+    public EnderiteSword(ToolMaterial toolMaterial, float attackDamage, float attackSpeed, Settings settings)
     {
-        super(toolMaterial, settings);
+        super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
     @Override
@@ -26,12 +25,17 @@ public class EnderiteSword extends SwordItem
         World world = attacker.getWorld();
         if(world.isClient || target.getType().isIn(ENDERITE_SWORD_BLACKLIST))
             return false;
-        List<LivingEntity> targets = world.getNonSpectatingEntities(LivingEntity.class, target.getBoundingBox().expand(2.0, 0.25, 2.0));
+        List<LivingEntity> targets = world.getNonSpectatingEntities(LivingEntity.class,
+                                                                    target.getBoundingBox().expand(2.0, 0.25, 2.0));
         for(LivingEntity entity : targets)
         {
-            entity.kill();
-            ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY
-                    .invoker().afterKilledOtherEntity((ServerWorld) world,attacker, entity);
+            //TODO: Usage of server world in new version
+            if(target.getWorld() instanceof ServerWorld sw)
+            {
+                entity.kill(sw);
+                ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY
+                        .invoker().afterKilledOtherEntity(sw, attacker, entity);
+            }
         }
         return true;
     }

@@ -4,9 +4,7 @@
   "cookingtime": 4800,
   "experience": 3.0,
   "group": "red_alloy",
-  "ingredient": {
-    "item": "uio:dust_red_alloy"
-  },
+  "ingredient": "uio:dust_red_alloy",
   "result": {
     "id": "uio:ingot_alloy_red"
   }

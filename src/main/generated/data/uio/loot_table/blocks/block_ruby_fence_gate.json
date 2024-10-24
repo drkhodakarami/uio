@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:block_ruby_fence_gate"
+          "name": "minecraft:block_ruby_fence_gate"
         }
       ],
       "rolls": 1.0

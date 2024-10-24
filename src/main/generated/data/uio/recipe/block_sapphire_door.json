@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "redstone",
   "key": {
-    "#": {
-      "item": "uio:gem_sapphire"
-    }
+    "#": "uio:gem_sapphire"
   },
   "pattern": [
     "##",

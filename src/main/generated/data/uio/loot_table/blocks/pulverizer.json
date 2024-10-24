@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:pulverizer"
+          "name": "minecraft:pulverizer"
         }
       ],
       "rolls": 1.0

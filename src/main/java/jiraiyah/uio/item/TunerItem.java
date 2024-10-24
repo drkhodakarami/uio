@@ -26,20 +26,17 @@ package jiraiyah.uio.item;
 
 import jiraiyah.uio.registry.misc.ModDataComponentTypes;
 import jiraiyah.uio.util.record.CoordinateData;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.nbt.NbtHelper;
 import net.minecraft.network.packet.s2c.play.PositionFlag;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
@@ -47,8 +44,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Reference.Constants;
 import static jiraiyah.uio.Reference.Tags.Entity.TUNER_BLACKLIST;
+import static jiraiyah.uio.Reference.translate;
 
 public class TunerItem extends Item
 {
@@ -90,8 +88,9 @@ public class TunerItem extends Item
         return super.useOnBlock(context);
     }
 
+    //TODO: Return of ActionResult in new version
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
+    public ActionResult use(World world, PlayerEntity user, Hand hand)
     {
         if (!world.isClient())
         {
@@ -135,8 +134,10 @@ public class TunerItem extends Item
             var userDimension = user.getWorld().getRegistryKey().getValue().toString();
             if (dimension.equalsIgnoreCase(userDimension))
             {
-                entity.teleport((ServerWorld) entity.getWorld(), entity.getX(), pos.getY() + 1, entity.getZ(),
-                                PositionFlag.VALUES, entity.getYaw(), entity.getPitch());
+                //TODO: Usage of server world in new version
+                if(entity.getWorld() instanceof ServerWorld sw)
+                    entity.teleport(sw, entity.getX(), pos.getY() + 1, entity.getZ(),
+                                    PositionFlag.VALUES, entity.getYaw(), entity.getPitch(), false);
                 entity.refreshPositionAfterTeleport(pos.getX(), pos.getY() + 1, pos.getZ());
                 return ActionResult.SUCCESS;
             }

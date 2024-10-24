@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:smelter"
+          "name": "minecraft:smelter"
         }
       ],
       "rolls": 1.0

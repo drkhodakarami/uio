@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "I": {
-      "item": "uio:rod_iron"
-    },
-    "O": {
-      "item": "uio:rod_obsidian"
-    }
+    "I": "uio:rod_iron",
+    "O": "uio:rod_obsidian"
   },
   "pattern": [
     "O O",

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "uio:block_citrine"
-    }
+    "uio:block_citrine"
   ],
   "result": {
     "count": 9,

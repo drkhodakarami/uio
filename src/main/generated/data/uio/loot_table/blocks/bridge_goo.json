@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:bridge_goo"
+          "name": "minecraft:bridge_goo"
         }
       ],
       "rolls": 1.0

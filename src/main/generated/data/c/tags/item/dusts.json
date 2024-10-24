@@ -1,17 +1,17 @@
 {
   "values": [
-    "uio:crushed_shulker_shell",
-    "uio:dust_conductive",
-    "uio:dust_copper",
-    "uio:dust_enderite",
-    "uio:dust_energetic",
-    "uio:dust_gold",
-    "uio:dust_iron",
-    "uio:dust_obsidian",
-    "uio:dust_pulsating",
-    "uio:dust_red_alloy",
-    "uio:dust_soul",
-    "uio:dust_vibrant",
-    "uio:dust_withering"
+    "minecraft:crushed_shulker_shell",
+    "minecraft:dust_conductive",
+    "minecraft:dust_copper",
+    "minecraft:dust_enderite",
+    "minecraft:dust_energetic",
+    "minecraft:dust_gold",
+    "minecraft:dust_iron",
+    "minecraft:dust_obsidian",
+    "minecraft:dust_pulsating",
+    "minecraft:dust_red_alloy",
+    "minecraft:dust_soul",
+    "minecraft:dust_vibrant",
+    "minecraft:dust_withering"
   ]
 }

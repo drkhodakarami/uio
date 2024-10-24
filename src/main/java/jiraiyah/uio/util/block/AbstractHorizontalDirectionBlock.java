@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
@@ -13,7 +13,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class AbstractHorizontalDirectionBlock extends Block
 {
-    public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
+    //TODO: DirectionProperty -> EnumProperty<Direction>
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     private final boolean faceOpposite;
 
     public AbstractHorizontalDirectionBlock(Settings settings, boolean faceOpposite)

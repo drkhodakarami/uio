@@ -1,9 +1,9 @@
 {
   "values": [
-    "uio:tool_citrine_shovel",
-    "uio:tool_copper_shovel",
-    "uio:tool_enderite_shovel",
-    "uio:tool_ruby_shovel",
-    "uio:tool_sapphire_shovel"
+    "minecraft:tool_citrine_shovel",
+    "minecraft:tool_copper_shovel",
+    "minecraft:tool_enderite_shovel",
+    "minecraft:tool_ruby_shovel",
+    "minecraft:tool_sapphire_shovel"
   ]
 }

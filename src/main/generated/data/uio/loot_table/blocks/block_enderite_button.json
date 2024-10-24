@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:block_enderite_button"
+          "name": "minecraft:block_enderite_button"
         }
       ],
       "rolls": 1.0

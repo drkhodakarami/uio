@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:netherite_leggings"
+        "recipe": "minecraft:netherite_boots_shaped"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:netherite_leggings"
+      "minecraft:netherite_boots_shaped"
     ]
   }
 }

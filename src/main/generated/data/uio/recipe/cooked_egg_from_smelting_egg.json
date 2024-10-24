@@ -4,9 +4,7 @@
   "cookingtime": 100,
   "experience": 0.15,
   "group": "cooked_egg_smelting",
-  "ingredient": {
-    "item": "minecraft:egg"
-  },
+  "ingredient": "minecraft:egg",
   "result": {
     "id": "uio:cooked_egg"
   }

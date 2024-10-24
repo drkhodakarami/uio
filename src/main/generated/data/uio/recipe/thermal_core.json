@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "H": {
-      "item": "uio:hot_coal"
-    },
-    "I": {
-      "item": "uio:unstable_goo_base"
-    },
-    "P": {
-      "item": "uio:reinforced_iron"
-    }
+    "H": "uio:hot_coal",
+    "I": "uio:unstable_goo_base",
+    "P": "uio:reinforced_iron"
   },
   "pattern": [
     "PPP",

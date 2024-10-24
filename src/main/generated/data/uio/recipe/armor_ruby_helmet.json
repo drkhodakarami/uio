@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "G": {
-      "item": "uio:gear_ruby"
-    },
-    "I": {
-      "item": "uio:reinforced_ruby"
-    }
+    "G": "uio:gear_ruby",
+    "I": "uio:reinforced_ruby"
   },
   "pattern": [
     "III",

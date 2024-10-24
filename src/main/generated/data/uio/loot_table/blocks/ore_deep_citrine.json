@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "uio:ore_deep_citrine"
+              "name": "minecraft:ore_deep_citrine"
             },
             {
               "type": "minecraft:item",
@@ -49,7 +49,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "uio:raw_citrine"
+              "name": "minecraft:raw_citrine"
             }
           ]
         }

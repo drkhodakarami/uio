@@ -1,9 +1,9 @@
 {
   "values": [
-    "uio:tool_citrine_hoe",
-    "uio:tool_copper_hoe",
-    "uio:tool_enderite_hoe",
-    "uio:tool_ruby_hoe",
-    "uio:tool_sapphire_hoe"
+    "minecraft:tool_citrine_hoe",
+    "minecraft:tool_copper_hoe",
+    "minecraft:tool_enderite_hoe",
+    "minecraft:tool_ruby_hoe",
+    "minecraft:tool_sapphire_hoe"
   ]
 }

@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "uio:raw_ruby"
-    }
+    "#": "uio:raw_ruby"
   },
   "pattern": [
     "###",

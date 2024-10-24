@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "B": {
-      "item": "uio:binding_string"
-    },
-    "H": {
-      "item": "uio:head_ruby_hammer"
-    },
-    "S": {
-      "item": "minecraft:stick"
-    }
+    "B": "uio:binding_string",
+    "H": "uio:head_ruby_hammer",
+    "S": "minecraft:stick"
   },
   "pattern": [
     "H",

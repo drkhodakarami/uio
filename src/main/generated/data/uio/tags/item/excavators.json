@@ -1,15 +1,15 @@
 {
   "values": [
-    "uio:tool_citrine_excavator",
-    "uio:tool_copper_excavator",
-    "uio:tool_enderite_excavator",
-    "uio:tool_ruby_excavator",
-    "uio:tool_sapphire_excavator",
-    "uio:tool_diamond_excavator",
-    "uio:tool_gold_excavator",
-    "uio:tool_iron_excavator",
-    "uio:tool_netherite_excavator",
-    "uio:tool_stone_excavator",
-    "uio:tool_wood_excavator"
+    "minecraft:tool_citrine_excavator",
+    "minecraft:tool_copper_excavator",
+    "minecraft:tool_enderite_excavator",
+    "minecraft:tool_ruby_excavator",
+    "minecraft:tool_sapphire_excavator",
+    "minecraft:tool_diamond_excavator",
+    "minecraft:tool_gold_excavator",
+    "minecraft:tool_iron_excavator",
+    "minecraft:tool_netherite_excavator",
+    "minecraft:tool_stone_excavator",
+    "minecraft:tool_wood_excavator"
   ]
 }

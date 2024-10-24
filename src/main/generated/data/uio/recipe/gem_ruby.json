@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
-    {
-      "item": "uio:block_ruby"
-    }
+    "uio:block_ruby"
   ],
   "result": {
     "count": 9,

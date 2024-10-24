@@ -35,6 +35,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.World;
 
 public class Elevator extends Block
@@ -48,7 +49,9 @@ public class Elevator extends Block
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity)
     {
-        entity.sendMessage(Text.literal(String.valueOf(world.getTime())));
+        //TODO: Send Message moved to server and not accessible from entity in 1.21.2
+        if(entity.getServer() != null)
+            entity.getServer().sendMessage(Text.literal(String.valueOf(world.getTime())));
         teleportDown(world, pos, entity);
     }
 
@@ -84,8 +87,10 @@ public class Elevator extends Block
             if (found == null)
                 return;
 
-            entity.teleport(((ServerWorld) entity.getWorld()), entity.getX(), lookingPos.getY() + 1, entity.getZ(),
-                            PositionFlag.VALUES, entity.getYaw(), entity.getPitch());
+            //TODO: Use case of Server World change in 1.21.2
+            if(entity.getWorld() instanceof ServerWorld sw)
+                entity.teleport(sw, entity.getX(), lookingPos.getY() + 1, entity.getZ(),
+                                PositionFlag.VALUES, entity.getYaw(), entity.getPitch(), false);
             world.playSound(null, entity.getSteppingPos(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS,
                             0.5f, world.random.nextFloat() * 0.6f + 0.9f);
         }
@@ -101,7 +106,8 @@ public class Elevator extends Block
         BlockPos lookingPos = pos;
         BlockState found = null;
 
-        while (lookingPos.getY() < world.getTopY())
+        //TODO: Get Top Y now needs parameters
+        while (lookingPos.getY() < world.getTopY(Heightmap.Type.WORLD_SURFACE, pos.getX(), pos.getZ()))
         {
             lookingPos = lookingPos.add(0, 1, 0);
 
@@ -116,8 +122,10 @@ public class Elevator extends Block
         if (found == null)
             return;
 
-        entity.teleport(((ServerWorld) entity.getWorld()), entity.getX(), lookingPos.getY() + 1, entity.getZ(),
-                        PositionFlag.VALUES, entity.getYaw(), entity.getPitch());
+        //TODO: Use case of Server World change in 1.21.2
+        if(entity.getWorld() instanceof ServerWorld sw)
+            entity.teleport(sw, entity.getX(), lookingPos.getY() + 1, entity.getZ(),
+                            PositionFlag.VALUES, entity.getYaw(), entity.getPitch(), false);
         world.playSound(null, entity.getSteppingPos(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS,
                         0.5f, world.random.nextFloat() * 0.6f + 0.9f);
     }

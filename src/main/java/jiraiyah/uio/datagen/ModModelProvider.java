@@ -27,13 +27,14 @@ package jiraiyah.uio.datagen;
 import com.google.gson.JsonElement;
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
+import jiraiyah.uio.registry.misc.ModArmorMaterials;
 import jiraiyah.uio.util.block.AbstractActivatableBlock;
 import jiraiyah.uio.util.block.AbstractActivatableMachineBlock;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.*;
-import net.minecraft.item.ArmorItem;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.Identifier;
 
@@ -41,6 +42,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 import static jiraiyah.uio.Reference.logRGB256;
+import static jiraiyah.uio.util.Registers.Datagen.registerArmor;
 
 public class ModModelProvider extends FabricModelProvider
 {
@@ -483,44 +485,46 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.TOOL_WOOD_EXCAVATOR, Models.HANDHELD);
         //endregion
         //region ARMOR
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_HELMET);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_CHESTPLATE);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_LEGGINGS);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_AMETHYST_BOOTS);
+        //TODO: register Armor is changed for 1.21.2
+        registerArmor(generator, ModItems.ARMOR_AMETHYST_HELMET, ModArmorMaterials.AMETHYST, EquipmentSlot.HEAD);
+        registerArmor(generator, ModItems.ARMOR_AMETHYST_CHESTPLATE, ModArmorMaterials.AMETHYST, EquipmentSlot.CHEST);
+        registerArmor(generator, ModItems.ARMOR_AMETHYST_LEGGINGS, ModArmorMaterials.AMETHYST, EquipmentSlot.LEGS);
+        registerArmor(generator, ModItems.ARMOR_AMETHYST_BOOTS, ModArmorMaterials.AMETHYST, EquipmentSlot.FEET);
 
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_CITRINE_HELMET);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_CITRINE_CHESTPLATE);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_CITRINE_LEGGINGS);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_CITRINE_BOOTS);
+        registerArmor(generator, ModItems.ARMOR_CITRINE_HELMET, ModArmorMaterials.CITRINE, EquipmentSlot.HEAD);
+        registerArmor(generator, ModItems.ARMOR_CITRINE_CHESTPLATE, ModArmorMaterials.CITRINE, EquipmentSlot.CHEST);
+        registerArmor(generator, ModItems.ARMOR_CITRINE_LEGGINGS, ModArmorMaterials.CITRINE, EquipmentSlot.LEGS);
+        registerArmor(generator, ModItems.ARMOR_CITRINE_BOOTS, ModArmorMaterials.CITRINE, EquipmentSlot.FEET);
 
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_COPPER_HELMET);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_COPPER_CHESTPLATE);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_COPPER_LEGGINGS);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_COPPER_BOOTS);
+        registerArmor(generator, ModItems.ARMOR_COPPER_HELMET, ModArmorMaterials.COPPER, EquipmentSlot.HEAD);
+        registerArmor(generator, ModItems.ARMOR_COPPER_CHESTPLATE, ModArmorMaterials.COPPER, EquipmentSlot.CHEST);
+        registerArmor(generator, ModItems.ARMOR_COPPER_LEGGINGS, ModArmorMaterials.COPPER, EquipmentSlot.LEGS);
+        registerArmor(generator, ModItems.ARMOR_COPPER_BOOTS, ModArmorMaterials.COPPER, EquipmentSlot.FEET);
 
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_EMERALD_HELMET);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_EMERALD_CHESTPLATE);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_EMERALD_LEGGINGS);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_EMERALD_BOOTS);
+        registerArmor(generator, ModItems.ARMOR_EMERALD_HELMET, ModArmorMaterials.EMERALD, EquipmentSlot.HEAD);
+        registerArmor(generator, ModItems.ARMOR_EMERALD_CHESTPLATE, ModArmorMaterials.EMERALD, EquipmentSlot.CHEST);
+        registerArmor(generator, ModItems.ARMOR_EMERALD_LEGGINGS, ModArmorMaterials.EMERALD, EquipmentSlot.LEGS);
+        registerArmor(generator, ModItems.ARMOR_EMERALD_BOOTS, ModArmorMaterials.EMERALD, EquipmentSlot.FEET);
 
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_ENDERITE_HELMET);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_ENDERITE_CHESTPLATE);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_ENDERITE_LEGGINGS);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_ENDERITE_BOOTS);
+        registerArmor(generator, ModItems.ARMOR_ENDERITE_HELMET, ModArmorMaterials.ENDERITE, EquipmentSlot.HEAD);
+        registerArmor(generator, ModItems.ARMOR_ENDERITE_CHESTPLATE, ModArmorMaterials.ENDERITE, EquipmentSlot.CHEST);
+        registerArmor(generator, ModItems.ARMOR_ENDERITE_LEGGINGS, ModArmorMaterials.ENDERITE, EquipmentSlot.LEGS);
+        registerArmor(generator, ModItems.ARMOR_ENDERITE_BOOTS, ModArmorMaterials.ENDERITE, EquipmentSlot.FEET);
 
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_RUBY_HELMET);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_RUBY_CHESTPLATE);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_RUBY_LEGGINGS);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_RUBY_BOOTS);
+        registerArmor(generator, ModItems.ARMOR_RUBY_HELMET, ModArmorMaterials.RUBY, EquipmentSlot.HEAD);
+        registerArmor(generator, ModItems.ARMOR_RUBY_CHESTPLATE, ModArmorMaterials.RUBY, EquipmentSlot.CHEST);
+        registerArmor(generator, ModItems.ARMOR_RUBY_LEGGINGS, ModArmorMaterials.RUBY, EquipmentSlot.LEGS);
+        registerArmor(generator, ModItems.ARMOR_RUBY_BOOTS, ModArmorMaterials.RUBY, EquipmentSlot.FEET);
 
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_SAPPHIRE_HELMET);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_SAPPHIRE_CHESTPLATE);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_SAPPHIRE_LEGGINGS);
-        generator.registerArmor((ArmorItem) ModItems.ARMOR_SAPPHIRE_BOOTS);
+        registerArmor(generator, ModItems.ARMOR_SAPPHIRE_HELMET, ModArmorMaterials.SAPPHIRE, EquipmentSlot.HEAD);
+        registerArmor(generator, ModItems.ARMOR_SAPPHIRE_CHESTPLATE, ModArmorMaterials.SAPPHIRE, EquipmentSlot.CHEST);
+        registerArmor(generator, ModItems.ARMOR_SAPPHIRE_LEGGINGS, ModArmorMaterials.SAPPHIRE, EquipmentSlot.LEGS);
+        registerArmor(generator, ModItems.ARMOR_SAPPHIRE_BOOTS, ModArmorMaterials.SAPPHIRE, EquipmentSlot.FEET);
         //endregion
     }
 
     //region HELPER METHODS
+    @SuppressWarnings("SameParameterValue")
     private void registerOrientableVariantBlock(BlockStateModelGenerator generator, Block machine, BooleanProperty property)
     {
         BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = generator.modelCollector;
@@ -537,6 +541,7 @@ public class ModModelProvider extends FabricModelProvider
                                                    .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
     }
 
+    @SuppressWarnings("SameParameterValue")
     private void registerCubeVariantBlock(BlockStateModelGenerator generator, Block machine, BooleanProperty property)
     {
         BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = generator.modelCollector;

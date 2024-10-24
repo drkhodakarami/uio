@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:block_breaker"
+          "name": "minecraft:block_breaker"
         }
       ],
       "rolls": 1.0

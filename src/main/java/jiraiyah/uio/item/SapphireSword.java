@@ -34,9 +34,9 @@ import net.minecraft.item.ToolMaterial;
 
 public class SapphireSword extends SwordItem
 {
-    public SapphireSword(ToolMaterial toolMaterial, Settings settings)
+    public SapphireSword(ToolMaterial toolMaterial, float attackDamage, float attackSpeed, Settings settings)
     {
-        super(toolMaterial, settings);
+        super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
     @Override

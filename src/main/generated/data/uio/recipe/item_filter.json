@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "P": {
-      "item": "minecraft:paper"
-    },
-    "R": {
-      "item": "minecraft:redstone"
-    }
+    "P": "minecraft:paper",
+    "R": "minecraft:redstone"
   },
   "pattern": [
     "   ",

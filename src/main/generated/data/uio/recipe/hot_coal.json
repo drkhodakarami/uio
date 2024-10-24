@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
-      "item": "minecraft:lava_bucket"
-    },
-    "C": {
-      "item": "minecraft:coal"
-    }
+    "B": "minecraft:lava_bucket",
+    "C": "minecraft:coal"
   },
   "pattern": [
     "CCC",

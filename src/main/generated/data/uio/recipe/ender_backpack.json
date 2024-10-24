@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "C": {
-      "item": "uio:backpack"
-    },
-    "L": {
-      "item": "uio:ingot_enderite"
-    }
+    "C": "uio:backpack",
+    "L": "uio:ingot_enderite"
   },
   "pattern": [
     " L ",

@@ -330,7 +330,7 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModItems.ARMOR_SAPPHIRE_CHESTPLATE, "Sapphire Chestplate");
         builder.add(ModItems.ARMOR_SAPPHIRE_LEGGINGS, "Sapphire Leggings");
         builder.add(ModItems.ARMOR_SAPPHIRE_BOOTS, "Sapphire Boots");
-        builder.add(ModItems.ANGEL_BLOCK_ITEM, "Angel Block");
+        builder.add(ModItems.ANGEL_BI, "Angel Block");
 
         builder.add(ModBlocks.CITRINE, "Citrine Block");
         builder.add(ModBlocks.ENDERITE, "Enderite Block");
@@ -480,6 +480,25 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(Tags.Item.EXCAVATORS, "Excavators");
         builder.add(Tags.Item.MENDING_ONLY, "Mending Only");
         builder.add(Tags.Item.SMELTABLE, "Smeltables");
+        builder.add(Tags.Item.REPAIRS_AMETHYST_ARMOR, "Amethyst Armor Repair Material");
+        builder.add(Tags.Item.REPAIRS_CITRINE_ARMOR, "Citrine Armor Repair Material");
+        builder.add(Tags.Item.REPAIRS_COPPER_ARMOR, "Copper Armor Repair Material");
+        builder.add(Tags.Item.REPAIRS_EMERALD_ARMOR, "Emerald Armor Repair Material");
+        builder.add(Tags.Item.REPAIRS_ENDERITE_ARMOR, "Enderite Armor Repair Material");
+        builder.add(Tags.Item.REPAIRS_RUBY_ARMOR, "Ruby Armor Repair Material");
+        builder.add(Tags.Item.REPAIRS_SAPPHIRE_ARMOR, "Sapphire Armor Repair Material");
+        builder.add(Tags.Item.AMETHYST_ARMOR_TYPE, "Amethyst Armors");
+        builder.add(Tags.Item.CITRINE_ARMOR_TYPE, "Citrine Armors");
+        builder.add(Tags.Item.COPPER_ARMOR_TYPE, "Copper Armors");
+        builder.add(Tags.Item.EMERALD_ARMOR_TYPE, "Emerald Armors");
+        builder.add(Tags.Item.ENDERITE_ARMOR_TYPE, "Enderite Armors");
+        builder.add(Tags.Item.RUBY_ARMOR_TYPE, "Ruby Armors");
+        builder.add(Tags.Item.SAPPHIRE_ARMOR_TYPE, "Sapphire Armors");
+        builder.add(Tags.Item.REPAIRS_CITRINE_TOOL, "Citrine Tool Repair Material");
+        builder.add(Tags.Item.REPAIRS_COPPER_TOOL, "Copper Tool Repair Material");
+        builder.add(Tags.Item.REPAIRS_ENDERITE_TOOL, "Enderite Tool Repair Material");
+        builder.add(Tags.Item.REPAIRS_RUBY_TOOL, "Ruby Tool Repair Material");
+        builder.add(Tags.Item.REPAIRS_SAPPHIRE_TOOL, "Sapphire Tool Repair Material");
 
         builder.add(Tags.Entity.TUNER_BLACKLIST, "Tuner Blacklist");
         builder.add(Tags.Entity.RUBY_SWORD_WHITELIST, "Ruby Sword Whitelist");

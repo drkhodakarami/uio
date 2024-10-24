@@ -4,9 +4,7 @@
   "cookingtime": 4800,
   "experience": 3.0,
   "group": "vibrant_alloy",
-  "ingredient": {
-    "item": "uio:dust_vibrant"
-  },
+  "ingredient": "uio:dust_vibrant",
   "result": {
     "id": "uio:ingot_alloy_vibrant"
   }

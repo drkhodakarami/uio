@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:gem_cleaner"
+          "name": "minecraft:gem_cleaner"
         }
       ],
       "rolls": 1.0

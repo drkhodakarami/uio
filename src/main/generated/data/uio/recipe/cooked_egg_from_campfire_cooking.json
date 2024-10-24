@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 300,
   "experience": 0.15,
-  "ingredient": {
-    "item": "minecraft:egg"
-  },
+  "ingredient": "minecraft:egg",
   "result": {
     "id": "uio:cooked_egg"
   }

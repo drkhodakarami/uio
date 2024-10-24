@@ -4,9 +4,7 @@
   "cookingtime": 7200,
   "experience": 7.0,
   "group": "ore_enderite",
-  "ingredient": {
-    "item": "uio:ore_end_enderite_cracked"
-  },
+  "ingredient": "uio:ore_end_enderite_cracked",
   "result": {
     "id": "uio:ore_enderite"
   }

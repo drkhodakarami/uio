@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": "uio:plate_netherite",
+    "R": "uio:reinforced_netherite"
+  },
+  "pattern": [
+    "IRI",
+    "I I",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:netherite_helmet"
+  }
+}

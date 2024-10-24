@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "uio:carrot_box"
-    }
+    "uio:carrot_box"
   ],
   "result": {
     "count": 9,

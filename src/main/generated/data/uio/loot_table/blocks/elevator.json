@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:elevator"
+          "name": "minecraft:elevator"
         }
       ],
       "rolls": 1.0

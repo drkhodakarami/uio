@@ -1,4 +1,4 @@
-// 1.21.1	2024-10-22T19:53:01.0266568	Ultra IO/Model Definitions
+// 1.21.2	2024-10-24T18:49:56.6301112	Ultra IO/Model Definitions
 fd5c7e48c02e90cab088f3f6e29e9879c6811003 assets\uio\models\item\armor_amethyst_helmet_lapis_trim.json
 60225874bfb9d8b031fd9fe028268928605889e3 assets\uio\models\item\ore_deep_citrine.json
 46e25d4d177a5b75be276f305e8a9e37b86fa04e assets\uio\models\item\head_gold_excavator.json
@@ -42,8 +42,8 @@ db2f038bf9bb5ba2e4065a1b50f5669f9b5e3f59 assets\uio\models\block\block_enderite_
 647b28b1bd66fe51bc7ed7ae2c65eef48f73592c assets\uio\models\item\block_raw_quartz.json
 8819ba816822d00e1491f3553ac96819f80f5653 assets\uio\models\item\tool_citrine_sword.json
 cbaa6c755d827d8b6c230c11947e4a06c3fc653f assets\uio\models\item\armor_citrine_leggings_diamond_trim.json
-d86c8df7ac29680b10a5350060ad50aa3e9fe6e1 assets\uio\models\item\builder.json
 290beb824202852a1e3d8a63d37249735b85052f assets\uio\models\item\armor_enderite_chestplate_copper_trim.json
+d86c8df7ac29680b10a5350060ad50aa3e9fe6e1 assets\uio\models\item\builder.json
 c0401fe731d6e29d9f303ccc939dd7609d7ff87e assets\uio\models\item\tesseract.json
 a721f0acb83794a2cce1b98464200317f578ba95 assets\uio\models\item\ingot_alloy_pulsating.json
 169c0e89f5f9ab357f3b7f1b7b4f5aec7aade778 assets\uio\models\block\block_sapphire_wall_side_tall.json
@@ -183,8 +183,8 @@ f0445bba7d2d7a85b7957746985885a47c4218d7 assets\uio\models\item\armor_enderite_h
 261045f4711dfda7b2bced896e692adb0d415673 assets\uio\models\block\gem_cleaner.json
 0534968b4c7a227b32f89f1055df73585e9234f1 assets\uio\models\block\block_ruby_fence_gate_wall_open.json
 4e151838896577d88c442b509bd2d3eed140f965 assets\uio\models\block\block_sapphire_door_top_left_open.json
-0245f7a7d0a38d27928afa55488917e5455c3b73 assets\uio\models\item\armor_enderite_boots_copper_trim.json
 45ca7d25fb3d0e2ba091b7cc21ab0818ac400819 assets\uio\models\item\armor_amethyst_chestplate_netherite_trim.json
+0245f7a7d0a38d27928afa55488917e5455c3b73 assets\uio\models\item\armor_enderite_boots_copper_trim.json
 85978109c64c953f246a8fff796e15a11b294679 assets\uio\models\item\block_citrine_fence_gate.json
 6b3d92e810f2d1cea76098bb1363b10278f28623 assets\uio\blockstates\ore_end_citrine.json
 45a1f5eecbf5ee5e0655819ea2fc6022e654ed1a assets\uio\models\item\armor_ruby_helmet_gold_trim.json
@@ -271,8 +271,8 @@ d07e74b8d49cb59df51a9d5c1fc2a9095552bff4 assets\uio\blockstates\generator.json
 bef3fa815c55a402e5135b59ced8c7f001a455f5 assets\uio\models\item\tool_ruby_hammer.json
 197d751e017294b04f235fb7ce2aa1691568c103 assets\uio\models\item\head_iron_shovel.json
 5e269a3474439fd87ae7148e6d2b7441459d1a46 assets\uio\models\item\cast_ingot.json
-9f37d51afb6f0165e16761ab296fde5b245b6f74 assets\uio\models\item\armor_ruby_chestplate_gold_trim.json
 4adfe2d3156aae0b7abaedc6ef3e96f3314d88ca assets\uio\models\item\generator.json
+9f37d51afb6f0165e16761ab296fde5b245b6f74 assets\uio\models\item\armor_ruby_chestplate_gold_trim.json
 f70b2b8f4273ce3465de54fc654a509fea0fddeb assets\uio\models\item\dust_iron.json
 53bcfc9d0bf41449f011b491474cdbe7bad9a6e7 assets\uio\blockstates\block_breaker.json
 e78b5c1c835bf0fcd7ed53e4468e0e36eb4fb4bd assets\uio\models\item\smelter.json

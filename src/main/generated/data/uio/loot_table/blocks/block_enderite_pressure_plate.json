@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:block_enderite_pressure_plate"
+          "name": "minecraft:block_enderite_pressure_plate"
         }
       ],
       "rolls": 1.0

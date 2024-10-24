@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:alloy_mixer"
+          "name": "minecraft:alloy_mixer"
         }
       ],
       "rolls": 1.0

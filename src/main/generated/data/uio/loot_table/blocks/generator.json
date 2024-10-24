@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:generator"
+          "name": "minecraft:generator"
         }
       ],
       "rolls": 1.0

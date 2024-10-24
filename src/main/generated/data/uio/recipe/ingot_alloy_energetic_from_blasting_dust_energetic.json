@@ -4,9 +4,7 @@
   "cookingtime": 4800,
   "experience": 3.0,
   "group": "energetic_alloy",
-  "ingredient": {
-    "item": "uio:dust_energetic"
-  },
+  "ingredient": "uio:dust_energetic",
   "result": {
     "id": "uio:ingot_alloy_energetic"
   }

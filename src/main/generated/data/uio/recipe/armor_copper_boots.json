@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "I": {
-      "item": "uio:reinforced_copper"
-    }
+    "I": "uio:reinforced_copper"
   },
   "pattern": [
     "I I",

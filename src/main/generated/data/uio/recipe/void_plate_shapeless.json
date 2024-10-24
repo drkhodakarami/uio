@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "equipment",
   "ingredients": [
-    {
-      "item": "uio:void_plate_base"
-    },
-    {
-      "item": "uio:void_plate_activator"
-    }
+    "uio:void_plate_base",
+    "uio:void_plate_activator"
   ],
   "result": {
     "count": 1,

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:battery_bank"
+          "name": "minecraft:battery_bank"
         }
       ],
       "rolls": 1.0

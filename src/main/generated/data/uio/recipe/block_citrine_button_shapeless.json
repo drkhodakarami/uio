@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "redstone",
   "ingredients": [
-    {
-      "item": "uio:gem_citrine"
-    }
+    "uio:gem_citrine"
   ],
   "result": {
     "count": 1,

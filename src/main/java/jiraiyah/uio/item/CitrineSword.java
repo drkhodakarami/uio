@@ -34,9 +34,9 @@ import net.minecraft.item.ToolMaterial;
 
 public class CitrineSword extends SwordItem
 {
-    public CitrineSword(ToolMaterial toolMaterial, Settings settings)
+    public CitrineSword(ToolMaterial toolMaterial, float attackDamage, float attackSpeed, Settings settings)
     {
-        super(toolMaterial, settings);
+        super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
     @Override

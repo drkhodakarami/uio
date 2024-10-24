@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "G": {
-      "item": "uio:gear_gold"
-    },
-    "I": {
-      "item": "uio:reinforced_citrine"
-    }
+    "G": "uio:gear_gold",
+    "I": "uio:reinforced_citrine"
   },
   "pattern": [
     "III",

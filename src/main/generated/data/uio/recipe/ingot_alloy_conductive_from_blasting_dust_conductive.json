@@ -4,9 +4,7 @@
   "cookingtime": 4800,
   "experience": 3.0,
   "group": "conductive_alloy",
-  "ingredient": {
-    "item": "uio:dust_conductive"
-  },
+  "ingredient": "uio:dust_conductive",
   "result": {
     "id": "uio:ingot_alloy_conductive"
   }

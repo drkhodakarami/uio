@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:block_citrine_fence_gate"
+          "name": "minecraft:block_citrine_fence_gate"
         }
       ],
       "rolls": 1.0

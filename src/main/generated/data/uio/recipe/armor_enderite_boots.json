@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "I": {
-      "item": "uio:reinforced_enderite"
-    }
+    "I": "uio:reinforced_enderite"
   },
   "pattern": [
     "I I",

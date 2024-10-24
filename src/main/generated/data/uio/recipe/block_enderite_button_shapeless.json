@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "redstone",
   "ingredients": [
-    {
-      "item": "uio:ingot_enderite"
-    }
+    "uio:ingot_enderite"
   ],
   "result": {
     "count": 1,

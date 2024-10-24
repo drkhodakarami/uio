@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:redstone_clock"
+          "name": "minecraft:redstone_clock"
         }
       ],
       "rolls": 1.0

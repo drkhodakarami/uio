@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "uio:ore_nether_lapis"
+              "name": "minecraft:ore_nether_lapis"
             },
             {
               "type": "minecraft:item",

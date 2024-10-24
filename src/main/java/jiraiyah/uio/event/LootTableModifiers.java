@@ -16,7 +16,8 @@ import java.util.List;
 
 public class LootTableModifiers
 {
-    private static final RegistryKey<LootTable> ENDERMAN_KEY = EntityType.ENDERMAN.getLootTableId();
+    //TODO: getLootTableId() -> getLootTableKey().orElseThrow() <-- Optional !
+    private static final RegistryKey<LootTable> ENDERMAN_KEY = EntityType.ENDERMAN.getLootTableKey().orElseThrow();
 
     public LootTableModifiers()
     {

@@ -18,7 +18,7 @@ public class AngelBlock extends Block
     public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player)
     {
         if(!player.isCreative())
-            player.getInventory().insertStack(ModItems.ANGEL_BLOCK_ITEM.getDefaultStack());
+            player.getInventory().insertStack(ModItems.ANGEL_BI.getDefaultStack());
         return super.onBreak(world, pos, state, player);
     }
 }

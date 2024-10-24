@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:water_bucket"
-    },
-    {
-      "item": "uio:chalice_empty"
-    }
+    "minecraft:water_bucket",
+    "uio:chalice_empty"
   ],
   "result": {
     "count": 1,

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:block_raw_quartz"
+          "name": "minecraft:block_raw_quartz"
         }
       ],
       "rolls": 1.0

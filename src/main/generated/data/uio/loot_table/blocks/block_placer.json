@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:block_placer"
+          "name": "minecraft:block_placer"
         }
       ],
       "rolls": 1.0

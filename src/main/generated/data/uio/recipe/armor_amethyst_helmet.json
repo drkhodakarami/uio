@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "G": {
-      "item": "uio:gear_diamond"
-    },
-    "I": {
-      "item": "uio:reinforced_amethyst"
-    }
+    "G": "uio:gear_diamond",
+    "I": "uio:reinforced_amethyst"
   },
   "pattern": [
     "III",

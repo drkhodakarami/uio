@@ -180,6 +180,31 @@ public class Reference
             public static final TagKey<net.minecraft.item.Item> MENDING_ONLY = createTag("mending_only");
             public static final TagKey<net.minecraft.item.Item> SMELTABLE = createTag("smeltery");
 
+            //TODO: Tags for armor/tool repair ingredients
+            //TODO: Add translations for these tags
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_AMETHYST_ARMOR = createTag("repairs_amethyst_armor");
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_CITRINE_ARMOR = createTag("repairs_citrine_armor");
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_COPPER_ARMOR = createTag("repairs_copper_armor");
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_EMERALD_ARMOR = createTag("repairs_emerald_armor");
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_ENDERITE_ARMOR = createTag("repairs_enderite_armor");
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_RUBY_ARMOR = createTag("repairs_ruby_armor");
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_SAPPHIRE_ARMOR = createTag("repairs_sapphire_armor");
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_CITRINE_TOOL = createTag("repairs_citrine_tool");
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_COPPER_TOOL = createTag("repairs_copper_tool");
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_ENDERITE_TOOL = createTag("repairs_enderite_tool");
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_RUBY_TOOL = createTag("repairs_ruby_tool");
+            public static final TagKey<net.minecraft.item.Item> REPAIRS_SAPPHIRE_TOOL = createTag("repairs_sapphire_tool");
+
+            //TODO: Armor Types for checking the full armor status in effect event
+            //TODO: Add translations for these tags
+            public static final TagKey<net.minecraft.item.Item> AMETHYST_ARMOR_TYPE = createTag("amethyst_armor_type");
+            public static final TagKey<net.minecraft.item.Item> CITRINE_ARMOR_TYPE = createTag("citrine_armor_type");
+            public static final TagKey<net.minecraft.item.Item> COPPER_ARMOR_TYPE = createTag("copper_armor_type");
+            public static final TagKey<net.minecraft.item.Item> EMERALD_ARMOR_TYPE = createTag("emerald_armor_type");
+            public static final TagKey<net.minecraft.item.Item> ENDERITE_ARMOR_TYPE = createTag("enderite_armor_type");
+            public static final TagKey<net.minecraft.item.Item> RUBY_ARMOR_TYPE = createTag("ruby_armor_type");
+            public static final TagKey<net.minecraft.item.Item> SAPPHIRE_ARMOR_TYPE = createTag("sapphire_armor_type");
+
             //region HELPER METHODS
             private static TagKey<net.minecraft.item.Item> createTag(String name)
             {

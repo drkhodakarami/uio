@@ -1,9 +1,9 @@
 {
   "values": [
-    "uio:tool_citrine_axe",
-    "uio:tool_copper_axe",
-    "uio:tool_enderite_axe",
-    "uio:tool_ruby_axe",
-    "uio:tool_sapphire_axe"
+    "minecraft:tool_citrine_axe",
+    "minecraft:tool_copper_axe",
+    "minecraft:tool_enderite_axe",
+    "minecraft:tool_ruby_axe",
+    "minecraft:tool_sapphire_axe"
   ]
 }

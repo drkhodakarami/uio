@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "uio:ore_nether_diamond"
+              "name": "minecraft:ore_nether_diamond"
             },
             {
               "type": "minecraft:item",

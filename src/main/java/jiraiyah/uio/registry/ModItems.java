@@ -29,13 +29,15 @@ import jiraiyah.uio.item.*;
 import jiraiyah.uio.item.blockitem.AngelBlockItem;
 import jiraiyah.uio.registry.misc.ModArmorMaterials;
 import jiraiyah.uio.registry.misc.ModToolMaterials;
-import net.minecraft.component.type.FoodComponent;
+import jiraiyah.uio.util.Registers;
 import net.minecraft.item.*;
+import net.minecraft.item.equipment.EquipmentType;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Reference.ModID;
+import static jiraiyah.uio.Reference.log;
 import static jiraiyah.uio.util.Registers.Items.*;
 
 // Some of the textures are from : https://github/malcolmriley/unused-textures
@@ -49,107 +51,122 @@ public class ModItems
     public static List<Item> AllItems = new ArrayList<>();
     public static final List<Item> BLACK_LIST = new ArrayList<>();
 
-    public static Item BINDING_STRING, UNSTABLE_GOO, COMBUSTION_CORE;
-    public static Item RAW_RUBBER;
-    public static Item RUBBER;
-    public static Item VOID_PLATE_BASE, VOID_PLATE_ACTIVATOR, VOID_PLATE;
-    public static Item ENDER_CHARM, ENDERMAN_EYE, ENDERMAN_HEART, ENDERMAN_GLAND;
-    public static Item ITEM_FILTER, CHALICE, CHALICE_EMPTY;
-    public static Item SLOT_DISABLED, SLOT_ENABLED;
-    public static Item COOKED_EGG, EGG_AND_BREAD;
-    public static Item HOT_COAL;
-    public static Item THERMAL_CORE;
-    public static Item GEM_CITRINE, GEM_RUBY, GEM_SAPPHIRE;
-    public static Item CAST_AXE, CAST_BINDING, CAST_EXCAVATOR, CAST_GEAR, CAST_GEM, CAST_HAMMER, CAST_HANDLE, CAST_HOE, CAST_INGOT, CAST_NUGGET,
-                       CAST_PICKAXE, CAST_PLATE, CAST_ROD, CAST_SHOVEL, CAST_SWORD, CAST_WIRE, CAST_WOOD_INGOT, CAST_WOOD_PICKAXE;
-    public static Item RAW_CITRINE, RAW_ENDERITE, RAW_QUARTZ, RAW_RUBY, RAW_SAPPHIRE;
-    public static Item CRUSHED_SHULKER, DUST_CONDUCTIVE, DUST_COPPER, DUST_ENDERITE, DUST_ENERGETIC, DUST_GOLD, DUST_IRON, DUST_OBSIDIAN,
-                       DUST_PULSATING, DUST_RED_ALLOY, DUST_SOUL, DUST_VIBRANT, DUST_WITHERING;
-    public static Item GEAR_COPPER, GEAR_DIAMOND, GEAR_EMERALD, GEAR_ENDERITE, GEAR_ENERGIZED, GEAR_GOLD, GEAR_IRON, GEAR_LAPIS,
-                       GEAR_NETHERITE, GEAR_OBSIDIAN, GEAR_PRISMARINE, GEAR_QUARTZ, GEAR_RUBY, GEAR_SAPPHIRE, GEAR_SHULKER, GEAR_STONE,
-                       GEAR_VIBRANT, GEAR_WOOD;
-    public static Item INGOT_ALLOY_CONDUCTIVE, INGOT_ALLOY_ENERGETIC, INGOT_ALLOY_PULSATING, INGOT_ALLOY_RED, INGOT_ALLOY_VIBRANT,
-                       INGOT_ALLOY_ENDERITE, RAW_ALLOY_ENDERITE, INGOT_ENDERITE;
-    public static Item PLATE_AMETHYST, PLATE_CITRINE, PLATE_COPPER, PLATE_DIAMOND, PLATE_EMERALD, PLATE_ENDERITE,PLATE_GOLD,
-                       PLATE_IRON, PLATE_NETHERITE, PLATE_RUBY, PLATE_SAPPHIRE, PLATE_SHULKER, PLATE_STONE;
-    public static Item REINFORCED_AMETHYST, REINFORCED_CITRINE, REINFORCED_COPPER, REINFORCED_DIAMOND, REINFORCED_EMERALD, REINFORCED_ENDERITE,
-                       REINFORCED_GOLD, REINFORCED_IRON, REINFORCED_NETHERITE, REINFORCED_RUBY, REINFORCED_SAPPHIRE,REINFORCED_SHULKER;
-    public static Item ROD_COPPER, ROD_ENDERITE, ROD_GLOWSTONE, ROD_GOLD, ROD_IRON, ROD_OBSIDIAN, ROD_REDSTONE, ROD_SHULKER;
-    public static Item HEAD_CITRINE_AXE, HEAD_CITRINE_EXCAVATOR, HEAD_CITRINE_HAMMER, HEAD_CITRINE_HOE, HEAD_CITRINE_PICKAXE, HEAD_CITRINE_SHOVEL, HEAD_CITRINE_SWORD,
-                       HEAD_COPPER_AXE, HEAD_COPPER_EXCAVATOR, HEAD_COPPER_HAMMER, HEAD_COPPER_HOE, HEAD_COPPER_PICKAXE, HEAD_COPPER_SHOVEL, HEAD_COPPER_SWORD,
-                       HEAD_DIAMOND_AXE, HEAD_DIAMOND_EXCAVATOR, HEAD_DIAMOND_HAMMER, HEAD_DIAMOND_HOE, HEAD_DIAMOND_PICKAXE, HEAD_DIAMOND_SHOVEL, HEAD_DIAMOND_SWORD,
-                       HEAD_ENDERITE_AXE, HEAD_ENDERITE_EXCAVATOR, HEAD_ENDERITE_HAMMER, HEAD_ENDERITE_HOE, HEAD_ENDERITE_PICKAXE, HEAD_ENDERITE_SHOVEL, HEAD_ENDERITE_SWORD,
-                       HEAD_GOLD_AXE, HEAD_GOLD_EXCAVATOR, HEAD_GOLD_HAMMER, HEAD_GOLD_HOE, HEAD_GOLD_PICKAXE, HEAD_GOLD_SHOVEL, HEAD_GOLD_SWORD,
-                       HEAD_IRON_AXE, HEAD_IRON_EXCAVATOR, HEAD_IRON_HAMMER, HEAD_IRON_HOE, HEAD_IRON_PICKAXE, HEAD_IRON_SHOVEL, HEAD_IRON_SWORD,
-                       HEAD_NETHERITE_AXE, HEAD_NETHERITE_EXCAVATOR, HEAD_NETHERITE_HAMMER, HEAD_NETHERITE_HOE, HEAD_NETHERITE_PICKAXE, HEAD_NETHERITE_SHOVEL, HEAD_NETHERITE_SWORD,
-                       HEAD_RUBY_AXE, HEAD_RUBY_EXCAVATOR, HEAD_RUBY_HAMMER, HEAD_RUBY_HOE, HEAD_RUBY_PICKAXE, HEAD_RUBY_SHOVEL, HEAD_RUBY_SWORD,
-                       HEAD_SAPPHIRE_AXE, HEAD_SAPPHIRE_EXCAVATOR, HEAD_SAPPHIRE_HAMMER, HEAD_SAPPHIRE_HOE, HEAD_SAPPHIRE_PICKAXE, HEAD_SAPPHIRE_SHOVEL, HEAD_SAPPHIRE_SWORD,
-                       HEAD_STONE_HAMMER, HEAD_STONE_EXCAVATOR, HEAD_WOOD_HAMMER, HEAD_WOOD_EXCAVATOR;
-    public static Item TOOL_CITRINE_AXE, TOOL_CITRINE_EXCAVATOR, TOOL_CITRINE_HAMMER, TOOL_CITRINE_HOE, TOOL_CITRINE_PICKAXE, TOOL_CITRINE_SHOVEL, TOOL_CITRINE_SWORD,
-                       TOOL_COPPER_AXE, TOOL_COPPER_EXCAVATOR, TOOL_COPPER_HAMMER, TOOL_COPPER_HOE, TOOL_COPPER_PICKAXE, TOOL_COPPER_SHOVEL, TOOL_COPPER_SWORD,
-                       TOOL_ENDERITE_AXE, TOOL_ENDERITE_EXCAVATOR, TOOL_ENDERITE_HAMMER, TOOL_ENDERITE_HOE, TOOL_ENDERITE_PICKAXE, TOOL_ENDERITE_SHOVEL, TOOL_ENDERITE_SWORD,
-                       TOOL_RUBY_AXE, TOOL_RUBY_EXCAVATOR, TOOL_RUBY_HAMMER, TOOL_RUBY_HOE, TOOL_RUBY_PICKAXE, TOOL_RUBY_SHOVEL, TOOL_RUBY_SWORD,
-                       TOOL_SAPPHIRE_AXE, TOOL_SAPPHIRE_EXCAVATOR, TOOL_SAPPHIRE_HAMMER, TOOL_SAPPHIRE_HOE, TOOL_SAPPHIRE_PICKAXE, TOOL_SAPPHIRE_SHOVEL, TOOL_SAPPHIRE_SWORD,
-                       TOOL_DIAMOND_HAMMER, TOOL_DIAMOND_EXCAVATOR,
-                       TOOL_GOLD_HAMMER, TOOL_GOLD_EXCAVATOR,
-                       TOOL_IRON_HAMMER, TOOL_IRON_EXCAVATOR,
-                       TOOL_NETHERITE_HAMMER, TOOL_NETHERITE_EXCAVATOR,
-                       TOOL_STONE_HAMMER, TOOL_STONE_EXCAVATOR,
-                       TOOL_WOOD_HAMMER, TOOL_WOOD_EXCAVATOR;
-    public static Item BACKPACK, BLUEPRINT_EMPTY, BLUEPRINT_PRINTED, ENDER_BACKPACK, PLAYER_TELEPORT, WRENCH;
+    public static Item GEM_CITRINE, GEM_RUBY, GEM_SAPPHIRE,
+            RAW_CITRINE, RAW_ENDERITE, RAW_QUARTZ, RAW_RUBY, RAW_SAPPHIRE,
+            CAST_AXE, CAST_BINDING, CAST_EXCAVATOR, CAST_GEAR, CAST_GEM, CAST_HAMMER, CAST_HANDLE, CAST_HOE, CAST_INGOT, CAST_NUGGET,
+            CAST_PICKAXE, CAST_PLATE, CAST_ROD, CAST_SHOVEL, CAST_SWORD, CAST_WIRE, CAST_WOOD_INGOT, CAST_WOOD_PICKAXE,
+            CRUSHED_SHULKER, DUST_CONDUCTIVE, DUST_COPPER, DUST_ENDERITE, DUST_ENERGETIC, DUST_GOLD, DUST_IRON, DUST_OBSIDIAN,
+            DUST_PULSATING, DUST_RED_ALLOY, DUST_SOUL, DUST_VIBRANT, DUST_WITHERING,
+            GEAR_COPPER, GEAR_DIAMOND, GEAR_EMERALD, GEAR_ENDERITE, GEAR_ENERGIZED, GEAR_GOLD, GEAR_IRON, GEAR_LAPIS,
+            GEAR_NETHERITE, GEAR_OBSIDIAN, GEAR_PRISMARINE, GEAR_QUARTZ, GEAR_RUBY, GEAR_SAPPHIRE, GEAR_SHULKER, GEAR_STONE,
+            GEAR_VIBRANT, GEAR_WOOD,
+            INGOT_ALLOY_CONDUCTIVE, INGOT_ALLOY_ENERGETIC, INGOT_ALLOY_PULSATING, INGOT_ALLOY_RED, INGOT_ALLOY_VIBRANT,
+            INGOT_ALLOY_ENDERITE, RAW_ALLOY_ENDERITE, INGOT_ENDERITE,
+            PLATE_AMETHYST, PLATE_CITRINE, PLATE_COPPER, PLATE_DIAMOND, PLATE_EMERALD, PLATE_ENDERITE,PLATE_GOLD,
+            PLATE_IRON, PLATE_NETHERITE, PLATE_RUBY, PLATE_SAPPHIRE, PLATE_SHULKER, PLATE_STONE,
+            REINFORCED_AMETHYST, REINFORCED_CITRINE, REINFORCED_COPPER, REINFORCED_DIAMOND, REINFORCED_EMERALD, REINFORCED_ENDERITE,
+            REINFORCED_GOLD, REINFORCED_IRON, REINFORCED_NETHERITE, REINFORCED_RUBY, REINFORCED_SAPPHIRE,REINFORCED_SHULKER,
+            ROD_COPPER, ROD_ENDERITE, ROD_GLOWSTONE, ROD_GOLD, ROD_IRON, ROD_OBSIDIAN, ROD_REDSTONE, ROD_SHULKER,
+            HEAD_CITRINE_AXE, HEAD_CITRINE_EXCAVATOR, HEAD_CITRINE_HAMMER, HEAD_CITRINE_HOE, HEAD_CITRINE_PICKAXE, HEAD_CITRINE_SHOVEL, HEAD_CITRINE_SWORD,
+            HEAD_COPPER_AXE, HEAD_COPPER_EXCAVATOR, HEAD_COPPER_HAMMER, HEAD_COPPER_HOE, HEAD_COPPER_PICKAXE, HEAD_COPPER_SHOVEL, HEAD_COPPER_SWORD,
+            HEAD_DIAMOND_AXE, HEAD_DIAMOND_EXCAVATOR, HEAD_DIAMOND_HAMMER, HEAD_DIAMOND_HOE, HEAD_DIAMOND_PICKAXE, HEAD_DIAMOND_SHOVEL, HEAD_DIAMOND_SWORD,
+            HEAD_ENDERITE_AXE, HEAD_ENDERITE_EXCAVATOR, HEAD_ENDERITE_HAMMER, HEAD_ENDERITE_HOE, HEAD_ENDERITE_PICKAXE, HEAD_ENDERITE_SHOVEL, HEAD_ENDERITE_SWORD,
+            HEAD_GOLD_AXE, HEAD_GOLD_EXCAVATOR, HEAD_GOLD_HAMMER, HEAD_GOLD_HOE, HEAD_GOLD_PICKAXE, HEAD_GOLD_SHOVEL, HEAD_GOLD_SWORD,
+            HEAD_IRON_AXE, HEAD_IRON_EXCAVATOR, HEAD_IRON_HAMMER, HEAD_IRON_HOE, HEAD_IRON_PICKAXE, HEAD_IRON_SHOVEL, HEAD_IRON_SWORD,
+            HEAD_NETHERITE_AXE, HEAD_NETHERITE_EXCAVATOR, HEAD_NETHERITE_HAMMER, HEAD_NETHERITE_HOE, HEAD_NETHERITE_PICKAXE, HEAD_NETHERITE_SHOVEL, HEAD_NETHERITE_SWORD,
+            HEAD_RUBY_AXE, HEAD_RUBY_EXCAVATOR, HEAD_RUBY_HAMMER, HEAD_RUBY_HOE, HEAD_RUBY_PICKAXE, HEAD_RUBY_SHOVEL, HEAD_RUBY_SWORD,
+            HEAD_SAPPHIRE_AXE, HEAD_SAPPHIRE_EXCAVATOR, HEAD_SAPPHIRE_HAMMER, HEAD_SAPPHIRE_HOE, HEAD_SAPPHIRE_PICKAXE, HEAD_SAPPHIRE_SHOVEL, HEAD_SAPPHIRE_SWORD,
+            HEAD_STONE_HAMMER, HEAD_STONE_EXCAVATOR, HEAD_WOOD_HAMMER, HEAD_WOOD_EXCAVATOR,
 
+            ENDER_CHARM, ENDERMAN_EYE, ENDERMAN_HEART, ENDERMAN_GLAND, BLUEPRINT_EMPTY, THERMAL_CORE, HOT_COAL,
+            COOKED_EGG, EGG_AND_BREAD, SLOT_DISABLED, SLOT_ENABLED, ITEM_FILTER, CHALICE_EMPTY,
+            VOID_PLATE_BASE, VOID_PLATE_ACTIVATOR, VOID_PLATE, RUBBER, RAW_RUBBER, BINDING_STRING, UNSTABLE_GOO, COMBUSTION_CORE;
+
+    public static ExcavatorItem TOOL_CITRINE_EXCAVATOR, TOOL_COPPER_EXCAVATOR, TOOL_ENDERITE_EXCAVATOR, TOOL_RUBY_EXCAVATOR, TOOL_SAPPHIRE_EXCAVATOR,
+            TOOL_NETHERITE_EXCAVATOR, TOOL_DIAMOND_EXCAVATOR, TOOL_GOLD_EXCAVATOR, TOOL_IRON_EXCAVATOR, TOOL_STONE_EXCAVATOR, TOOL_WOOD_EXCAVATOR;
+    public static HammerItem TOOL_CITRINE_HAMMER, TOOL_COPPER_HAMMER, TOOL_ENDERITE_HAMMER, TOOL_RUBY_HAMMER, TOOL_SAPPHIRE_HAMMER,
+            TOOL_NETHERITE_HAMMER, TOOL_DIAMOND_HAMMER, TOOL_GOLD_HAMMER, TOOL_IRON_HAMMER, TOOL_STONE_HAMMER, TOOL_WOOD_HAMMER;
+    public static AxeItem TOOL_CITRINE_AXE, TOOL_COPPER_AXE, TOOL_ENDERITE_AXE, TOOL_RUBY_AXE, TOOL_SAPPHIRE_AXE;
+    public static HoeItem TOOL_CITRINE_HOE, TOOL_COPPER_HOE, TOOL_ENDERITE_HOE, TOOL_RUBY_HOE, TOOL_SAPPHIRE_HOE;
+    public static PickaxeItem TOOL_CITRINE_PICKAXE, TOOL_COPPER_PICKAXE, TOOL_ENDERITE_PICKAXE, TOOL_RUBY_PICKAXE, TOOL_SAPPHIRE_PICKAXE;
+    public static ShovelItem TOOL_CITRINE_SHOVEL, TOOL_COPPER_SHOVEL, TOOL_ENDERITE_SHOVEL, TOOL_RUBY_SHOVEL, TOOL_SAPPHIRE_SHOVEL;
+    //public static SwordItem;
+
+    public static CitrineSword TOOL_CITRINE_SWORD;
+    public static CopperSword TOOL_COPPER_SWORD;
+    public static EnderiteSword TOOL_ENDERITE_SWORD;
+    public static RubySword TOOL_RUBY_SWORD;
+    public static SapphireSword TOOL_SAPPHIRE_SWORD;
+
+    public static BackpackItem BACKPACK;
+    public static BlueprintItem BLUEPRINT_PRINTED;
+    public static EnderBackpackItem ENDER_BACKPACK;
     public static TunerItem TUNER;
     public static AdvancedTuner ADVANCED_TUNER;
+    public static PlayerTeleporter PLAYER_TELEPORT;
+    public static ChaliceItem CHALICE;
+    public static WrenchItem WRENCH;
 
-    public static Item ARMOR_AMETHYST_HELMET, ARMOR_AMETHYST_CHESTPLATE, ARMOR_AMETHYST_LEGGINGS, ARMOR_AMETHYST_BOOTS,
-                       ARMOR_CITRINE_HELMET, ARMOR_CITRINE_CHESTPLATE, ARMOR_CITRINE_LEGGINGS, ARMOR_CITRINE_BOOTS,
-                       ARMOR_COPPER_HELMET, ARMOR_COPPER_CHESTPLATE, ARMOR_COPPER_LEGGINGS,ARMOR_COPPER_BOOTS,
-                       ARMOR_EMERALD_HELMET, ARMOR_EMERALD_CHESTPLATE, ARMOR_EMERALD_LEGGINGS, ARMOR_EMERALD_BOOTS,
-                       ARMOR_ENDERITE_HELMET, ARMOR_ENDERITE_CHESTPLATE, ARMOR_ENDERITE_LEGGINGS, ARMOR_ENDERITE_BOOTS,
-                       ARMOR_RUBY_HELMET, ARMOR_RUBY_CHESTPLATE, ARMOR_RUBY_LEGGINGS, ARMOR_RUBY_BOOTS,
-                       ARMOR_SAPPHIRE_HELMET, ARMOR_SAPPHIRE_CHESTPLATE, ARMOR_SAPPHIRE_LEGGINGS, ARMOR_SAPPHIRE_BOOTS;
+    public static ArmorItem ARMOR_AMETHYST_HELMET, ARMOR_AMETHYST_CHESTPLATE, ARMOR_AMETHYST_LEGGINGS, ARMOR_AMETHYST_BOOTS,
+            ARMOR_CITRINE_HELMET, ARMOR_CITRINE_CHESTPLATE, ARMOR_CITRINE_LEGGINGS, ARMOR_CITRINE_BOOTS,
+            ARMOR_COPPER_HELMET, ARMOR_COPPER_CHESTPLATE, ARMOR_COPPER_LEGGINGS,ARMOR_COPPER_BOOTS,
+            ARMOR_EMERALD_HELMET, ARMOR_EMERALD_CHESTPLATE, ARMOR_EMERALD_LEGGINGS, ARMOR_EMERALD_BOOTS,
+            ARMOR_ENDERITE_HELMET, ARMOR_ENDERITE_CHESTPLATE, ARMOR_ENDERITE_LEGGINGS, ARMOR_ENDERITE_BOOTS,
+            ARMOR_RUBY_HELMET, ARMOR_RUBY_CHESTPLATE, ARMOR_RUBY_LEGGINGS, ARMOR_RUBY_BOOTS,
+            ARMOR_SAPPHIRE_HELMET, ARMOR_SAPPHIRE_CHESTPLATE, ARMOR_SAPPHIRE_LEGGINGS, ARMOR_SAPPHIRE_BOOTS;
 
-    public static Item ANGEL_BLOCK_ITEM;
+    //BI: Block Item
+    public static BlockItem ANGEL_BI, ENDERITE_BI, CARROT_BOX_BI, POTATO_BOX_BI,
+            CITRINE_BI, RUBY_BI, SAPPHIRE_BI, RAW_CITRINE_BI, RAW_ENDERITE_BI ,RAW_QUARTZ_BI, RAW_RUBY_BI, RAW_SAPPHIRE_BI,
+            CITRINE_STAIRS_BI, ENDERITE_STAIRS_BI, RUBY_STAIRS_BI, SAPPHIRE_STAIRS_BI,
+            CITRINE_SLAB_BI, ENDERITE_SLAB_BI, RUBY_SLAB_BI, SAPPHIRE_SLAB_BI,
+            CITRINE_BUTTON_BI, ENDERITE_BUTTON_BI, RUBY_BUTTON_BI, SAPPHIRE_BUTTON_BI,
+            CITRINE_PRESSURE_PLATE_BI, ENDERITE_PRESSURE_PLATE_BI, RUBY_PRESSURE_PLATE_BI, SAPPHIRE_PRESSURE_PLATE_BI,
+            CITRINE_FENCE_BI, ENDERITE_FENCE_BI, RUBY_FENCE,SAPPHIRE_FENCE_BI,
+            CITRINE_FENCE_GATE_BI, ENDERITE_FENCE_GATE_BI, RUBY_FENCE_GATE_BI, SAPPHIRE_FENCE_GATE_BI,
+            CITRINE_WALL_BI, ENDERITE_WALL_BI, RUBY_WALL_BI, SAPPHIRE_WALL_BI,
+            CITRINE_DOOR_BI, ENDERITE_DOOR_BI, RUBY_DOOR_BI, SAPPHIRE_DOOR_BI,
+            CITRINE_TRAP_DOOR_BI, ENDERITE_TRAP_DOOR_BI, RUBY_TRAP_DOOR_BI, SAPPHIRE_TRAP_DOOR_BI,
+            ORE_DEEP_CITRINE_BI, ORE_DEEP_RUBY_BI, ORE_DEEP_SAPPHIRE_BI,
+            ORE_END_CITRINE_BI, ORE_END_ENDERITE_BI, ORE_END_ENDERITE_CRACKED_BI, ORE_END_RUBY_BI, ORE_END_SAPPHIRE_BI,
+            ORE_NETHER_CITRINE_BI, ORE_NETHER_RUBY_BI, ORE_NETHER_SAPPHIRE_BI, ORE_NETHER_COAL_BI, ORE_NETHER_COPPER_BI, ORE_NETHER_DIAMOND_BI,
+            ORE_NETHER_IRON_BI, ORE_NETHER_LAPIS_BI,ORE_NETHER_REDSTONE_BI,
+            ORE_WORLD_CITRINE_BI, ORE_WORLD_RUBY_BI, ORE_WORLD_SAPPHIRE_BI,
+            ORE_ENDERITE_BI,
+            WATER_EATING_GOO_BI, WATER_GENERATING_GOO_BI, LAVA_EATING_GOO_BI, LAVA_GENERATING_GOO_BI, CHUNK_GOO_BI, TOWERING_GOO_BI,
+            TUNNELING_GOO_BI, BRIDGE_GOO_BI, AIR_BOMB_GOO_BI, CHUNK_BOMB_GOO_BI, LAVA_PUMP_GOO_BI, STONE_BOMB_GOO_BI, WATER_PUMP_GOO_BI,
+            ELEVATOR_BI, REDSTONE_CLOCK_BI, ALLOY_MIXER_BI, CAST_PRESS_BI, GEM_CLEANER_BI, OVEN_BI, PULVERIZER_BI, SMELTER_BI, ANIMAL_FEED_BI,
+            GENERATOR_BI, BLOCK_BREAKER_BI, BLOCK_PLACER_BI, BUILDER_BI, CHUNK_LOADER_BI, CREATIVE_BANK_BI, ENDER_CHANTER_BI, FLUID_PUMP_BI,
+            PRINTER_BI, PROJECT_TABLE_BI, TESSERACT_BI, WOOD_STRIPPER_BI, BATTERY_BANK_BI, SOLAR_PANEL_BI, MINER_BI;
 
-    public static void init()
+    public static void initItems()
     {
         log("Registering Items");
 
-        /*ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries ->
-                                                                                {
-                                                                                    entries.add(RUBBER);
-                                                                                });*/
-
         //region FOOD FUEL MISC
-        BINDING_STRING = register("binding_string", new Item.Settings().maxCount(16));
+        //TODO: Talk about Helper Methods
+        BINDING_STRING = register("binding_string", 16);
         UNSTABLE_GOO = register("unstable_goo_core");
         COMBUSTION_CORE = register("unstable_goo_base");
-        RAW_RUBBER = register("raw_rubber", new Item.Settings().maxCount(16));
-        RUBBER = register("rubber", new Item.Settings().maxCount(16));
-        VOID_PLATE_BASE = register("void_plate_base", new Item.Settings().maxCount(1));
-        VOID_PLATE_ACTIVATOR = register("void_plate_activator", new Item.Settings().maxCount(1));
-        VOID_PLATE = register("void_plate", new Item.Settings().maxCount(1));
-        ENDER_CHARM = register("ender_charm", new Item.Settings().maxCount(16));
-        ENDERMAN_EYE = register("enderman_eye", new Item.Settings().maxCount(16));
-        ENDERMAN_HEART = register("enderman_heart", new Item.Settings().maxCount(16));
-        ENDERMAN_GLAND = register("enderman_gland", new Item.Settings().maxCount(16));
-        ITEM_FILTER = register("item_filter", new Item.Settings().maxCount(16));
-        SLOT_DISABLED = register("slot_disabled", new Item.Settings().maxCount(16));
-        SLOT_ENABLED = register("slot_enabled", new Item.Settings().maxCount(16));
-        COOKED_EGG = register("cooked_egg", new Item.Settings().food(new FoodComponent.Builder()
-                                                                                    .nutrition(4)
-                                                                                    .saturationModifier(0.55f)
-                                                                                    .snack().build())
-                                                                                .maxCount(16));
-        EGG_AND_BREAD = register("egg_and_bread", new Item.Settings().food(new FoodComponent.Builder()
-                                                                                    .nutrition(11)
-                                                                                    .saturationModifier(1.2f)
-                                                                                    .snack().build())
-                                                                                 .maxCount(16));
+        RAW_RUBBER = register("raw_rubber", 16);
+        RUBBER = register("rubber", 16);
+        VOID_PLATE_BASE = register("void_plate_base", 1);
+        VOID_PLATE_ACTIVATOR = register("void_plate_activator", 1);
+        VOID_PLATE = register("void_plate", 1);
+        ENDER_CHARM = register("ender_charm", 16);
+        ENDERMAN_EYE = register("enderman_eye", 16);
+        ENDERMAN_HEART = register("enderman_heart", 16);
+        ENDERMAN_GLAND = register("enderman_gland", 16);
+        ITEM_FILTER = register("item_filter", 16);
+        SLOT_DISABLED = register("slot_disabled", 16);
+        SLOT_ENABLED = register("slot_enabled", 16);
+        COOKED_EGG = registerSnackFood("cooked_egg", 16, 4, 0.55f);
+        EGG_AND_BREAD = registerSnackFood("egg_and_bread", 16, 11, 1.2f);
         HOT_COAL = register("hot_coal");
         THERMAL_CORE = register("thermal_core");
         //endregion
         //region GEMS
+        //TODO: Talk about Items helper method from vanilla
         GEM_CITRINE = register("gem_citrine");
         GEM_RUBY = register("gem_ruby");
         GEM_SAPPHIRE = register("gem_sapphire");
@@ -162,24 +179,24 @@ public class ModItems
         RAW_SAPPHIRE = register("raw_sapphire");
         //endregion
         //region CAST
-        CAST_AXE = register("cast_axe", new Item.Settings().maxCount(1));
-        CAST_BINDING = register("cast_binding", new Item.Settings().maxCount(1));
-        CAST_EXCAVATOR = register("cast_excavator", new Item.Settings().maxCount(1));
-        CAST_GEAR = register("cast_gear", new Item.Settings().maxCount(1));
-        CAST_GEM = register("cast_gem", new Item.Settings().maxCount(1));
-        CAST_HAMMER = register("cast_hammer", new Item.Settings().maxCount(1));
-        CAST_HANDLE = register("cast_handle", new Item.Settings().maxCount(1));
-        CAST_HOE = register("cast_hoe", new Item.Settings().maxCount(1));
-        CAST_INGOT = register("cast_ingot", new Item.Settings().maxCount(1));
-        CAST_NUGGET = register("cast_nugget", new Item.Settings().maxCount(1));
-        CAST_PICKAXE = register("cast_pickaxe", new Item.Settings().maxCount(1));
-        CAST_PLATE = register("cast_plate", new Item.Settings().maxCount(1));
-        CAST_ROD = register("cast_rod", new Item.Settings().maxCount(1));
-        CAST_SHOVEL = register("cast_shovel", new Item.Settings().maxCount(1));
-        CAST_SWORD = register("cast_sword", new Item.Settings().maxCount(1));
-        CAST_WIRE = register("cast_wire", new Item.Settings().maxCount(1));
-        CAST_WOOD_INGOT = register("cast_wood_ingot", new Item.Settings().maxCount(1));
-        CAST_WOOD_PICKAXE = register("cast_wood_pickaxe", new Item.Settings().maxCount(1));
+        CAST_AXE = register("cast_axe", 1);
+        CAST_BINDING = register("cast_binding", 1);
+        CAST_EXCAVATOR = register("cast_excavator", 1);
+        CAST_GEAR = register("cast_gear", 1);
+        CAST_GEM = register("cast_gem", 1);
+        CAST_HAMMER = register("cast_hammer", 1);
+        CAST_HANDLE = register("cast_handle", 1);
+        CAST_HOE = register("cast_hoe", 1);
+        CAST_INGOT = register("cast_ingot", 1);
+        CAST_NUGGET = register("cast_nugget", 1);
+        CAST_PICKAXE = register("cast_pickaxe", 1);
+        CAST_PLATE = register("cast_plate", 1);
+        CAST_ROD = register("cast_rod", 1);
+        CAST_SHOVEL = register("cast_shovel", 1);
+        CAST_SWORD = register("cast_sword", 1);
+        CAST_WIRE = register("cast_wire", 1);
+        CAST_WOOD_INGOT = register("cast_wood_ingot", 1);
+        CAST_WOOD_PICKAXE = register("cast_wood_pickaxe", 1);
         //endregion
         //region DUST
         CRUSHED_SHULKER = register("crushed_shulker_shell");
@@ -197,24 +214,24 @@ public class ModItems
         DUST_WITHERING = register("dust_withering");
         //endregion
         //region GEAR
-        GEAR_COPPER = register("gear_copper", new Item.Settings().maxCount(16));
-        GEAR_DIAMOND = register("gear_diamond", new Item.Settings().maxCount(16));
-        GEAR_EMERALD = register("gear_emerald", new Item.Settings().maxCount(16));
-        GEAR_ENDERITE = register("gear_enderite", new Item.Settings().maxCount(16));
-        GEAR_ENERGIZED = register("gear_energized", new Item.Settings().maxCount(16));
-        GEAR_GOLD = register("gear_gold", new Item.Settings().maxCount(16));
-        GEAR_IRON = register("gear_iron", new Item.Settings().maxCount(16));
-        GEAR_LAPIS = register("gear_lapis", new Item.Settings().maxCount(16));
-        GEAR_NETHERITE = register("gear_netherite", new Item.Settings().maxCount(16));
-        GEAR_OBSIDIAN = register("gear_obsidian", new Item.Settings().maxCount(16));
-        GEAR_PRISMARINE = register("gear_prismarine", new Item.Settings().maxCount(16));
-        GEAR_QUARTZ = register("gear_quartz", new Item.Settings().maxCount(16));
-        GEAR_RUBY = register("gear_ruby", new Item.Settings().maxCount(16));
-        GEAR_SAPPHIRE = register("gear_sapphire", new Item.Settings().maxCount(16));
-        GEAR_SHULKER = register("gear_shulker", new Item.Settings().maxCount(16));
-        GEAR_STONE = register("gear_stone", new Item.Settings().maxCount(16));
-        GEAR_VIBRANT = register("gear_vibrant", new Item.Settings().maxCount(16));
-        GEAR_WOOD = register("gear_wood", new Item.Settings().maxCount(16));
+        GEAR_COPPER = register("gear_copper", 16);
+        GEAR_DIAMOND = register("gear_diamond", 16);
+        GEAR_EMERALD = register("gear_emerald", 16);
+        GEAR_ENDERITE = register("gear_enderite", 16);
+        GEAR_ENERGIZED = register("gear_energized", 16);
+        GEAR_GOLD = register("gear_gold", 16);
+        GEAR_IRON = register("gear_iron", 16);
+        GEAR_LAPIS = register("gear_lapis", 16);
+        GEAR_NETHERITE = register("gear_netherite", 16);
+        GEAR_OBSIDIAN = register("gear_obsidian", 16);
+        GEAR_PRISMARINE = register("gear_prismarine", 16);
+        GEAR_QUARTZ = register("gear_quartz", 16);
+        GEAR_RUBY = register("gear_ruby", 16);
+        GEAR_SAPPHIRE = register("gear_sapphire", 16);
+        GEAR_SHULKER = register("gear_shulker", 16);
+        GEAR_STONE = register("gear_stone", 16);
+        GEAR_VIBRANT = register("gear_vibrant", 16);
+        GEAR_WOOD = register("gear_wood", 16);
         //endregion
         //region INGOT - ALLOY
         INGOT_ALLOY_CONDUCTIVE = register("ingot_alloy_conductive");
@@ -244,650 +261,377 @@ public class ModItems
         PLATE_STONE = register("plate_stone");
         //endregion
         //region REINFORCED
-        REINFORCED_AMETHYST = register("reinforced_amethyst", new Item.Settings().maxCount(16));
-        REINFORCED_CITRINE = register("reinforced_citrine", new Item.Settings().maxCount(16));
-        REINFORCED_COPPER = register("reinforced_copper", new Item.Settings().maxCount(16));
-        REINFORCED_DIAMOND = register("reinforced_diamond", new Item.Settings().maxCount(16));
-        REINFORCED_EMERALD = register("reinforced_emerald", new Item.Settings().maxCount(16));
-        REINFORCED_ENDERITE = register("reinforced_enderite", new Item.Settings().maxCount(16));
-        REINFORCED_GOLD = register("reinforced_gold", new Item.Settings().maxCount(16));
-        REINFORCED_IRON = register("reinforced_iron", new Item.Settings().maxCount(16));
-        REINFORCED_NETHERITE = register("reinforced_netherite", new Item.Settings().maxCount(16));
-        REINFORCED_RUBY = register("reinforced_ruby", new Item.Settings().maxCount(16));
-        REINFORCED_SAPPHIRE = register("reinforced_sapphire", new Item.Settings().maxCount(16));
-        REINFORCED_SHULKER = register("reinforced_shulker", new Item.Settings().maxCount(16));
+        REINFORCED_AMETHYST = register("reinforced_amethyst", 16);
+        REINFORCED_CITRINE = register("reinforced_citrine", 16);
+        REINFORCED_COPPER = register("reinforced_copper", 16);
+        REINFORCED_DIAMOND = register("reinforced_diamond", 16);
+        REINFORCED_EMERALD = register("reinforced_emerald", 16);
+        REINFORCED_ENDERITE = register("reinforced_enderite", 16);
+        REINFORCED_GOLD = register("reinforced_gold", 16);
+        REINFORCED_IRON = register("reinforced_iron", 16);
+        REINFORCED_NETHERITE = register("reinforced_netherite", 16);
+        REINFORCED_RUBY = register("reinforced_ruby", 16);
+        REINFORCED_SAPPHIRE = register("reinforced_sapphire", 16);
+        REINFORCED_SHULKER = register("reinforced_shulker", 16);
         //endregion
         //region ROD
-        ROD_COPPER = register("rod_copper", new Item.Settings().maxCount(16));
-        ROD_ENDERITE = register("rod_enderite", new Item.Settings().maxCount(16));
-        ROD_GLOWSTONE = register("rod_glowstone", new Item.Settings().maxCount(16));
-        ROD_GOLD = register("rod_gold", new Item.Settings().maxCount(16));
-        ROD_IRON = register("rod_iron", new Item.Settings().maxCount(16));
-        ROD_OBSIDIAN = register("rod_obsidian", new Item.Settings().maxCount(16));
-        ROD_REDSTONE = register("rod_redstone", new Item.Settings().maxCount(16));
-        ROD_SHULKER = register("rod_shulker", new Item.Settings().maxCount(16));
+        ROD_COPPER = register("rod_copper", 16);
+        ROD_ENDERITE = register("rod_enderite", 16);
+        ROD_GLOWSTONE = register("rod_glowstone", 16);
+        ROD_GOLD = register("rod_gold", 16);
+        ROD_IRON = register("rod_iron", 16);
+        ROD_OBSIDIAN = register("rod_obsidian", 16);
+        ROD_REDSTONE = register("rod_redstone", 16);
+        ROD_SHULKER = register("rod_shulker", 16);
         //endregion
         //region HEADS
-        HEAD_CITRINE_AXE = register("head_citrine_axe", new Item.Settings().maxCount(16));
-        HEAD_CITRINE_EXCAVATOR = register("head_citrine_excavator", new Item.Settings().maxCount(16));
-        HEAD_CITRINE_HAMMER = register("head_citrine_hammer", new Item.Settings().maxCount(16));
-        HEAD_CITRINE_HOE = register("head_citrine_hoe", new Item.Settings().maxCount(16));
-        HEAD_CITRINE_PICKAXE = register("head_citrine_pickaxe", new Item.Settings().maxCount(16));
-        HEAD_CITRINE_SHOVEL = register("head_citrine_shovel", new Item.Settings().maxCount(16));
-        HEAD_CITRINE_SWORD = register("head_citrine_sword", new Item.Settings().maxCount(16));
+        HEAD_CITRINE_AXE = register("head_citrine_axe", 16);
+        HEAD_CITRINE_EXCAVATOR = register("head_citrine_excavator", 16);
+        HEAD_CITRINE_HAMMER = register("head_citrine_hammer", 16);
+        HEAD_CITRINE_HOE = register("head_citrine_hoe", 16);
+        HEAD_CITRINE_PICKAXE = register("head_citrine_pickaxe", 16);
+        HEAD_CITRINE_SHOVEL = register("head_citrine_shovel", 16);
+        HEAD_CITRINE_SWORD = register("head_citrine_sword", 16);
 
-        HEAD_COPPER_AXE = register("head_copper_axe", new Item.Settings().maxCount(16));
-        HEAD_COPPER_EXCAVATOR = register("head_copper_excavator", new Item.Settings().maxCount(16));
-        HEAD_COPPER_HAMMER = register("head_copper_hammer", new Item.Settings().maxCount(16));
-        HEAD_COPPER_HOE = register("head_copper_hoe", new Item.Settings().maxCount(16));
-        HEAD_COPPER_PICKAXE = register("head_copper_pickaxe", new Item.Settings().maxCount(16));
-        HEAD_COPPER_SHOVEL = register("head_copper_shovel", new Item.Settings().maxCount(16));
-        HEAD_COPPER_SWORD = register("head_copper_sword", new Item.Settings().maxCount(16));
+        HEAD_COPPER_AXE = register("head_copper_axe", 16);
+        HEAD_COPPER_EXCAVATOR = register("head_copper_excavator", 16);
+        HEAD_COPPER_HAMMER = register("head_copper_hammer", 16);
+        HEAD_COPPER_HOE = register("head_copper_hoe", 16);
+        HEAD_COPPER_PICKAXE = register("head_copper_pickaxe", 16);
+        HEAD_COPPER_SHOVEL = register("head_copper_shovel", 16);
+        HEAD_COPPER_SWORD = register("head_copper_sword", 16);
 
-        HEAD_DIAMOND_AXE = register("head_diamond_axe", new Item.Settings().maxCount(16));
-        HEAD_DIAMOND_EXCAVATOR = register("head_diamond_excavator", new Item.Settings().maxCount(16));
-        HEAD_DIAMOND_HAMMER = register("head_diamond_hammer", new Item.Settings().maxCount(16));
-        HEAD_DIAMOND_HOE = register("head_diamond_hoe", new Item.Settings().maxCount(16));
-        HEAD_DIAMOND_PICKAXE = register("head_diamond_pickaxe", new Item.Settings().maxCount(16));
-        HEAD_DIAMOND_SHOVEL = register("head_diamond_shovel", new Item.Settings().maxCount(16));
-        HEAD_DIAMOND_SWORD = register("head_diamond_sword", new Item.Settings().maxCount(16));
+        HEAD_DIAMOND_AXE = register("head_diamond_axe", 16);
+        HEAD_DIAMOND_EXCAVATOR = register("head_diamond_excavator", 16);
+        HEAD_DIAMOND_HAMMER = register("head_diamond_hammer", 16);
+        HEAD_DIAMOND_HOE = register("head_diamond_hoe", 16);
+        HEAD_DIAMOND_PICKAXE = register("head_diamond_pickaxe", 16);
+        HEAD_DIAMOND_SHOVEL = register("head_diamond_shovel", 16);
+        HEAD_DIAMOND_SWORD = register("head_diamond_sword", 16);
 
-        HEAD_ENDERITE_AXE = register("head_enderite_axe", new Item.Settings().maxCount(16));
-        HEAD_ENDERITE_EXCAVATOR = register("head_enderite_excavator", new Item.Settings().maxCount(16));
-        HEAD_ENDERITE_HAMMER = register("head_enderite_hammer", new Item.Settings().maxCount(16));
-        HEAD_ENDERITE_HOE = register("head_enderite_hoe", new Item.Settings().maxCount(16));
-        HEAD_ENDERITE_PICKAXE = register("head_enderite_pickaxe", new Item.Settings().maxCount(16));
-        HEAD_ENDERITE_SHOVEL = register("head_enderite_shovel", new Item.Settings().maxCount(16));
-        HEAD_ENDERITE_SWORD = register("head_enderite_sword", new Item.Settings().maxCount(16));
+        HEAD_ENDERITE_AXE = register("head_enderite_axe", 16);
+        HEAD_ENDERITE_EXCAVATOR = register("head_enderite_excavator", 16);
+        HEAD_ENDERITE_HAMMER = register("head_enderite_hammer", 16);
+        HEAD_ENDERITE_HOE = register("head_enderite_hoe", 16);
+        HEAD_ENDERITE_PICKAXE = register("head_enderite_pickaxe", 16);
+        HEAD_ENDERITE_SHOVEL = register("head_enderite_shovel", 16);
+        HEAD_ENDERITE_SWORD = register("head_enderite_sword", 16);
 
-        HEAD_GOLD_AXE = register("head_gold_axe", new Item.Settings().maxCount(16));
-        HEAD_GOLD_EXCAVATOR = register("head_gold_excavator", new Item.Settings().maxCount(16));
-        HEAD_GOLD_HAMMER = register("head_gold_hammer", new Item.Settings().maxCount(16));
-        HEAD_GOLD_HOE = register("head_gold_hoe", new Item.Settings().maxCount(16));
-        HEAD_GOLD_PICKAXE = register("head_gold_pickaxe", new Item.Settings().maxCount(16));
-        HEAD_GOLD_SHOVEL = register("head_gold_shovel", new Item.Settings().maxCount(16));
-        HEAD_GOLD_SWORD = register("head_gold_sword", new Item.Settings().maxCount(16));
+        HEAD_GOLD_AXE = register("head_gold_axe", 16);
+        HEAD_GOLD_EXCAVATOR = register("head_gold_excavator", 16);
+        HEAD_GOLD_HAMMER = register("head_gold_hammer", 16);
+        HEAD_GOLD_HOE = register("head_gold_hoe", 16);
+        HEAD_GOLD_PICKAXE = register("head_gold_pickaxe", 16);
+        HEAD_GOLD_SHOVEL = register("head_gold_shovel", 16);
+        HEAD_GOLD_SWORD = register("head_gold_sword", 16);
 
-        HEAD_IRON_AXE = register("head_iron_axe", new Item.Settings().maxCount(16));
-        HEAD_IRON_EXCAVATOR = register("head_iron_excavator", new Item.Settings().maxCount(16));
-        HEAD_IRON_HAMMER = register("head_iron_hammer", new Item.Settings().maxCount(16));
-        HEAD_IRON_HOE = register("head_iron_hoe", new Item.Settings().maxCount(16));
-        HEAD_IRON_PICKAXE = register("head_iron_pickaxe", new Item.Settings().maxCount(16));
-        HEAD_IRON_SHOVEL = register("head_iron_shovel", new Item.Settings().maxCount(16));
-        HEAD_IRON_SWORD = register("head_iron_sword", new Item.Settings().maxCount(16));
+        HEAD_IRON_AXE = register("head_iron_axe", 16);
+        HEAD_IRON_EXCAVATOR = register("head_iron_excavator", 16);
+        HEAD_IRON_HAMMER = register("head_iron_hammer", 16);
+        HEAD_IRON_HOE = register("head_iron_hoe", 16);
+        HEAD_IRON_PICKAXE = register("head_iron_pickaxe", 16);
+        HEAD_IRON_SHOVEL = register("head_iron_shovel", 16);
+        HEAD_IRON_SWORD = register("head_iron_sword", 16);
 
-        HEAD_NETHERITE_AXE = register("head_netherite_axe", new Item.Settings().maxCount(16));
-        HEAD_NETHERITE_EXCAVATOR = register("head_netherite_excavator", new Item.Settings().maxCount(16));
-        HEAD_NETHERITE_HAMMER = register("head_netherite_hammer", new Item.Settings().maxCount(16));
-        HEAD_NETHERITE_HOE = register("head_netherite_hoe", new Item.Settings().maxCount(16));
-        HEAD_NETHERITE_PICKAXE = register("head_netherite_pickaxe", new Item.Settings().maxCount(16));
-        HEAD_NETHERITE_SHOVEL = register("head_netherite_shovel", new Item.Settings().maxCount(16));
-        HEAD_NETHERITE_SWORD = register("head_netherite_sword", new Item.Settings().maxCount(16));
+        HEAD_NETHERITE_AXE = register("head_netherite_axe", 16);
+        HEAD_NETHERITE_EXCAVATOR = register("head_netherite_excavator", 16);
+        HEAD_NETHERITE_HAMMER = register("head_netherite_hammer", 16);
+        HEAD_NETHERITE_HOE = register("head_netherite_hoe", 16);
+        HEAD_NETHERITE_PICKAXE = register("head_netherite_pickaxe", 16);
+        HEAD_NETHERITE_SHOVEL = register("head_netherite_shovel", 16);
+        HEAD_NETHERITE_SWORD = register("head_netherite_sword", 16);
 
-        HEAD_RUBY_AXE = register("head_ruby_axe", new Item.Settings().maxCount(16));
-        HEAD_RUBY_EXCAVATOR = register("head_ruby_excavator", new Item.Settings().maxCount(16));
-        HEAD_RUBY_HAMMER = register("head_ruby_hammer", new Item.Settings().maxCount(16));
-        HEAD_RUBY_HOE = register("head_ruby_hoe", new Item.Settings().maxCount(16));
-        HEAD_RUBY_PICKAXE = register("head_ruby_pickaxe", new Item.Settings().maxCount(16));
-        HEAD_RUBY_SHOVEL = register("head_ruby_shovel", new Item.Settings().maxCount(16));
-        HEAD_RUBY_SWORD = register("head_ruby_sword", new Item.Settings().maxCount(16));
+        HEAD_RUBY_AXE = register("head_ruby_axe", 16);
+        HEAD_RUBY_EXCAVATOR = register("head_ruby_excavator", 16);
+        HEAD_RUBY_HAMMER = register("head_ruby_hammer", 16);
+        HEAD_RUBY_HOE = register("head_ruby_hoe", 16);
+        HEAD_RUBY_PICKAXE = register("head_ruby_pickaxe", 16);
+        HEAD_RUBY_SHOVEL = register("head_ruby_shovel", 16);
+        HEAD_RUBY_SWORD = register("head_ruby_sword", 16);
 
-        HEAD_SAPPHIRE_AXE = register("head_sapphire_axe", new Item.Settings().maxCount(16));
-        HEAD_SAPPHIRE_EXCAVATOR = register("head_sapphire_excavator", new Item.Settings().maxCount(16));
-        HEAD_SAPPHIRE_HAMMER = register("head_sapphire_hammer", new Item.Settings().maxCount(16));
-        HEAD_SAPPHIRE_HOE = register("head_sapphire_hoe", new Item.Settings().maxCount(16));
-        HEAD_SAPPHIRE_PICKAXE = register("head_sapphire_pickaxe", new Item.Settings().maxCount(16));
-        HEAD_SAPPHIRE_SHOVEL = register("head_sapphire_shovel", new Item.Settings().maxCount(16));
-        HEAD_SAPPHIRE_SWORD = register("head_sapphire_sword", new Item.Settings().maxCount(16));
+        HEAD_SAPPHIRE_AXE = register("head_sapphire_axe", 16);
+        HEAD_SAPPHIRE_EXCAVATOR = register("head_sapphire_excavator", 16);
+        HEAD_SAPPHIRE_HAMMER = register("head_sapphire_hammer", 16);
+        HEAD_SAPPHIRE_HOE = register("head_sapphire_hoe", 16);
+        HEAD_SAPPHIRE_PICKAXE = register("head_sapphire_pickaxe", 16);
+        HEAD_SAPPHIRE_SHOVEL = register("head_sapphire_shovel", 16);
+        HEAD_SAPPHIRE_SWORD = register("head_sapphire_sword", 16);
 
-        HEAD_STONE_HAMMER = register("head_stone_hammer", new Item.Settings().maxCount(16));
-        HEAD_STONE_EXCAVATOR = register("head_stone_excavator", new Item.Settings().maxCount(16));
-        HEAD_WOOD_HAMMER = register("head_wood_hammer", new Item.Settings().maxCount(16));
-        HEAD_WOOD_EXCAVATOR = register("head_wood_excavator", new Item.Settings().maxCount(16));
+        HEAD_STONE_HAMMER = register("head_stone_hammer", 16);
+        HEAD_STONE_EXCAVATOR = register("head_stone_excavator", 16);
+        HEAD_WOOD_HAMMER = register("head_wood_hammer", 16);
+        HEAD_WOOD_EXCAVATOR = register("head_wood_excavator", 16);
         //endregion
         //region CITRINE TOOLS
-        TOOL_CITRINE_AXE = register("tool_citrine_axe",
-                                     new AxeItem(ModToolMaterials.CITRINE,
-                                                 new Item.Settings().attributeModifiers(
-                                                         AxeItem.createAttributeModifiers(
-                                                                 ModToolMaterials.CITRINE,
-                                                                 6.0f, -3.1f))));
-
-        TOOL_CITRINE_EXCAVATOR = register("tool_citrine_excavator",
-                                       new ExcavatorItem(ModToolMaterials.CITRINE,
-                                                         Configs.CITRINE_EXCAVATOR_DEPTH, Configs.CITRINE_EXCAVATOR_WIDTH,
-                                                         new Item.Settings().attributeModifiers(
-                                                              ShovelItem.createAttributeModifiers(
-                                                                      ModToolMaterials.CITRINE,
-                                                                      0.0f, -0.0f))));
-        TOOL_CITRINE_HAMMER = register("tool_citrine_hammer",
-                                       new HammerItem(ModToolMaterials.CITRINE,
-                                                      Configs.CITRINE_HAMMER_DEPTH, Configs.CITRINE_HAMMER_WIDTH,
-                                                      new Item.Settings().attributeModifiers(
-                                                              PickaxeItem.createAttributeModifiers(
-                                                                      ModToolMaterials.CITRINE,
-                                                                      1.0f, -2.8f))));
-        TOOL_CITRINE_HOE = register("tool_citrine_hoe",
-                                         new HoeItem(ModToolMaterials.CITRINE,
-                                                     new Item.Settings().attributeModifiers(
-                                                             HoeItem.createAttributeModifiers(
-                                                                     ModToolMaterials.CITRINE,
-                                                                     -0.0f, -0.0f))));
-        TOOL_CITRINE_PICKAXE = register("tool_citrine_pickaxe",
-                                             new PickaxeItem(ModToolMaterials.CITRINE,
-                                                             new Item.Settings().attributeModifiers(
-                                                                     PickaxeItem.createAttributeModifiers(
-                                                                             ModToolMaterials.CITRINE,
-                                                                             1.0f, -2.8f))));
-        TOOL_CITRINE_SHOVEL = register("tool_citrine_shovel",
-                                            new ShovelItem(ModToolMaterials.CITRINE,
-                                                           new Item.Settings().attributeModifiers(
-                                                                   ShovelItem.createAttributeModifiers(
-                                                                           ModToolMaterials.CITRINE,
-                                                                           0.0f, -0.0f))));
-        TOOL_CITRINE_SWORD = register("tool_citrine_sword",
-                                           new CitrineSword(ModToolMaterials.CITRINE,
-                                                            new Item.Settings().attributeModifiers(
-                                                                    SwordItem.createAttributeModifiers(
-                                                                            ModToolMaterials.CITRINE,
-                                                                            3, -0.5f))));
+        //TODO: Talk about new Item registration for Tools (factory)
+        TOOL_CITRINE_AXE = registerTool("tool_citrine_axe", ModToolMaterials.CITRINE, 0.0f, 0.0f, AxeItem::new);
+        TOOL_CITRINE_HOE = registerTool("tool_citrine_hoe", ModToolMaterials.CITRINE, 0.0f, 0.0f, HoeItem::new);
+        TOOL_CITRINE_PICKAXE = registerTool("tool_citrine_pickaxe", ModToolMaterials.CITRINE, 1.0f, -2.8f, PickaxeItem::new);
+        TOOL_CITRINE_SHOVEL = registerTool("tool_citrine_shovel", ModToolMaterials.CITRINE, 0.0f, 0.0f, ShovelItem::new);
+        //TODO: Talk about new params in ctor
+        TOOL_CITRINE_SWORD = registerTool("tool_citrine_sword", ModToolMaterials.CITRINE, 3.0f, -0.5f, CitrineSword::new);
+        TOOL_CITRINE_EXCAVATOR = registerTool("tool_citrine_excavator", ModToolMaterials.CITRINE, 0.0f, 0.0f, ExcavatorItem::new)
+                .setDepth(Configs.CITRINE_EXCAVATOR_DEPTH).setRadius(Configs.CITRINE_EXCAVATOR_WIDTH);
+        TOOL_CITRINE_HAMMER = registerTool("tool_citrine_hammer", ModToolMaterials.CITRINE, 1.0f, -2.0f, HammerItem::new)
+                .setDepth(Configs.CITRINE_HAMMER_DEPTH).setRadius(Configs.CITRINE_HAMMER_WIDTH);
         //endregion
         //region COPPER TOOLS
-        TOOL_COPPER_AXE = register("tool_copper_axe",
-                                        new AxeItem(ModToolMaterials.COPPER,
-                                                    new Item.Settings().attributeModifiers(
-                                                            AxeItem.createAttributeModifiers(
-                                                                    ModToolMaterials.COPPER,
-                                                                    6.0f, -1.5f))));
-
-        TOOL_COPPER_EXCAVATOR = register("tool_copper_excavator",
-                                          new ExcavatorItem(ModToolMaterials.COPPER,
-                                                            Configs.COPPER_EXCAVATOR_DEPTH, Configs.COPPER_EXCAVATOR_WIDTH,
-                                                            new Item.Settings().attributeModifiers(
-                                                                    ShovelItem.createAttributeModifiers(
-                                                                            ModToolMaterials.COPPER,
-                                                                            0.0f, -0.0f))));
-        TOOL_COPPER_HAMMER = register("tool_copper_hammer",
-                                      new HammerItem(ModToolMaterials.COPPER,
-                                                     Configs.COPPER_HAMMER_DEPTH, Configs.COPPER_HAMMER_WIDTH,
-                                                     new Item.Settings().attributeModifiers(
-                                                             PickaxeItem.createAttributeModifiers(
-                                                                     ModToolMaterials.COPPER,
-                                                                     1.0f, -2.8f))));
-        TOOL_COPPER_HOE = register("tool_copper_hoe",
-                                        new HoeItem(ModToolMaterials.COPPER,
-                                                    new Item.Settings().attributeModifiers(
-                                                            HoeItem.createAttributeModifiers(
-                                                                    ModToolMaterials.COPPER,
-                                                                    -0.0f, -0.0f))));
-        TOOL_COPPER_PICKAXE = register("tool_copper_pickaxe",
-                                            new PickaxeItem(ModToolMaterials.COPPER,
-                                                            new Item.Settings().attributeModifiers(
-                                                                    PickaxeItem.createAttributeModifiers(
-                                                                            ModToolMaterials.COPPER,
-                                                                            1.0f, -1.0f))));
-        TOOL_COPPER_SHOVEL = register("tool_copper_shovel",
-                                           new ShovelItem(ModToolMaterials.COPPER,
-                                                          new Item.Settings().attributeModifiers(
-                                                                  ShovelItem.createAttributeModifiers(
-                                                                          ModToolMaterials.COPPER,
-                                                                          0.0f, -0.0f))));
-        TOOL_COPPER_SWORD = register("tool_copper_sword",
-                                          new CopperSword(ModToolMaterials.COPPER,
-                                                          new Item.Settings().attributeModifiers(
-                                                                  SwordItem.createAttributeModifiers(
-                                                                          ModToolMaterials.COPPER,
-                                                                          3, -2.4f))));
+        TOOL_COPPER_AXE = registerTool("tool_copper_axe", ModToolMaterials.COPPER, 6.0f, -1.5f, AxeItem::new);
+        TOOL_COPPER_HOE = registerTool("tool_copper_hoe", ModToolMaterials.COPPER, 0.0f, 0.0f, HoeItem::new);
+        TOOL_COPPER_PICKAXE = registerTool("tool_copper_pickaxe", ModToolMaterials.COPPER, 1.0f, -1.0f, PickaxeItem::new);
+        TOOL_COPPER_SHOVEL = registerTool("tool_copper_shovel", ModToolMaterials.COPPER, 0.0f, 0.0f, ShovelItem::new);
+        TOOL_COPPER_SWORD = registerTool("tool_copper_sword", ModToolMaterials.COPPER, 3.0f, -2.4f, CopperSword::new);
+        TOOL_COPPER_EXCAVATOR = registerTool("tool_copper_excavator", ModToolMaterials.COPPER, 0.0f, 0.0f, ExcavatorItem::new)
+                .setDepth(Configs.COPPER_EXCAVATOR_DEPTH).setRadius(Configs.COPPER_EXCAVATOR_WIDTH);
+        TOOL_COPPER_HAMMER = registerTool("tool_copper_hammer", ModToolMaterials.COPPER, 1.0f, -2.8f, HammerItem::new)
+                .setDepth(Configs.COPPER_HAMMER_DEPTH).setRadius(Configs.COPPER_HAMMER_WIDTH);
         //endregion
         //region ENDERITE TOOLS
-        TOOL_ENDERITE_AXE = register("tool_enderite_axe",
-                                          new AxeItem(ModToolMaterials.ENDERITE,
-                                                      new Item.Settings().attributeModifiers(
-                                                              AxeItem.createAttributeModifiers(
-                                                                      ModToolMaterials.ENDERITE,
-                                                                      20.0f, -2.5f))));
+        TOOL_ENDERITE_AXE = registerTool("tool_enderite_axe", ModToolMaterials.ENDERITE, 20.0f, -2.5f, AxeItem::new);
+        TOOL_ENDERITE_HOE = registerTool("tool_enderite_hoe", ModToolMaterials.ENDERITE, 0.0f, 0.0f, HoeItem::new);
+        TOOL_ENDERITE_PICKAXE = registerTool("tool_enderite_pickaxe", ModToolMaterials.ENDERITE, 1.0f, -1.0f, PickaxeItem::new);
+        TOOL_ENDERITE_SHOVEL = registerTool("tool_enderite_shovel", ModToolMaterials.ENDERITE, 0.0f, 0.0f, ShovelItem::new);
+        TOOL_ENDERITE_SWORD = registerTool("tool_enderite_sword", ModToolMaterials.ENDERITE, 3.0f, 3.0f, EnderiteSword::new);
+        TOOL_ENDERITE_EXCAVATOR = registerTool("tool_enderite_excavator", ModToolMaterials.ENDERITE, 0.0f, 0.0f, ExcavatorItem::new)
+                .setDepth(Configs.ENDERITE_EXCAVATOR_DEPTH).setRadius(Configs.ENDERITE_EXCAVATOR_WIDTH);
+        TOOL_ENDERITE_HAMMER = registerTool("tool_enderite_hammer", ModToolMaterials.ENDERITE, 1.0f, -2.8f, HammerItem::new)
+                .setDepth(Configs.ENDERITE_HAMMER_DEPTH).setRadius(Configs.ENDERITE_HAMMER_WIDTH);
 
-        TOOL_ENDERITE_EXCAVATOR = register("tool_enderite_excavator",
-                                         new ExcavatorItem(ModToolMaterials.ENDERITE,
-                                                           Configs.ENDERITE_EXCAVATOR_DEPTH, Configs.ENDERITE_EXCAVATOR_WIDTH,
-                                                           new Item.Settings().attributeModifiers(
-                                                                   ShovelItem.createAttributeModifiers(
-                                                                           ModToolMaterials.ENDERITE,
-                                                                           0.0f, -0.0f))));
-        TOOL_ENDERITE_HAMMER = register("tool_enderite_hammer",
-                                        new HammerItem(ModToolMaterials.ENDERITE,
-                                                       Configs.ENDERITE_HAMMER_DEPTH, Configs.ENDERITE_HAMMER_WIDTH,
-                                                       new Item.Settings().attributeModifiers(
-                                                               PickaxeItem.createAttributeModifiers(
-                                                                       ModToolMaterials.ENDERITE,
-                                                                       1.0f, -2.8f))));
-        TOOL_ENDERITE_HOE = register("tool_enderite_hoe",
-                                          new HoeItem(ModToolMaterials.ENDERITE,
-                                                      new Item.Settings().attributeModifiers(
-                                                              HoeItem.createAttributeModifiers(
-                                                                      ModToolMaterials.ENDERITE,
-                                                                      -0.0f, -0.0f))));
-        TOOL_ENDERITE_PICKAXE = register("tool_enderite_pickaxe",
-                                              new PickaxeItem(ModToolMaterials.ENDERITE,
-                                                              new Item.Settings().attributeModifiers(
-                                                                      PickaxeItem.createAttributeModifiers(
-                                                                              ModToolMaterials.ENDERITE,
-                                                                              1.0f, -1.0f))));
-        TOOL_ENDERITE_SHOVEL = register("tool_enderite_shovel",
-                                             new ShovelItem(ModToolMaterials.ENDERITE,
-                                                            new Item.Settings().attributeModifiers(
-                                                                    ShovelItem.createAttributeModifiers(
-                                                                            ModToolMaterials.ENDERITE,
-                                                                            0.0f, -0.0f))));
-        TOOL_ENDERITE_SWORD = register("tool_enderite_sword",
-                                            new EnderiteSword(ModToolMaterials.ENDERITE,
-                                                          new Item.Settings().attributeModifiers(
-                                                                  SwordItem.createAttributeModifiers(
-                                                                          ModToolMaterials.ENDERITE,
-                                                                          3, 3.0f))));
         //endregion
         //region RUBY TOOLS
-        TOOL_RUBY_AXE = register("tool_ruby_axe",
-                                      new AxeItem(ModToolMaterials.RUBY,
-                                                  new Item.Settings().attributeModifiers(
-                                                          AxeItem.createAttributeModifiers(
-                                                                  ModToolMaterials.RUBY,
-                                                                  5.0f, -1.5f))));
-
-        TOOL_RUBY_EXCAVATOR = register("tool_ruby_excavator",
-                                         new ExcavatorItem(ModToolMaterials.RUBY,
-                                                           Configs.RUBY_EXCAVATOR_DEPTH, Configs.RUBY_EXCAVATOR_WIDTH,
-                                                           new Item.Settings().attributeModifiers(
-                                                                   ShovelItem.createAttributeModifiers(
-                                                                           ModToolMaterials.RUBY,
-                                                                           0.0f, -0.0f))));
-        TOOL_RUBY_HAMMER = register("tool_ruby_hammer",
-                                    new HammerItem(ModToolMaterials.RUBY,
-                                                   Configs.RUBY_HAMMER_DEPTH, Configs.RUBY_HAMMER_WIDTH,
-                                                   new Item.Settings().attributeModifiers(
-                                                           PickaxeItem.createAttributeModifiers(
-                                                                   ModToolMaterials.RUBY,
-                                                                   1.0f, -2.8f))));
-        TOOL_RUBY_HOE = register("tool_ruby_hoe",
-                                      new HoeItem(ModToolMaterials.RUBY,
-                                                  new Item.Settings().attributeModifiers(
-                                                          HoeItem.createAttributeModifiers(
-                                                                  ModToolMaterials.RUBY,
-                                                                  -0.0f, -0.0f))));
-        TOOL_RUBY_PICKAXE = register("tool_ruby_pickaxe",
-                                          new PickaxeItem(ModToolMaterials.RUBY,
-                                                          new Item.Settings().attributeModifiers(
-                                                                  PickaxeItem.createAttributeModifiers(
-                                                                          ModToolMaterials.RUBY,
-                                                                          1.0f, -1.0f))));
-        TOOL_RUBY_SHOVEL = register("tool_ruby_shovel",
-                                         new ShovelItem(ModToolMaterials.RUBY,
-                                                        new Item.Settings().attributeModifiers(
-                                                                ShovelItem.createAttributeModifiers(
-                                                                        ModToolMaterials.RUBY,
-                                                                        0.0f, -0.0f))));
-        TOOL_RUBY_SWORD = register("tool_ruby_sword",
-                                        new SwordItem(ModToolMaterials.RUBY,
-                                                      new Item.Settings().attributeModifiers(
-                                                              SwordItem.createAttributeModifiers(
-                                                                      ModToolMaterials.RUBY,
-                                                                      4, -0.5f))));
+        TOOL_RUBY_AXE = registerTool("tool_ruby_axe", ModToolMaterials.RUBY, 5.0f, -1.5f, AxeItem::new);
+        TOOL_RUBY_HOE = registerTool("tool_ruby_hoe", ModToolMaterials.RUBY, 0.0f, 0.0f, HoeItem::new);
+        TOOL_RUBY_PICKAXE = registerTool("tool_ruby_pickaxe", ModToolMaterials.RUBY, 1.0f, -1.0f, PickaxeItem::new);
+        TOOL_RUBY_SHOVEL = registerTool("tool_ruby_shovel", ModToolMaterials.RUBY, 0.0f, 0.0f, ShovelItem::new);
+        TOOL_RUBY_SWORD = registerTool("tool_ruby_sword", ModToolMaterials.RUBY, 4.0f, -0.5f, RubySword::new);
+        TOOL_RUBY_EXCAVATOR = registerTool("tool_ruby_excavator", ModToolMaterials.RUBY, 0.0f, 0.0f, ExcavatorItem::new)
+                .setDepth(Configs.RUBY_EXCAVATOR_DEPTH).setRadius(Configs.RUBY_EXCAVATOR_WIDTH);
+        TOOL_RUBY_HAMMER = registerTool("tool_ruby_hammer", ModToolMaterials.RUBY, 1.0f, -2.8f, HammerItem::new)
+                .setDepth(Configs.RUBY_HAMMER_DEPTH).setRadius(Configs.RUBY_HAMMER_WIDTH);
         //endregion
         //region SAPPHIRE TOOLS
-        TOOL_SAPPHIRE_AXE = register("tool_sapphire_axe",
-                                          new AxeItem(ModToolMaterials.SAPPHIRE,
-                                                      new Item.Settings().attributeModifiers(
-                                                              AxeItem.createAttributeModifiers(
-                                                                      ModToolMaterials.SAPPHIRE,
-                                                                      5.0f, -1.5f))));
-
-        TOOL_SAPPHIRE_EXCAVATOR = register("tool_sapphire_excavator",
-                                         new ExcavatorItem(ModToolMaterials.SAPPHIRE,
-                                                           Configs.SAPPHIRE_EXCAVATOR_DEPTH, Configs.SAPPHIRE_EXCAVATOR_WIDTH,
-                                                           new Item.Settings().attributeModifiers(
-                                                                   ShovelItem.createAttributeModifiers(
-                                                                           ModToolMaterials.SAPPHIRE,
-                                                                           0.0f, -0.0f))));
-        TOOL_SAPPHIRE_HAMMER = register("tool_sapphire_hammer",
-                                        new HammerItem(ModToolMaterials.SAPPHIRE,
-                                                       Configs.SAPPHIRE_HAMMER_DEPTH, Configs.SAPPHIRE_HAMMER_WIDTH,
-                                                       new Item.Settings().attributeModifiers(
-                                                               PickaxeItem.createAttributeModifiers(
-                                                                       ModToolMaterials.SAPPHIRE,
-                                                                       1.0f, -2.8f))));
-        TOOL_SAPPHIRE_HOE = register("tool_sapphire_hoe",
-                                          new HoeItem(ModToolMaterials.SAPPHIRE,
-                                                      new Item.Settings().attributeModifiers(
-                                                              HoeItem.createAttributeModifiers(
-                                                                      ModToolMaterials.SAPPHIRE,
-                                                                      -0.0f, -0.0f))));
-        TOOL_SAPPHIRE_PICKAXE = register("tool_sapphire_pickaxe",
-                                              new PickaxeItem(ModToolMaterials.SAPPHIRE,
-                                                              new Item.Settings().attributeModifiers(
-                                                                      PickaxeItem.createAttributeModifiers(
-                                                                              ModToolMaterials.SAPPHIRE,
-                                                                              1.0f, -1.0f))));
-        TOOL_SAPPHIRE_SHOVEL = register("tool_sapphire_shovel",
-                                             new ShovelItem(ModToolMaterials.SAPPHIRE,
-                                                            new Item.Settings().attributeModifiers(
-                                                                    ShovelItem.createAttributeModifiers(
-                                                                            ModToolMaterials.SAPPHIRE,
-                                                                            0.0f, -0.0f))));
-        TOOL_SAPPHIRE_SWORD = register("tool_sapphire_sword",
-                                            new SapphireSword(ModToolMaterials.SAPPHIRE,
-                                                              new Item.Settings().attributeModifiers(
-                                                                      SwordItem.createAttributeModifiers(
-                                                                              ModToolMaterials.SAPPHIRE,
-                                                                              4, -0.5f))));
+        TOOL_SAPPHIRE_AXE = registerTool("tool_sapphire_axe", ModToolMaterials.SAPPHIRE, 5.0f, -1.5f, AxeItem::new);
+        TOOL_SAPPHIRE_HOE = registerTool("tool_sapphire_hoe", ModToolMaterials.SAPPHIRE, 0.0f, 0.0f, HoeItem::new);
+        TOOL_SAPPHIRE_PICKAXE = registerTool("tool_sapphire_pickaxe", ModToolMaterials.SAPPHIRE, 1.0f, -1.0f, PickaxeItem::new);
+        TOOL_SAPPHIRE_SHOVEL = registerTool("tool_sapphire_shovel", ModToolMaterials.SAPPHIRE, 0.0f, 0.0f, ShovelItem::new);
+        TOOL_SAPPHIRE_SWORD = registerTool("tool_sapphire_sword", ModToolMaterials.SAPPHIRE, 4.0f, -0.5f, SapphireSword::new);
+        TOOL_SAPPHIRE_EXCAVATOR = registerTool("tool_sapphire_excavator", ModToolMaterials.SAPPHIRE, 0.0f, 0.0f, ExcavatorItem::new)
+                .setDepth(Configs.SAPPHIRE_EXCAVATOR_DEPTH).setRadius(Configs.SAPPHIRE_EXCAVATOR_WIDTH);
+        TOOL_SAPPHIRE_HAMMER = registerTool("tool_sapphire_hammer", ModToolMaterials.SAPPHIRE, 1.0f, -2.8f, HammerItem::new)
+                .setDepth(Configs.SAPPHIRE_HAMMER_DEPTH).setRadius(Configs.SAPPHIRE_HAMMER_WIDTH);
         //endregion
         //region VANILLA HAMMERS
-        TOOL_DIAMOND_HAMMER = register("tool_diamond_hammer",
-                                       new HammerItem(ToolMaterials.DIAMOND,
-                                                      Configs.DIAMOND_HAMMER_DEPTH, Configs.DIAMOND_HAMMER_WIDTH,
-                                                      new Item.Settings().attributeModifiers(
-                                                              PickaxeItem.createAttributeModifiers(
-                                                                      ToolMaterials.DIAMOND,
-                                                                      1.0f, -2.8f))));
-
-        TOOL_DIAMOND_EXCAVATOR = register("tool_diamond_excavator",
-                                           new ExcavatorItem(ToolMaterials.DIAMOND,
-                                                             Configs.DIAMOND_EXCAVATOR_DEPTH, Configs.DIAMOND_EXCAVATOR_WIDTH,
-                                                             new Item.Settings().attributeModifiers(
-                                                                     ShovelItem.createAttributeModifiers(
-                                                                             ToolMaterials.DIAMOND,
-                                                                             0.0f, -0.0f))));
-        TOOL_GOLD_HAMMER = register("tool_gold_hammer",
-                                    new HammerItem(ToolMaterials.GOLD,
-                                                   Configs.GOLD_HAMMER_DEPTH, Configs.GOLD_HAMMER_WIDTH,
-                                                   new Item.Settings().attributeModifiers(
-                                                           PickaxeItem.createAttributeModifiers(
-                                                                   ToolMaterials.GOLD,
-                                                                   1.0f, -2.8f))));
-
-        TOOL_GOLD_EXCAVATOR = register("tool_gold_excavator",
-                                           new ExcavatorItem(ToolMaterials.GOLD,
-                                                             Configs.GOLD_EXCAVATOR_DEPTH, Configs.GOLD_EXCAVATOR_WIDTH,
-                                                             new Item.Settings().attributeModifiers(
-                                                                     ShovelItem.createAttributeModifiers(
-                                                                             ToolMaterials.GOLD,
-                                                                             0.0f, -0.0f))));
-        TOOL_IRON_HAMMER = register("tool_iron_hammer",
-                                    new HammerItem(ToolMaterials.IRON,
-                                                   Configs.IRON_HAMMER_DEPTH, Configs.IRON_HAMMER_WIDTH,
-                                                   new Item.Settings().attributeModifiers(
-                                                           PickaxeItem.createAttributeModifiers(
-                                                                   ToolMaterials.IRON,
-                                                                   1.0f, -2.8f))));
-
-        TOOL_IRON_EXCAVATOR = register("tool_iron_excavator",
-                                       new ExcavatorItem(ToolMaterials.IRON,
-                                                         Configs.IRON_EXCAVATOR_DEPTH, Configs.IRON_EXCAVATOR_WIDTH,
-                                                         new Item.Settings().attributeModifiers(
-                                                                 ShovelItem.createAttributeModifiers(
-                                                                         ToolMaterials.IRON,
-                                                                         0.0f, -0.0f))));
-        TOOL_NETHERITE_HAMMER = register("tool_netherite_hammer",
-                                         new HammerItem(ToolMaterials.NETHERITE,
-                                                        Configs.NETHERITE_HAMMER_DEPTH, Configs.NETHERITE_HAMMER_WIDTH,
-                                                        new Item.Settings().attributeModifiers(
-                                                                PickaxeItem.createAttributeModifiers(
-                                                                        ToolMaterials.NETHERITE,
-                                                                        1.0f, -2.8f))));
-
-        TOOL_NETHERITE_EXCAVATOR = register("tool_netherite_excavator",
-                                       new ExcavatorItem(ToolMaterials.NETHERITE,
-                                                         Configs.NETHERITE_EXCAVATOR_DEPTH, Configs.NETHERITE_EXCAVATOR_WIDTH,
-                                                         new Item.Settings().attributeModifiers(
-                                                                 ShovelItem.createAttributeModifiers(
-                                                                         ToolMaterials.NETHERITE,
-                                                                         0.0f, -0.0f))));
-        TOOL_STONE_HAMMER = register("tool_stone_hammer",
-                                     new HammerItem(ToolMaterials.STONE,
-                                                    Configs.STONE_HAMMER_DEPTH, Configs.STONE_HAMMER_WIDTH,
-                                                    new Item.Settings().attributeModifiers(
-                                                            PickaxeItem.createAttributeModifiers(
-                                                                    ToolMaterials.STONE,
-                                                                    1.0f, -2.8f))));
-
-        TOOL_STONE_EXCAVATOR = register("tool_stone_excavator",
-                                       new ExcavatorItem(ToolMaterials.STONE,
-                                                         Configs.STONE_EXCAVATOR_DEPTH, Configs.STONE_EXCAVATOR_WIDTH,
-                                                         new Item.Settings().attributeModifiers(
-                                                                 ShovelItem.createAttributeModifiers(
-                                                                         ToolMaterials.STONE,
-                                                                         0.0f, -0.0f))));
-        TOOL_WOOD_HAMMER = register("tool_wood_hammer",
-                                    new HammerItem(ToolMaterials.WOOD,
-                                                   Configs.WOOD_HAMMER_DEPTH, Configs.WOOD_HAMMER_WIDTH,
-                                                   new Item.Settings().attributeModifiers(
-                                                           PickaxeItem.createAttributeModifiers(
-                                                                   ToolMaterials.WOOD,
-                                                                   1.0f, -2.8f))));
-
-        TOOL_WOOD_EXCAVATOR = register("tool_wood_excavator",
-                                       new ExcavatorItem(ToolMaterials.WOOD,
-                                                         Configs.WOOD_EXCAVATOR_DEPTH, Configs.WOOD_EXCAVATOR_WIDTH,
-                                                         new Item.Settings().attributeModifiers(
-                                                                 ShovelItem.createAttributeModifiers(
-                                                                         ToolMaterials.WOOD,
-                                                                         0.0f, -0.0f))));
+        //TODO: ToolMaterials -> ToolMaterial
+        TOOL_DIAMOND_EXCAVATOR = registerTool("tool_diamond_excavator", ToolMaterial.DIAMOND, 0.0f, 0.0f, ExcavatorItem::new)
+                .setDepth(Configs.DIAMOND_EXCAVATOR_DEPTH).setRadius(Configs.DIAMOND_EXCAVATOR_WIDTH);
+        TOOL_DIAMOND_HAMMER = registerTool("tool_diamond_hammer", ToolMaterial.DIAMOND, 1.0f, -2.8f, HammerItem::new)
+                .setDepth(Configs.DIAMOND_HAMMER_DEPTH).setRadius(Configs.DIAMOND_HAMMER_WIDTH);
+        TOOL_GOLD_EXCAVATOR = registerTool("tool_gold_excavator", ToolMaterial.GOLD, 0.0f, 0.0f, ExcavatorItem::new)
+                .setDepth(Configs.GOLD_EXCAVATOR_DEPTH).setRadius(Configs.GOLD_EXCAVATOR_WIDTH);
+        TOOL_GOLD_HAMMER = registerTool("tool_gold_hammer", ToolMaterial.GOLD, 1.0f, -2.8f, HammerItem::new)
+                .setDepth(Configs.GOLD_HAMMER_DEPTH).setRadius(Configs.GOLD_HAMMER_WIDTH);
+        TOOL_IRON_EXCAVATOR = registerTool("tool_iron_excavator", ToolMaterial.IRON, 0.0f, 0.0f, ExcavatorItem::new)
+                .setDepth(Configs.IRON_EXCAVATOR_DEPTH).setRadius(Configs.IRON_EXCAVATOR_WIDTH);
+        TOOL_IRON_HAMMER = registerTool("tool_iron_hammer", ToolMaterial.IRON, 1.0f, -2.8f, HammerItem::new)
+                .setDepth(Configs.IRON_HAMMER_DEPTH).setRadius(Configs.IRON_HAMMER_WIDTH);
+        TOOL_NETHERITE_EXCAVATOR = registerTool("tool_netherite_excavator", ToolMaterial.NETHERITE, 0.0f, 0.0f, ExcavatorItem::new)
+                .setDepth(Configs.NETHERITE_EXCAVATOR_DEPTH).setRadius(Configs.NETHERITE_EXCAVATOR_WIDTH);
+        TOOL_NETHERITE_HAMMER = registerTool("tool_netherite_hammer", ToolMaterial.NETHERITE, 1.0f, -2.8f, HammerItem::new)
+                .setDepth(Configs.NETHERITE_HAMMER_DEPTH).setRadius(Configs.NETHERITE_HAMMER_WIDTH);
+        TOOL_STONE_EXCAVATOR = registerTool("tool_stone_excavator", ToolMaterial.STONE, 0.0f, 0.0f, ExcavatorItem::new)
+                .setDepth(Configs.STONE_EXCAVATOR_DEPTH).setRadius(Configs.STONE_EXCAVATOR_WIDTH);
+        TOOL_STONE_HAMMER = registerTool("tool_stone_hammer", ToolMaterial.STONE, 1.0f, -2.8f, HammerItem::new)
+                .setDepth(Configs.STONE_HAMMER_DEPTH).setRadius(Configs.STONE_HAMMER_WIDTH);
+        TOOL_WOOD_EXCAVATOR = registerTool("tool_wood_excavator", ToolMaterial.WOOD, 0.0f, 0.0f, ExcavatorItem::new)
+                .setDepth(Configs.WOOD_EXCAVATOR_DEPTH).setRadius(Configs.WOOD_EXCAVATOR_WIDTH);
+        TOOL_WOOD_HAMMER = registerTool("tool_wood_hammer", ToolMaterial.WOOD, 1.0f, -2.8f, HammerItem::new)
+                .setDepth(Configs.WOOD_HAMMER_DEPTH).setRadius(Configs.WOOD_HAMMER_WIDTH);
         //endregion
         //region TOOL
-        BACKPACK = register("backpack",
-                            new BackpackItem(new Item.Settings().maxCount(1)));
-        ENDER_BACKPACK = register("ender_backpack",
-                                  new EnderBackpackItem(new Item.Settings().maxCount(1)));
-
-        BLUEPRINT_EMPTY = register("blueprint_empty");
-        BLUEPRINT_PRINTED = register("blueprint_printed",
-                                     new BlueprintItem(new Item.Settings().maxCount(1)));
-        PLAYER_TELEPORT = register("tool_player_teleport",
-                                   new PlayerTeleporter(new Item.Settings().maxCount(1)));
-        TUNER = register("tool_tuner",
-                         new TunerItem(new Item.Settings().maxCount(1)));
-        ADVANCED_TUNER = register("tool_tuner_advanced",
-                                  new AdvancedTuner(new Item.Settings().maxCount(1)));
-        WRENCH = register("tool_wrench",
-                          new Item.Settings().maxCount(1));
-        CHALICE = register("chalice",
-                           new ChaliceItem(new Item.Settings().maxCount(1)));
-        CHALICE_EMPTY = register("chalice_empty");
+        BACKPACK = register("backpack", 1, BackpackItem::new);
+        ENDER_BACKPACK = register("ender_backpack", 1, EnderBackpackItem::new);
+        BLUEPRINT_EMPTY = register("blueprint_empty", 1);
+        BLUEPRINT_PRINTED = register("blueprint_printed", 1, BlueprintItem::new);
+        PLAYER_TELEPORT = register("tool_player_teleport", 1, PlayerTeleporter::new);
+        TUNER = register("tool_tuner", 1, TunerItem::new);
+        ADVANCED_TUNER = register("tool_tuner_advanced", 1, AdvancedTuner::new);
+        WRENCH = register("tool_wrench", 1, WrenchItem::new);
+        CHALICE = register("chalice",  1, ChaliceItem::new);
+        CHALICE_EMPTY = register("chalice_empty", 1);
         //endregion
         //region AMETHYST ARMOR
-        ARMOR_AMETHYST_HELMET =
-                register("armor_amethyst_helmet",
-                         new ArmorItem(ModArmorMaterials.AMETHYST,
-                                       ArmorItem.Type.HELMET,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(20)).maxCount(1)));
-        ARMOR_AMETHYST_CHESTPLATE =
-                register("armor_amethyst_chestplate",
-                         new ArmorItem(ModArmorMaterials.AMETHYST,
-                                       ArmorItem.Type.CHESTPLATE,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(20)).maxCount(1)));
-        ARMOR_AMETHYST_LEGGINGS =
-                register("armor_amethyst_leggings",
-                         new ArmorItem(ModArmorMaterials.AMETHYST,
-                                          ArmorItem.Type.LEGGINGS,
-                                          new Item.Settings()
-                                                  .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(20)).maxCount(1)));
-        ARMOR_AMETHYST_BOOTS =
-                register("armor_amethyst_boots",
-                         new ArmorItem(ModArmorMaterials.AMETHYST,
-                                       ArmorItem.Type.BOOTS,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.BOOTS
-                                                                  .getMaxDamage(20)).maxCount(1)));
+        //TODO: Talk about new Item registration for Armors (factory)
+        //TODO: Talk about equipmentType
+        ARMOR_AMETHYST_HELMET = registerArmor("armor_amethyst_helmet", ModArmorMaterials.AMETHYST, EquipmentType.HELMET, ArmorItem::new);
+        ARMOR_AMETHYST_CHESTPLATE = registerArmor("armor_amethyst_chestplate", ModArmorMaterials.AMETHYST, EquipmentType.CHESTPLATE, ArmorItem::new);
+        ARMOR_AMETHYST_LEGGINGS = registerArmor("armor_amethyst_leggings", ModArmorMaterials.AMETHYST, EquipmentType.LEGGINGS, ArmorItem::new);
+        ARMOR_AMETHYST_BOOTS = registerArmor("armor_amethyst_boots", ModArmorMaterials.AMETHYST, EquipmentType.BOOTS, ArmorItem::new);
         //endregion
         //region CITRINE ARMOR
-        ARMOR_CITRINE_HELMET =
-                register("armor_citrine_helmet",
-                         new ArmorItem(ModArmorMaterials.CITRINE,
-                                       ArmorItem.Type.HELMET,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(30)).maxCount(1)));
-        ARMOR_CITRINE_CHESTPLATE =
-                register("armor_citrine_chestplate",
-                         new ArmorItem(ModArmorMaterials.CITRINE,
-                                       ArmorItem.Type.CHESTPLATE,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(30)).maxCount(1)));
-        ARMOR_CITRINE_LEGGINGS =
-                register("armor_citrine_leggings",
-                         new ArmorItem(ModArmorMaterials.CITRINE,
-                                          ArmorItem.Type.LEGGINGS,
-                                          new Item.Settings()
-                                                  .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(30)).maxCount(1)));
-        ARMOR_CITRINE_BOOTS =
-                register("armor_citrine_boots",
-                         new ArmorItem(ModArmorMaterials.CITRINE,
-                                       ArmorItem.Type.BOOTS,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(30)).maxCount(1)));
+        ARMOR_CITRINE_HELMET = registerArmor("armor_citrine_helmet", ModArmorMaterials.CITRINE, EquipmentType.HELMET, ArmorItem::new);
+        ARMOR_CITRINE_CHESTPLATE = registerArmor("armor_citrine_chestplate", ModArmorMaterials.CITRINE, EquipmentType.CHESTPLATE, ArmorItem::new);
+        ARMOR_CITRINE_LEGGINGS = registerArmor("armor_citrine_leggings", ModArmorMaterials.CITRINE, EquipmentType.LEGGINGS, ArmorItem::new);
+        ARMOR_CITRINE_BOOTS = registerArmor("armor_citrine_boots", ModArmorMaterials.CITRINE, EquipmentType.BOOTS, ArmorItem::new);
         //endregion
         //region COPPER ARMOR
-        ARMOR_COPPER_HELMET =
-                register("armor_copper_helmet",
-                         new ArmorItem(ModArmorMaterials.COPPER,
-                                       ArmorItem.Type.HELMET,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(25)).maxCount(1)));
-        ARMOR_COPPER_CHESTPLATE =
-                register("armor_copper_chestplate",
-                         new ArmorItem(ModArmorMaterials.COPPER,
-                                       ArmorItem.Type.CHESTPLATE,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(25)).maxCount(1)));
-        ARMOR_COPPER_LEGGINGS =
-                register("armor_copper_leggings",
-                         new ArmorItem(ModArmorMaterials.COPPER,
-                                          ArmorItem.Type.LEGGINGS,
-                                          new Item.Settings()
-                                                  .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(25)).maxCount(1)));
-        ARMOR_COPPER_BOOTS =
-                register("armor_copper_boots",
-                         new ArmorItem(ModArmorMaterials.COPPER,
-                                       ArmorItem.Type.BOOTS,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(25)).maxCount(1)));
+        ARMOR_COPPER_HELMET = registerArmor("armor_copper_helmet", ModArmorMaterials.COPPER, EquipmentType.HELMET, ArmorItem::new);
+        ARMOR_COPPER_CHESTPLATE = registerArmor("armor_copper_chestplate", ModArmorMaterials.COPPER, EquipmentType.CHESTPLATE, ArmorItem::new);
+        ARMOR_COPPER_LEGGINGS = registerArmor("armor_copper_leggings", ModArmorMaterials.COPPER, EquipmentType.LEGGINGS, ArmorItem::new);
+        ARMOR_COPPER_BOOTS = registerArmor("armor_copper_boots", ModArmorMaterials.COPPER, EquipmentType.BOOTS, ArmorItem::new);
         //endregion
         //region EMERALD ARMOR
-        ARMOR_EMERALD_HELMET =
-                register("armor_emerald_helmet",
-                         new ArmorItem(ModArmorMaterials.EMERALD,
-                                       ArmorItem.Type.HELMET,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15)).maxCount(1)));
-        ARMOR_EMERALD_CHESTPLATE =
-                register("armor_emerald_chestplate",
-                         new ArmorItem(ModArmorMaterials.EMERALD,
-                                       ArmorItem.Type.CHESTPLATE,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(15)).maxCount(1)));
-        ARMOR_EMERALD_LEGGINGS =
-                register("armor_emerald_leggings",
-                         new ArmorItem(ModArmorMaterials.EMERALD,
-                                          ArmorItem.Type.LEGGINGS,
-                                          new Item.Settings()
-                                                  .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(15)).maxCount(1)));
-        ARMOR_EMERALD_BOOTS =
-                register("armor_emerald_boots",
-                         new ArmorItem(ModArmorMaterials.EMERALD,
-                                       ArmorItem.Type.BOOTS,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(15)).maxCount(1)));
+        ARMOR_EMERALD_HELMET = registerArmor("armor_emerald_helmet", ModArmorMaterials.EMERALD, EquipmentType.HELMET, ArmorItem::new);
+        ARMOR_EMERALD_CHESTPLATE = registerArmor("armor_emerald_chestplate", ModArmorMaterials.EMERALD, EquipmentType.CHESTPLATE, ArmorItem::new);
+        ARMOR_EMERALD_LEGGINGS = registerArmor("armor_emerald_leggings", ModArmorMaterials.EMERALD, EquipmentType.LEGGINGS, ArmorItem::new);
+        ARMOR_EMERALD_BOOTS = registerArmor("armor_emerald_boots", ModArmorMaterials.EMERALD, EquipmentType.BOOTS, ArmorItem::new);
         //endregion
         //region ENDERITE ARMOR
-        ARMOR_ENDERITE_HELMET =
-                register("armor_enderite_helmet",
-                         new ArmorItem(ModArmorMaterials.ENDERITE,
-                                       ArmorItem.Type.HELMET,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(42)).maxCount(1)));
-        ARMOR_ENDERITE_CHESTPLATE =
-                register("armor_enderite_chestplate",
-                         new ArmorItem(ModArmorMaterials.ENDERITE,
-                                       ArmorItem.Type.CHESTPLATE,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(42)).maxCount(1)));
-        ARMOR_ENDERITE_LEGGINGS =
-                register("armor_enderite_leggings",
-                         new ArmorItem(ModArmorMaterials.ENDERITE,
-                                          ArmorItem.Type.LEGGINGS,
-                                          new Item.Settings()
-                                                  .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(42)).maxCount(1)));
-        ARMOR_ENDERITE_BOOTS =
-                register("armor_enderite_boots",
-                         new ArmorItem(ModArmorMaterials.ENDERITE,
-                                       ArmorItem.Type.BOOTS,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(42)).maxCount(1)));
+        ARMOR_ENDERITE_HELMET = registerArmor("armor_enderite_helmet", ModArmorMaterials.ENDERITE, EquipmentType.HELMET, ArmorItem::new);
+        ARMOR_ENDERITE_CHESTPLATE = registerArmor("armor_enderite_chestplate", ModArmorMaterials.ENDERITE, EquipmentType.CHESTPLATE, ArmorItem::new);
+        ARMOR_ENDERITE_LEGGINGS = registerArmor("armor_enderite_leggings", ModArmorMaterials.ENDERITE, EquipmentType.LEGGINGS, ArmorItem::new);
+        ARMOR_ENDERITE_BOOTS = registerArmor("armor_enderite_boots", ModArmorMaterials.ENDERITE, EquipmentType.BOOTS, ArmorItem::new);
         //endregion
         //region RUBY ARMOR
-        ARMOR_RUBY_HELMET =
-                register("armor_ruby_helmet",
-                         new ArmorItem(ModArmorMaterials.RUBY,
-                                       ArmorItem.Type.HELMET,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(36)).maxCount(1)));
-        ARMOR_RUBY_CHESTPLATE =
-                register("armor_ruby_chestplate",
-                         new ArmorItem(ModArmorMaterials.RUBY,
-                                       ArmorItem.Type.CHESTPLATE,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(36)).maxCount(1)));
-        ARMOR_RUBY_LEGGINGS =
-                register("armor_ruby_leggings",
-                         new ArmorItem(ModArmorMaterials.RUBY,
-                                          ArmorItem.Type.LEGGINGS,
-                                          new Item.Settings()
-                                                  .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(36)).maxCount(1)));
-        ARMOR_RUBY_BOOTS =
-                register("armor_ruby_boots",
-                         new ArmorItem(ModArmorMaterials.RUBY,
-                                       ArmorItem.Type.BOOTS,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(36)).maxCount(1)));
+        ARMOR_RUBY_HELMET = registerArmor("armor_ruby_helmet", ModArmorMaterials.RUBY, EquipmentType.HELMET, ArmorItem::new);
+        ARMOR_RUBY_CHESTPLATE = registerArmor("armor_ruby_chestplate", ModArmorMaterials.RUBY, EquipmentType.CHESTPLATE, ArmorItem::new);
+        ARMOR_RUBY_LEGGINGS = registerArmor("armor_ruby_leggings", ModArmorMaterials.RUBY, EquipmentType.LEGGINGS, ArmorItem::new);
+        ARMOR_RUBY_BOOTS = registerArmor("armor_ruby_boots", ModArmorMaterials.RUBY, EquipmentType.BOOTS, ArmorItem::new);
         //endregion
         //region SAPPHIRE ARMOR
-        ARMOR_SAPPHIRE_HELMET =
-                register("armor_sapphire_helmet",
-                         new ArmorItem(ModArmorMaterials.SAPPHIRE,
-                                       ArmorItem.Type.HELMET,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(36)).maxCount(1)));
-
-        ARMOR_SAPPHIRE_CHESTPLATE =
-                register("armor_sapphire_chestplate",
-                         new ArmorItem(ModArmorMaterials.SAPPHIRE,
-                                       ArmorItem.Type.CHESTPLATE,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(36)).maxCount(1)));
-
-        ARMOR_SAPPHIRE_LEGGINGS =
-                register("armor_sapphire_leggings",
-                         new ArmorItem(ModArmorMaterials.SAPPHIRE,
-                                          ArmorItem.Type.LEGGINGS,
-                                          new Item.Settings()
-                                                  .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(36)).maxCount(1)));
-
-        ARMOR_SAPPHIRE_BOOTS =
-                register("armor_sapphire_boots",
-                         new ArmorItem(ModArmorMaterials.SAPPHIRE,
-                                       ArmorItem.Type.BOOTS,
-                                       new Item.Settings()
-                                               .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(36)).maxCount(1)));
+        ARMOR_SAPPHIRE_HELMET = registerArmor("armor_sapphire_helmet", ModArmorMaterials.SAPPHIRE, EquipmentType.HELMET, ArmorItem::new);
+        ARMOR_SAPPHIRE_CHESTPLATE = registerArmor("armor_sapphire_chestplate", ModArmorMaterials.SAPPHIRE, EquipmentType.CHESTPLATE, ArmorItem::new);
+        ARMOR_SAPPHIRE_LEGGINGS = registerArmor("armor_sapphire_leggings", ModArmorMaterials.SAPPHIRE, EquipmentType.LEGGINGS, ArmorItem::new);
+        ARMOR_SAPPHIRE_BOOTS = registerArmor("armor_sapphire_boots", ModArmorMaterials.SAPPHIRE, EquipmentType.BOOTS, ArmorItem::new);
         //endregion
-
-        ANGEL_BLOCK_ITEM = registerBlockItem("block_angel",
-                                             new AngelBlockItem(ModBlocks.ANGEL, new Item.Settings()));
-
-        AllItems = getAllItems(ModID);
     }
 
-    //region HELPER METHODS
+    public static void initBlockItems()
+    {
+        log("Registering Block Items");
 
+        //TODO: Test that the custom BlockItem works properly
+        //ANGEL_BI = Items.register("block_angel", settings ->  new AngelBlockItem(ModBlocks.ANGEL, settings));
+        //ENDERITE_BI = Items.register("block_enderite", settings ->  new AngelBlockItem(ModBlocks.ANGEL, settings));
+        ANGEL_BI = registerBI(ModBlocks.ANGEL, AngelBlockItem::new);
+        ENDERITE_BI = registerBI(ModBlocks.ENDERITE);
+        CARROT_BOX_BI = registerBI(ModBlocks.CARROT_BOX);
+        POTATO_BOX_BI = registerBI(ModBlocks.POTATO_BOX);
+        CITRINE_BI = registerBI(ModBlocks.CITRINE);
+        RUBY_BI = registerBI(ModBlocks.RUBY);
+        SAPPHIRE_BI = registerBI(ModBlocks.SAPPHIRE);
+        RAW_CITRINE_BI = registerBI(ModBlocks.RAW_CITRINE);
+        RAW_ENDERITE_BI = registerBI(ModBlocks.RAW_ENDERITE);
+        RAW_QUARTZ_BI = registerBI(ModBlocks.RAW_QUARTZ);
+        RAW_RUBY_BI = registerBI(ModBlocks.RAW_RUBY);
+        RAW_SAPPHIRE_BI = registerBI(ModBlocks.RAW_SAPPHIRE);
+        CITRINE_STAIRS_BI = registerBI(ModBlocks.CITRINE_STAIRS);
+        ENDERITE_STAIRS_BI = registerBI(ModBlocks.ENDERITE_STAIRS);
+        RUBY_STAIRS_BI = registerBI(ModBlocks.RUBY_STAIRS);
+        SAPPHIRE_STAIRS_BI = registerBI(ModBlocks.SAPPHIRE_STAIRS);
+        CITRINE_SLAB_BI = registerBI(ModBlocks.CITRINE_SLAB);
+        ENDERITE_SLAB_BI = registerBI(ModBlocks.ENDERITE_SLAB);
+        RUBY_SLAB_BI = registerBI(ModBlocks.RUBY_SLAB);
+        SAPPHIRE_SLAB_BI = registerBI(ModBlocks.SAPPHIRE_SLAB);
+        CITRINE_BUTTON_BI = registerBI(ModBlocks.CITRINE_BUTTON);
+        ENDERITE_BUTTON_BI = registerBI(ModBlocks.ENDERITE_BUTTON);
+        RUBY_BUTTON_BI = registerBI(ModBlocks.RUBY_BUTTON);
+        SAPPHIRE_BUTTON_BI = registerBI(ModBlocks.SAPPHIRE_BUTTON);
+        CITRINE_PRESSURE_PLATE_BI = registerBI(ModBlocks.CITRINE_PRESSURE_PLATE);
+        ENDERITE_PRESSURE_PLATE_BI = registerBI(ModBlocks.ENDERITE_PRESSURE_PLATE);
+        RUBY_PRESSURE_PLATE_BI = registerBI(ModBlocks.RUBY_PRESSURE_PLATE);
+        SAPPHIRE_PRESSURE_PLATE_BI = registerBI(ModBlocks.SAPPHIRE_PRESSURE_PLATE);
+        CITRINE_FENCE_BI = registerBI(ModBlocks.CITRINE_FENCE);
+        ENDERITE_FENCE_BI = registerBI(ModBlocks.ENDERITE_FENCE);
+        RUBY_FENCE = registerBI(ModBlocks.RUBY_FENCE);
+        SAPPHIRE_FENCE_BI = registerBI(ModBlocks.SAPPHIRE_FENCE);
+        CITRINE_FENCE_GATE_BI = registerBI(ModBlocks.CITRINE_FENCE_GATE);
+        ENDERITE_FENCE_GATE_BI = registerBI(ModBlocks.ENDERITE_FENCE_GATE);
+        RUBY_FENCE_GATE_BI = registerBI(ModBlocks.RUBY_FENCE_GATE);
+        SAPPHIRE_FENCE_GATE_BI = registerBI(ModBlocks.SAPPHIRE_FENCE_GATE);
+        CITRINE_WALL_BI = registerBI(ModBlocks.CITRINE_WALL);
+        ENDERITE_WALL_BI = registerBI(ModBlocks.ENDERITE_WALL);
+        RUBY_WALL_BI = registerBI(ModBlocks.RUBY_WALL);
+        SAPPHIRE_WALL_BI = registerBI(ModBlocks.SAPPHIRE_WALL);
+        CITRINE_DOOR_BI = registerBI(ModBlocks.CITRINE_DOOR);
+        ENDERITE_DOOR_BI = registerBI(ModBlocks.ENDERITE_DOOR);
+        RUBY_DOOR_BI = registerBI(ModBlocks.RUBY_DOOR);
+        SAPPHIRE_DOOR_BI = registerBI(ModBlocks.SAPPHIRE_DOOR);
+        CITRINE_TRAP_DOOR_BI = registerBI(ModBlocks.CITRINE_TRAP_DOOR);
+        ENDERITE_TRAP_DOOR_BI = registerBI(ModBlocks.ENDERITE_TRAP_DOOR);
+        RUBY_TRAP_DOOR_BI = registerBI(ModBlocks.RUBY_TRAP_DOOR);
+        SAPPHIRE_TRAP_DOOR_BI = registerBI(ModBlocks.SAPPHIRE_TRAP_DOOR);
+        ORE_DEEP_CITRINE_BI = registerBI(ModBlocks.ORE_DEEP_CITRINE);
+        ORE_DEEP_RUBY_BI = registerBI(ModBlocks.ORE_DEEP_RUBY);
+        ORE_DEEP_SAPPHIRE_BI = registerBI(ModBlocks.ORE_DEEP_SAPPHIRE);
+        ORE_END_CITRINE_BI = registerBI(ModBlocks.ORE_END_CITRINE);
+        ORE_END_ENDERITE_CRACKED_BI = registerBI(ModBlocks.ORE_END_ENDERITE_CRACKED);
+        ORE_END_RUBY_BI = registerBI(ModBlocks.ORE_END_RUBY);
+        ORE_END_SAPPHIRE_BI = registerBI(ModBlocks.ORE_END_SAPPHIRE);
+        ORE_END_ENDERITE_BI = registerBI(ModBlocks.ORE_END_ENDERITE);
+        ORE_NETHER_CITRINE_BI = registerBI(ModBlocks.ORE_NETHER_CITRINE);
+        ORE_NETHER_RUBY_BI = registerBI(ModBlocks.ORE_NETHER_RUBY);
+        ORE_NETHER_SAPPHIRE_BI = registerBI(ModBlocks.ORE_NETHER_SAPPHIRE);
+        ORE_NETHER_COAL_BI = registerBI(ModBlocks.ORE_NETHER_COAL);
+        ORE_NETHER_COPPER_BI = registerBI(ModBlocks.ORE_NETHER_COPPER);
+        ORE_NETHER_DIAMOND_BI = registerBI(ModBlocks.ORE_NETHER_DIAMOND);
+        ORE_NETHER_IRON_BI = registerBI(ModBlocks.ORE_NETHER_IRON);
+        ORE_NETHER_LAPIS_BI = registerBI(ModBlocks.ORE_NETHER_LAPIS);
+        ORE_NETHER_REDSTONE_BI = registerBI(ModBlocks.ORE_NETHER_REDSTONE);
+        ORE_WORLD_CITRINE_BI = registerBI(ModBlocks.ORE_WORLD_CITRINE);
+        ORE_WORLD_RUBY_BI = registerBI(ModBlocks.ORE_WORLD_RUBY);
+        ORE_WORLD_SAPPHIRE_BI = registerBI(ModBlocks.ORE_WORLD_SAPPHIRE);
+        ORE_ENDERITE_BI = registerBI(ModBlocks.ORE_ENDERITE);
+        WATER_EATING_GOO_BI = registerBI(ModBlocks.WATER_EATING_GOO);
+        WATER_GENERATING_GOO_BI = registerBI(ModBlocks.WATER_GENERATING_GOO);
+        LAVA_EATING_GOO_BI = registerBI(ModBlocks.LAVA_EATING_GOO);
+        LAVA_GENERATING_GOO_BI = registerBI(ModBlocks.LAVA_GENERATING_GOO);
+        CHUNK_GOO_BI = registerBI(ModBlocks.CHUNK_GOO);
+        TOWERING_GOO_BI = registerBI(ModBlocks.TOWERING_GOO);
+        TUNNELING_GOO_BI = registerBI(ModBlocks.TUNNELING_GOO);
+        BRIDGE_GOO_BI = registerBI(ModBlocks.BRIDGE_GOO);
+        AIR_BOMB_GOO_BI = registerBI(ModBlocks.AIR_BOMB_GOO);
+        CHUNK_BOMB_GOO_BI = registerBI(ModBlocks.CHUNK_BOMB_GOO);
+        LAVA_PUMP_GOO_BI = registerBI(ModBlocks.LAVA_PUMP_GOO);
+        STONE_BOMB_GOO_BI = registerBI(ModBlocks.STONE_BOMB_GOO);
+        WATER_PUMP_GOO_BI = registerBI(ModBlocks.WATER_PUMP_GOO);
+        ELEVATOR_BI = registerBI(ModBlocks.ELEVATOR);
+        REDSTONE_CLOCK_BI = registerBI(ModBlocks.REDSTONE_CLOCK);
+        ALLOY_MIXER_BI = registerBI(ModBlocks.ALLOY_MIXER);
+        CAST_PRESS_BI = registerBI(ModBlocks.CAST_PRESS);
+        GEM_CLEANER_BI = registerBI(ModBlocks.GEM_CLEANER);
+        OVEN_BI = registerBI(ModBlocks.OVEN);
+        PULVERIZER_BI = registerBI(ModBlocks.PULVERIZER);
+        SMELTER_BI = registerBI(ModBlocks.SMELTER);
+        ANIMAL_FEED_BI = registerBI(ModBlocks.ANIMAL_FEED);
+        GENERATOR_BI = registerBI(ModBlocks.GENERATOR);
+        BLOCK_BREAKER_BI = registerBI(ModBlocks.BLOCK_BREAKER);
+        BLOCK_PLACER_BI = registerBI(ModBlocks.BLOCK_PLACER);
+        BUILDER_BI = registerBI(ModBlocks.BUILDER);
+        CHUNK_LOADER_BI = registerBI(ModBlocks.CHUNK_LOADER);
+        CREATIVE_BANK_BI = registerBI(ModBlocks.CREATIVE_BANK);
+        ENDER_CHANTER_BI = registerBI(ModBlocks.ENDER_CHANTER);
+        FLUID_PUMP_BI = registerBI(ModBlocks.FLUID_PUMP);
+        PRINTER_BI = registerBI(ModBlocks.PRINTER);
+        PROJECT_TABLE_BI = registerBI(ModBlocks.PROJECT_TABLE);
+        TESSERACT_BI = registerBI(ModBlocks.TESSERACT);
+        WOOD_STRIPPER_BI = registerBI(ModBlocks.WOOD_STRIPPER);
+        BATTERY_BANK_BI = registerBI(ModBlocks.BATTERY_BANK);
+        SOLAR_PANEL_BI = registerBI(ModBlocks.SOLAR_PANEL);
+        MINER_BI = registerBI(ModBlocks.MINER);
+    }
 
-    //endregion
+    public static void addToItemGroups()
+    {
+        log("Adding Items to Item Groups");
+
+        /*ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries ->
+                                                                                {
+                                                                                    entries.add(RUBBER);
+                                                                                });*/
+    }
+
+    public static void setAllItems()
+    {
+        AllItems = Registers.getAllItems(ModID);
+    }
 }

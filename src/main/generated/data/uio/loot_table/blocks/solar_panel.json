@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:solar_panel"
+          "name": "minecraft:solar_panel"
         }
       ],
       "rolls": 1.0

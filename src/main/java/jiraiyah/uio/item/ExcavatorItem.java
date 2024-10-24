@@ -20,14 +20,27 @@ import static jiraiyah.uio.Reference.*;
 
 public class ExcavatorItem extends MiningToolItem
 {
-    private final int depth;
-    private final int radius;
+    private int depth;
+    private int radius;
 
-    public ExcavatorItem(ToolMaterial material, int depth, int radius, Settings settings)
+    //TODO: Change of ctor
+    public ExcavatorItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings)
     {
-        super(material, BlockTags.SHOVEL_MINEABLE, settings);
+        super(material, BlockTags.SHOVEL_MINEABLE, attackDamage, attackSpeed, settings);
         this.depth = depth / 2;
         this.radius = radius - 1;
+    }
+
+    public ExcavatorItem setDepth(int depth)
+    {
+        this.depth = depth / 2;
+        return this;
+    }
+
+    public ExcavatorItem setRadius(int depth)
+    {
+        this.radius = radius - 1;
+        return this;
     }
 
     public int getDepth()

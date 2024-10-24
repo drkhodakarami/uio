@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "D": {
-      "item": "minecraft:purple_dye"
-    },
-    "E": {
-      "item": "minecraft:ender_pearl"
-    },
-    "W": {
-      "item": "uio:unstable_goo_core"
-    }
+    "D": "minecraft:purple_dye",
+    "E": "minecraft:ender_pearl",
+    "W": "uio:unstable_goo_core"
   },
   "pattern": [
     "DED",

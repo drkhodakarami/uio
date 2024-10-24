@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "uio:wood_stripper"
+          "name": "minecraft:wood_stripper"
         }
       ],
       "rolls": 1.0

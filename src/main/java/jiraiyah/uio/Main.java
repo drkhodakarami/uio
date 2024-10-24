@@ -123,10 +123,13 @@ public class Main implements ModInitializer
         ModDataComponentTypes.init(); // Should happen before events
         ModEvents.init();
 
-        ModBlocks.init();
+        ModArmorMaterials.init(); // Should happen before items
+        //TODO: New change for 1.21.2
+        ModToolMaterials.init(); // Should be before registering items because of tool items needing tool materials
+        ModItems.initItems(); // Should be anywhere after Tool and Armor Materials registration
 
-        ModArmorMaterials.init(); // Should happen before item
-        ModItems.init();
+        ModBlocks.init();
+        ModItems.initBlockItems(); // Should be after Mod BLocks because of Block Item registeration needs blocks
 
         ModRecipes.init(); // Should happen after item and block registration
         ModItemGroups.init(); // Should happen after Items and Block Registration
@@ -149,6 +152,11 @@ public class Main implements ModInitializer
         ModCommands.init();
 
         ModMessages.registerC2SPackets();
+
+        ModBlocks.setAllBlocks(); //Can happen anywhere after Block registration
+        ModBlocks.addToItemGroups(); //Should happen after setting all the blocks to set the black list
+        ModItems.setAllItems(); //Can happen anywhere after Item Block registration
+        ModItems.addToItemGroups(); //Should happen after setting all the items to set the black list
         //endregion
     }
 }

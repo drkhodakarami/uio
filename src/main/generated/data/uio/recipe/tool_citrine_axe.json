@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "B": {
-      "item": "uio:binding_string"
-    },
-    "H": {
-      "item": "uio:head_citrine_axe"
-    },
-    "S": {
-      "item": "minecraft:stick"
-    }
+    "B": "uio:binding_string",
+    "H": "uio:head_citrine_axe",
+    "S": "minecraft:stick"
   },
   "pattern": [
     "H",

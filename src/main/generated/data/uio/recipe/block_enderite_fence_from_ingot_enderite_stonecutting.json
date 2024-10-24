@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "uio:ingot_enderite"
-  },
+  "ingredient": "uio:ingot_enderite",
   "result": {
     "count": 9,
     "id": "uio:block_enderite_fence"
