@@ -28,8 +28,6 @@ public abstract class AbstractActivatableMachineBlock extends AbstractMachineBlo
         builder.add(ACTIVATED);
     }
 
-    //TODO : CHANGE THE MECHANICS, THIS SHOULD NEVER HAPPEN LIKE THIS
-
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit)
     {

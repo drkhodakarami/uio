@@ -31,7 +31,6 @@ public class ChaliceItem extends Item
         super(settings);
     }
 
-    //TODO: Return of Action Result in 1.21.2
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand)
     {
@@ -40,7 +39,6 @@ public class ChaliceItem extends Item
 
         if (blockHitResult.getType() == HitResult.Type.MISS ||
             blockHitResult.getType() != HitResult.Type.BLOCK)
-            //TODO: Return of Action Result in 1.21.2
             //We didn't change the item in hand so this is enough for everywhere in this class
             return ActionResult.PASS;
 
@@ -49,7 +47,6 @@ public class ChaliceItem extends Item
         BlockPos offset = origin.offset(direction);
 
         if (!world.canPlayerModifyAt(user, origin) || !user.canPlaceOn(offset, direction, itemStack))
-            //TODO: Return of Action Result in 1.21.2
             return ActionResult.FAIL;
 
         BlockState originalBS = world.getBlockState(origin);
@@ -60,10 +57,8 @@ public class ChaliceItem extends Item
             if (user instanceof ServerPlayerEntity)
                 Criteria.PLACED_BLOCK.trigger((ServerPlayerEntity)user, finalPos, itemStack);
             user.incrementStat(Stats.USED.getOrCreateStat(this));
-            //TODO: Return of Action Result in 1.21.2
             return ActionResult.SUCCESS;
         }
-        //TODO: Return of Action Result in 1.21.2
         return ActionResult.FAIL;
     }
 

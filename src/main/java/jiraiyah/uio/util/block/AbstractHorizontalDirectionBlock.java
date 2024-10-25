@@ -13,7 +13,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class AbstractHorizontalDirectionBlock extends Block
 {
-    //TODO: DirectionProperty -> EnumProperty<Direction>
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     private final boolean faceOpposite;
 

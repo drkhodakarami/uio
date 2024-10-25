@@ -49,7 +49,6 @@ public class Elevator extends Block
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity)
     {
-        //TODO: Send Message moved to server and not accessible from entity in 1.21.2
         if(entity.getServer() != null)
             entity.getServer().sendMessage(Text.literal(String.valueOf(world.getTime())));
         teleportDown(world, pos, entity);
@@ -87,7 +86,6 @@ public class Elevator extends Block
             if (found == null)
                 return;
 
-            //TODO: Use case of Server World change in 1.21.2
             if(entity.getWorld() instanceof ServerWorld sw)
                 entity.teleport(sw, entity.getX(), lookingPos.getY() + 1, entity.getZ(),
                                 PositionFlag.VALUES, entity.getYaw(), entity.getPitch(), false);
@@ -106,7 +104,6 @@ public class Elevator extends Block
         BlockPos lookingPos = pos;
         BlockState found = null;
 
-        //TODO: Get Top Y now needs parameters
         while (lookingPos.getY() < world.getTopY(Heightmap.Type.WORLD_SURFACE, pos.getX(), pos.getZ()))
         {
             lookingPos = lookingPos.add(0, 1, 0);
@@ -122,7 +119,6 @@ public class Elevator extends Block
         if (found == null)
             return;
 
-        //TODO: Use case of Server World change in 1.21.2
         if(entity.getWorld() instanceof ServerWorld sw)
             entity.teleport(sw, entity.getX(), lookingPos.getY() + 1, entity.getZ(),
                             PositionFlag.VALUES, entity.getYaw(), entity.getPitch(), false);

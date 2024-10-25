@@ -37,13 +37,11 @@ public class ModToolMaterials
 
     public static ToolMaterial CITRINE, COPPER, ENDERITE, RUBY, SAPPHIRE;
 
-    //TODO: Tool Materials Changed to Record in 1.21.2
     //I: Durability : Wood: 59, Stone: 131, Iron: 250, Diamond: 1561, Gold: 32, Netherite: 2031
     //F: Mining Speed: Wood: 2.0f, Stone: 4.0f, Iron: 6.0f, Diamond: 8.0f, Gold: 12.0f, Netherite: 9.0f
     //G: Attack Damage: Wood: 0.0f, Stone: 1.0f, Iron: 2.0f, Diamond: 3.0f, Gold: 0.0f, Netherite: 4.0f
     //J: Enchantability: Wood: 15, Stone: 5, Iron: 14, Diamond: 10, Gold: 22, Netherite: 15
     //Enchantability can't be 0 any more, take a look at Item Tag Provider Datagen
-    //TODO: Repair Item now works using tags!
     public static void init()
     {
         CITRINE = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 1000, 10.0f, 3.0f, 22,

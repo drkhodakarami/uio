@@ -74,30 +74,31 @@ public class PlayerTeleporter extends Item
 
         if (player != null)
         {
-            //TODO: Changed logic to clean the data when sneaking
             if(player.isSneaking() && !context.getWorld().isClient())
             {
                 player.getStackInHand(context.getHand()).set(ModDataComponentTypes.COORDINATE, null);
                 return ActionResult.SUCCESS;
             }
-            if (!context.getWorld().isClient())
+            if(!player.isSneaking())
             {
-                context.getStack().set(ModDataComponentTypes.COORDINATE,
-                                       new CoordinateData(context.getBlockPos(),
-                              player.getWorld().getRegistryKey().getValue().toString()));
-            }
-            else
-            {
-                var dimension = player.getWorld().getRegistryKey().getValue().toString();
-                dimension = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
-                outputCoordinatesToChat(pos, dimension, player);
+                if (!context.getWorld().isClient())
+                {
+                    context.getStack().set(ModDataComponentTypes.COORDINATE,
+                                           new CoordinateData(context.getBlockPos(),
+                                                              player.getWorld().getRegistryKey().getValue().toString()));
+                }
+                else
+                {
+                    var dimension = player.getWorld().getRegistryKey().getValue().toString();
+                    dimension = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
+                    outputCoordinatesToChat(pos, dimension, player);
+                }
             }
         }
 
         return ActionResult.SUCCESS;
     }
 
-    //TODO: Return of Action Result in 1.21.2
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand)
     {
@@ -126,7 +127,6 @@ public class PlayerTeleporter extends Item
                                                            user.getPitch(),
                                                            TeleportTarget.NO_OP);
                 if(user.getWorld().getRegistryKey().equals(storedKey))
-                    //TODO: pos() -> position()
                     ((ServerPlayerEntity) user).networkHandler.requestTeleport(target.position().getX(),
                                                                                target.position().getY(),
                                                                                target.position().getZ(),

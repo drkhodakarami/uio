@@ -58,7 +58,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
         return "";
     }
 
-    //TODO: New way of providing recipe for datagen in 1.21.2
     @Override
     protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter)
     {
@@ -70,8 +69,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 logRGB256("Generating Recipe Data", 0, 255, 0);
 
                 //region GEM BLOCKS
-                //TODO: In the offer methods, we don't send in the exporter any more
-                // When you see exporter as first param, just delete it!
                 offerReversibleCompactingRecipes(RecipeCategory.BUILDING_BLOCKS, ModItems.GEM_CITRINE,
                                                  RecipeCategory.DECORATIONS, ModBlocks.CITRINE);
                 offerReversibleCompactingRecipes(RecipeCategory.BUILDING_BLOCKS, ModItems.GEM_RUBY,
@@ -96,8 +93,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                        400, Items.ROTTEN_FLESH, Items.LEATHER, 0.1F);
                 //endregion
                 //region MAIN TOOLS
-                //TODO: Now we have createShaped and createShapeless methods instead ShapedRecipeJsonBuilder and ShapelessRecipeJsonBuilder
-                // the offerTo now accepts String instead of identifier, remove the VanillaID and send the name directly
                 createShaped(RecipeCategory.TOOLS, ModItems.BACKPACK, 1)
                                        .pattern("LLL")
                                        .pattern("LCL")
@@ -1168,9 +1163,6 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                        .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
                                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_SAPPHIRE_BOOTS));
                 //endregion
-                //TODO: We add  + "_shaped" to the end of the name for netherite armor because we are overriding vanilla recipe
-                // The new way of registering shaped recipe will throw an exception if the name of the recipe is equal to vanilla!
-                // Look into CraftingRecipeJsonBuilder line 33!
                 // region NETHERITE ARMOR
                 createShaped(RecipeCategory.COMBAT, Items.NETHERITE_HELMET, 1)
                                        .pattern("IRI")

@@ -40,7 +40,6 @@ public class ModItemGroups
 
     public static ItemGroup BLOCKS, INGREDIENTS, MACHINES, TOOLS, ARMORS, MISC;
 
-    //TODO: NO WAY OF ORDERING THE TABS YET IN 1.21.2 :(
     public static void init()
     {
         log("Registering Item Groups");

@@ -180,8 +180,6 @@ public class Reference
             public static final TagKey<net.minecraft.item.Item> MENDING_ONLY = createTag("mending_only");
             public static final TagKey<net.minecraft.item.Item> SMELTABLE = createTag("smeltery");
 
-            //TODO: Tags for armor/tool repair ingredients
-            //TODO: Add translations for these tags
             public static final TagKey<net.minecraft.item.Item> REPAIRS_AMETHYST_ARMOR = createTag("repairs_amethyst_armor");
             public static final TagKey<net.minecraft.item.Item> REPAIRS_CITRINE_ARMOR = createTag("repairs_citrine_armor");
             public static final TagKey<net.minecraft.item.Item> REPAIRS_COPPER_ARMOR = createTag("repairs_copper_armor");
@@ -195,8 +193,6 @@ public class Reference
             public static final TagKey<net.minecraft.item.Item> REPAIRS_RUBY_TOOL = createTag("repairs_ruby_tool");
             public static final TagKey<net.minecraft.item.Item> REPAIRS_SAPPHIRE_TOOL = createTag("repairs_sapphire_tool");
 
-            //TODO: Armor Types for checking the full armor status in effect event
-            //TODO: Add translations for these tags
             public static final TagKey<net.minecraft.item.Item> AMETHYST_ARMOR_TYPE = createTag("amethyst_armor_type");
             public static final TagKey<net.minecraft.item.Item> CITRINE_ARMOR_TYPE = createTag("citrine_armor_type");
             public static final TagKey<net.minecraft.item.Item> COPPER_ARMOR_TYPE = createTag("copper_armor_type");

@@ -36,7 +36,6 @@ import net.minecraft.registry.RegistryKeys;
 import static jiraiyah.uio.Reference.logBackRGB256;
 import static jiraiyah.uio.Reference.logRGB256;
 
-//TODO: If generated data where messed up, delete the whole generated folder and re-run datagen!
 public class DataGen implements DataGeneratorEntrypoint
 {
     @Override

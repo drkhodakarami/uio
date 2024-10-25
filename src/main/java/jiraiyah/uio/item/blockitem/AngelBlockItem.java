@@ -16,7 +16,6 @@ public class AngelBlockItem extends BlockItem
         super(block, settings);
     }
 
-    //TODO: Return of Action Result for 1.21.2
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand)
     {

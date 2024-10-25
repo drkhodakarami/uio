@@ -46,13 +46,11 @@ public class ModArmorMaterials
     {
         log("Registering Armor Materials");
 
-        //TODO: Talk about changes to Armor Material
         //I: durability: Leather: 5, Chain: 15, Iron 15, Gold: 7, Diamond: 33, TurtleScute: 25, Netherite: 37, ArmadilloScute: 4
         //J: enchantability: Leather: 15, Chain: 12, IroL 9, Gold: 25, Diamond: 10, TurtleScute: 9, Netherite: 15, ArmadilloScute: 10
         //F: Toughness: Leather: 0.0f, Chain: 0.0f, Iron 0.0f, Gold: 0.0f, Diamond: 2.0f, TurtleScute: 0.0f, Netherite: 3.0f, ArmadilloScute: 0.0f
         //G: Knockback Resistance: Leather: 0.0f, Chain: 0.0f, Iron 0.0f, Gold: 0.0f, Diamond: 0.0f, TurtleScute: 0.0f, Netherite: 0.1f, ArmadilloScute: 0.0f
         //Enchantability can't be 0 any more, take a look at Item Tag Provider Datagen
-        //TODO: Repair now works with tags, add tags for each material item and add the item for the tag
         AMETHYST  = new ArmorMaterial(20, Util.make(new EnumMap<>(EquipmentType.class),
                                                          (map) -> {
                                                                                     map.put(EquipmentType.BOOTS, 1);

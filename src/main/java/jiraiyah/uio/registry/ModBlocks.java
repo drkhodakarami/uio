@@ -25,7 +25,8 @@
 package jiraiyah.uio.registry;
 
 import jiraiyah.uio.block.AngelBlock;
-import jiraiyah.uio.block.OreEnderite;
+import jiraiyah.uio.block.Elevator;
+import jiraiyah.uio.block.OreEndEnderite;
 import jiraiyah.uio.block.goo.*;
 import jiraiyah.uio.block.machine.*;
 import jiraiyah.uio.util.Registers;
@@ -49,43 +50,69 @@ public class ModBlocks
     public static List<Block> AllBlocks = new ArrayList<>();
     public static final List<Block> BLACK_LIST = new ArrayList<>();
 
-    public static Block ENDERITE;
-    public static Block CARROT_BOX, POTATO_BOX;
-
-    public static Block CITRINE, RUBY, SAPPHIRE;
-    public static Block RAW_CITRINE, RAW_ENDERITE ,RAW_QUARTZ, RAW_RUBY, RAW_SAPPHIRE;
+    public static Block ENDERITE, CARROT_BOX, POTATO_BOX, CITRINE, RUBY, SAPPHIRE, ORE_ENDERITE,
+            RAW_CITRINE, RAW_ENDERITE ,RAW_QUARTZ, RAW_RUBY, RAW_SAPPHIRE, ORE_DEEP_CITRINE, ORE_DEEP_RUBY, ORE_DEEP_SAPPHIRE,
+            ORE_END_CITRINE, ORE_END_ENDERITE_CRACKED, ORE_END_RUBY, ORE_END_SAPPHIRE,
+            ORE_NETHER_CITRINE, ORE_NETHER_RUBY, ORE_NETHER_SAPPHIRE, ORE_NETHER_COAL, ORE_NETHER_COPPER, ORE_NETHER_DIAMOND,
+            ORE_NETHER_IRON, ORE_NETHER_LAPIS,ORE_NETHER_REDSTONE, ORE_WORLD_CITRINE, ORE_WORLD_RUBY, ORE_WORLD_SAPPHIRE;
 
     public static StairsBlock CITRINE_STAIRS, ENDERITE_STAIRS, RUBY_STAIRS, SAPPHIRE_STAIRS;
-    public static Block CITRINE_SLAB, ENDERITE_SLAB, RUBY_SLAB, SAPPHIRE_SLAB;
-    public static Block CITRINE_BUTTON, ENDERITE_BUTTON, RUBY_BUTTON, SAPPHIRE_BUTTON;
-    public static Block CITRINE_PRESSURE_PLATE, ENDERITE_PRESSURE_PLATE, RUBY_PRESSURE_PLATE, SAPPHIRE_PRESSURE_PLATE;
-    public static Block CITRINE_FENCE, ENDERITE_FENCE, RUBY_FENCE,SAPPHIRE_FENCE;
-    public static Block CITRINE_FENCE_GATE, ENDERITE_FENCE_GATE, RUBY_FENCE_GATE, SAPPHIRE_FENCE_GATE;
-    public static Block CITRINE_WALL, ENDERITE_WALL, RUBY_WALL, SAPPHIRE_WALL;
-    public static Block CITRINE_DOOR, ENDERITE_DOOR, RUBY_DOOR, SAPPHIRE_DOOR;
-    public static Block CITRINE_TRAP_DOOR, ENDERITE_TRAP_DOOR, RUBY_TRAP_DOOR, SAPPHIRE_TRAP_DOOR;
+    public static SlabBlock CITRINE_SLAB, ENDERITE_SLAB, RUBY_SLAB, SAPPHIRE_SLAB;
+    public static ButtonBlock CITRINE_BUTTON, ENDERITE_BUTTON, RUBY_BUTTON, SAPPHIRE_BUTTON;
+    public static PressurePlateBlock CITRINE_PRESSURE_PLATE, ENDERITE_PRESSURE_PLATE, RUBY_PRESSURE_PLATE, SAPPHIRE_PRESSURE_PLATE;
+    public static FenceBlock CITRINE_FENCE, ENDERITE_FENCE, RUBY_FENCE,SAPPHIRE_FENCE;
+    public static FenceGateBlock CITRINE_FENCE_GATE, ENDERITE_FENCE_GATE, RUBY_FENCE_GATE, SAPPHIRE_FENCE_GATE;
+    public static WallBlock CITRINE_WALL, ENDERITE_WALL, RUBY_WALL, SAPPHIRE_WALL;
+    public static DoorBlock CITRINE_DOOR, ENDERITE_DOOR, RUBY_DOOR, SAPPHIRE_DOOR;
+    public static TrapdoorBlock CITRINE_TRAP_DOOR, ENDERITE_TRAP_DOOR, RUBY_TRAP_DOOR, SAPPHIRE_TRAP_DOOR;
 
-    public static Block ORE_DEEP_CITRINE, ORE_DEEP_RUBY, ORE_DEEP_SAPPHIRE;
-    public static Block ORE_END_CITRINE, ORE_END_ENDERITE_CRACKED, ORE_END_RUBY, ORE_END_SAPPHIRE;
-    public static OreEnderite ORE_END_ENDERITE;
-    public static Block ORE_NETHER_CITRINE, ORE_NETHER_RUBY, ORE_NETHER_SAPPHIRE, ORE_NETHER_COAL, ORE_NETHER_COPPER, ORE_NETHER_DIAMOND,
-                        ORE_NETHER_IRON, ORE_NETHER_LAPIS,ORE_NETHER_REDSTONE;
-    public static Block ORE_WORLD_CITRINE, ORE_WORLD_RUBY, ORE_WORLD_SAPPHIRE;
-    public static Block ORE_ENDERITE;
+    public static OreEndEnderite ORE_END_ENDERITE;
 
-    public static Block WATER_EATING_GOO, WATER_GENERATING_GOO, LAVA_EATING_GOO, LAVA_GENERATING_GOO, CHUNK_GOO, TOWERING_GOO,
-                        TUNNELING_GOO, BRIDGE_GOO, AIR_BOMB_GOO, CHUNK_BOMB_GOO, LAVA_PUMP_GOO, STONE_BOMB_GOO, WATER_PUMP_GOO;
+    public static WaterEatingGoo WATER_EATING_GOO;
+    public static WaterGeneratingGoo WATER_GENERATING_GOO;
+    public static LavaEatingGoo LAVA_EATING_GOO;
+    public static LavaGeneratingGoo LAVA_GENERATING_GOO;
+    public static ChunkGoo CHUNK_GOO;
+    public static ToweringGoo TOWERING_GOO;
+    public static TunnelingGoo TUNNELING_GOO;
+    public static BridgeGoo BRIDGE_GOO;
+    public static LavaPumpGoo LAVA_PUMP_GOO;
+    public static WaterPumpGoo WATER_PUMP_GOO;
+    public static AirGooBomb AIR_BOMB_GOO;
+    public static ChunkGooBomb CHUNK_BOMB_GOO;
+    public static StoneGooBomb STONE_BOMB_GOO;
 
-    public static Block ELEVATOR, ANGEL, REDSTONE_CLOCK, ALLOY_MIXER, CAST_PRESS, GEM_CLEANER, OVEN, PULVERIZER, SMELTER, ANIMAL_FEED,
-                        GENERATOR, BLOCK_BREAKER, BLOCK_PLACER, BUILDER, CHUNK_LOADER, CREATIVE_BANK, ENDER_CHANTER, FLUID_PUMP,
-                        PRINTER, PROJECT_TABLE, TESSERACT, WOOD_STRIPPER, BATTERY_BANK, SOLAR_PANEL, MINER;
+    public static Elevator ELEVATOR;
+    public static AngelBlock ANGEL;
+    public static RedstoneClock REDSTONE_CLOCK;
+    public static AlloyMixer ALLOY_MIXER;
+    public static CastPress CAST_PRESS;
+    public static GemCleaner GEM_CLEANER;
+    public static Oven OVEN;
+    public static Pulverizer PULVERIZER;
+    public static Smelter SMELTER;
+    public static AnimalFeed ANIMAL_FEED;
+    public static Generator GENERATOR;
+    public static BlockBreaker BLOCK_BREAKER;
+    public static BlockPlacer BLOCK_PLACER;
+    public static BuilderBlock BUILDER;
+    public static ChunkLoader CHUNK_LOADER;
+    public static CreativeEnergyBank CREATIVE_BANK;
+    public static EnderChanter ENDER_CHANTER;
+    public static FluidPump FLUID_PUMP;
+    public static Printer PRINTER;
+    public static ProjectTable PROJECT_TABLE;
+    public static Tesseract TESSERACT;
+    public static WoodStripper WOOD_STRIPPER;
+    public static BatteryBank BATTERY_BANK;
+    public static SolarPanel SOLAR_PANEL;
+    public static Miner MINER;
     //endregion
 
     public static void init()
     {
         log("Registering Blocks");
 
-        //TODO: Talk about massive code refactor and the reason
         ENDERITE = register("block_enderite", Blocks.NETHERITE_BLOCK, Block::new);
         //region GEMS
         CITRINE = register("block_citrine", Blocks.AMETHYST_BLOCK, Block::new);
@@ -98,7 +125,6 @@ public class ModBlocks
         RAW_RUBY = register("block_raw_ruby", Blocks.STONE, Block::new);
         RAW_SAPPHIRE = register("block_raw_sapphire", Blocks.STONE, Block::new);
         //endregion
-        //TODO: The registration for special blocks are changed 1.21.2 (look into helper method)
         //region SPECIAL BLOCKS
         CITRINE_STAIRS = registerStair("block_citrine_stairs", ModBlocks.CITRINE, Blocks.AMETHYST_BLOCK);
         ENDERITE_STAIRS = registerStair("block_enderite_stairs", ModBlocks.ENDERITE, Blocks.IRON_BLOCK);
@@ -151,7 +177,7 @@ public class ModBlocks
         ORE_DEEP_SAPPHIRE = register("ore_deep_sapphire", Blocks.DEEPSLATE_DIAMOND_ORE, Block::new);
 
         ORE_END_CITRINE = register("ore_end_citrine", Blocks.END_STONE, Block::new);
-        ORE_END_ENDERITE = register("ore_end_enderite", OreEnderite::new);
+        ORE_END_ENDERITE = register("ore_end_enderite", OreEndEnderite::new);
         ORE_END_ENDERITE_CRACKED = register("ore_end_enderite_cracked", Blocks.END_STONE, Block::new);
         ORE_END_RUBY = register("ore_end_ruby", Blocks.END_STONE, Block::new);
         ORE_END_SAPPHIRE = register("ore_end_sapphire", Blocks.END_STONE, Block::new);
@@ -188,7 +214,7 @@ public class ModBlocks
         WATER_PUMP_GOO = register("water_pump_goo", Blocks.GRAY_WOOL, WaterPumpGoo::new);
         //endregion
         //region MACHINES
-        ELEVATOR = register("elevator", Blocks.GRAY_WOOL, Block::new);
+        ELEVATOR = register("elevator", Blocks.GRAY_WOOL, Elevator::new);
 
         CARROT_BOX = register("carrot_box", Blocks.OAK_PLANKS, Block::new);
         POTATO_BOX = register("potato_box", Blocks.OAK_PLANKS, Block::new);
@@ -216,16 +242,20 @@ public class ModBlocks
         PROJECT_TABLE = register("project_table", Blocks.CRAFTING_TABLE, ProjectTable::new);
         CHUNK_LOADER = register("chunk_loader", Blocks.IRON_BLOCK, ChunkLoader::new);
         MINER = register("miner", Blocks.IRON_BLOCK, Miner::new);
-        ANGEL = registerSimple("block_angel",
-                         new AngelBlock(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL)
-                                                              .strength(0.1f, 5000.0f)
-                                                              .registryKey(Registers.getBlockKey("block_angel"))));
+        ANGEL = register("block_angel",
+                         AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).strength(0.1f, 5000.0f),
+                         AngelBlock::new);
         //endregion
     }
 
     public static void addToItemGroups()
     {
         log("Adding Blocks to Item Groups");
+
+        /*ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries ->
+                                                                                {
+                                                                                    entries.add(ANGEL);
+                                                                                });*/
     }
 
     public static void setAllBlocks()

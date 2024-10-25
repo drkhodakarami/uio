@@ -43,8 +43,6 @@ public class UseEntityCallbackListener
                             var userDimension = player.getWorld().getRegistryKey().getValue().toString();
                             if (dimension.equalsIgnoreCase(userDimension))
                             {
-                                //TODO: Use of server world for 1.21.2
-                                //TODO: Teleport now asks for boolean at the end (resetCamera)
                                 if(entity.getWorld() instanceof ServerWorld sw)
                                     entity.teleport(sw , entity.getX(), pos.getY() + 1, entity.getZ(),
                                                     PositionFlag.VALUES, entity.getYaw(), entity.getPitch(), false);

@@ -499,7 +499,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(Items.MILK_BUCKET)
                 .add(Items.BUCKET);
 
-        //TODO: Repair Tags for Armor/Tool Material in 1.21.2
         getOrCreateTagBuilder(Tags.Item.REPAIRS_AMETHYST_ARMOR)
                 .add(ModItems.REINFORCED_AMETHYST);
         getOrCreateTagBuilder(Tags.Item.REPAIRS_CITRINE_ARMOR)
@@ -525,7 +524,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
         getOrCreateTagBuilder(Tags.Item.REPAIRS_SAPPHIRE_TOOL)
                 .add(ModItems.PLATE_SAPPHIRE);
 
-        //TODO: Armor Types related to Armor Material to be used in event for effects
         getOrCreateTagBuilder(Tags.Item.AMETHYST_ARMOR_TYPE)
                 .add(ModItems.ARMOR_AMETHYST_HELMET)
                 .add(ModItems.ARMOR_AMETHYST_CHESTPLATE)
@@ -562,8 +560,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
                 .add(ModItems.ARMOR_SAPPHIRE_LEGGINGS)
                 .add(ModItems.ARMOR_SAPPHIRE_BOOTS);
 
-        //TODO: Now we have a nice, flexible system to set what items can accept what type of enchantments.
-        // Don't forget to add the new tags to the appropriate lists of items.
         getOrCreateTagBuilder(ItemTags.EQUIPPABLE_ENCHANTABLE);
 
         getOrCreateTagBuilder(ItemTags.ARMOR_ENCHANTABLE);

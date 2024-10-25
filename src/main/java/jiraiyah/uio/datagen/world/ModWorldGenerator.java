@@ -49,7 +49,6 @@ public class ModWorldGenerator extends FabricDynamicRegistryProvider
     @Override
     protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries)
     {
-        //TODO: getWrapperOrThrow -> getOrThrow in 1.21.2
         entries.addAll(registries.getOrThrow(RegistryKeys.CONFIGURED_FEATURE));
         entries.addAll(registries.getOrThrow(RegistryKeys.PLACED_FEATURE));
     }

@@ -104,7 +104,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.SAPPHIRE_TRAP_DOOR);
         //endregion
         //region ORE DROP
-        //TODO: Moved helper methods into Registers Helper Method
         addDrop(ModBlocks.ORE_DEEP_CITRINE,
                 customOreDrops(this, this.registries, ModBlocks.ORE_DEEP_CITRINE, ModItems.RAW_CITRINE, 2.0f, 3.0f));
         addDrop(ModBlocks.ORE_DEEP_RUBY,

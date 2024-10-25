@@ -84,25 +84,25 @@ import static jiraiyah.uio.Reference.*;
 // Back  : West, Negative Z
 //endregion
 
-//region FUTURE TODO LIST
-//TODO : Add void dimension
-//TODO : Add Mining dimension (maybe)
-//TODO : Add Crops (maybe corn or something more useful)
-//TODO : Add Rubber Tree with everything related to wood
-//TODO : Add Villager Trades and New Villager Type
-//TODO : Add Ender Shulker Boxes
-//TODO : Add redstone logic gates
-//TODO : Add Fluid Tanks
-//TODO : Rotate Blocks Using Wrench
-//TODO : Draw extra info in world when have wrench in hand (maybe)
-//TODO : Add new rideable entity that moves faster than player
-//TODO : Add new projectile (maybe tnt / torch arrow?)
-//TODO : Add new aggressive mob (maybe with new AI?)
-//TODO : Add new flower (not sure what)
-//TODO : Add new biome (maybe planes with less bump and more flatness with more rubber trees)
-//TODO : Add player starting inventory kit
-//TODO : Add custom structures (maybe ruined portals to custom mod dimensions)
-//TODO : Add new enchantment (Lava Walking)
+//TODO: LIST
+// Add void dimension
+// Add Mining dimension (maybe)
+// Add Crops (maybe corn or something more useful)
+// Add Rubber Tree with everything related to wood
+// Add Villager Trades and New Villager Type
+// Add Ender Shulker Boxes
+// Add redstone logic gates
+// Add Fluid Tanks
+// Rotate Blocks Using Wrench
+// Draw extra info in world when have wrench in hand (maybe)
+// Add new rideable entity that moves faster than player
+// Add new projectile (maybe tnt / torch arrow?)
+// Add new aggressive mob (maybe with new AI?)
+// Add new flower (not sure what)
+// Add new biome (maybe planes with less bump and more flatness with more rubber trees)
+// Add player starting inventory kit
+// Add custom structures (maybe ruined portals to custom mod dimensions)
+// Add new enchantment (Lava Walking)
 //endregion
 
 public class Main implements ModInitializer
@@ -124,7 +124,6 @@ public class Main implements ModInitializer
         ModEvents.init();
 
         ModArmorMaterials.init(); // Should happen before items
-        //TODO: New change for 1.21.2
         ModToolMaterials.init(); // Should be before registering items because of tool items needing tool materials
         ModItems.initItems(); // Should be anywhere after Tool and Armor Materials registration
 
@@ -154,8 +153,8 @@ public class Main implements ModInitializer
         ModMessages.registerC2SPackets();
 
         ModBlocks.setAllBlocks(); //Can happen anywhere after Block registration
-        ModBlocks.addToItemGroups(); //Should happen after setting all the blocks to set the black list
         ModItems.setAllItems(); //Can happen anywhere after Item Block registration
+        ModBlocks.addToItemGroups(); //Should happen after setting all the blocks to set the black list
         ModItems.addToItemGroups(); //Should happen after setting all the items to set the black list
         //endregion
     }

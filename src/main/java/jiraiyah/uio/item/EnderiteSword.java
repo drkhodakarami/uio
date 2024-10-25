@@ -29,7 +29,6 @@ public class EnderiteSword extends SwordItem
                                                                     target.getBoundingBox().expand(2.0, 0.25, 2.0));
         for(LivingEntity entity : targets)
         {
-            //TODO: Usage of server world in new version
             if(target.getWorld() instanceof ServerWorld sw)
             {
                 entity.kill(sw);

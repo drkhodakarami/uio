@@ -23,7 +23,6 @@ public class ExcavatorItem extends MiningToolItem
     private int depth;
     private int radius;
 
-    //TODO: Change of ctor
     public ExcavatorItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings)
     {
         super(material, BlockTags.SHOVEL_MINEABLE, attackDamage, attackSpeed, settings);

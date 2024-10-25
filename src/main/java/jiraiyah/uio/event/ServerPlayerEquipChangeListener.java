@@ -190,7 +190,6 @@ public class ServerPlayerEquipChangeListener
             }
             //endregion
 
-            //TODO: Add custom item tags for armor materials
             //region ENDERITE
             if(currentStack.isOf(ModItems.ARMOR_ENDERITE_HELMET))
             {
@@ -434,7 +433,6 @@ public class ServerPlayerEquipChangeListener
         ItemStack helmet = player.getInventory().getArmorStack(EquipmentSlot.HEAD.getEntitySlotId());
 
         return !helmet.isEmpty() && !chestplate.isEmpty() && !leggings.isEmpty() && !boots.isEmpty() &&
-               //TODO: Talk about materials, they are components now, easiest way is to have custom tags per material
                helmet.isIn(tag) && chestplate.isIn(tag) && leggings.isIn(tag) && boots.isIn(tag);
     }
 }

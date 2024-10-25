@@ -16,7 +16,6 @@ public class ModFuels
     {
         log("Registering Fuel");
 
-        //TODO: New way of registering fuel for 1.21.2
         FuelRegistryEvents.BUILD.register((builder, context) ->
                                              {
                                                  builder.add(ModItems.HOT_COAL, context.baseSmeltTime() * 32); //6400

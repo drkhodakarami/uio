@@ -88,7 +88,6 @@ public class TunerItem extends Item
         return super.useOnBlock(context);
     }
 
-    //TODO: Return of ActionResult in new version
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand)
     {
@@ -134,7 +133,6 @@ public class TunerItem extends Item
             var userDimension = user.getWorld().getRegistryKey().getValue().toString();
             if (dimension.equalsIgnoreCase(userDimension))
             {
-                //TODO: Usage of server world in new version
                 if(entity.getWorld() instanceof ServerWorld sw)
                     entity.teleport(sw, entity.getX(), pos.getY() + 1, entity.getZ(),
                                     PositionFlag.VALUES, entity.getYaw(), entity.getPitch(), false);
