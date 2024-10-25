@@ -1,17 +1,17 @@
 {
   "values": [
-    "minecraft:plate_amethyst",
-    "minecraft:plate_citrine",
-    "minecraft:plate_copper",
-    "minecraft:plate_diamond",
-    "minecraft:plate_emerald",
-    "minecraft:plate_enderite",
-    "minecraft:plate_gold",
-    "minecraft:plate_iron",
-    "minecraft:plate_netherite",
-    "minecraft:plate_ruby",
-    "minecraft:plate_sapphire",
-    "minecraft:plate_shulker",
-    "minecraft:plate_stone"
+    "uio:plate_amethyst",
+    "uio:plate_citrine",
+    "uio:plate_copper",
+    "uio:plate_diamond",
+    "uio:plate_emerald",
+    "uio:plate_enderite",
+    "uio:plate_gold",
+    "uio:plate_iron",
+    "uio:plate_netherite",
+    "uio:plate_ruby",
+    "uio:plate_sapphire",
+    "uio:plate_shulker",
+    "uio:plate_stone"
   ]
 }

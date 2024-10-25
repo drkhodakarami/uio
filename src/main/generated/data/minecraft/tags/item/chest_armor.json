@@ -1,11 +1,11 @@
 {
   "values": [
-    "minecraft:armor_amethyst_chestplate",
-    "minecraft:armor_citrine_chestplate",
-    "minecraft:armor_copper_chestplate",
-    "minecraft:armor_emerald_chestplate",
-    "minecraft:armor_enderite_chestplate",
-    "minecraft:armor_ruby_chestplate",
-    "minecraft:armor_sapphire_chestplate"
+    "uio:armor_amethyst_chestplate",
+    "uio:armor_citrine_chestplate",
+    "uio:armor_copper_chestplate",
+    "uio:armor_emerald_chestplate",
+    "uio:armor_enderite_chestplate",
+    "uio:armor_ruby_chestplate",
+    "uio:armor_sapphire_chestplate"
   ]
 }

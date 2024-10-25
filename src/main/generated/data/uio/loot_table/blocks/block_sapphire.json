@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:block_sapphire"
+          "name": "uio:block_sapphire"
         }
       ],
       "rolls": 1.0

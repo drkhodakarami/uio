@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:block_ruby_button"
+          "name": "uio:block_ruby_button"
         }
       ],
       "rolls": 1.0

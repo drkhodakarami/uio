@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:lava_eating_goo"
+          "name": "uio:lava_eating_goo"
         }
       ],
       "rolls": 1.0

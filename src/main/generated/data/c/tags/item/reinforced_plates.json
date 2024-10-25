@@ -1,16 +1,16 @@
 {
   "values": [
-    "minecraft:reinforced_amethyst",
-    "minecraft:reinforced_citrine",
-    "minecraft:reinforced_copper",
-    "minecraft:reinforced_diamond",
-    "minecraft:reinforced_emerald",
-    "minecraft:reinforced_enderite",
-    "minecraft:reinforced_gold",
-    "minecraft:reinforced_iron",
-    "minecraft:reinforced_netherite",
-    "minecraft:reinforced_ruby",
-    "minecraft:reinforced_sapphire",
-    "minecraft:reinforced_shulker"
+    "uio:reinforced_amethyst",
+    "uio:reinforced_citrine",
+    "uio:reinforced_copper",
+    "uio:reinforced_diamond",
+    "uio:reinforced_emerald",
+    "uio:reinforced_enderite",
+    "uio:reinforced_gold",
+    "uio:reinforced_iron",
+    "uio:reinforced_netherite",
+    "uio:reinforced_ruby",
+    "uio:reinforced_sapphire",
+    "uio:reinforced_shulker"
   ]
 }

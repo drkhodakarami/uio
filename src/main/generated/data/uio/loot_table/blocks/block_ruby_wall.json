@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:block_ruby_wall"
+          "name": "uio:block_ruby_wall"
         }
       ],
       "rolls": 1.0

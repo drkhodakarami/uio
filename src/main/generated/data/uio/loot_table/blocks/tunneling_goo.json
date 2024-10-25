@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:tunneling_goo"
+          "name": "uio:tunneling_goo"
         }
       ],
       "rolls": 1.0

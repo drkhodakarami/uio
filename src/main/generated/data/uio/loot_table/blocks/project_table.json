@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:project_table"
+          "name": "uio:project_table"
         }
       ],
       "rolls": 1.0

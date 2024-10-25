@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:block_raw_enderite"
+          "name": "uio:block_raw_enderite"
         }
       ],
       "rolls": 1.0

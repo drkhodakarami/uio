@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:block_citrine_button"
+          "name": "uio:block_citrine_button"
         }
       ],
       "rolls": 1.0

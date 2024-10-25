@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:enderchanter"
+          "name": "uio:enderchanter"
         }
       ],
       "rolls": 1.0

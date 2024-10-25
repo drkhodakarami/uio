@@ -1,12 +1,12 @@
 {
   "values": [
-    "minecraft:ingot_alloy_conductive",
-    "minecraft:ingot_alloy_energetic",
-    "minecraft:ingot_alloy_pulsating",
-    "minecraft:ingot_alloy_red",
-    "minecraft:ingot_alloy_vibrant",
-    "minecraft:raw_alloy_enderite",
-    "minecraft:ingot_alloy_enderite",
-    "minecraft:ingot_enderite"
+    "uio:ingot_alloy_conductive",
+    "uio:ingot_alloy_energetic",
+    "uio:ingot_alloy_pulsating",
+    "uio:ingot_alloy_red",
+    "uio:ingot_alloy_vibrant",
+    "uio:raw_alloy_enderite",
+    "uio:ingot_alloy_enderite",
+    "uio:ingot_enderite"
   ]
 }

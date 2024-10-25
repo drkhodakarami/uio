@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:block_citrine_trap_door"
+          "name": "uio:block_citrine_trap_door"
         }
       ],
       "rolls": 1.0

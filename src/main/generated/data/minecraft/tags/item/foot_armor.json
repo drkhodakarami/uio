@@ -1,11 +1,11 @@
 {
   "values": [
-    "minecraft:armor_amethyst_boots",
-    "minecraft:armor_citrine_boots",
-    "minecraft:armor_copper_boots",
-    "minecraft:armor_emerald_boots",
-    "minecraft:armor_enderite_boots",
-    "minecraft:armor_ruby_boots",
-    "minecraft:armor_sapphire_boots"
+    "uio:armor_amethyst_boots",
+    "uio:armor_citrine_boots",
+    "uio:armor_copper_boots",
+    "uio:armor_emerald_boots",
+    "uio:armor_enderite_boots",
+    "uio:armor_ruby_boots",
+    "uio:armor_sapphire_boots"
   ]
 }

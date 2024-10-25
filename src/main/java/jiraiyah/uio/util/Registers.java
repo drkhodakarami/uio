@@ -117,7 +117,7 @@ public class Registers
         public static <T extends Block> T registerSimple(String name, T block)
         {
             RegistryKey<Block> key = getBlockKey(name);
-            return Registry.register(Registries.BLOCK, key , block);
+            return Registry.register(Registries.BLOCK, getBlockKey(name) , block);
         }
 
         //region OVERLOADS & HELPERS
@@ -197,14 +197,14 @@ public class Registers
         //TODO: The new way of registering new Items in 1.21.2
         public static Item register(String name)
         {
-            return Registry.register(Registries.ITEM, identifier(name),
+            return Registry.register(Registries.ITEM, getItemKey(name),
                                      new Item(new Item.Settings()
                                                       .registryKey(getItemKey(name))));
         }
 
         public static Item register(String name, int stackCount)
         {
-            return Registry.register(Registries.ITEM, identifier(name),
+            return Registry.register(Registries.ITEM, getItemKey(name),
                                      new Item(new Item.Settings()
                                                       .registryKey(getItemKey(name))
                                                       .maxCount(stackCount)));
@@ -220,7 +220,7 @@ public class Registers
         {
             String name = Registries.BLOCK.getId(block).getPath();
 
-            return Registry.register(Registries.ITEM, identifier(name),
+            return Registry.register(Registries.ITEM, getItemKey(name),
                                      new BlockItem(block, new Item.Settings()
                                              .useBlockPrefixedTranslationKey()
                                              .registryKey(getItemKey(name))));
@@ -248,7 +248,7 @@ public class Registers
         //TODO: Helper method for registering snaks (isSnack -> alwaysEdible)
         public static Item registerSnackFood(String name, int stackCount, int nutrition, float saturation)
         {
-            return Registry.register(Registries.ITEM, identifier(name),
+            return Registry.register(Registries.ITEM, getItemKey(name),
                                      new Item(new Item.Settings()
                                                       .registryKey(getItemKey(name))
                                                       .food(new FoodComponent.Builder()
@@ -262,7 +262,7 @@ public class Registers
         //TODO: Helper method for registering Food
         public static Item registerFood(String name, int stackCount, int nutrition, float saturation)
         {
-            return Registry.register(Registries.ITEM, identifier(name),
+            return Registry.register(Registries.ITEM, getItemKey(name),
                                      new Item(new Item.Settings()
                                                       .registryKey(getItemKey(name))
                                                       .food(new FoodComponent.Builder()

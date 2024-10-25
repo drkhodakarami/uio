@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:ore_end_enderite_cracked"
+          "name": "uio:ore_end_enderite_cracked"
         }
       ],
       "rolls": 1.0

@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "minecraft:ore_nether_iron"
+              "name": "uio:ore_nether_iron"
             },
             {
               "type": "minecraft:item",

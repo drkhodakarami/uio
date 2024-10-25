@@ -1,11 +1,11 @@
 {
   "values": [
-    "minecraft:armor_amethyst_helmet",
-    "minecraft:armor_citrine_helmet",
-    "minecraft:armor_copper_helmet",
-    "minecraft:armor_emerald_helmet",
-    "minecraft:armor_enderite_helmet",
-    "minecraft:armor_ruby_helmet",
-    "minecraft:armor_sapphire_helmet"
+    "uio:armor_amethyst_helmet",
+    "uio:armor_citrine_helmet",
+    "uio:armor_copper_helmet",
+    "uio:armor_emerald_helmet",
+    "uio:armor_enderite_helmet",
+    "uio:armor_ruby_helmet",
+    "uio:armor_sapphire_helmet"
   ]
 }

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:printer"
+          "name": "uio:printer"
         }
       ],
       "rolls": 1.0

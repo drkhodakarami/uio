@@ -1,9 +1,9 @@
 {
   "values": [
-    "minecraft:raw_citrine",
-    "minecraft:raw_enderite",
-    "minecraft:raw_quartz",
-    "minecraft:raw_ruby",
-    "minecraft:raw_sapphire"
+    "uio:raw_citrine",
+    "uio:raw_enderite",
+    "uio:raw_quartz",
+    "uio:raw_ruby",
+    "uio:raw_sapphire"
   ]
 }

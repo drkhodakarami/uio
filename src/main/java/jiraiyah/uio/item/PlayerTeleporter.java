@@ -74,20 +74,23 @@ public class PlayerTeleporter extends Item
 
         if (player != null)
         {
-            if (!player.isSneaking())
+            //TODO: Changed logic to clean the data when sneaking
+            if(player.isSneaking() && !context.getWorld().isClient())
             {
-                if (!context.getWorld().isClient())
-                {
-                    context.getStack().set(ModDataComponentTypes.COORDINATE,
-                                           new CoordinateData(context.getBlockPos(),
-                                  player.getWorld().getRegistryKey().getValue().toString()));
-                }
-                else
-                {
-                    var dimension = player.getWorld().getRegistryKey().getValue().toString();
-                    dimension = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
-                    outputCoordinatesToChat(pos, dimension, player);
-                }
+                player.getStackInHand(context.getHand()).set(ModDataComponentTypes.COORDINATE, null);
+                return ActionResult.SUCCESS;
+            }
+            if (!context.getWorld().isClient())
+            {
+                context.getStack().set(ModDataComponentTypes.COORDINATE,
+                                       new CoordinateData(context.getBlockPos(),
+                              player.getWorld().getRegistryKey().getValue().toString()));
+            }
+            else
+            {
+                var dimension = player.getWorld().getRegistryKey().getValue().toString();
+                dimension = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
+                outputCoordinatesToChat(pos, dimension, player);
             }
         }
 
@@ -100,14 +103,16 @@ public class PlayerTeleporter extends Item
     {
         @Nullable var data = user.getStackInHand(hand).get(ModDataComponentTypes.COORDINATE);
 
-        if(user.isSneaking() && data != null)
-            user.getStackInHand(hand).set(ModDataComponentTypes.COORDINATE, null);
-
+        if (!world.isClient())
+        {
+            if (user.isSneaking() && data != null)
+                user.getStackInHand(hand).set(ModDataComponentTypes.COORDINATE, null);
+            return super.use(world, user, hand);
+        }
         if(!user.isSneaking() && data != null)
         {
             if (!world.isClient)
             {
-                ItemStack stack = user.getStackInHand(hand);
                 BlockPos pos = data.pos();
                 var dimension = data.dimension();
                 MinecraftServer server = world.getServer();

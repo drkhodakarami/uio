@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:water_generating_goo"
+          "name": "uio:water_generating_goo"
         }
       ],
       "rolls": 1.0

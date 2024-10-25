@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "minecraft:ore_enderite"
+              "name": "uio:ore_enderite"
             },
             {
               "type": "minecraft:item",
@@ -49,7 +49,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minecraft:raw_enderite"
+              "name": "uio:raw_enderite"
             }
           ]
         }

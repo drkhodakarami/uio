@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:block_raw_citrine"
+          "name": "uio:block_raw_citrine"
         }
       ],
       "rolls": 1.0

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:carrot_box"
+          "name": "uio:carrot_box"
         }
       ],
       "rolls": 1.0

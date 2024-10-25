@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:towering_goo"
+          "name": "uio:towering_goo"
         }
       ],
       "rolls": 1.0

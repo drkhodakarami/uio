@@ -1,20 +1,20 @@
 {
   "values": [
-    "minecraft:cast_axe",
-    "minecraft:cast_binding",
-    "minecraft:cast_excavator",
-    "minecraft:cast_gear",
-    "minecraft:cast_gem",
-    "minecraft:cast_hammer",
-    "minecraft:cast_handle",
-    "minecraft:cast_hoe",
-    "minecraft:cast_ingot",
-    "minecraft:cast_nugget",
-    "minecraft:cast_pickaxe",
-    "minecraft:cast_plate",
-    "minecraft:cast_rod",
-    "minecraft:cast_shovel",
-    "minecraft:cast_sword",
-    "minecraft:cast_wire"
+    "uio:cast_axe",
+    "uio:cast_binding",
+    "uio:cast_excavator",
+    "uio:cast_gear",
+    "uio:cast_gem",
+    "uio:cast_hammer",
+    "uio:cast_handle",
+    "uio:cast_hoe",
+    "uio:cast_ingot",
+    "uio:cast_nugget",
+    "uio:cast_pickaxe",
+    "uio:cast_plate",
+    "uio:cast_rod",
+    "uio:cast_shovel",
+    "uio:cast_sword",
+    "uio:cast_wire"
   ]
 }

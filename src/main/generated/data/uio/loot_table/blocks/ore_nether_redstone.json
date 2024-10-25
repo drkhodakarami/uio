@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "minecraft:ore_nether_redstone"
+              "name": "uio:ore_nether_redstone"
             },
             {
               "type": "minecraft:item",

@@ -20,7 +20,7 @@
               }
             }
           ],
-          "name": "minecraft:block_citrine_door"
+          "name": "uio:block_citrine_door"
         }
       ],
       "rolls": 1.0

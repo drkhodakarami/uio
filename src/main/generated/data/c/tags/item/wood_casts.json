@@ -1,6 +1,6 @@
 {
   "values": [
-    "minecraft:cast_wood_ingot",
-    "minecraft:cast_wood_pickaxe"
+    "uio:cast_wood_ingot",
+    "uio:cast_wood_pickaxe"
   ]
 }

@@ -1,8 +1,8 @@
 {
   "values": [
-    "minecraft:gem_citrine",
-    "minecraft:gem_ruby",
-    "minecraft:gem_sapphire",
+    "uio:gem_citrine",
+    "uio:gem_ruby",
+    "uio:gem_sapphire",
     "minecraft:diamond",
     "minecraft:emerald"
   ]
