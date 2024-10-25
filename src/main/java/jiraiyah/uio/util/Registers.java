@@ -4,6 +4,7 @@ import jiraiyah.uio.util.interfaces.ArmorRegisterFunction;
 import jiraiyah.uio.util.interfaces.BlockItemRegisterFunction;
 import jiraiyah.uio.util.interfaces.ToolRegisterFunction;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -12,7 +13,10 @@ import net.minecraft.component.type.FoodComponent;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterial;
@@ -28,6 +32,7 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.*;
 import net.minecraft.util.Identifier;
+import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
 import java.util.List;
 import java.util.Map;
@@ -63,14 +68,10 @@ public class Registers
                                .collect(Collectors.toList());
     }
 
-    public static RegistryKey<Item> getItemKey(String name)
+    //Thanks to TurtyWurty for the code snippet for generating the RegistryKey
+    public static <T> RegistryKey<T> getKey(String name, RegistryKey<? extends Registry<T>> registryKey)
     {
-        return RegistryKey.of(RegistryKeys.ITEM, identifier(name));
-    }
-
-    public static RegistryKey<Block> getBlockKey(String name)
-    {
-        return RegistryKey.of(RegistryKeys.BLOCK, identifier(name));
+        return RegistryKey.of(registryKey, identifier(name));
     }
 
     public static class Blocks
@@ -81,23 +82,29 @@ public class Registers
         }
 
         //Knowledge Base: Functional Programming & Factory Design Pattern
-        //Thanks to ZeroNoRyouki for the help with the factory design pattern
-        public static <T extends Block> T register(String name, Function<AbstractBlock.Settings, T> factory)
+        //Thanks to ZeroNoRyouki for the help with the factory design pattern and mentioning that this approach is usable
+        public static <T extends Block> T register(String name,
+                                                   Function<AbstractBlock.Settings, T> factory)
         {
-            T block = factory.apply(AbstractBlock.Settings.create().registryKey(getBlockKey(name)));
-            return Registry.register(Registries.BLOCK, getBlockKey(name), block);
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            T block = factory.apply(AbstractBlock.Settings.create().registryKey(key));
+            return Registry.register(Registries.BLOCK, key, block);
         }
 
-        public static <T extends Block> T register(String name, Block blockCopy, Function<AbstractBlock.Settings, T> factory)
+        public static <T extends Block> T register(String name, Block blockCopy,
+                                                   Function<AbstractBlock.Settings, T> factory)
         {
-            T block = factory.apply(AbstractBlock.Settings.copy(blockCopy).registryKey(getBlockKey(name)));
-            return Registry.register(Registries.BLOCK, getBlockKey(name), block);
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            T block = factory.apply(AbstractBlock.Settings.copy(blockCopy).registryKey(key));
+            return Registry.register(Registries.BLOCK, key, block);
         }
 
-        public static <T extends Block> T register(String name, AbstractBlock.Settings settings, Function<AbstractBlock.Settings, T> factory)
+        public static <T extends Block> T register(String name, AbstractBlock.Settings settings,
+                                                   Function<AbstractBlock.Settings, T> factory)
         {
-            T block = factory.apply(settings.registryKey(getBlockKey(name)));
-            return Registry.register(Registries.BLOCK, getBlockKey(name), block);
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            T block = factory.apply(settings.registryKey(key));
+            return Registry.register(Registries.BLOCK, key, block);
         }
 
         public static Block register(String name)
@@ -112,179 +119,203 @@ public class Registers
 
         public static <T extends Block> T registerSimple(String name, T block)
         {
-            return Registry.register(Registries.BLOCK, getBlockKey(name) , block);
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            return Registry.register(Registries.BLOCK, key , block);
         }
 
-        //region OVERLOADS & HELPERS
+        //region HELPERS
         public static StairsBlock registerStair(String name, Block block, Block copyBlock)
         {
-            return registerSimple(name, new StairsBlock(block.getDefaultState(),
-                                             AbstractBlock.Settings.copy(copyBlock)
-                                                                   .registryKey(Registers.getBlockKey(name))));
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            return registerSimple(name,
+                          new StairsBlock(block.getDefaultState(),
+                                         AbstractBlock.Settings.copy(copyBlock).registryKey(key)));
         }
 
         public static SlabBlock registerSlab(String name, Block copyBlock)
         {
-            return registerSimple(name, new SlabBlock(AbstractBlock.Settings.copy(copyBlock)
-                                                                      .registryKey(Registers.getBlockKey(name))));
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            return registerSimple(name,
+                          new SlabBlock(AbstractBlock.Settings.copy(copyBlock).registryKey(key)));
         }
 
         public static ButtonBlock registerButton(String name, BlockSetType blockType, int pressureTicks, Block copyBlock)
         {
-            return registerSimple(name, new ButtonBlock(blockType, pressureTicks,
-                                                  AbstractBlock.Settings.copy(copyBlock)
-                                                                        .registryKey(Registers.getBlockKey(name))));
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            return registerSimple(name,
+                          new ButtonBlock(blockType, pressureTicks,
+                                          AbstractBlock.Settings.copy(copyBlock).registryKey(key)));
         }
 
         public static PressurePlateBlock registerPressurePlate(String name, BlockSetType blockType, Block copyBlock)
         {
-            return registerSimple(name, new PressurePlateBlock(blockType, AbstractBlock.Settings.copy(copyBlock)
-                                                                        .registryKey(Registers.getBlockKey(name))));
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            return registerSimple(name,
+                          new PressurePlateBlock(blockType, AbstractBlock.Settings.copy(copyBlock).registryKey(key)));
         }
 
         public static FenceBlock registerFence(String name, Block copyBlock)
         {
-            return registerSimple(name, new FenceBlock(AbstractBlock.Settings.copy(copyBlock)
-                                                                       .registryKey(Registers.getBlockKey(name))));
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            return registerSimple(name,
+                          new FenceBlock(AbstractBlock.Settings.copy(copyBlock).registryKey(key)));
         }
 
         public static FenceGateBlock registerFenceGate(String name, WoodType woodType, Block copyBlock)
         {
-            return registerSimple(name, new FenceGateBlock(woodType, AbstractBlock.Settings.copy(copyBlock)
-                                                                       .registryKey(Registers.getBlockKey(name))));
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            return registerSimple(name,
+                          new FenceGateBlock(woodType,
+                                         AbstractBlock.Settings.copy(copyBlock).registryKey(key)));
         }
 
         public static WallBlock registerWall(String name, Block copyBlock)
         {
-            return registerSimple(name, new WallBlock(AbstractBlock.Settings.copy(copyBlock)
-                                                                       .registryKey(Registers.getBlockKey(name))));
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            return registerSimple(name,
+                          new WallBlock(AbstractBlock.Settings.copy(copyBlock).registryKey(key)));
         }
 
         public static DoorBlock registerDoor(String name, BlockSetType blockType, Block copyBlock)
         {
-            return registerSimple(name, new DoorBlock(blockType, AbstractBlock.Settings.copy(copyBlock)
-                                                                      .registryKey(Registers.getBlockKey(name))));
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            return registerSimple(name,
+                          new DoorBlock(blockType,
+                                            AbstractBlock.Settings.copy(copyBlock).registryKey(key)));
         }
 
         public static TrapdoorBlock registerTrapdoor(String name, BlockSetType blockType, Block copyBlock)
         {
-            return registerSimple(name, new TrapdoorBlock(blockType, AbstractBlock.Settings.copy(copyBlock)
-                                                                     .registryKey(Registers.getBlockKey(name))));
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            return registerSimple(name,
+                          new TrapdoorBlock(blockType,
+                                            AbstractBlock.Settings.copy(copyBlock).registryKey(key)));
         }
         //endregion
     }
 
-    public static class BlockEntities
+    public static class Entities
     {
-        BlockEntities()
+        Entities()
         {
             throw new AssertionError();
         }
 
-        public static <T extends BlockEntity> BlockEntityType<T> register(String name, BlockEntityType<T> type)
+        public static <T extends BlockEntity> BlockEntityType<T> register(String name, Block block,
+                                                                          FabricBlockEntityTypeBuilder. Factory<T> factory)
         {
-            return Registry.register(Registries.BLOCK_ENTITY_TYPE, identifier(name), type);
+            RegistryKey<BlockEntityType<?>> key = getKey(name, RegistryKeys.BLOCK_ENTITY_TYPE);
+            BlockEntityType<T> beType = FabricBlockEntityTypeBuilder.create(factory, block).build(null);
+            return Registry.register(Registries.BLOCK_ENTITY_TYPE, key, beType);
+        }
+
+        public static <T extends Entity> EntityType<T> register(String name, EntityType.EntityFactory<T> factory)
+        {
+            RegistryKey<EntityType<?>> key = getKey(name, RegistryKeys.ENTITY_TYPE);
+            EntityType<T> entityType = EntityType.Builder.<T>create(factory, SpawnGroup.MISC).build(key);
+            return Registry.register(Registries.ENTITY_TYPE, key, entityType);
         }
     }
 
     public static class Items
     {
-        /*public static Item register(String name)
+        public static <T extends Item> T register(String name, Function<Item.Settings, T> factory)
         {
-            return Registry.register(Registries.ITEM, getItemKey(name),
-                                     new Item(new Item.Settings()
-                                                      .registryKey(getItemKey(name))));
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
+            T item = factory.apply(new Item.Settings().registryKey(key));
+            return Registry.register(Registries.ITEM, key, item);
         }
-
-        public static Item register(String name, int stackCount)
-        {
-            return Registry.register(Registries.ITEM, getItemKey(name),
-                                     new Item(new Item.Settings()
-                                                      .registryKey(getItemKey(name))
-                                                      .maxCount(stackCount)));
-        }*/
 
         public static <T extends Item> T register(String name, int stackCount, Function<Item.Settings, T> factory)
         {
-            T item = factory.apply(new Item.Settings().registryKey(getItemKey(name)).maxCount(stackCount));
-            return Registry.register(Registries.ITEM, getItemKey(name), item);
-        }
-
-        public static <T extends Item> T register(String name, Function<Item.Settings, T> factory)
-        {
-            T item = factory.apply(new Item.Settings().registryKey(getItemKey(name)));
-            return Registry.register(Registries.ITEM, getItemKey(name), item);
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
+            T item = factory.apply(new Item.Settings().registryKey(key).maxCount(stackCount));
+            return Registry.register(Registries.ITEM, key, item);
         }
 
         public static <T extends Item> T register(String name, int stackCount, Item.Settings settings, Function<Item.Settings, T> factory)
         {
-            T item = factory.apply(settings.registryKey(getItemKey(name)).maxCount(stackCount));
-            return Registry.register(Registries.ITEM, getItemKey(name), item);
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
+            T item = factory.apply(settings.registryKey(key).maxCount(stackCount));
+            return Registry.register(Registries.ITEM, key, item);
         }
 
         public static <T extends Item> T register(String name, Item.Settings settings, Function<Item.Settings, T> factory)
         {
-            T item = factory.apply(settings.registryKey(getItemKey(name)));
-            return Registry.register(Registries.ITEM, getItemKey(name), item);
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
+            T item = factory.apply(settings.registryKey(key));
+            return Registry.register(Registries.ITEM, key, item);
         }
 
         public static BlockItem registerBI(Block block)
         {
             String name = Registries.BLOCK.getId(block).getPath();
-
-            return Registry.register(Registries.ITEM, getItemKey(name),
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
+            return Registry.register(Registries.ITEM, key,
                                      new BlockItem(block, new Item.Settings()
                                              .useBlockPrefixedTranslationKey()
-                                             .registryKey(getItemKey(name))));
+                                             .registryKey(key)));
         }
 
         public static <T extends BlockItem> T registerBI(Block block, BlockItemRegisterFunction<Item.Settings, T> factory)
         {
             String name = Registries.BLOCK.getId(block).getPath();
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
             T item = factory.apply(block, new Item.Settings()
                     .useBlockPrefixedTranslationKey()
-                    .registryKey(getItemKey(name)));
-            return Registry.register(Registries.ITEM, getItemKey(name), item);
+                    .registryKey(key));
+            return Registry.register(Registries.ITEM, key, item);
         }
 
-        public static <T extends BlockItem> T registerBI(Block block, Item.Settings settings, BlockItemRegisterFunction<Item.Settings, T> factory)
+        public static <T extends BlockItem> T registerBI(Block block, Item.Settings settings,
+                                                         BlockItemRegisterFunction<Item.Settings, T> factory)
         {
             String name = Registries.BLOCK.getId(block).getPath();
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
             T item = factory.apply(block, settings
                     .useBlockPrefixedTranslationKey()
-                    .registryKey(getItemKey(name)));
-            return Registry.register(Registries.ITEM, getItemKey(name), item);
+                    .registryKey(key));
+            return Registry.register(Registries.ITEM, key, item);
         }
 
-        public static <T extends Item> T registerTool(String name, ToolMaterial material, float attackDamage, float attackSpeed, ToolRegisterFunction<Item.Settings, T> factory)
+        public static <T extends Item> T registerTool(String name, ToolMaterial material, float attackDamage, float attackSpeed,
+                                                      ToolRegisterFunction<Item.Settings, T> factory)
         {
-            T item = factory.apply(material, attackDamage, attackSpeed, new Item.Settings().registryKey(getItemKey(name)));
-            return Registry.register(Registries.ITEM, getItemKey(name), item);
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
+            T item = factory.apply(material, attackDamage, attackSpeed, new Item.Settings().registryKey(key));
+            return Registry.register(Registries.ITEM, key, item);
         }
 
-        public static <T extends Item> T registerTool(String name, ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings, ToolRegisterFunction<Item.Settings, T> factory)
+        public static <T extends Item> T registerTool(String name, ToolMaterial material, float attackDamage, float attackSpeed,
+                                                      Item.Settings settings, ToolRegisterFunction<Item.Settings, T> factory)
         {
-            T item = factory.apply(material, attackDamage, attackSpeed, settings.registryKey(getItemKey(name)));
-            return Registry.register(Registries.ITEM, getItemKey(name), item);
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
+            T item = factory.apply(material, attackDamage, attackSpeed, settings.registryKey(key));
+            return Registry.register(Registries.ITEM, key, item);
         }
 
-        public static <T extends Item> T registerArmor(String name, ArmorMaterial material, EquipmentType equipment, ArmorRegisterFunction<Item.Settings, T> factory)
+        public static <T extends Item> T registerArmor(String name, ArmorMaterial material, EquipmentType equipment,
+                                                       ArmorRegisterFunction<Item.Settings, T> factory)
         {
-            T item = factory.apply(material, equipment, new Item.Settings().registryKey(getItemKey(name)));
-            return Registry.register(Registries.ITEM, getItemKey(name), item);
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
+            T item = factory.apply(material, equipment, new Item.Settings().registryKey(key));
+            return Registry.register(Registries.ITEM, key, item);
         }
 
-        public static <T extends Item> T registerArmor(String name, ArmorMaterial material, EquipmentType equipment, Item.Settings settings, ArmorRegisterFunction<Item.Settings, T> factory)
+        public static <T extends Item> T registerArmor(String name, ArmorMaterial material, EquipmentType equipment, Item.Settings settings,
+                                                       ArmorRegisterFunction<Item.Settings, T> factory)
         {
-            T item = factory.apply(material, equipment, settings.registryKey(getItemKey(name)));
-            return Registry.register(Registries.ITEM, getItemKey(name), item);
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
+            T item = factory.apply(material, equipment, settings.registryKey(key));
+            return Registry.register(Registries.ITEM, key, item);
         }
 
         public static Item registerSnackFood(String name, int stackCount, int nutrition, float saturation)
         {
-            return Registry.register(Registries.ITEM, getItemKey(name),
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
+            return Registry.register(Registries.ITEM, key,
                                      new Item(new Item.Settings()
-                                                      .registryKey(getItemKey(name))
+                                                      .registryKey(key)
                                                       .food(new FoodComponent.Builder()
                                                                     .nutrition(nutrition)
                                                                     .saturationModifier(saturation)
@@ -295,9 +326,10 @@ public class Registers
 
         public static Item registerFood(String name, int stackCount, int nutrition, float saturation)
         {
-            return Registry.register(Registries.ITEM, getItemKey(name),
+            RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
+            return Registry.register(Registries.ITEM, key,
                                      new Item(new Item.Settings()
-                                                      .registryKey(getItemKey(name))
+                                                      .registryKey(key)
                                                       .food(new FoodComponent.Builder()
                                                                     .nutrition(nutrition)
                                                                     .saturationModifier(saturation)
@@ -315,12 +347,14 @@ public class Registers
 
         public static void register(String name, RecipeSerializer<?> serializer)
         {
-            Registry.register(Registries.RECIPE_SERIALIZER, identifier(name), serializer);
+            RegistryKey<RecipeSerializer<?>> key = getKey(name, RegistryKeys.RECIPE_SERIALIZER);
+            Registry.register(Registries.RECIPE_SERIALIZER, key, serializer);
         }
 
         public static void register(String name, RecipeType<?> recipeType)
         {
-            Registry.register(Registries.RECIPE_TYPE, identifier(name), recipeType);
+            RegistryKey<RecipeType<?>> key = getKey(name, RegistryKeys.RECIPE_TYPE);
+            Registry.register(Registries.RECIPE_TYPE, key, recipeType);
         }
     }
 
@@ -328,20 +362,31 @@ public class Registers
     {
         public static <T>ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> buildOperator)
         {
-            return Registry.register(Registries.DATA_COMPONENT_TYPE,
-                                         identifier(name),
-                                         buildOperator.apply(ComponentType.builder())
-                                    .build());
+            RegistryKey<ComponentType<?>> key = getKey(name, RegistryKeys.DATA_COMPONENT_TYPE);
+            return Registry.register(Registries.DATA_COMPONENT_TYPE, key,
+                                     buildOperator.apply(ComponentType.builder()).build());
         }
     }
 
     public static class Datagen
     {
-        public static void registerArmor(ItemModelGenerator generator, Item item, ArmorMaterial material, EquipmentSlot slot, boolean hasHorseArmor)
+        public static void registerAllArmor(ItemModelGenerator generator, Item[] items, ArmorMaterial material, boolean hasHorseArmor)
+        {
+            if(items.length < 4)
+                throw new ArgumentCountException(items.length, 4, "Armor item array should contain at least 4 items : Helmet, Chest, Leggings, Boots");
+            registerArmor(generator, items[0], material, EquipmentSlot.HEAD);
+            registerArmor(generator, items[1], material, EquipmentSlot.CHEST);
+            registerArmor(generator, items[2], material, EquipmentSlot.LEGS);
+            registerArmor(generator, items[3], material, EquipmentSlot.FEET);
+            if(hasHorseArmor && items.length == 5)
+                registerArmor(generator, items[4], material, EquipmentSlot.BODY);
+        }
+
+        public static void registerArmor(ItemModelGenerator generator, Item item, ArmorMaterial material, EquipmentSlot slot)
         {
             Identifier id = material.modelId();
             generator.registerArmor(item, material.modelId(),
-                                    hasHorseArmor
+                                    slot == EquipmentSlot.BODY
                                     ? Registers.Datagen.buildHumanoidAndHorse(id.getPath())
                                     : Registers.Datagen.buildHumanoid(id.getPath())
                     , slot);
