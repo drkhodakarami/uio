@@ -81,6 +81,27 @@ public class Registers
             throw new AssertionError();
         }
 
+        public static Block register(String name)
+        {
+            return register(name, Block::new);
+        }
+
+        public static Block register(String name, Block blockCopy)
+        {
+            return register(name, blockCopy, Block::new);
+        }
+
+        public static Block register(String name, AbstractBlock.Settings settings)
+        {
+            return register(name, settings, Block::new);
+        }
+
+        public static <T extends Block> T registerSimple(String name, T block)
+        {
+            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
+            return Registry.register(Registries.BLOCK, key , block);
+        }
+
         //Knowledge Base: Functional Programming & Factory Design Pattern
         //Thanks to ZeroNoRyouki for the help with the factory design pattern and mentioning that this approach is usable
         public static <T extends Block> T register(String name,
@@ -105,22 +126,6 @@ public class Registers
             RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
             T block = factory.apply(settings.registryKey(key));
             return Registry.register(Registries.BLOCK, key, block);
-        }
-
-        public static Block register(String name)
-        {
-            return register(name, Block::new);
-        }
-
-        public static Block register(String name, AbstractBlock.Settings settings)
-        {
-            return register(name, settings, Block::new);
-        }
-
-        public static <T extends Block> T registerSimple(String name, T block)
-        {
-            RegistryKey<Block> key = getKey(name, RegistryKeys.BLOCK);
-            return Registry.register(Registries.BLOCK, key , block);
         }
 
         //region HELPERS
@@ -219,6 +224,16 @@ public class Registers
 
     public static class Items
     {
+        public static Item register(String name)
+        {
+            return register(name, Item::new);
+        }
+
+        public static Item register(String name, int stackCount)
+        {
+            return register(name, stackCount, Item::new);
+        }
+
         public static <T extends Item> T register(String name, Function<Item.Settings, T> factory)
         {
             RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);

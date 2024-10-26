@@ -113,17 +113,17 @@ public class ModBlocks
     {
         log("Registering Blocks");
 
-        ENDERITE = register("block_enderite", Blocks.NETHERITE_BLOCK, Block::new);
+        ENDERITE = register("block_enderite", Blocks.NETHERITE_BLOCK);
         //region GEMS
-        CITRINE = register("block_citrine", Blocks.AMETHYST_BLOCK, Block::new);
-        RUBY = register("block_ruby", Blocks.AMETHYST_BLOCK, Block::new);
-        SAPPHIRE = register("block_sapphire", Blocks.AMETHYST_BLOCK, Block::new);
+        CITRINE = register("block_citrine", Blocks.AMETHYST_BLOCK);
+        RUBY = register("block_ruby", Blocks.AMETHYST_BLOCK);
+        SAPPHIRE = register("block_sapphire", Blocks.AMETHYST_BLOCK);
 
-        RAW_CITRINE = register("block_raw_citrine", Blocks.STONE, Block::new);
-        RAW_ENDERITE = register("block_raw_enderite", Blocks.STONE, Block::new);
-        RAW_QUARTZ = register("block_raw_quartz", Blocks.STONE, Block::new);
-        RAW_RUBY = register("block_raw_ruby", Blocks.STONE, Block::new);
-        RAW_SAPPHIRE = register("block_raw_sapphire", Blocks.STONE, Block::new);
+        RAW_CITRINE = register("block_raw_citrine", Blocks.STONE);
+        RAW_ENDERITE = register("block_raw_enderite", Blocks.STONE);
+        RAW_QUARTZ = register("block_raw_quartz", Blocks.STONE);
+        RAW_RUBY = register("block_raw_ruby", Blocks.STONE);
+        RAW_SAPPHIRE = register("block_raw_sapphire", Blocks.STONE);
         //endregion
         //region SPECIAL BLOCKS
         CITRINE_STAIRS = registerStair("block_citrine_stairs", ModBlocks.CITRINE, Blocks.AMETHYST_BLOCK);
@@ -172,31 +172,31 @@ public class ModBlocks
         SAPPHIRE_TRAP_DOOR = registerTrapdoor("block_sapphire_trap_door", BlockSetType.IRON, Blocks.IRON_DOOR);
         //endregion
         //region ORE
-        ORE_DEEP_CITRINE = register("ore_deep_citrine", Blocks.DEEPSLATE_IRON_ORE, Block::new);
-        ORE_DEEP_RUBY = register("ore_deep_ruby", Blocks.DEEPSLATE_DIAMOND_ORE, Block::new);
-        ORE_DEEP_SAPPHIRE = register("ore_deep_sapphire", Blocks.DEEPSLATE_DIAMOND_ORE, Block::new);
+        ORE_DEEP_CITRINE = register("ore_deep_citrine", Blocks.DEEPSLATE_IRON_ORE);
+        ORE_DEEP_RUBY = register("ore_deep_ruby", Blocks.DEEPSLATE_DIAMOND_ORE);
+        ORE_DEEP_SAPPHIRE = register("ore_deep_sapphire", Blocks.DEEPSLATE_DIAMOND_ORE);
 
-        ORE_END_CITRINE = register("ore_end_citrine", Blocks.END_STONE, Block::new);
+        ORE_END_CITRINE = register("ore_end_citrine", Blocks.END_STONE);
         ORE_END_ENDERITE = register("ore_end_enderite", OreEndEnderite::new);
-        ORE_END_ENDERITE_CRACKED = register("ore_end_enderite_cracked", Blocks.END_STONE, Block::new);
-        ORE_END_RUBY = register("ore_end_ruby", Blocks.END_STONE, Block::new);
-        ORE_END_SAPPHIRE = register("ore_end_sapphire", Blocks.END_STONE, Block::new);
+        ORE_END_ENDERITE_CRACKED = register("ore_end_enderite_cracked", Blocks.END_STONE);
+        ORE_END_RUBY = register("ore_end_ruby", Blocks.END_STONE);
+        ORE_END_SAPPHIRE = register("ore_end_sapphire", Blocks.END_STONE);
 
-        ORE_NETHER_CITRINE = register("ore_nether_citrine", Blocks.NETHER_GOLD_ORE, Block::new);
-        ORE_NETHER_RUBY = register("ore_nether_ruby", Blocks.NETHER_GOLD_ORE, Block::new);
-        ORE_NETHER_SAPPHIRE = register("ore_nether_sapphire", Blocks.NETHER_GOLD_ORE, Block::new);
-        ORE_NETHER_COAL = register("ore_nether_coal", Blocks.NETHER_QUARTZ_ORE, Block::new);
-        ORE_NETHER_COPPER = register("ore_nether_copper", Blocks.NETHER_GOLD_ORE, Block::new);
-        ORE_NETHER_DIAMOND = register("ore_nether_diamond", Blocks.NETHER_QUARTZ_ORE, Block::new);
-        ORE_NETHER_IRON = register("ore_nether_iron", Blocks.NETHER_QUARTZ_ORE, Block::new);
-        ORE_NETHER_LAPIS = register("ore_nether_lapis", Blocks.NETHER_GOLD_ORE, Block::new);
-        ORE_NETHER_REDSTONE = register("ore_nether_redstone", Blocks.NETHER_GOLD_ORE, Block::new);
+        ORE_NETHER_CITRINE = register("ore_nether_citrine", Blocks.NETHER_GOLD_ORE);
+        ORE_NETHER_RUBY = register("ore_nether_ruby", Blocks.NETHER_GOLD_ORE);
+        ORE_NETHER_SAPPHIRE = register("ore_nether_sapphire", Blocks.NETHER_GOLD_ORE);
+        ORE_NETHER_COAL = register("ore_nether_coal", Blocks.NETHER_QUARTZ_ORE);
+        ORE_NETHER_COPPER = register("ore_nether_copper", Blocks.NETHER_GOLD_ORE);
+        ORE_NETHER_DIAMOND = register("ore_nether_diamond", Blocks.NETHER_QUARTZ_ORE);
+        ORE_NETHER_IRON = register("ore_nether_iron", Blocks.NETHER_QUARTZ_ORE);
+        ORE_NETHER_LAPIS = register("ore_nether_lapis", Blocks.NETHER_GOLD_ORE);
+        ORE_NETHER_REDSTONE = register("ore_nether_redstone", Blocks.NETHER_GOLD_ORE);
 
-        ORE_WORLD_CITRINE = register("ore_world_citrine", Blocks.IRON_ORE, Block::new);
-        ORE_WORLD_RUBY = register("ore_world_ruby", Blocks.IRON_ORE, Block::new);
-        ORE_WORLD_SAPPHIRE = register("ore_world_sapphire", Blocks.IRON_ORE, Block::new);
+        ORE_WORLD_CITRINE = register("ore_world_citrine", Blocks.IRON_ORE);
+        ORE_WORLD_RUBY = register("ore_world_ruby", Blocks.IRON_ORE);
+        ORE_WORLD_SAPPHIRE = register("ore_world_sapphire", Blocks.IRON_ORE);
 
-        ORE_ENDERITE = register("ore_enderite", Blocks.ANCIENT_DEBRIS, Block::new);
+        ORE_ENDERITE = register("ore_enderite", Blocks.ANCIENT_DEBRIS);
         //endregion
         //region GOO
         WATER_EATING_GOO = register("water_eating_goo", Blocks.GRAY_WOOL, WaterEatingGoo::new);
@@ -214,10 +214,10 @@ public class ModBlocks
         WATER_PUMP_GOO = register("water_pump_goo", Blocks.GRAY_WOOL, WaterPumpGoo::new);
         //endregion
         //region MACHINES
-        ELEVATOR = register("elevator", Blocks.GRAY_WOOL, Elevator::new);
+        CARROT_BOX = register("carrot_box", Blocks.OAK_PLANKS);
+        POTATO_BOX = register("potato_box", Blocks.OAK_PLANKS);
 
-        CARROT_BOX = register("carrot_box", Blocks.OAK_PLANKS, Block::new);
-        POTATO_BOX = register("potato_box", Blocks.OAK_PLANKS, Block::new);
+        ELEVATOR = register("elevator", Blocks.GRAY_WOOL, Elevator::new);
 
         REDSTONE_CLOCK = register("redstone_clock", Blocks.GRAY_WOOL, RedstoneClock::new);
         CREATIVE_BANK = register("creative_bank", Blocks.IRON_BLOCK, CreativeEnergyBank::new);
