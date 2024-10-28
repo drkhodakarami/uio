@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "uio:citrine"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "uio:citrine"
+      }
+    ]
+  }
+}
