@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "uio:block/wood_stripper_front_on",
-    "side": "uio:block/wood_stripper_side",
-    "top": "uio:block/wood_stripper_top"
-  }
-}

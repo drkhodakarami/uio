@@ -1,4 +1,4 @@
-// 1.21.2	2024-10-24T19:33:58.4406455	Ultra IO/Tags for minecraft:item
+// 1.21.3	2024-10-27T16:09:57.7269229	Ultra IO/Tags for minecraft:item
 29aa432ed43f4c27aefde287bc6e468dac49b5e8 data\c\tags\item\plates.json
 9b5864e8b7f1465d4b7efaaa8c673573605bf6ae data\minecraft\tags\item\shovels.json
 214f5c5e5e3edbb8fbf6f0776f2c241fbeb34213 data\minecraft\tags\item\enchantable\durability.json
@@ -29,13 +29,13 @@ ab1f4c96a2f02509fcb7edafb009c1618e976de7 data\minecraft\tags\item\foot_armor.jso
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\enchantable\vanishing.json
 4882b18229104a5a9742419372dfbd1f7b2e332c data\c\tags\item\reinforced_plates.json
 6c4f09ba10912ea869b56cc56d6432c3d385e9b7 data\c\tags\item\alloys.json
-86e826c275f830d33bf3ac1b3653d56b673b92b2 data\minecraft\tags\item\coal_ores.json
 511765bc6e1541882f796604f5cf696488eaa135 data\minecraft\tags\item\diamond_ores.json
+86e826c275f830d33bf3ac1b3653d56b673b92b2 data\minecraft\tags\item\coal_ores.json
 93bee778a7ab82e925600016d3541817ac52a533 data\c\tags\item\dusts.json
 f7fd28bd3341237ffb03c07919288bc459e07d4a data\minecraft\tags\item\swords.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\gold_ores.json
 94cbd3f9f0a6a48c5f25fe92b7e146a4bcfa1c83 data\minecraft\tags\item\hoes.json
 84f5c8fcc124cffc09f6c8b7299dc91a762cd6b3 data\uio\tags\item\excavators.json
-35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\gold_ores.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\enchantable\fire_aspect.json
 8fc0e934785d95babf271fba963343a2cc4c911a data\uio\tags\item\repairs_amethyst_armor.json
 e4cafe68e8c1b398efba175d669eab6eca670cb0 data\c\tags\item\fluid_buckets.json
@@ -50,8 +50,8 @@ f5150fcbd0d1e70130a3451defd8a56565cc70af data\minecraft\tags\item\leg_armor.json
 2cb5e4d26637ef2dab66952eb7b95bd33f8d2d7d data\c\tags\item\raws.json
 e503188b5f9d822c60cb702fedc84166d4fc39e0 data\minecraft\tags\item\head_armor.json
 b7cd630377b449e6f014d7bfebb31cefea135163 data\minecraft\tags\item\iron_ores.json
-35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\enchantable\mace.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\enchantable\bow.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\enchantable\mace.json
 096a6813fdb5c1cbf7a5bacd161478f87199f0b9 data\c\tags\item\casts.json
 8c5dd1647c17fc41e6fe2754c86c718d4c871d9b data\minecraft\tags\item\copper_ores.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\enchantable\weapon.json
@@ -63,9 +63,9 @@ bd9ba0308bacdaa5dedb2484ed727f64c8467d1e data\c\tags\item\tool_heads.json
 184f351e5b0f753b336598095fe8159ea9a26b10 data\uio\tags\item\repairs_citrine_armor.json
 92cb75f4efc85180d1e3014a330e043c42f83b21 data\minecraft\tags\item\enchantable\mining_loot.json
 83ae7faf7f1a4b7ce548211e3f9ea06ff249bb6a data\uio\tags\item\repairs_enderite_armor.json
-11e4dd469fd1a5b7a835ea72b8541d7ab68f2260 data\uio\tags\item\emerald_armor_type.json
 4f57e0935d1501a57d4930fa1363085743dcdb65 data\uio\tags\item\enderite_armor_type.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\enchantable\chest_armor.json
+11e4dd469fd1a5b7a835ea72b8541d7ab68f2260 data\uio\tags\item\emerald_armor_type.json
 e58acdc2745e7ff746f5dd5a9544c2f89e8e07ad data\uio\tags\item\copper_armor_type.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\item\stone_tool_materials.json
 c245477a4f40f623f532fd098c09c5f4e3991309 data\uio\tags\item\smeltery.json

@@ -50,6 +50,7 @@ import static jiraiyah.uio.Reference.*;
 // Having carpet as top layer will make sure that even if you forget to make the game peaceful, no mod will spawn
 // >>>
 // 5*minecraft:bedrock,30*minecraft:light_blue_wool,minecraft:light_blue_carpet;minecraft:plains;village
+// 5*minecraft:bedrock,30*minecraft:light_blue_wool,minecraft:black_stained_glass;minecraft:plains;village
 //endregion
 
 //region FACING CHEAT SHEET
@@ -116,7 +117,7 @@ public class Main implements ModInitializer
 
         logMain();
 
-        Configs.load();
+        Configs.load(ModID);
         GameRules.init();
 
         //region REGISTER CALLS

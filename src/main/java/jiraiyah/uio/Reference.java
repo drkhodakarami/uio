@@ -38,6 +38,10 @@ import static jiraiyah.uio.Main.DEBUG;
 
 public class Reference
 {
+    Reference()
+    {
+        throw new AssertionError();
+    }
 
     public static final String ModID = "uio";
 
@@ -90,6 +94,17 @@ public class Reference
             LOGGER.info(ANSI_BRIGHT_MAGENTA + ">>> " + message + ANSI_RESET);
     }
 
+    public static void logError(String message)
+    {
+        LOGGER.info(ANSI_BRIGHT_RED_BACK + ANSI_BLACK + ">>> " + message + ANSI_RESET);
+    }
+
+    public static void logWarning(String message)
+    {
+        if (DEBUG)
+            LOGGER.info(ANSI_BRIGHT_YELLOW_BACK + ANSI_BLACK + ">>> " + message + ANSI_RESET);
+    }
+
     public static void logN(String message)
     {
         if (DEBUG)
@@ -136,9 +151,18 @@ public class Reference
 
     public static class Tags
     {
+        Tags()
+        {
+            throw new AssertionError();
+        }
 
         public static class Block
         {
+            Block()
+            {
+                throw new AssertionError();
+            }
+
             public static final TagKey<net.minecraft.block.Block> GEM_BLOCKS = createCommonTag("gem_blocks");
             public static final TagKey<net.minecraft.block.Block> IS_MACHINE = createCommonTag("machines");
 
@@ -161,6 +185,11 @@ public class Reference
 
         public static class Item
         {
+            Item()
+            {
+                throw new AssertionError();
+            }
+
             public static final TagKey<net.minecraft.item.Item> FLUID_BUCKET = createCommonTag("fluid_buckets");
             public static final TagKey<net.minecraft.item.Item> CAST = createCommonTag("casts");
             public static final TagKey<net.minecraft.item.Item> RAW = createCommonTag("raws");
@@ -216,6 +245,10 @@ public class Reference
 
         public static class Entity
         {
+            Entity()
+            {
+                throw new AssertionError();
+            }
 
             public static final TagKey<EntityType<?>> TUNER_BLACKLIST = createTag("tuner_blacklist");
             public static final TagKey<EntityType<?>> RUBY_SWORD_WHITELIST = createTag("ruby_sword_whitelist");
@@ -237,11 +270,26 @@ public class Reference
 
     public static class Keys
     {
+        Keys()
+        {
+            throw new AssertionError();
+        }
+
         public static class Items
-        {}
+        {
+            Items()
+            {
+                throw new AssertionError();
+            }
+        }
 
         public static class BlockEntities
         {
+            BlockEntities()
+            {
+                throw new AssertionError();
+            }
+
             public static final String ENERGY_AMOUNT = ModID + ".energy.amount";
             public static final String ENERGY_CAPACITY = ModID + ".energy.capacity";
             public static final String FLUID_AMOUNT = ModID + ".fluid.amount";
@@ -253,6 +301,11 @@ public class Reference
 
         public static class Config
         {
+            Config()
+            {
+                throw new AssertionError();
+            }
+
             public static final String DCLR = "dclr.command.radius";
             public static final String CITRINE_SWORD_DURATION = "citrine.sword.effect.duration";
             public static final String COPPER_SWORD_DURATION = "copper.sword.effect.duration";
@@ -309,6 +362,11 @@ public class Reference
 
     public static class Constants
     {
+        Constants()
+        {
+            throw new AssertionError();
+        }
+
         //region ITEM GROUP NAMES AND TITLES
         public static final String BLOCK_ITEM_GROUP_NAME = "_1_block_group";
         public static final String INGREDIENT_ITEM_GROUP_NAME = "_5_ingredient_group";

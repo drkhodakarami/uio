@@ -1,12 +1,17 @@
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.uio.util.block.AbstractMachineBlock;
+import jiraiyah.uio.block.base.MachineBase;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 //TODO : Create Model
 //TODO : Create Block Recipe
@@ -21,13 +26,27 @@ import net.minecraft.world.BlockView;
 // - Each upgrade adds 2 extra chunk
 // - Max distance is 130 Chunks ( 64 Upgrades * 2 chunks per upgrade + 2 chunks for base)
 // - Max distance will be 2080 blocks ( 130 chunks * 16 blocks per chunk)
-public class Tesseract extends AbstractMachineBlock
+public class Tesseract extends MachineBase
 {
-    private static final VoxelShape SHAPE = VoxelShapes.cuboid(0, 0, 0, 1, 1, 1);
+    private static VoxelShape SHAPE;
 
     public Tesseract(Settings settings)
     {
         super(settings.nonOpaque());
+        SHAPE = VoxelShapes.cuboid(0, 0, 0, 1, 1, 1);
+        CODEC = createCodec(Tesseract::new);
+    }
+
+    @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
+        return null;
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type)
+    {
+        return super.getTicker(world, state, type);
     }
 
     @Override

@@ -1,6 +1,13 @@
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.uio.util.block.AbstractActivatableBlock;
+import jiraiyah.uio.block.base.MachineBase;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 //TODO : Create Model
 //TODO : Create Block Recipe
@@ -23,10 +30,23 @@ import jiraiyah.uio.util.block.AbstractActivatableBlock;
 // - It can accept upgrade for fortune and / or silk touch
 // - It can accept upgrade destroy fluid blocks
 // - It will draw nice glowing border tape around the perimeter of the mining area
-public class Miner extends AbstractActivatableBlock
+public class Miner extends MachineBase
 {
     public Miner(Settings settings)
     {
         super(settings);
+        CODEC = createCodec(Miner::new);
+    }
+
+    @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
+        return null;
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type)
+    {
+        return super.getTicker(world, state, type);
     }
 }

@@ -1,98 +1,31 @@
 package jiraiyah.uio;
 
 import com.mojang.datafixers.util.Pair;
-import jiraiyah.uio.util.config.BaseConfig;
-import jiraiyah.uio.util.config.ConfigProvider;
+import jiraiyah.uio.util.config.Config;
 
-import static jiraiyah.uio.Reference.ModID;
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Reference.Keys;
 
-public class Configs
+public class Configs extends Config
 {
-    public static BaseConfig CONFIG;
-
-    public static int DCLR_RADIUS;
-    public static int CITRINE_SWORD_DURATION;
-    public static int COPPER_SWORD_DURATION;
-
-    public static int SAPPHIRE_SWORD_DURATION;
-    public static double SAPPHIRE_SWORD_MULTIPLIER;
-
-    public static int EXCAVATOR_MAX_DISTANCE;
-    public static int HAMMER_MAX_DISTANCE;
-
-    public static int CITRINE_EXCAVATOR_WIDTH;
-    public static int CITRINE_EXCAVATOR_DEPTH;
-    public static int CITRINE_HAMMER_WIDTH;
-    public static int CITRINE_HAMMER_DEPTH;
-
-    public static int COPPER_EXCAVATOR_WIDTH;
-    public static int COPPER_EXCAVATOR_DEPTH;
-    public static int COPPER_HAMMER_WIDTH;
-    public static int COPPER_HAMMER_DEPTH;
-
-    public static int ENDERITE_EXCAVATOR_WIDTH;
-    public static int ENDERITE_EXCAVATOR_DEPTH;
-    public static int ENDERITE_HAMMER_WIDTH;
-    public static int ENDERITE_HAMMER_DEPTH;
-
-    public static int RUBY_EXCAVATOR_WIDTH;
-    public static int RUBY_EXCAVATOR_DEPTH;
-    public static int RUBY_HAMMER_WIDTH;
-    public static int RUBY_HAMMER_DEPTH;
-
-    public static int SAPPHIRE_EXCAVATOR_WIDTH;
-    public static int SAPPHIRE_EXCAVATOR_DEPTH;
-    public static int SAPPHIRE_HAMMER_WIDTH;
-    public static int SAPPHIRE_HAMMER_DEPTH;
-
-    public static int DIAMOND_EXCAVATOR_WIDTH;
-    public static int DIAMOND_EXCAVATOR_DEPTH;
-    public static int DIAMOND_HAMMER_WIDTH;
-    public static int DIAMOND_HAMMER_DEPTH;
-
-    public static int GOLD_EXCAVATOR_WIDTH;
-    public static int GOLD_EXCAVATOR_DEPTH;
-    public static int GOLD_HAMMER_WIDTH;
-    public static int GOLD_HAMMER_DEPTH;
-
-    public static int IRON_EXCAVATOR_WIDTH;
-    public static int IRON_EXCAVATOR_DEPTH;
-    public static int IRON_HAMMER_WIDTH;
-    public static int IRON_HAMMER_DEPTH;
-
-    public static int NETHERITE_EXCAVATOR_WIDTH;
-    public static int NETHERITE_EXCAVATOR_DEPTH;
-    public static int NETHERITE_HAMMER_WIDTH;
-    public static int NETHERITE_HAMMER_DEPTH;
-
-    public static int STONE_EXCAVATOR_WIDTH;
-    public static int STONE_EXCAVATOR_DEPTH;
-    public static int STONE_HAMMER_WIDTH;
-    public static int STONE_HAMMER_DEPTH;
-
-    public static int WOOD_EXCAVATOR_WIDTH;
-    public static int WOOD_EXCAVATOR_DEPTH;
-    public static int WOOD_HAMMER_WIDTH;
-    public static int WOOD_HAMMER_DEPTH;
-
-    private static ConfigProvider provider;
-
-    public static void load()
+    public Configs()
     {
-        provider = new ConfigProvider();
-        createConfigs();
-
-        CONFIG = BaseConfig.of(ModID + "_config").provider(provider).request();
-
-        logN("All " + provider.getConfigList().size() + " config entries have been set properly");
-
-        assignConfigValues();
-
-        logN("All " + provider.getConfigList().size() + " config entries have been loaded properly");
+        super();
+        throw new AssertionError();
     }
 
-    private static void createConfigs()
+    public static int DCLR_RADIUS, CITRINE_SWORD_DURATION, COPPER_SWORD_DURATION, SAPPHIRE_SWORD_DURATION, EXCAVATOR_MAX_DISTANCE, HAMMER_MAX_DISTANCE,
+            CITRINE_EXCAVATOR_WIDTH, CITRINE_EXCAVATOR_DEPTH, CITRINE_HAMMER_WIDTH, CITRINE_HAMMER_DEPTH, COPPER_EXCAVATOR_WIDTH, COPPER_EXCAVATOR_DEPTH,
+            COPPER_HAMMER_WIDTH, COPPER_HAMMER_DEPTH, ENDERITE_EXCAVATOR_WIDTH, ENDERITE_EXCAVATOR_DEPTH, ENDERITE_HAMMER_WIDTH, ENDERITE_HAMMER_DEPTH,
+            RUBY_EXCAVATOR_WIDTH, RUBY_EXCAVATOR_DEPTH, RUBY_HAMMER_WIDTH, RUBY_HAMMER_DEPTH, SAPPHIRE_EXCAVATOR_WIDTH, SAPPHIRE_EXCAVATOR_DEPTH,
+            SAPPHIRE_HAMMER_WIDTH, SAPPHIRE_HAMMER_DEPTH, DIAMOND_EXCAVATOR_WIDTH, DIAMOND_EXCAVATOR_DEPTH, DIAMOND_HAMMER_WIDTH, DIAMOND_HAMMER_DEPTH,
+            GOLD_EXCAVATOR_WIDTH, GOLD_EXCAVATOR_DEPTH, GOLD_HAMMER_WIDTH, GOLD_HAMMER_DEPTH, IRON_EXCAVATOR_WIDTH, IRON_EXCAVATOR_DEPTH,
+            IRON_HAMMER_WIDTH, IRON_HAMMER_DEPTH, NETHERITE_EXCAVATOR_WIDTH, NETHERITE_EXCAVATOR_DEPTH, NETHERITE_HAMMER_WIDTH, NETHERITE_HAMMER_DEPTH,
+            STONE_EXCAVATOR_WIDTH, STONE_EXCAVATOR_DEPTH, STONE_HAMMER_WIDTH, STONE_HAMMER_DEPTH, WOOD_EXCAVATOR_WIDTH, WOOD_EXCAVATOR_DEPTH,
+            WOOD_HAMMER_WIDTH, WOOD_HAMMER_DEPTH;
+
+    public static double SAPPHIRE_SWORD_MULTIPLIER;
+
+    protected static void createConfigs()
     {
         provider.addComment("===================================================================================================");
         provider.addComment("===============================            COMMANDS SETTINGS            ===========================");
@@ -205,7 +138,7 @@ public class Configs
         provider.addPair(new Pair<>(Keys.Config.WOOD_HAMMER_DEPTH, 1), false, true);
     }
 
-    private static void assignConfigValues()
+    protected static void assignConfigValues()
     {
         DCLR_RADIUS = CONFIG.getOrDefault(Keys.Config.DCLR, 128);
         CITRINE_SWORD_DURATION = CONFIG.getOrDefault(Keys.Config.CITRINE_SWORD_DURATION, 200);

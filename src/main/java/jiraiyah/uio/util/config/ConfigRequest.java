@@ -6,13 +6,13 @@ public class ConfigRequest
 {
     private final File file;
     private final String filename;
-    private DefaultConfig provider;
+    private IConfigProvider provider;
 
     public ConfigRequest(File file, String filename )
     {
         this.file = file;
         this.filename = filename;
-        this.provider = DefaultConfig::empty;
+        this.provider = IConfigProvider::empty;
     }
 
     public File getFile()
@@ -31,9 +31,9 @@ public class ConfigRequest
      *
      * @param provider default config provider
      * @return current config request object
-     * @see DefaultConfig
+     * @see IConfigProvider
      */
-    public ConfigRequest provider( DefaultConfig provider )
+    public ConfigRequest provider( IConfigProvider provider )
     {
         this.provider = provider;
         return this;

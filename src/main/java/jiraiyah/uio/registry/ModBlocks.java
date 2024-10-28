@@ -24,11 +24,12 @@
 
 package jiraiyah.uio.registry;
 
-import jiraiyah.uio.block.AngelBlock;
-import jiraiyah.uio.block.Elevator;
-import jiraiyah.uio.block.OreEndEnderite;
+import jiraiyah.uio.block.energy.BatteryBank;
+import jiraiyah.uio.block.energy.CreativeEnergyBank;
+import jiraiyah.uio.block.energy.SolarPanel;
 import jiraiyah.uio.block.goo.*;
 import jiraiyah.uio.block.machine.*;
+import jiraiyah.uio.block.misc.*;
 import jiraiyah.uio.util.Registers;
 import net.minecraft.block.*;
 

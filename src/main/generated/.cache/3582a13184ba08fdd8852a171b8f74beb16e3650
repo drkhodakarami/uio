@@ -1,4 +1,4 @@
-// 1.21.2	2024-10-24T19:33:58.4156599	Ultra IO/Tags for minecraft:block
+// 1.21.3	2024-10-27T16:09:57.7132038	Ultra IO/Tags for minecraft:block
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\minecraft\tags\block\needs_stone_tool.json
 208d11e81f6c54a13976f5d3bbb21cf2a1170209 data\c\tags\block\machines.json
 511765bc6e1541882f796604f5cf696488eaa135 data\minecraft\tags\block\diamond_ores.json
@@ -11,8 +11,8 @@ a8d0a19800213dbd9e6353309f2e0d52710deacb data\minecraft\tags\block\mineable\axe.
 86e826c275f830d33bf3ac1b3653d56b673b92b2 data\minecraft\tags\block\coal_ores.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data\uio\tags\block\incorrect_for_enderite_tool.json
 7793c36a86fa13490b61d16a705473146b9c0eef data\minecraft\tags\block\lapis_ores.json
-bc1b84bdfdf4163c9f1c338c1a80d51d306fab5f data\minecraft\tags\block\fences.json
 263ead7b86b0916fc757d5a2ea54c6345aee7e4b data\uio\tags\block\excavator_blacklist.json
+bc1b84bdfdf4163c9f1c338c1a80d51d306fab5f data\minecraft\tags\block\fences.json
 b3a0d88fe782590f18a678550240807e49bf50e1 data\c\tags\block\gem_blocks.json
 3a1a50db4f1dfac0fcaa4caf111889342218af5d data\minecraft\tags\block\fence_gates.json
 79f0f405cda96d6bdd4ff20c66e269c58b8dd0ea data\minecraft\tags\block\walls.json

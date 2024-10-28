@@ -1,8 +1,9 @@
 package jiraiyah.uio.util;
 
-import jiraiyah.uio.util.interfaces.ArmorRegisterFunction;
-import jiraiyah.uio.util.interfaces.BlockItemRegisterFunction;
-import jiraiyah.uio.util.interfaces.ToolRegisterFunction;
+import com.google.gson.JsonElement;
+import jiraiyah.uio.util.factories.IArmorFactory;
+import jiraiyah.uio.util.factories.IBlockItemFactory;
+import jiraiyah.uio.util.factories.IToolFactory;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
@@ -10,7 +11,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.component.ComponentType;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.*;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
@@ -31,12 +32,15 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.*;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiConsumer;
 import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
@@ -272,7 +276,7 @@ public class Registers
                                              .registryKey(key)));
         }
 
-        public static <T extends BlockItem> T registerBI(Block block, BlockItemRegisterFunction<Item.Settings, T> factory)
+        public static <T extends BlockItem> T registerBI(Block block, IBlockItemFactory<Item.Settings, T> factory)
         {
             String name = Registries.BLOCK.getId(block).getPath();
             RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
@@ -283,7 +287,7 @@ public class Registers
         }
 
         public static <T extends BlockItem> T registerBI(Block block, Item.Settings settings,
-                                                         BlockItemRegisterFunction<Item.Settings, T> factory)
+                                                         IBlockItemFactory<Item.Settings, T> factory)
         {
             String name = Registries.BLOCK.getId(block).getPath();
             RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
@@ -294,7 +298,7 @@ public class Registers
         }
 
         public static <T extends Item> T registerTool(String name, ToolMaterial material, float attackDamage, float attackSpeed,
-                                                      ToolRegisterFunction<Item.Settings, T> factory)
+                                                      IToolFactory<Item.Settings, T> factory)
         {
             RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
             T item = factory.apply(material, attackDamage, attackSpeed, new Item.Settings().registryKey(key));
@@ -302,7 +306,7 @@ public class Registers
         }
 
         public static <T extends Item> T registerTool(String name, ToolMaterial material, float attackDamage, float attackSpeed,
-                                                      Item.Settings settings, ToolRegisterFunction<Item.Settings, T> factory)
+                                                      Item.Settings settings, IToolFactory<Item.Settings, T> factory)
         {
             RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
             T item = factory.apply(material, attackDamage, attackSpeed, settings.registryKey(key));
@@ -310,7 +314,7 @@ public class Registers
         }
 
         public static <T extends Item> T registerArmor(String name, ArmorMaterial material, EquipmentType equipment,
-                                                       ArmorRegisterFunction<Item.Settings, T> factory)
+                                                       IArmorFactory<Item.Settings, T> factory)
         {
             RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
             T item = factory.apply(material, equipment, new Item.Settings().registryKey(key));
@@ -318,7 +322,7 @@ public class Registers
         }
 
         public static <T extends Item> T registerArmor(String name, ArmorMaterial material, EquipmentType equipment, Item.Settings settings,
-                                                       ArmorRegisterFunction<Item.Settings, T> factory)
+                                                       IArmorFactory<Item.Settings, T> factory)
         {
             RegistryKey<Item> key = getKey(name, RegistryKeys.ITEM);
             T item = factory.apply(material, equipment, settings.registryKey(key));
@@ -423,6 +427,35 @@ public class Registers
         public static LootTable.Builder customOreDrops(FabricBlockLootTableProvider provider, RegistryWrapper.WrapperLookup registries, Block drop, Item item)
         {
             return customOreDrops(provider, registries, drop, item, 2.0f, 5.0f);
+        }
+
+        @SuppressWarnings("SameParameterValue")
+        public static void registerOrientableVariantBlock(BlockStateModelGenerator generator, Block machine, BooleanProperty property)
+        {
+            BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = generator.modelCollector;
+            Identifier machineOff = TexturedModel.ORIENTABLE.upload(machine, modelCollector);
+            Identifier machineFront = TextureMap.getSubId(machine, "_front_on");
+            Identifier machineOn = TexturedModel.ORIENTABLE.get(machine).textures((textures) ->
+                                                                                  {
+                                                                                      textures.put(TextureKey.FRONT, machineFront);
+                                                                                  }).upload(machine, "_on", modelCollector);
+            generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(machine)
+                                                                           .coordinate(BlockStateModelGenerator.createBooleanModelMap(property,
+                                                                                                                                      machineOn,
+                                                                                                                                      machineOff))
+                                                                           .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
+        }
+
+        @SuppressWarnings("SameParameterValue")
+        public static void registerCubeVariantBlock(BlockStateModelGenerator generator, Block machine, BooleanProperty property)
+        {
+            BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = generator.modelCollector;
+            Identifier cubeOff = TexturedModel.CUBE_ALL.upload(machine, modelCollector);
+            Identifier cubeOn = generator.createSubModel(machine, "_on", Models.CUBE_ALL, TextureMap::all);
+            generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(machine)
+                                                                           .coordinate(BlockStateModelGenerator.createBooleanModelMap(property,
+                                                                                                                                      cubeOn,
+                                                                                                                                      cubeOff)));
         }
 
         public static EquipmentModel buildHumanoid(String name) {

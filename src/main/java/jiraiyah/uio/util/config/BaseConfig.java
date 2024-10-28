@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 import static jiraiyah.uio.Reference.LOGGER;
 import static jiraiyah.uio.Reference.logN;
+import static jiraiyah.uio.Reference.logError;
+import static jiraiyah.uio.Reference.logWarning;
 
 /**
  * Simple Config System: <a href="https://github.com/magistermaks/fabric-simplelibs/blob/master/simple-config/SimpleConfig.java"> GITHUB </a>
@@ -38,7 +40,7 @@ public class BaseConfig
             }
             catch (IOException e)
             {
-                LOGGER.error("{} failed to generate!", identifier);
+                logError(identifier + " failed to generate!");
                 LOGGER.trace(e.getMessage());
                 broken = true;
             }
@@ -52,7 +54,7 @@ public class BaseConfig
             }
             catch (Exception e)
             {
-                LOGGER.error("{} failed to load!", identifier);
+                logError(identifier + " failed to load!");
                 LOGGER.trace(e.getMessage());
                 broken = true;
             }
@@ -98,14 +100,9 @@ public class BaseConfig
         {
             String[] parts = entry.replace(" ", "").split("=", 2); // Modification by Jiraiyah
             if( parts.length == 2 )
-            {
-                String temp = parts[1].split("#")[0]; // Modification by Kaupenjoe, Jiraiyah
-                config.put( parts[0], temp ); // Modification by Kaupenjoe
-            }
+                config.put( parts[0], parts[1].split("#")[0] ); // Modification by Kaupenjoe
             else
-            {
                 throw new RuntimeException("Syntax error in config file on line " + line + "!");
-            }
         }
     }
 
@@ -131,7 +128,12 @@ public class BaseConfig
     public String getOrDefault( String key, String def )
     {
         String val = get(key);
-        return val == null ? def : val;
+        if(val == null)
+        {
+            logError("Failed to get the integer config value for " + key + " | Using default value: " + def);
+            return def;
+        }
+        return val;
     }
 
     /**
@@ -148,7 +150,7 @@ public class BaseConfig
         }
         catch (Exception e)
         {
-            LOGGER.error("Failed to get the integer config value for {}", key);
+            logError("Failed to get the integer config value for " + key + " | Using default value: " + def);
             LOGGER.trace(e.getMessage());
             return def;
         }
@@ -169,6 +171,8 @@ public class BaseConfig
             return val.equalsIgnoreCase("true");
         }
 
+        logError("Failed to get the double config value for " + key + " | Using default value: " + def);
+
         return def;
     }
 
@@ -186,7 +190,7 @@ public class BaseConfig
         }
         catch (Exception e)
         {
-            LOGGER.error("Failed to get the double config value for {}", key);
+            logError("Failed to get the double config value for " + key + " | Using default value: " + def);
             LOGGER.trace(e.getMessage());
             return def;
         }
@@ -211,7 +215,7 @@ public class BaseConfig
      */
     public boolean delete()
     {
-        LOGGER.warn("Config '{}' was removed from existence! Restart the game to regenerate it.", request.getFilename());
+        logWarning("Config '" + request.getFilename() + "' was removed from existence! Restart the game to regenerate it.");
         return request.getFile().delete();
     }
 }

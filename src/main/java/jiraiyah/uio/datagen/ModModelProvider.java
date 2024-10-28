@@ -24,25 +24,18 @@
 
 package jiraiyah.uio.datagen;
 
-import com.google.gson.JsonElement;
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import jiraiyah.uio.registry.misc.ModArmorMaterials;
-import jiraiyah.uio.util.block.AbstractActivatableBlock;
-import jiraiyah.uio.util.block.AbstractActivatableMachineBlock;
+import jiraiyah.uio.util.block.abstracts.base.AbstractActivatableBlock;
+import jiraiyah.uio.util.block.abstracts.machine.AbstractActivatableMachineBlock;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.block.Block;
 import net.minecraft.data.client.*;
 import net.minecraft.item.Item;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.util.Identifier;
-
-import java.util.function.BiConsumer;
-import java.util.function.Supplier;
 
 import static jiraiyah.uio.Reference.logRGB256;
-import static jiraiyah.uio.util.Registers.Datagen.registerAllArmor;
+import static jiraiyah.uio.util.Registers.Datagen;
 
 public class ModModelProvider extends FabricModelProvider
 {
@@ -164,8 +157,6 @@ public class ModModelProvider extends FabricModelProvider
         generator.registerSingleton(ModBlocks.POTATO_BOX, TexturedModel.CUBE_BOTTOM_TOP);
 
         generator.registerSingleton(ModBlocks.ELEVATOR, TexturedModel.CUBE_BOTTOM_TOP);
-        //generator.registerSingleton(ModBlocks.ANIMAL_FEED, TexturedModel.CUBE_BOTTOM_TOP);
-        //generator.registerSingleton(ModBlocks.SOLAR_PANEL, TexturedModel.CUBE_BOTTOM_TOP);
         generator.registerSingleton(ModBlocks.MINER, TexturedModel.CUBE_BOTTOM_TOP);
 
         generator.registerSingleton(ModBlocks.CAST_PRESS, TexturedModel.ORIENTABLE);
@@ -173,16 +164,16 @@ public class ModModelProvider extends FabricModelProvider
         generator.registerSingleton(ModBlocks.BLOCK_PLACER, TexturedModel.ORIENTABLE);
         generator.registerSingleton(ModBlocks.FLUID_PUMP, TexturedModel.ORIENTABLE);
 
-        registerCubeVariantBlock(generator, ModBlocks.REDSTONE_CLOCK, AbstractActivatableBlock.ACTIVATED);
+        Datagen.registerCubeVariantBlock(generator, ModBlocks.REDSTONE_CLOCK, AbstractActivatableBlock.ACTIVATED);
 
-        registerOrientableVariantBlock(generator, ModBlocks.ALLOY_MIXER, AbstractActivatableMachineBlock.ACTIVATED);
-        registerOrientableVariantBlock(generator, ModBlocks.GEM_CLEANER, AbstractActivatableMachineBlock.ACTIVATED);
-        registerOrientableVariantBlock(generator, ModBlocks.OVEN, AbstractActivatableMachineBlock.ACTIVATED);
-        registerOrientableVariantBlock(generator, ModBlocks.PULVERIZER, AbstractActivatableMachineBlock.ACTIVATED);
-        registerOrientableVariantBlock(generator, ModBlocks.SMELTER, AbstractActivatableMachineBlock.ACTIVATED);
-        registerOrientableVariantBlock(generator, ModBlocks.GENERATOR, AbstractActivatableMachineBlock.ACTIVATED);
-        registerOrientableVariantBlock(generator, ModBlocks.BUILDER, AbstractActivatableMachineBlock.ACTIVATED);
-        registerOrientableVariantBlock(generator, ModBlocks.WOOD_STRIPPER, AbstractActivatableMachineBlock.ACTIVATED);
+        Datagen.registerOrientableVariantBlock(generator, ModBlocks.ALLOY_MIXER, AbstractActivatableMachineBlock.ACTIVATED);
+        Datagen.registerOrientableVariantBlock(generator, ModBlocks.GEM_CLEANER, AbstractActivatableMachineBlock.ACTIVATED);
+        Datagen.registerOrientableVariantBlock(generator, ModBlocks.OVEN, AbstractActivatableMachineBlock.ACTIVATED);
+        Datagen.registerOrientableVariantBlock(generator, ModBlocks.PULVERIZER, AbstractActivatableMachineBlock.ACTIVATED);
+        Datagen.registerOrientableVariantBlock(generator, ModBlocks.SMELTER, AbstractActivatableMachineBlock.ACTIVATED);
+        Datagen.registerOrientableVariantBlock(generator, ModBlocks.GENERATOR, AbstractActivatableMachineBlock.ACTIVATED);
+        Datagen.registerOrientableVariantBlock(generator, ModBlocks.BUILDER, AbstractActivatableMachineBlock.ACTIVATED);
+        generator.registerSingleton(ModBlocks.WOOD_STRIPPER, TexturedModel.ORIENTABLE);
 
         generator.registerSimpleState(ModBlocks.ENDER_CHANTER);
         generator.registerSimpleState(ModBlocks.PROJECT_TABLE);
@@ -489,65 +480,34 @@ public class ModModelProvider extends FabricModelProvider
         registerArmor(generator, ModItems.ARMOR_AMETHYST_CHESTPLATE, ModArmorMaterials.AMETHYST, EquipmentSlot.CHEST, false);
         registerArmor(generator, ModItems.ARMOR_AMETHYST_LEGGINGS, ModArmorMaterials.AMETHYST, EquipmentSlot.LEGS, false);
         registerArmor(generator, ModItems.ARMOR_AMETHYST_BOOTS, ModArmorMaterials.AMETHYST, EquipmentSlot.FEET, false);*/
-        registerAllArmor(generator,
+        Datagen.registerAllArmor(generator,
                  new Item[]{ModItems.ARMOR_AMETHYST_HELMET, ModItems.ARMOR_AMETHYST_CHESTPLATE,
                                     ModItems.ARMOR_AMETHYST_LEGGINGS, ModItems.ARMOR_AMETHYST_BOOTS},
                  ModArmorMaterials.AMETHYST, false);
-        registerAllArmor(generator,
+        Datagen.registerAllArmor(generator,
                  new Item[]{ModItems.ARMOR_CITRINE_HELMET, ModItems.ARMOR_CITRINE_CHESTPLATE,
                                     ModItems.ARMOR_CITRINE_LEGGINGS, ModItems.ARMOR_CITRINE_BOOTS},
                  ModArmorMaterials.CITRINE, false);
-        registerAllArmor(generator,
+        Datagen.registerAllArmor(generator,
              new Item[]{ModItems.ARMOR_COPPER_HELMET, ModItems.ARMOR_COPPER_CHESTPLATE,
                                 ModItems.ARMOR_COPPER_LEGGINGS, ModItems.ARMOR_COPPER_BOOTS},
              ModArmorMaterials.COPPER, false);
-        registerAllArmor(generator,
+        Datagen.registerAllArmor(generator,
                  new Item[]{ModItems.ARMOR_EMERALD_HELMET, ModItems.ARMOR_EMERALD_CHESTPLATE,
                                     ModItems.ARMOR_EMERALD_LEGGINGS, ModItems.ARMOR_EMERALD_BOOTS},
                  ModArmorMaterials.EMERALD, false);
-        registerAllArmor(generator,
+        Datagen.registerAllArmor(generator,
                  new Item[]{ModItems.ARMOR_ENDERITE_HELMET, ModItems.ARMOR_ENDERITE_CHESTPLATE,
-                                    ModItems.ARMOR_EMERALD_LEGGINGS, ModItems.ARMOR_ENDERITE_BOOTS},
+                                    ModItems.ARMOR_ENDERITE_LEGGINGS, ModItems.ARMOR_ENDERITE_BOOTS},
                  ModArmorMaterials.ENDERITE, false);
-        registerAllArmor(generator,
+        Datagen.registerAllArmor(generator,
                  new Item[]{ModItems.ARMOR_RUBY_HELMET, ModItems.ARMOR_RUBY_CHESTPLATE,
                                     ModItems.ARMOR_RUBY_LEGGINGS, ModItems.ARMOR_RUBY_BOOTS},
                  ModArmorMaterials.RUBY, false);
-        registerAllArmor(generator,
+        Datagen.registerAllArmor(generator,
                  new Item[]{ModItems.ARMOR_SAPPHIRE_HELMET, ModItems.ARMOR_SAPPHIRE_CHESTPLATE,
                                     ModItems.ARMOR_SAPPHIRE_LEGGINGS, ModItems.ARMOR_SAPPHIRE_BOOTS},
                  ModArmorMaterials.SAPPHIRE, false);
         //endregion
     }
-
-    //region HELPER METHODS
-    @SuppressWarnings("SameParameterValue")
-    private void registerOrientableVariantBlock(BlockStateModelGenerator generator, Block machine, BooleanProperty property)
-    {
-        BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = generator.modelCollector;
-        Identifier machineOff = TexturedModel.ORIENTABLE.upload(machine, modelCollector);
-        Identifier machineFront = TextureMap.getSubId(machine, "_front_on");
-        Identifier machineOn = TexturedModel.ORIENTABLE.get(machine).textures((textures) ->
-                                                                 {
-                                                                     textures.put(TextureKey.FRONT, machineFront);
-                                                                 }).upload(machine, "_on", modelCollector);
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(machine)
-                                                   .coordinate(BlockStateModelGenerator.createBooleanModelMap(property,
-                                                                                                              machineOn,
-                                                                                                              machineOff))
-                                                   .coordinate(BlockStateModelGenerator.createNorthDefaultHorizontalRotationStates()));
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    private void registerCubeVariantBlock(BlockStateModelGenerator generator, Block machine, BooleanProperty property)
-    {
-        BiConsumer<Identifier, Supplier<JsonElement>> modelCollector = generator.modelCollector;
-        Identifier cubeOff = TexturedModel.CUBE_ALL.upload(machine, modelCollector);
-        Identifier cubeOn = generator.createSubModel(machine, "_on", Models.CUBE_ALL, TextureMap::all);
-        generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(machine)
-                                                   .coordinate(BlockStateModelGenerator.createBooleanModelMap(property,
-                                                                                                              cubeOn,
-                                                                                                              cubeOff)));
-    }
-    //endregion
 }

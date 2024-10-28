@@ -9,18 +9,25 @@ import java.util.List;
  * Provided by Kaupenjoe
  * Modification by Jiraiyah
  */
-public class ConfigProvider implements DefaultConfig
+public class ConfigProvider implements IConfigProvider
 {
     private String configContent;
-    private final List<Pair> configsList;
+    private final List<Pair<String, ?>> configsList;
+    private final ConfigKeyCasing casing;
 
     public ConfigProvider()
     {
-        this.configContent = "";
-        this.configsList = new ArrayList<>();
+        this(ConfigKeyCasing.NO_CHANGE);
     }
 
-    public List<Pair> getConfigList()
+    public ConfigProvider(ConfigKeyCasing casing)
+    {
+        this.configContent = "";
+        this.configsList = new ArrayList<>();
+        this.casing = casing;
+    }
+
+    public List<Pair<String, ?>> getConfigList()
     {
         return configsList;
     }
@@ -55,7 +62,13 @@ public class ConfigProvider implements DefaultConfig
     {
         configsList.add(pair);
         configContent +="#The default value is: " + pair.getSecond() + " | " + pair.getSecond().getClass().getSimpleName() + "\n";
-        configContent += pair.getFirst() + " = " + pair.getSecond() + " #" + comment;
+        configContent +=
+                (this.casing == ConfigKeyCasing.NO_CHANGE
+                     ? pair.getFirst()
+                     : this.casing == ConfigKeyCasing.ALL_UPPER_CASE
+                        ? pair.getFirst().toUpperCase()
+                        : pair.getFirst().toLowerCase())
+               + " = " + pair.getSecond() + " #" + comment;
         if(addNewLine)
             configContent += "\n\n";
         else if(!isLast)
@@ -66,7 +79,13 @@ public class ConfigProvider implements DefaultConfig
     {
         configsList.add(pair);
         configContent +="#The default value is: " + pair.getSecond() + " | " + pair.getSecond().getClass().getSimpleName() + "\n";
-        configContent += pair.getFirst() + " = " + pair.getSecond();
+        configContent +=
+                (this.casing == ConfigKeyCasing.NO_CHANGE
+                 ? pair.getFirst()
+                 : this.casing == ConfigKeyCasing.ALL_UPPER_CASE
+                   ? pair.getFirst().toUpperCase()
+                   : pair.getFirst().toLowerCase())
+                + " = " + pair.getSecond();
         if(addNewLine)
             configContent += "\n\n";
         else if(!isLast)
