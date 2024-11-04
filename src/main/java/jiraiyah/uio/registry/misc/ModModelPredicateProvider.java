@@ -26,13 +26,31 @@ package jiraiyah.uio.registry.misc;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModModelPredicateProvider` class is responsible for managing
+ * the registration of model predicates within the application.
+ * This class is designed to be non-instantiable and provides
+ * a static method to initialize the model predicate registration process.
+ */
 public class ModModelPredicateProvider
 {
+    /**
+     * Constructs a `ModModelPredicateProvider` instance.
+     * This constructor is private to prevent instantiation of the class,
+     * as it is intended to be used in a static context only.
+     * An `AssertionError` is thrown if instantiation is attempted.
+     */
     ModModelPredicateProvider()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes the model predicate registration process.
+     * This method logs a message indicating the start of the registration
+     * process using the organization's logging mechanism.
+     * It is intended to be called once during the application's setup phase.
+     */
     public static void init()
     {
         log("Registering Model Predicates");

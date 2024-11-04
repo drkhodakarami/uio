@@ -36,14 +36,35 @@ import java.util.concurrent.CompletableFuture;
 import static jiraiyah.uio.Reference.logRGB256;
 import static jiraiyah.uio.util.registry.Registers.Datagen.customOreDrops;
 
+/**
+ * The `ModLootTableProvider` class is responsible for generating loot tables for various blocks in the mod.
+ * It extends the `FabricBlockLootTableProvider` to utilize its functionality for creating loot tables.
+ * This class is part of the data generation process and is used to define how blocks drop items when broken.
+ *
+ * <p>This class makes use of organization-specific modules and follows the patterns established in the codebase
+ * for defining loot tables, including custom ore drops and special block drops.</p>
+ */
 @SuppressWarnings("ALL")
 public class ModLootTableProvider extends FabricBlockLootTableProvider
 {
+    /**
+     * Constructs a new `ModLootTableProvider` instance.
+     *
+     * @param dataOutput     The `FabricDataOutput` instance used for data generation output.
+     * @param registryLookup A `CompletableFuture` that provides access to the `RegistryWrapper.WrapperLookup`,
+     *                       which is used to access registries needed for loot table generation.
+     */
     public ModLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup)
     {
         super(dataOutput, registryLookup);
     }
 
+    /**
+     * Generates the loot tables for the mod's blocks.
+     * This method is overridden from the `FabricBlockLootTableProvider` and is called during the data generation process.
+     * It defines the loot tables for various blocks, including gems, raw materials, special blocks, ores, machines, and goo.
+     * The method uses organization-specific logging to indicate the start of the loot table generation process.
+     */
     @Override
     public void generate()
     {
@@ -186,8 +207,4 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         addDrop(ModBlocks.WATER_PUMP_GOO);
         //endregion
     }
-    //region HELPER METHODS
-
-
-    //endregion
 }

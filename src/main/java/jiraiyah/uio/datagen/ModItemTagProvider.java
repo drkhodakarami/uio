@@ -37,14 +37,34 @@ import java.util.concurrent.CompletableFuture;
 
 import static jiraiyah.uio.Reference.logRGB256;
 
+/**
+ * The `ModItemTagProvider` class is responsible for generating and configuring item tags
+ * for the mod. It extends the `FabricTagProvider.ItemTagProvider` to leverage the
+ * functionality provided by the Fabric API for data generation.
+ */
 public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider
 {
 
+    /**
+     * Constructs a new `ModItemTagProvider` instance.
+     *
+     * @param output The `FabricDataOutput` used to output the generated data.
+     * @param completableFuture A `CompletableFuture` that provides a `RegistryWrapper.WrapperLookup`
+     *                          for accessing registry data during tag configuration.
+     */
     public ModItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture)
     {
         super(output, completableFuture);
     }
 
+    /**
+     * Configures the item tags by adding various items to predefined tags.
+     * This method is called during the data generation process to populate
+     * the tags with the appropriate items from the mod.
+     *
+     * @param arg A `RegistryWrapper.WrapperLookup` that provides access to the registry data
+     *            needed for configuring the tags.
+     */
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg)
     {

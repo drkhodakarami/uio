@@ -26,13 +26,37 @@ package jiraiyah.uio.registry.misc;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The {@code ModAttributes} class is responsible for managing the registration
+ * of custom attributes within the application. This class is not intended to be
+ * instantiated and serves as a utility class for attribute registration.
+ * <p>
+ * The class provides a static method to initialize and register attributes,
+ * ensuring that all necessary attributes are available for use within the
+ * application.
+ */
 public class ModAttributes
 {
+    /**
+     * Constructs a new {@code ModAttributes} instance.
+     * <p>
+     * This constructor is private to prevent instantiation of the class, as
+     * {@code ModAttributes} is designed to be a utility class. Attempting to
+     * instantiate this class will result in an {@code AssertionError}.
+     */
     ModAttributes()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes and registers custom attributes for the application.
+     * <p>
+     * This method logs a message indicating the start of the attribute
+     * registration process. It is intended to be called during the
+     * application's initialization phase to ensure that all custom attributes
+     * are properly registered and available for use.
+     */
     public static void init()
     {
         log("Registering Attributes");

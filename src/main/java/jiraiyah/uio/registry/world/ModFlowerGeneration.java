@@ -26,14 +26,37 @@ package jiraiyah.uio.registry.world;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModFlowerGeneration` class is responsible for managing the registration
+ * and generation of custom flower data within the game world. This class
+ * utilizes the mod's logging system to provide feedback during the
+ * initialization process.
+ * <p>
+ * Note: This class cannot be instantiated as it is designed to be used
+ * statically.
+ */
 public class ModFlowerGeneration
 {
-    public ModFlowerGeneration()
+    /**
+     * Private constructor to prevent instantiation of the `ModFlowerGeneration` class.
+     * <p>
+     * This constructor throws an `AssertionError` if called, ensuring that the
+     * class is used only in a static context.
+     */
+    ModFlowerGeneration()
     {
         throw new AssertionError();
     }
 
-    public static void generate()
+    /**
+     * Initializes the flower generation process by registering the necessary
+     * flower data. This method logs the registration activity to the console
+     * if debugging is enabled.
+     * <p>
+     * This method should be called during the mod's initialization phase to
+     * ensure that all custom flower data is properly registered.
+     */
+    public static void init()
     {
         log("Registering Flower Data");
     }

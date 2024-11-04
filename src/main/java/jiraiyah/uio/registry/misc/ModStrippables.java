@@ -26,13 +26,29 @@ package jiraiyah.uio.registry.misc;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModStrippables` class is responsible for managing the registration of strippable items
+ * within the application. This class is not intended to be instantiated and serves as a utility
+ * class for handling strippable item registration.
+ */
 public class ModStrippables
 {
+    /**
+     * Private constructor to prevent instantiation of the `ModStrippables` class.
+     * This constructor throws an `AssertionError` if called, ensuring that the class
+     * remains non-instantiable.
+     */
     ModStrippables()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes the registration process for strippable items. This method logs
+     * a message indicating the start of the registration process. It is intended
+     * to be called during the application's setup phase to ensure that all
+     * strippable items are properly registered.
+     */
     public static void init()
     {
         log("Registering Strippables");

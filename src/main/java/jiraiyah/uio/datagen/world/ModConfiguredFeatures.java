@@ -35,44 +35,54 @@ import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 import java.util.List;
 
-import static jiraiyah.uio.Reference.identifier;
 import static jiraiyah.uio.Reference.logRGB256;
+import static jiraiyah.uio.util.registry.Registers.Datagen.*;
+import static jiraiyah.uio.util.registry.Registers.getKey;
 
+/**
+ * The `ModConfiguredFeatures` class is responsible for defining and registering
+ * various ore generation features within the mod. It includes configurations for
+ * different types of ores that can be generated in the Overworld, Nether, and End
+ * dimensions. This class utilizes the Minecraft registry system to ensure that
+ * each feature is uniquely identified and properly registered.
+ */
 public class ModConfiguredFeatures
 {
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_CITRINE_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_citrine"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_RUBY_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_ruby"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_SAPPHIRE_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_sapphire"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> ORE_CITRINE_KEY, ORE_RUBY_KEY, ORE_SAPPHIRE_KEY,
+            ORE_NETHER_CITRINE_KEY, ORE_NETHER_RUBY_KEY, ORE_NETHER_SAPPHIRE_KEY,
+            ORE_NETHER_COAL_KEY, ORE_NETHER_COPPER_KEY, ORE_NETHER_DIAMOND_KEY, ORE_NETHER_IRON_KEY, ORE_NETHER_LAPIS_KEY,
+            ORE_NETHER_REDSTONE_KEY,
+            ORE_END_CITRINE_KEY, ORE_END_RUBY_KEY, ORE_END_SAPPHIRE_KEY, ORE_END_ENDERITE_KEY;
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_NETHER_CITRINE_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_nether_citrine"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_NETHER_RUBY_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_nether_ruby"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_NETHER_SAPPHIRE_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_nether_sapphire"));
-
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_NETHER_COAL_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_nether_coal"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_NETHER_COPPER_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_nether_copper"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_NETHER_DIAMOND_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_nether_diamond"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_NETHER_IRON_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_nether_iron"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_NETHER_LAPIS_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_nether_lapis"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_NETHER_REDSTONE_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_nether_redstone"));
-
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_END_CITRINE_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_end_citrine"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_END_RUBY_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_end_ruby"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_END_SAPPHIRE_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_end_sapphire"));
-    public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_END_ENDERITE_KEY = RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, identifier("ore_end_enderite"));
-
+    /**
+     * Constructs a new `ModConfiguredFeatures` instance.
+     * This constructor is private to prevent instantiation, as this class is
+     * intended to be used statically.
+     *
+     * @throws AssertionError if an attempt is made to instantiate this class.
+     */
     public ModConfiguredFeatures()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes and registers all configured features for ore generation.
+     * This method sets up the ore generation rules and registers each ore
+     * feature with the provided registry context. It logs the process of
+     * generating configured features data for debugging purposes.
+     *
+     * @param context The registry context used to register configured features.
+     */
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context)
     {
         logRGB256("Generating Configured Features Data", 0, 255, 0);
+
+        init();
 
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
@@ -158,10 +168,33 @@ public class ModConfiguredFeatures
         register(context, ORE_END_ENDERITE_KEY, Feature.ORE, new OreFeatureConfig(endEnderiteOres, 3));
     }
 
-    private static <FC extends FeatureConfig, F extends Feature<FC>> void register(Registerable<ConfiguredFeature<?, ?>> context,
-                                                                                   RegistryKey<ConfiguredFeature<?, ?>> key,
-                                                                                   F feature, FC configuration)
+    /**
+     * Initializes the registry keys for all configured ore features.
+     * This method assigns unique `RegistryKey` instances to each ore type,
+     * ensuring that they can be registered and identified within the
+     * Minecraft registry system. It uses the `getKey` method to create
+     * keys for ores in the Overworld, Nether, and End dimensions.
+     */
+    private static void init()
     {
-        context.register(key, new ConfiguredFeature<>(feature, configuration));
+        ORE_CITRINE_KEY = getKey("ore_citrine", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_RUBY_KEY = getKey("ore_ruby", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_SAPPHIRE_KEY = getKey("ore_sapphire", RegistryKeys.CONFIGURED_FEATURE);
+
+        ORE_NETHER_CITRINE_KEY = getKey("ore_nether_citrine", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_NETHER_RUBY_KEY = getKey("ore_nether_ruby", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_NETHER_SAPPHIRE_KEY = getKey("ore_nether_sapphire", RegistryKeys.CONFIGURED_FEATURE);
+
+        ORE_NETHER_COAL_KEY = getKey("ore_nether_coal", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_NETHER_COPPER_KEY = getKey("ore_nether_copper", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_NETHER_DIAMOND_KEY = getKey("ore_nether_diamond", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_NETHER_IRON_KEY = getKey("ore_nether_iron", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_NETHER_LAPIS_KEY = getKey("ore_nether_lapis", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_NETHER_REDSTONE_KEY = getKey("ore_nether_redstone", RegistryKeys.CONFIGURED_FEATURE);
+
+        ORE_END_CITRINE_KEY = getKey("ore_end_citrine", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_END_RUBY_KEY = getKey("ore_end_ruby", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_END_SAPPHIRE_KEY = getKey("ore_end_sapphire", RegistryKeys.CONFIGURED_FEATURE);
+        ORE_END_ENDERITE_KEY = getKey("ore_end_enderite", RegistryKeys.CONFIGURED_FEATURE);
     }
 }

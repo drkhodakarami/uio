@@ -30,10 +30,33 @@ import net.minecraft.component.ComponentType;
 import static jiraiyah.uio.Reference.log;
 import static jiraiyah.uio.util.registry.Registers.ComponentType.*;
 
+/**
+ * This class is responsible for managing and registering custom data component types
+ * used within the mod. It provides a static method to initialize and register these
+ * component types, ensuring they are available for use throughout the application.
+ */
 public class ModDataComponentTypes
 {
+    /**
+     * Private constructor to prevent instantiation of this utility class.
+     * This class is not meant to be instantiated, as it only contains static methods
+     * and fields for managing component types.
+     *
+     * @throws AssertionError if this constructor is ever called.
+     */
+    ModDataComponentTypes()
+    {
+        throw new AssertionError();
+    }
+
     public static ComponentType<CoordinateData> COORDINATE;
 
+    /**
+     * Initializes and registers custom data component types.
+     * This method logs the registration process and sets up the `COORDINATE` component type
+     * using the `CoordinateData` codec. It should be called during the mod's initialization
+     * phase to ensure all custom component types are properly registered.
+     */
     public static void init()
     {
         log("Registering custom data component types");

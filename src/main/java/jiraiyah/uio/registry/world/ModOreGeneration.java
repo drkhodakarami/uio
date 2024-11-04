@@ -31,14 +31,31 @@ import net.minecraft.world.gen.GenerationStep;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModOreGeneration` class is responsible for registering custom ore generation
+ * features in different dimensions of the game. It uses the Fabric API to modify biomes
+ * and add these features to the Overworld, Nether, and End dimensions.
+ * This class is designed as a utility class and should not be instantiated.
+ */
 public class ModOreGeneration
 {
-    public ModOreGeneration()
+    /**
+     * Constructs a new `ModOreGeneration` instance.
+     * This constructor is private to prevent instantiation of this utility class.
+     * An `AssertionError` is thrown if instantiation is attempted.
+     */
+    ModOreGeneration()
     {
         throw new AssertionError();
     }
 
-    public static void generate()
+    /**
+     * Initializes the ore generation features by registering them with the Fabric API.
+     * This method adds custom ore generation features to the Overworld, Nether, and End
+     * dimensions using predefined registry keys from the `ModPlacedFeatures` class.
+     * It logs the registration process for debugging purposes.
+     */
+    public static void init()
     {
         log("Registering Ore Data");
 

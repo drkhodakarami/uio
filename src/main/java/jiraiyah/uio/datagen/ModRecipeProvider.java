@@ -45,19 +45,44 @@ import java.util.concurrent.CompletableFuture;
 
 import static jiraiyah.uio.Reference.logRGB256;
 
+/**
+ * The {@code ModRecipeProvider} class is responsible for generating custom recipes for the mod.
+ * It extends the {@code FabricRecipeProvider} to utilize the Fabric API's data generation capabilities.
+ * This class defines various crafting, smelting, and other recipe types for custom items and blocks.
+ */
 public class ModRecipeProvider extends FabricRecipeProvider
 {
+    /**
+     * Constructs a new {@code ModRecipeProvider} with the specified data output and registry lookup.
+     *
+     * @param output           The {@code FabricDataOutput} used to write the generated recipe data.
+     * @param registriesFuture A {@code CompletableFuture} that provides access to the registry lookup.
+     */
     public ModRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture)
     {
         super(output, registriesFuture);
     }
 
+    /**
+     * Returns the empty string as the name.
+     *
+     * @return The empty string.
+     */
     @Override
     public String getName()
     {
         return "";
     }
 
+    /**
+     * Returns a {@code RecipeGenerator} that is responsible for generating the recipes.
+     * This method is overridden to define custom recipes for the mod, including crafting, smelting,
+     * and other types of recipes.
+     *
+     * @param registries The {@code RegistryWrapper.WrapperLookup} providing access to the registries.
+     * @param exporter   The {@code RecipeExporter} used to export the generated recipes.
+     * @return A {@code RecipeGenerator} that generates the mod's custom recipes.
+     */
     @Override
     protected RecipeGenerator getRecipeGenerator(RegistryWrapper.WrapperLookup registries, RecipeExporter exporter)
     {

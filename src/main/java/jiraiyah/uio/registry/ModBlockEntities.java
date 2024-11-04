@@ -31,6 +31,13 @@ import net.minecraft.block.entity.BlockEntityType;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The {@code ModBlockEntities} class is responsible for registering all custom block entities
+ * used in the mod. It provides static fields for each block entity type and initializes them
+ * using the {@code Entities.register} method.
+ * <p>
+ * This class cannot be instantiated.
+ */
 public class ModBlockEntities
 {
     public static BlockEntityType<AirGooBombBE> AIR_GOO_BOMB;
@@ -47,12 +54,23 @@ public class ModBlockEntities
     public static BlockEntityType<WaterGeneratingGooBE> WATER_GENERATING_GOO;
     public static BlockEntityType<WaterPumpGooBE> WATER_PUMP_GOO;
 
+    /**
+     * Private constructor to prevent instantiation of this utility class.
+     * <p>
+     * Throws an {@code AssertionError} if called.
+     */
     ModBlockEntities()
     {
         throw new AssertionError();
     }
 
 
+    /**
+     * Initializes and registers all block entities for the mod.
+     * <p>
+     * This method should be called during the mod's initialization phase to ensure
+     * that all block entities are properly registered and available for use.
+     */
     public static void init()
     {
         log("Registering Block Entities");

@@ -26,13 +26,32 @@ package jiraiyah.uio.registry.misc;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModFlammables` class is responsible for managing the registration
+ * of flammable materials within the application. This class is designed
+ * to be non-instantiable and provides a static method to initialize
+ * the registration process.
+ */
 public class ModFlammables
 {
+    /**
+     * Constructs a `ModFlammables` instance. This constructor is private
+     * to prevent instantiation of the class, as it is intended to be used
+     * in a static context only.
+     *
+     * @throws AssertionError Always thrown to prevent instantiation.
+     */
     ModFlammables()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes the registration of flammable materials. This method
+     * logs the registration process for debugging purposes. It should be
+     * called during the application startup to ensure all flammable
+     * materials are properly registered.
+     */
     public static void init()
     {
         log("Registering Flammables");

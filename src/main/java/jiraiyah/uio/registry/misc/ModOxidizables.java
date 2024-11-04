@@ -26,13 +26,28 @@ package jiraiyah.uio.registry.misc;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModOxidizables` class is responsible for managing the registration
+ * of oxidizable items within the application. This class is not intended
+ * to be instantiated, as it serves a static utility purpose.
+ */
 public class ModOxidizables
 {
+    /**
+     * Constructs a new `ModOxidizables` instance. This constructor is private
+     * to prevent instantiation of this utility class. Attempting to instantiate
+     * this class will result in an `AssertionError`.
+     */
     ModOxidizables()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes the registration process for oxidizable items. This method
+     * logs a message indicating the start of the registration process. It is
+     * intended to be called during the application's setup phase.
+     */
     public static void init()
     {
         log("Registering Oxidizables");

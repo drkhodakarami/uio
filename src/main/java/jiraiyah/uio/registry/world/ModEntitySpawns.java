@@ -26,13 +26,34 @@ package jiraiyah.uio.registry.world;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModEntitySpawns` class is responsible for managing the registration
+ * of entity spawn data within the game world. This class is designed to
+ * handle the setup and configuration of entity spawning behavior.
+ * <p>
+ * Note: This class cannot be instantiated as it is intended to be used
+ * statically.
+ */
 public class ModEntitySpawns
 {
-    public ModEntitySpawns()
+    /**
+     * Private constructor to prevent instantiation of the `ModEntitySpawns` class.
+     * <p>
+     * This constructor throws an `AssertionError` to ensure that the class
+     * is used only in a static context.
+     */
+    ModEntitySpawns()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Registers the entity spawn data for the game world.
+     * <p>
+     * This method logs a message indicating that the entity spawn data
+     * registration process has begun. It is intended to be called during
+     * the initialization phase of the game to set up entity spawning.
+     */
     public static void addSpawns()
     {
         log("Registering Entity Spawn Data");

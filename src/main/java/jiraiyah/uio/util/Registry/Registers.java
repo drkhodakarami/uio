@@ -57,8 +57,14 @@ import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.*;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FeatureConfig;
+import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.world.gen.placementmodifier.*;
 import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
 import java.util.*;
@@ -1520,6 +1526,101 @@ public class Registers
                                             EquipmentModel.Layer
                                                     .createDyeableLeather(identifier(name), false))
                                  .build();
+        }
+
+        /**
+         * Registers a placed feature with the given parameters.
+         * This method is used internally to register a placed feature with a specific
+         * configuration and placement modifiers.
+         *
+         * @param context      The `Registerable` context used to register the placed feature.
+         * @param key          The registry key for the placed feature.
+         * @param configuration The configuration entry for the feature.
+         * @param modifiers    The list of placement modifiers to apply to the feature.
+         */
+        public static void register(Registerable<PlacedFeature> context,
+                                    RegistryKey<PlacedFeature> key,
+                                    RegistryEntry<ConfiguredFeature<?, ?>> configuration,
+                                    List<PlacementModifier> modifiers)
+        {
+            context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
+        }
+
+        /**
+         * Registers a placed feature with the given parameters.
+         * This overloaded method allows for a variable number of placement modifiers.
+         *
+         * @param context      The `Registerable` context used to register the placed feature.
+         * @param key          The registry key for the placed feature.
+         * @param configuration The configuration entry for the feature.
+         * @param modifiers    The placement modifiers to apply to the feature.
+         */
+        public static void register(Registerable<PlacedFeature> context,
+                                     RegistryKey<PlacedFeature> key,
+                                     RegistryEntry<ConfiguredFeature<?, ?>> configuration,
+                                     PlacementModifier... modifiers)
+        {
+            register(context, key, configuration, List.of(modifiers));
+        }
+
+        /**
+         * Registers a configured feature with the given parameters.
+         * This method creates a new `ConfiguredFeature` instance and registers it
+         * with the specified registry context using the provided key, feature, and
+         * configuration.
+         *
+         * @param context      The registry context used to register the configured feature.
+         * @param key          The unique registry key for the configured feature.
+         * @param feature      The feature to be configured and registered.
+         * @param configuration The configuration for the feature.
+         * @param <FC>         The type of the feature configuration.
+         * @param <F>          The type of the feature.
+         */
+        public static <FC extends FeatureConfig, F extends Feature<FC>> void register(Registerable<ConfiguredFeature<?, ?>> context,
+                                                                                       RegistryKey<ConfiguredFeature<?, ?>> key,
+                                                                                       F feature, FC configuration)
+        {
+            context.register(key, new ConfiguredFeature<>(feature, configuration));
+        }
+
+        /**
+         * Creates a list of {@link PlacementModifier} instances for ore placement.
+         * The list includes a count modifier, a square placement modifier, a height modifier,
+         * and a biome placement modifier.
+         *
+         * @param countModifier the {@link PlacementModifier} that specifies the count of ore placements.
+         * @param heightModifier the {@link PlacementModifier} that specifies the height range for ore placements.
+         * @return a list of {@link PlacementModifier} instances for ore placement.
+         */
+        public static List<PlacementModifier> modifiers(PlacementModifier countModifier, PlacementModifier heightModifier)
+        {
+            return List.of(countModifier, SquarePlacementModifier.of(), heightModifier, BiomePlacementModifier.of());
+        }
+
+        /**
+         * Creates a list of {@link PlacementModifier} instances for ore placement with a specified count.
+         * This method uses a {@link CountPlacementModifier} to specify the number of ore placements.
+         *
+         * @param count the number of ore placements.
+         * @param heightModifier the {@link PlacementModifier} that specifies the height range for ore placements.
+         * @return a list of {@link PlacementModifier} instances for ore placement.
+         */
+        public static List<PlacementModifier> modifiersWithCount(int count, PlacementModifier heightModifier)
+        {
+            return modifiers(CountPlacementModifier.of(count), heightModifier);
+        }
+
+        /**
+         * Creates a list of {@link PlacementModifier} instances for ore placement with a specified rarity.
+         * This method uses a {@link RarityFilterPlacementModifier} to specify the chance of ore placement.
+         *
+         * @param chance the chance of ore placement, where a lower value indicates higher rarity.
+         * @param heightModifier the {@link PlacementModifier} that specifies the height range for ore placements.
+         * @return a list of {@link PlacementModifier} instances for ore placement.
+         */
+        public static List<PlacementModifier> modifiersWithRarity(int chance, PlacementModifier heightModifier)
+        {
+            return modifiers(RarityFilterPlacementModifier.of(chance), heightModifier);
         }
     }
 }

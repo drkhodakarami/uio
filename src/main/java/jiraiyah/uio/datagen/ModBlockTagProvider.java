@@ -35,13 +35,32 @@ import java.util.concurrent.CompletableFuture;
 
 import static jiraiyah.uio.Reference.logRGB256;
 
+/**
+ * The `ModBlockTagProvider` class is responsible for generating block tag data for the mod.
+ * It extends the `FabricTagProvider.BlockTagProvider` to utilize the Fabric API's data generation capabilities.
+ * This class defines various block tags and associates them with specific blocks from the mod.
+ */
 public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 {
+    /**
+     * Constructs a new `ModBlockTagProvider` instance.
+     *
+     * @param output           The `FabricDataOutput` instance used for data generation output.
+     * @param registriesFuture A `CompletableFuture` that provides access to the `RegistryWrapper.WrapperLookup`,
+     *                         which contains registry data needed for tag configuration.
+     */
     public ModBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture)
     {
         super(output, registriesFuture);
     }
 
+    /**
+     * Configures the block tags by associating specific blocks with predefined tags.
+     * This method is called during the data generation process to define the relationships
+     * between blocks and their respective tags.
+     *
+     * @param arg The `RegistryWrapper.WrapperLookup` instance providing access to the registry data.
+     */
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg)
     {

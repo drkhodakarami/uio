@@ -26,13 +26,28 @@ package jiraiyah.uio.registry.misc;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The {@code ModPortals} class is responsible for managing the registration
+ * of custom portals within the application. This class is not intended to be
+ * instantiated and serves as a utility class for portal-related operations.
+ */
 public class ModPortals
 {
+    /**
+     * Constructs a new {@code ModPortals} instance.
+     * This constructor is private to prevent instantiation of this utility class.
+     * Attempting to instantiate this class will result in an {@code AssertionError}.
+     */
     ModPortals()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes the custom portals by registering them with the system.
+     * This method logs the registration process for debugging purposes.
+     * It should be called during the application's startup sequence.
+     */
     public static void init()
     {
         log("Registering Custom Portals");

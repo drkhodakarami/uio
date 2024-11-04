@@ -33,8 +33,22 @@ import java.util.EnumMap;
 
 import static jiraiyah.uio.Reference.*;
 
+/**
+ * The {@code ModArmorMaterials} class is responsible for registering custom armor materials
+ * used within the mod. It initializes various armor materials with specific properties such as
+ * durability, enchantability, toughness, and knockback resistance.
+ * <p>
+ * This class is not meant to be instantiated, hence the private constructor throws an
+ * {@link AssertionError} to prevent instantiation.
+ */
 public class ModArmorMaterials
 {
+    /**
+     * Private constructor to prevent instantiation of the {@code ModArmorMaterials} class.
+     * This class is intended to be used statically.
+     *
+     * @throws AssertionError always, as this class should not be instantiated.
+     */
     ModArmorMaterials()
     {
         throw new AssertionError();
@@ -42,6 +56,15 @@ public class ModArmorMaterials
 
     public static ArmorMaterial AMETHYST, CITRINE, COPPER, EMERALD, ENDERITE, RUBY, SAPPHIRE;
 
+    /**
+     * Initializes and registers the custom armor materials used in the mod.
+     * <p>
+     * Each armor material is defined with specific properties such as durability, protection
+     * values for different equipment types, enchantability, sound on equip, toughness, knockback
+     * resistance, and repair item tags.
+     * <p>
+     * The method logs the registration process for debugging purposes.
+     */
     public static void init()
     {
         log("Registering Armor Materials");

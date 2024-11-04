@@ -26,13 +26,31 @@ package jiraiyah.uio.registry.misc;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModCompostables` class is responsible for managing the registration
+ * of compostable items within the application. This class is designed to
+ * be non-instantiable and provides a static method to initialize the
+ * compostable items.
+ */
 public class ModCompostables
 {
+    /**
+     * Constructs a `ModCompostables` instance.
+     * This constructor is private to prevent instantiation of the class,
+     * as it is intended to be used in a static context only.
+     *
+     * @throws AssertionError Always thrown to prevent instantiation.
+     */
     ModCompostables()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes the compostable items by registering them with the
+     * appropriate systems. This method logs the registration process
+     * for debugging purposes.
+     */
     public static void init()
     {
         log("Registering Compostables");

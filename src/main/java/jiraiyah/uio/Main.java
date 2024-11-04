@@ -156,7 +156,7 @@ public class Main implements ModInitializer
         ModBlockEntities.init(); // Should happen after block registration
         ModScreenHandlers.init(); // Should happen after block and block entity registration
 
-        ModWorldGeneration.register(); // Should happen after Items and Block Registration
+        ModWorldGeneration.init(); // Should happen after Items and Block Registration
         ModPortals.init(); // Should happen after Items and Block Registration
         ModStrippables.init(); // Should happen after Items and Block Registration
 

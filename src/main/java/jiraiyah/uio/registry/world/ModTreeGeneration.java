@@ -26,14 +26,39 @@ package jiraiyah.uio.registry.world;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModTreeGeneration` class is responsible for managing the registration
+ * and initialization of tree-related data within the mod. This class is part
+ * of the world generation registry and ensures that tree data is properly
+ * set up during the mod's initialization phase.
+ *
+ * <p>Note: This class cannot be instantiated as it is designed to be used
+ * statically.</p>
+ */
 public class ModTreeGeneration
 {
-    public ModTreeGeneration()
+    /**
+     * Constructs a new instance of `ModTreeGeneration`.
+     *
+     * <p>This constructor is package-private and throws an `AssertionError`
+     * to prevent instantiation of the class, as all functionality is intended
+     * to be accessed statically.</p>
+     *
+     * @throws AssertionError Always thrown to prevent instantiation.
+     */
+    ModTreeGeneration()
     {
         throw new AssertionError();
     }
 
-    public static void generate()
+    /**
+     * Initializes the tree data registration process.
+     *
+     * <p>This method logs a message indicating the start of the tree data
+     * registration. It should be called during the mod's initialization
+     * phase to ensure that all necessary tree data is registered correctly.</p>
+     */
+    public static void init()
     {
         log("Registering Tree Data");
     }

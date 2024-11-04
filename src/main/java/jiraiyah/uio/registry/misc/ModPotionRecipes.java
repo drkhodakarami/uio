@@ -26,13 +26,29 @@ package jiraiyah.uio.registry.misc;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModPotionRecipes` class is responsible for managing the registration
+ * of potion recipes within the application. This class is not intended to be
+ * instantiated, as it only provides static methods for initialization.
+ */
 public class ModPotionRecipes
 {
+    /**
+     * Constructs a new `ModPotionRecipes` instance. This constructor is private
+     * to prevent instantiation of the class, as it is designed to be used
+     * statically. An `AssertionError` is thrown if instantiation is attempted.
+     */
     ModPotionRecipes()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes the potion recipes by registering them within the application.
+     * This method logs the registration process for debugging purposes.
+     * It should be called during the application's startup sequence to ensure
+     * that all potion recipes are available for use.
+     */
     public static void init()
     {
         log("Registering Potion Recipes");

@@ -26,21 +26,41 @@ package jiraiyah.uio.registry.world;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The {@code ModWorldGeneration} class is responsible for coordinating the registration
+ * of various world generation features, such as geodes, ores, trees, flowers, and entity spawns.
+ * <p>
+ * This class is designed as a utility class and cannot be instantiated.
+ */
 public class ModWorldGeneration
 {
-    public ModWorldGeneration()
+    /**
+     * Private constructor to prevent instantiation of this utility class.
+     * <p>
+     * Throws an {@code AssertionError} if called, ensuring that the class
+     * is used only in a static context.
+     */
+    ModWorldGeneration()
     {
         throw new AssertionError();
     }
 
-    public static void register()
+    /**
+     * Initializes and registers all world generation features.
+     * <p>
+     * This method logs the registration process and invokes the generation
+     * methods from other classes to set up geodes, ores, trees, flowers,
+     * and entity spawns. It should be called during the initialization phase
+     * of the mod to ensure all features are properly registered.
+     */
+    public static void init()
     {
         log("Registering World Generation");
 
-        ModGeodeGeneration.generate();
-        ModOreGeneration.generate();
-        ModTreeGeneration.generate();
-        ModFlowerGeneration.generate();
+        ModGeodeGeneration.init();
+        ModOreGeneration.init();
+        ModTreeGeneration.init();
+        ModFlowerGeneration.init();
         ModEntitySpawns.addSpawns();
     }
 }

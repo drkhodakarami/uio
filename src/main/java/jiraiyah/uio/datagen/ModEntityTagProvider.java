@@ -34,13 +34,35 @@ import java.util.concurrent.CompletableFuture;
 import static jiraiyah.uio.Reference.Tags.Entity.*;
 import static jiraiyah.uio.Reference.logRGB256;
 
+/**
+ * The `ModEntityTagProvider` class is responsible for generating and configuring
+ * entity type tags for the mod. It extends the `FabricTagProvider.EntityTypeTagProvider`
+ * to utilize the data generation capabilities provided by the Fabric API.
+ * This class defines specific entity type tags such as blacklists and whitelists
+ * for various entities within the mod.
+ */
 public class ModEntityTagProvider extends FabricTagProvider.EntityTypeTagProvider
 {
+    /**
+     * Constructs a new instance of `ModEntityTagProvider`.
+     *
+     * @param output The `FabricDataOutput` instance used for data generation output.
+     * @param completableFuture A `CompletableFuture` that provides a `RegistryWrapper.WrapperLookup`
+     *                          for accessing registry data during tag configuration.
+     */
     public ModEntityTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture)
     {
         super(output, completableFuture);
     }
 
+    /**
+     * Configures the entity type tags by adding specific entities to predefined
+     * blacklists and whitelists. This method is called during the data generation
+     * process to populate the tags with the appropriate entities.
+     *
+     * @param arg A `RegistryWrapper.WrapperLookup` instance used to access registry
+     *            data for configuring the tags.
+     */
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg)
     {

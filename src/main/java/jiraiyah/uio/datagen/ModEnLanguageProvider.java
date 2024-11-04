@@ -38,18 +38,43 @@ import java.util.concurrent.CompletableFuture;
 
 import static jiraiyah.uio.Reference.*;
 
+/**
+ * The `ModEnLanguageProvider` class is responsible for providing English (US) language translations
+ * for various items, blocks, and other elements within the mod. It extends the `FabricLanguageProvider`
+ * to utilize the Fabric API's data generation capabilities.
+ */
 public class ModEnLanguageProvider extends FabricLanguageProvider
 {
+    /**
+     * Constructs a new `ModEnLanguageProvider` instance.
+     *
+     * @param dataOutput The `FabricDataOutput` instance used for data generation output.
+     * @param registryLookup A `CompletableFuture` that provides a `RegistryWrapper.WrapperLookup` for accessing registries.
+     */
     public ModEnLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup)
     {
         super(dataOutput, "en_us", registryLookup);
     }
 
+    /**
+     * Adds a translation entry to the provided `TranslationBuilder`.
+     *
+     * @param builder The `TranslationBuilder` used to add translation entries.
+     * @param text The `MutableText` whose translation key will be used.
+     * @param value The translation value to associate with the text's key.
+     */
     private static void addText(@NotNull TranslationBuilder builder, @NotNull MutableText text, @NotNull String value)
     {
         builder.add(((TranslatableTextContent) text.getContent()).getKey(), value);
     }
 
+    /**
+     * Generates translations for various mod items, blocks, and other elements.
+     * This method is overridden from the `FabricLanguageProvider` to provide specific translations.
+     *
+     * @param registryLookup The `RegistryWrapper.WrapperLookup` used to access registries.
+     * @param builder The `TranslationBuilder` used to add translation entries.
+     */
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder builder)
     {

@@ -28,9 +28,23 @@ import jiraiyah.uio.Reference.Tags;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
 
+/**
+ * The {@code ModToolMaterials} class is responsible for defining custom tool materials
+ * used within the mod. It initializes various tool materials with specific properties
+ * such as durability, mining speed, attack damage, and enchantability.
+ * <p>
+ * This class is not meant to be instantiated, as indicated by the private constructor
+ * that throws an {@code AssertionError}.
+ */
 public class ModToolMaterials
 {
-    public ModToolMaterials()
+    /**
+     * Private constructor to prevent instantiation of the {@code ModToolMaterials} class.
+     * <p>
+     * This constructor throws an {@code AssertionError} to ensure that the class is used
+     * only in a static context.
+     */
+    ModToolMaterials()
     {
         throw new AssertionError();
     }
@@ -42,6 +56,18 @@ public class ModToolMaterials
     //G: Attack Damage: Wood: 0.0f, Stone: 1.0f, Iron: 2.0f, Diamond: 3.0f, Gold: 0.0f, Netherite: 4.0f
     //J: Enchantability: Wood: 15, Stone: 5, Iron: 14, Diamond: 10, Gold: 22, Netherite: 15
     //Enchantability can't be 0 any more, take a look at Item Tag Provider Datagen
+    /**
+     * Initializes the custom tool materials with predefined properties.
+     * <p>
+     * Each tool material is defined with specific attributes:
+     * <ul>
+     *   <li>Durability: The number of uses before the tool breaks.</li>
+     *   <li>Mining Speed: The speed at which the tool can mine blocks.</li>
+     *   <li>Attack Damage: The damage dealt by the tool when used as a weapon.</li>
+     *   <li>Enchantability: The likelihood of receiving better enchantments.</li>
+     * </ul>
+     * The tool materials are associated with specific repair items using tags.
+     */
     public static void init()
     {
         CITRINE = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 1000, 10.0f, 3.0f, 22,

@@ -26,14 +26,29 @@ package jiraiyah.uio.registry.world;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModGeodeGeneration` class is responsible for managing the registration
+ * of geode-related data within the application. It uses the mod's
+ * logging mechanism to provide feedback during the initialization process.
+ */
 public class ModGeodeGeneration
 {
-    public ModGeodeGeneration()
+    /**
+     * Constructs a new instance of `ModGeodeGeneration`.
+     * This constructor is private to prevent instantiation of this utility class.
+     * An `AssertionError` is thrown if instantiation is attempted.
+     */
+    ModGeodeGeneration()
     {
         throw new AssertionError();
     }
 
-    public static void generate()
+    /**
+     * Initializes the geode data registration process.
+     * This method logs a message indicating the start of the registration
+     * process using the organization's logging mechanism.
+     */
+    public static void init()
     {
         log("Registering Geode Data");
     }

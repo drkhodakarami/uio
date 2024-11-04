@@ -34,15 +34,37 @@ import net.minecraft.registry.entry.RegistryEntry;
 import static jiraiyah.uio.Reference.identifier;
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The `ModEffects` class is responsible for registering custom status effects
+ * within the mod. It utilizes the Minecraft registry system to ensure that
+ * effects are properly registered and available for use in the game.
+ * <p>
+ * This class is not intended to be instantiated, as it serves a static utility
+ * role within the mod's architecture.
+ */
 public class ModEffects
 {
+    /**
+     * Private constructor to prevent instantiation of the `ModEffects` class.
+     * <p>
+     * This constructor throws an `AssertionError` if called, as the class is
+     * designed to be used in a static context only.
+     */
     ModEffects()
     {
         throw new AssertionError();
     }
 
+
     public static RegistryEntry<StatusEffect> FLIGHT_EFFECT;
 
+    /**
+     * Initializes and registers the custom status effects for the mod.
+     * <p>
+     * This method logs the registration process and registers the `FlightEffect`
+     * with the Minecraft registry system, associating it with a unique identifier.
+     * The effect is categorized as beneficial and is assigned a default color.
+     */
     public static void init()
     {
         log("Registering Effects");

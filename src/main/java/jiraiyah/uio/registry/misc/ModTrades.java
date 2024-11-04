@@ -26,13 +26,33 @@ package jiraiyah.uio.registry.misc;
 
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * The {@code ModTrades} class is responsible for managing and initializing
+ * custom trade registrations within the application. This class is not
+ * intended to be instantiated, as it only provides static methods for
+ * initialization purposes.
+ */
 public class ModTrades
 {
+    /**
+     * Constructs a new {@code ModTrades} instance.
+     * <p>
+     * This constructor is private to prevent instantiation of the class,
+     * as it is designed to be used statically. An {@code AssertionError}
+     * is thrown if instantiation is attempted.
+     */
     ModTrades()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes the custom trades by registering them with the system.
+     * <p>
+     * This method logs a message indicating the start of the registration
+     * process for custom trades. It utilizes the organization's logging
+     * mechanism to output the message.
+     */
     public static void init()
     {
         log("Registering Custom Trades");
