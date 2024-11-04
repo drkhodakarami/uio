@@ -35,7 +35,7 @@ import net.minecraft.data.client.*;
 import net.minecraft.item.Item;
 
 import static jiraiyah.uio.Reference.logRGB256;
-import static jiraiyah.uio.util.Registers.Datagen;
+import static jiraiyah.uio.util.registry.Registers.Datagen;
 
 public class ModModelProvider extends FabricModelProvider
 {
@@ -147,7 +147,7 @@ public class ModModelProvider extends FabricModelProvider
         generator.registerSimpleCubeAll(ModBlocks.CHUNK_BOMB_GOO);
         generator.registerSimpleCubeAll(ModBlocks.STONE_BOMB_GOO);
         //endregion
-       
+
         //region MACHINES
         generator.registerSimpleCubeAll(ModBlocks.ANGEL);
         generator.registerSimpleCubeAll(ModBlocks.CREATIVE_BANK);
@@ -481,33 +481,33 @@ public class ModModelProvider extends FabricModelProvider
         registerArmor(generator, ModItems.ARMOR_AMETHYST_LEGGINGS, ModArmorMaterials.AMETHYST, EquipmentSlot.LEGS, false);
         registerArmor(generator, ModItems.ARMOR_AMETHYST_BOOTS, ModArmorMaterials.AMETHYST, EquipmentSlot.FEET, false);*/
         Datagen.registerAllArmor(generator,
-                 new Item[]{ModItems.ARMOR_AMETHYST_HELMET, ModItems.ARMOR_AMETHYST_CHESTPLATE,
-                                    ModItems.ARMOR_AMETHYST_LEGGINGS, ModItems.ARMOR_AMETHYST_BOOTS},
-                 ModArmorMaterials.AMETHYST, false);
+                                 new Item[]{ModItems.ARMOR_AMETHYST_HELMET, ModItems.ARMOR_AMETHYST_CHESTPLATE,
+                                            ModItems.ARMOR_AMETHYST_LEGGINGS, ModItems.ARMOR_AMETHYST_BOOTS},
+                                 ModArmorMaterials.AMETHYST);
         Datagen.registerAllArmor(generator,
-                 new Item[]{ModItems.ARMOR_CITRINE_HELMET, ModItems.ARMOR_CITRINE_CHESTPLATE,
-                                    ModItems.ARMOR_CITRINE_LEGGINGS, ModItems.ARMOR_CITRINE_BOOTS},
-                 ModArmorMaterials.CITRINE, false);
+                                 new Item[]{ModItems.ARMOR_CITRINE_HELMET, ModItems.ARMOR_CITRINE_CHESTPLATE,
+                                            ModItems.ARMOR_CITRINE_LEGGINGS, ModItems.ARMOR_CITRINE_BOOTS},
+                                 ModArmorMaterials.CITRINE);
         Datagen.registerAllArmor(generator,
-             new Item[]{ModItems.ARMOR_COPPER_HELMET, ModItems.ARMOR_COPPER_CHESTPLATE,
-                                ModItems.ARMOR_COPPER_LEGGINGS, ModItems.ARMOR_COPPER_BOOTS},
-             ModArmorMaterials.COPPER, false);
+                                 new Item[]{ModItems.ARMOR_COPPER_HELMET, ModItems.ARMOR_COPPER_CHESTPLATE,
+                                            ModItems.ARMOR_COPPER_LEGGINGS, ModItems.ARMOR_COPPER_BOOTS},
+                                 ModArmorMaterials.COPPER);
         Datagen.registerAllArmor(generator,
-                 new Item[]{ModItems.ARMOR_EMERALD_HELMET, ModItems.ARMOR_EMERALD_CHESTPLATE,
-                                    ModItems.ARMOR_EMERALD_LEGGINGS, ModItems.ARMOR_EMERALD_BOOTS},
-                 ModArmorMaterials.EMERALD, false);
+                                 new Item[]{ModItems.ARMOR_EMERALD_HELMET, ModItems.ARMOR_EMERALD_CHESTPLATE,
+                                            ModItems.ARMOR_EMERALD_LEGGINGS, ModItems.ARMOR_EMERALD_BOOTS},
+                                 ModArmorMaterials.EMERALD);
         Datagen.registerAllArmor(generator,
-                 new Item[]{ModItems.ARMOR_ENDERITE_HELMET, ModItems.ARMOR_ENDERITE_CHESTPLATE,
-                                    ModItems.ARMOR_ENDERITE_LEGGINGS, ModItems.ARMOR_ENDERITE_BOOTS},
-                 ModArmorMaterials.ENDERITE, false);
+                                 new Item[]{ModItems.ARMOR_ENDERITE_HELMET, ModItems.ARMOR_ENDERITE_CHESTPLATE,
+                                            ModItems.ARMOR_ENDERITE_LEGGINGS, ModItems.ARMOR_ENDERITE_BOOTS},
+                                 ModArmorMaterials.ENDERITE);
         Datagen.registerAllArmor(generator,
-                 new Item[]{ModItems.ARMOR_RUBY_HELMET, ModItems.ARMOR_RUBY_CHESTPLATE,
-                                    ModItems.ARMOR_RUBY_LEGGINGS, ModItems.ARMOR_RUBY_BOOTS},
-                 ModArmorMaterials.RUBY, false);
+                                 new Item[]{ModItems.ARMOR_RUBY_HELMET, ModItems.ARMOR_RUBY_CHESTPLATE,
+                                            ModItems.ARMOR_RUBY_LEGGINGS, ModItems.ARMOR_RUBY_BOOTS},
+                                 ModArmorMaterials.RUBY);
         Datagen.registerAllArmor(generator,
-                 new Item[]{ModItems.ARMOR_SAPPHIRE_HELMET, ModItems.ARMOR_SAPPHIRE_CHESTPLATE,
-                                    ModItems.ARMOR_SAPPHIRE_LEGGINGS, ModItems.ARMOR_SAPPHIRE_BOOTS},
-                 ModArmorMaterials.SAPPHIRE, false);
+                                 new Item[]{ModItems.ARMOR_SAPPHIRE_HELMET, ModItems.ARMOR_SAPPHIRE_CHESTPLATE,
+                                            ModItems.ARMOR_SAPPHIRE_LEGGINGS, ModItems.ARMOR_SAPPHIRE_BOOTS},
+                                 ModArmorMaterials.SAPPHIRE);
         //endregion
     }
 }

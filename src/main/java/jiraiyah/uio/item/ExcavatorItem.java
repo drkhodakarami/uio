@@ -1,3 +1,27 @@
+/***********************************************************************************
+ * Copyright (c) 2024 Alireza Khodakarami (Jiraiyah)                               *
+ * ------------------------------------------------------------------------------- *
+ * MIT License                                                                     *
+ * =============================================================================== *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy    *
+ * of this software and associated documentation files (the "Software"), to deal   *
+ * in the Software without restriction, including without limitation the rights    *
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell       *
+ * copies of the Software, and to permit persons to whom the Software is           *
+ * furnished to do so, subject to the following conditions:                        *
+ * ------------------------------------------------------------------------------- *
+ * The above copyright notice and this permission notice shall be included in all  *
+ * copies or substantial portions of the Software.                                 *
+ * ------------------------------------------------------------------------------- *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR      *
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,        *
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE     *
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER          *
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,   *
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE   *
+ * SOFTWARE.                                                                       *
+ ***********************************************************************************/
+
 package jiraiyah.uio.item;
 
 import jiraiyah.uio.Configs;
@@ -58,18 +82,18 @@ public class ExcavatorItem extends MiningToolItem
 
         HitResult hit = player.raycast(Configs.EXCAVATOR_MAX_DISTANCE, 0, false);
 
-        if(hit.getType() != HitResult.Type.BLOCK)
+        if (hit.getType() != HitResult.Type.BLOCK)
             return positions;
 
-        BlockHitResult block = (BlockHitResult)hit;
+        BlockHitResult block = (BlockHitResult) hit;
 
-        if(block.getSide() == Direction.DOWN || block.getSide() == Direction.UP)
+        if (block.getSide() == Direction.DOWN || block.getSide() == Direction.UP)
         {
-            for(int x = -radius; x <= radius; x++)
+            for (int x = -radius; x <= radius; x++)
             {
-                for(int z = -radius; z <= radius; z++)
+                for (int z = -radius; z <= radius; z++)
                 {
-                    for(int y = 0; y <= depth; y++)
+                    for (int y = 0; y <= depth; y++)
                     {
                         positions.add(new BlockPos(initialPos.getX() + x,
                                                    initialPos.getY() + (block.getSide() == Direction.DOWN ? y : -y),
@@ -79,13 +103,13 @@ public class ExcavatorItem extends MiningToolItem
             }
         }
 
-        if( block.getSide() == Direction.NORTH || block.getSide() == Direction.SOUTH)
+        if (block.getSide() == Direction.NORTH || block.getSide() == Direction.SOUTH)
         {
-            for(int x = -radius; x <= radius; x++)
+            for (int x = -radius; x <= radius; x++)
             {
-                for(int y = -radius; y <= radius; y++)
+                for (int y = -radius; y <= radius; y++)
                 {
-                    for(int z = 0; z <= depth; z++)
+                    for (int z = 0; z <= depth; z++)
                     {
                         positions.add(new BlockPos(initialPos.getX() + x,
                                                    initialPos.getY() + y,
@@ -95,13 +119,13 @@ public class ExcavatorItem extends MiningToolItem
             }
         }
 
-        if( block.getSide() == Direction.EAST || block.getSide() == Direction.WEST)
+        if (block.getSide() == Direction.EAST || block.getSide() == Direction.WEST)
         {
-            for(int z = -radius; z <= radius; z++)
+            for (int z = -radius; z <= radius; z++)
             {
-                for(int y = -radius; y <= radius; y++)
+                for (int y = -radius; y <= radius; y++)
                 {
-                    for(int x = 0; x <= depth; x++)
+                    for (int x = 0; x <= depth; x++)
                     {
                         positions.add(new BlockPos(initialPos.getX() + (block.getSide() == Direction.WEST ? x : -x),
                                                    initialPos.getY() + y,

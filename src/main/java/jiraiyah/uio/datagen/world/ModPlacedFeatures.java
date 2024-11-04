@@ -75,71 +75,71 @@ public class ModPlacedFeatures
         //region OVERWORLD
         register(context, ORE_CITRINE_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_CITRINE_KEY),
                  ModOrePlacement.modifiersWithCount(5, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(64))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(64))));
 
         register(context, ORE_RUBY_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_RUBY_KEY),
                  ModOrePlacement.modifiersWithCount(5, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(64))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(64))));
 
         register(context, ORE_SAPPHIRE_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_SAPPHIRE_KEY),
                  ModOrePlacement.modifiersWithCount(5, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(64))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(4), YOffset.aboveBottom(64))));
         //endregion
 
         //region NETHER
         register(context, ORE_NETHER_CITRINE_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_NETHER_CITRINE_KEY),
                  ModOrePlacement.modifiersWithCount(6, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
 
         register(context, ORE_NETHER_RUBY_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_NETHER_RUBY_KEY),
                  ModOrePlacement.modifiersWithCount(6, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
 
         register(context, ORE_NETHER_SAPPHIRE_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_NETHER_SAPPHIRE_KEY),
                  ModOrePlacement.modifiersWithCount(6, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
 
         register(context, ORE_NETHER_COAL_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_NETHER_COAL_KEY),
                  ModOrePlacement.modifiersWithCount(16, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
 
         register(context, ORE_NETHER_COPPER_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_NETHER_COPPER_KEY),
                  ModOrePlacement.modifiersWithCount(10, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
 
         register(context, ORE_NETHER_DIAMOND_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_NETHER_DIAMOND_KEY),
                  ModOrePlacement.modifiersWithCount(4, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.aboveBottom(42))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.aboveBottom(42))));
 
         register(context, ORE_NETHER_IRON_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_NETHER_IRON_KEY),
                  ModOrePlacement.modifiersWithCount(14, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
 
         register(context, ORE_NETHER_LAPIS_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_NETHER_LAPIS_KEY),
                  ModOrePlacement.modifiersWithCount(10, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
 
         register(context, ORE_NETHER_REDSTONE_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_NETHER_REDSTONE_KEY),
                  ModOrePlacement.modifiersWithCount(10, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.aboveBottom(32), YOffset.belowTop(5))));
         //endregion
 
         //region END
         register(context, ORE_END_CITRINE_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_END_CITRINE_KEY),
                  ModOrePlacement.modifiersWithCount(3, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.fixed(50), YOffset.fixed(65))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.fixed(50), YOffset.fixed(65))));
 
         register(context, ORE_END_RUBY_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_END_RUBY_KEY),
                  ModOrePlacement.modifiersWithCount(3, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.fixed(50), YOffset.fixed(65))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.fixed(50), YOffset.fixed(65))));
 
         register(context, ORE_END_SAPPHIRE_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_END_SAPPHIRE_KEY),
                  ModOrePlacement.modifiersWithCount(3, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.fixed(50), YOffset.fixed(65))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.fixed(50), YOffset.fixed(65))));
 
         register(context, ORE_END_ENDERITE_PLACED_KEY, lookup.getOrThrow(ModConfiguredFeatures.ORE_END_ENDERITE_KEY),
                  ModOrePlacement.modifiersWithCount(3, // Veins per chunk
-                                                     HeightRangePlacementModifier.uniform(YOffset.fixed(50), YOffset.fixed(65))));
+                                                    HeightRangePlacementModifier.uniform(YOffset.fixed(50), YOffset.fixed(65))));
         //endregion
     }
 

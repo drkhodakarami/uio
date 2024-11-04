@@ -36,8 +36,18 @@ import net.minecraft.registry.RegistryKeys;
 import static jiraiyah.uio.Reference.logBackRGB256;
 import static jiraiyah.uio.Reference.logRGB256;
 
+/**
+ * The DataGen class implements the DataGeneratorEntrypoint interface,
+ * providing the entry point for generating data packs for the mod.
+ */
 public class DataGen implements DataGeneratorEntrypoint
 {
+    /**
+     * Initializes the data generator, setting up various data providers
+     * and logging the beginning of the data generation process.
+     *
+     * @param fabricDataGenerator the FabricDataGenerator instance used for data generation
+     */
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator)
     {
@@ -55,6 +65,17 @@ public class DataGen implements DataGeneratorEntrypoint
         pack.addProvider(ModEnLanguageProvider::new);
     }
 
+    /**
+     * Builds the registry for configured and placed features.
+     * <p>
+     * This method is responsible for registering data generation features
+     * to the provided {@link RegistryBuilder}. It adds the necessary
+     * configured and placed features, allowing them to be used within
+     * the game's world generation.
+     *
+     * @param registryBuilder The {@link RegistryBuilder} instance used
+     *                        to register the configured and placed features.
+     */
     @Override
     public void buildRegistry(RegistryBuilder registryBuilder)
     {

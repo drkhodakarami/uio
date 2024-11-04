@@ -1,8 +1,33 @@
+/***********************************************************************************
+ * Copyright (c) 2024 Alireza Khodakarami (Jiraiyah)                               *
+ * ------------------------------------------------------------------------------- *
+ * MIT License                                                                     *
+ * =============================================================================== *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy    *
+ * of this software and associated documentation files (the "Software"), to deal   *
+ * in the Software without restriction, including without limitation the rights    *
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell       *
+ * copies of the Software, and to permit persons to whom the Software is           *
+ * furnished to do so, subject to the following conditions:                        *
+ * ------------------------------------------------------------------------------- *
+ * The above copyright notice and this permission notice shall be included in all  *
+ * copies or substantial portions of the Software.                                 *
+ * ------------------------------------------------------------------------------- *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR      *
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,        *
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE     *
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER          *
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,   *
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE   *
+ * SOFTWARE.                                                                       *
+ ***********************************************************************************/
+
 package jiraiyah.uio.block.base;
 
 import com.mojang.serialization.MapCodec;
 import jiraiyah.uio.registry.ModItems;
 import jiraiyah.uio.util.block.abstracts.base.AbstractActivatableBlock;
+import jiraiyah.uio.util.blockentity.ITickBE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -45,27 +70,27 @@ public abstract class GooBase extends AbstractActivatableBlock implements BlockE
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit)
     {
-        if(!stack.isOf(ModItems.ROD_COPPER))
+        if (!stack.isOf(ModItems.ROD_COPPER))
             return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
         world.setBlockState(pos, state.with(ACTIVATED, true), Block.NOTIFY_ALL);
         player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
         world.playSound(player, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.2F, world.getRandom().nextFloat() * 0.6F + 0.8F);
-        if(!player.isCreative())
+        if (!player.isCreative())
             stack.decrement(1);
         return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
     }
 
     @Override
-    protected boolean onSyncedBlockEvent(BlockState state, World world, BlockPos pos, int type, int data) {
+    protected boolean onSyncedBlockEvent(BlockState state, World world, BlockPos pos, int type, int data)
+    {
         super.onSyncedBlockEvent(state, world, pos, type, data);
         BlockEntity blockEntity = world.getBlockEntity(pos);
         return blockEntity != null && blockEntity.onSyncedBlockEvent(type, data);
     }
 
-    @Nullable
-    protected static <E extends BlockEntity, A extends BlockEntity> BlockEntityTicker<A> validateTicker(
-            BlockEntityType<A> givenType, BlockEntityType<E> expectedType, BlockEntityTicker<A> ticker)
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type)
     {
-        return expectedType == givenType ? ticker : null;
+        return ITickBE.createTicker(world);
     }
 }

@@ -94,101 +94,101 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 //endregion
                 //region MAIN TOOLS
                 createShaped(RecipeCategory.TOOLS, ModItems.BACKPACK, 1)
-                                       .pattern("LLL")
-                                       .pattern("LCL")
-                                       .pattern("LLL")
-                                       .input('C', Items.CHEST)
-                                       .input('L', Items.LEATHER)
-                                       .criterion(hasItem(Items.CHEST), conditionsFromItem(Items.CHEST))
-                                       .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
-                                       .offerTo(exporter, getRecipeName(ModItems.BACKPACK));
+                        .pattern("LLL")
+                        .pattern("LCL")
+                        .pattern("LLL")
+                        .input('C', Items.CHEST)
+                        .input('L', Items.LEATHER)
+                        .criterion(hasItem(Items.CHEST), conditionsFromItem(Items.CHEST))
+                        .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
+                        .offerTo(exporter, getRecipeName(ModItems.BACKPACK));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.ENDER_BACKPACK, 1)
-                                       .pattern(" L ")
-                                       .pattern("LCL")
-                                       .pattern(" L ")
-                                       .input('C', ModItems.BACKPACK)
-                                       .input('L', ModItems.INGOT_ENDERITE)
-                                       .criterion(hasItem(ModItems.BACKPACK), conditionsFromItem(ModItems.BACKPACK))
-                                       .criterion(hasItem(ModItems.INGOT_ENDERITE), conditionsFromItem(ModItems.INGOT_ENDERITE))
-                                       .offerTo(exporter, getRecipeName(ModItems.ENDER_BACKPACK));
+                        .pattern(" L ")
+                        .pattern("LCL")
+                        .pattern(" L ")
+                        .input('C', ModItems.BACKPACK)
+                        .input('L', ModItems.INGOT_ENDERITE)
+                        .criterion(hasItem(ModItems.BACKPACK), conditionsFromItem(ModItems.BACKPACK))
+                        .criterion(hasItem(ModItems.INGOT_ENDERITE), conditionsFromItem(ModItems.INGOT_ENDERITE))
+                        .offerTo(exporter, getRecipeName(ModItems.ENDER_BACKPACK));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.PLAYER_TELEPORT, 1)
-                                       .pattern("PEP")
-                                       .pattern("DCD")
-                                       .pattern("GGG")
-                                       .input('P', Items.ENDER_PEARL)
-                                       .input('E', Items.ENDER_EYE)
-                                       .input('C', Items.COMPASS)
-                                       .input('D', ModItems.REINFORCED_DIAMOND)
-                                       .input('G', ModItems.REINFORCED_GOLD)
-                                       .criterion(hasItem(Items.COMPASS), conditionsFromItem(Items.COMPASS))
-                                       .criterion(hasItem(Items.ENDER_EYE), conditionsFromItem(Items.ENDER_EYE))
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .criterion(hasItem(ModItems.REINFORCED_DIAMOND), conditionsFromItem(ModItems.REINFORCED_DIAMOND))
-                                       .criterion(hasItem(ModItems.REINFORCED_GOLD), conditionsFromItem(ModItems.REINFORCED_GOLD))
-                                       .offerTo(exporter, getRecipeName(ModItems.PLAYER_TELEPORT));
+                        .pattern("PEP")
+                        .pattern("DCD")
+                        .pattern("GGG")
+                        .input('P', Items.ENDER_PEARL)
+                        .input('E', Items.ENDER_EYE)
+                        .input('C', Items.COMPASS)
+                        .input('D', ModItems.REINFORCED_DIAMOND)
+                        .input('G', ModItems.REINFORCED_GOLD)
+                        .criterion(hasItem(Items.COMPASS), conditionsFromItem(Items.COMPASS))
+                        .criterion(hasItem(Items.ENDER_EYE), conditionsFromItem(Items.ENDER_EYE))
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion(hasItem(ModItems.REINFORCED_DIAMOND), conditionsFromItem(ModItems.REINFORCED_DIAMOND))
+                        .criterion(hasItem(ModItems.REINFORCED_GOLD), conditionsFromItem(ModItems.REINFORCED_GOLD))
+                        .offerTo(exporter, getRecipeName(ModItems.PLAYER_TELEPORT));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TUNER, 1)
-                                       .pattern("P P")
-                                       .pattern("IEI")
-                                       .pattern(" I ")
-                                       .input('P', Items.ENDER_PEARL)
-                                       .input('E', Items.ENDER_EYE)
-                                       .input('I', ModItems.ROD_IRON)
-                                       .criterion(hasItem(Items.ENDER_EYE), conditionsFromItem(Items.ENDER_EYE))
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .criterion(hasItem(ModItems.ROD_IRON), conditionsFromItem(ModItems.ROD_IRON))
-                                       .offerTo(exporter, getRecipeName(ModItems.TUNER));
+                        .pattern("P P")
+                        .pattern("IEI")
+                        .pattern(" I ")
+                        .input('P', Items.ENDER_PEARL)
+                        .input('E', Items.ENDER_EYE)
+                        .input('I', ModItems.ROD_IRON)
+                        .criterion(hasItem(Items.ENDER_EYE), conditionsFromItem(Items.ENDER_EYE))
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion(hasItem(ModItems.ROD_IRON), conditionsFromItem(ModItems.ROD_IRON))
+                        .offerTo(exporter, getRecipeName(ModItems.TUNER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.ADVANCED_TUNER, 1)
-                                       .pattern("PIP")
-                                       .pattern("IEI")
-                                       .pattern("PIP")
-                                       .input('I', ModItems.ENDER_CHARM)
-                                       .input('E', ModItems.TUNER)
-                                       .input('P', ModItems.HOT_COAL)
-                                       .criterion(hasItem(ModItems.TUNER), conditionsFromItem(ModItems.TUNER))
-                                       .criterion(hasItem(ModItems.ENDER_CHARM), conditionsFromItem(ModItems.ENDER_CHARM))
-                                       .criterion(hasItem(ModItems.HOT_COAL), conditionsFromItem(ModItems.HOT_COAL))
-                                       .offerTo(exporter, getRecipeName(ModItems.ADVANCED_TUNER));
+                        .pattern("PIP")
+                        .pattern("IEI")
+                        .pattern("PIP")
+                        .input('I', ModItems.ENDER_CHARM)
+                        .input('E', ModItems.TUNER)
+                        .input('P', ModItems.HOT_COAL)
+                        .criterion(hasItem(ModItems.TUNER), conditionsFromItem(ModItems.TUNER))
+                        .criterion(hasItem(ModItems.ENDER_CHARM), conditionsFromItem(ModItems.ENDER_CHARM))
+                        .criterion(hasItem(ModItems.HOT_COAL), conditionsFromItem(ModItems.HOT_COAL))
+                        .offerTo(exporter, getRecipeName(ModItems.ADVANCED_TUNER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.WRENCH, 1)
-                                       .pattern("O O")
-                                       .pattern(" O ")
-                                       .pattern(" I ")
-                                       .input('O', ModItems.ROD_OBSIDIAN)
-                                       .input('I', ModItems.ROD_IRON)
-                                       .criterion(hasItem(ModItems.ROD_IRON), conditionsFromItem(ModItems.ROD_IRON))
-                                       .criterion(hasItem(ModItems.ROD_OBSIDIAN), conditionsFromItem(ModItems.ROD_OBSIDIAN))
-                                       .offerTo(exporter, getRecipeName(ModItems.WRENCH));
+                        .pattern("O O")
+                        .pattern(" O ")
+                        .pattern(" I ")
+                        .input('O', ModItems.ROD_OBSIDIAN)
+                        .input('I', ModItems.ROD_IRON)
+                        .criterion(hasItem(ModItems.ROD_IRON), conditionsFromItem(ModItems.ROD_IRON))
+                        .criterion(hasItem(ModItems.ROD_OBSIDIAN), conditionsFromItem(ModItems.ROD_OBSIDIAN))
+                        .offerTo(exporter, getRecipeName(ModItems.WRENCH));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.CHALICE_EMPTY, 1)
-                                       .pattern("GEG")
-                                       .pattern(" R ")
-                                       .pattern("GGG")
-                                       .input('G', ModItems.PLATE_GOLD)
-                                       .input('R', ModItems.ROD_GOLD)
-                                       .input('E', Items.ENDER_PEARL)
-                                       .criterion(hasItem(ModItems.ROD_GOLD), conditionsFromItem(ModItems.ROD_GOLD))
-                                       .criterion(hasItem(ModItems.PLATE_GOLD), conditionsFromItem(ModItems.PLATE_GOLD))
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .offerTo(exporter, getRecipeName(ModItems.CHALICE_EMPTY));
+                        .pattern("GEG")
+                        .pattern(" R ")
+                        .pattern("GGG")
+                        .input('G', ModItems.PLATE_GOLD)
+                        .input('R', ModItems.ROD_GOLD)
+                        .input('E', Items.ENDER_PEARL)
+                        .criterion(hasItem(ModItems.ROD_GOLD), conditionsFromItem(ModItems.ROD_GOLD))
+                        .criterion(hasItem(ModItems.PLATE_GOLD), conditionsFromItem(ModItems.PLATE_GOLD))
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .offerTo(exporter, getRecipeName(ModItems.CHALICE_EMPTY));
 
                 createShapeless(RecipeCategory.MISC, ModItems.CHALICE, 1)
-                                          .input(Items.WATER_BUCKET)
-                                          .input(ModItems.CHALICE_EMPTY)
-                                          .criterion(hasItem(Items.WATER_BUCKET), conditionsFromItem(Items.WATER_BUCKET))
-                                          .criterion(hasItem(ModItems.CHALICE_EMPTY), conditionsFromItem(ModItems.CHALICE_EMPTY))
-                                          .offerTo(exporter, getRecipeName(ModItems.CHALICE) + "_shapeless");
+                        .input(Items.WATER_BUCKET)
+                        .input(ModItems.CHALICE_EMPTY)
+                        .criterion(hasItem(Items.WATER_BUCKET), conditionsFromItem(Items.WATER_BUCKET))
+                        .criterion(hasItem(ModItems.CHALICE_EMPTY), conditionsFromItem(ModItems.CHALICE_EMPTY))
+                        .offerTo(exporter, getRecipeName(ModItems.CHALICE) + "_shapeless");
                 //endregion
                 //region VANILLA
                 createShapeless(RecipeCategory.MISC, Items.NAME_TAG, 1)
-                                          .input(Items.PAPER)
-                                          .input(ModItems.ROD_IRON)
-                                          .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
-                                          .criterion(hasItem(ModItems.ROD_IRON), conditionsFromItem(ModItems.ROD_IRON))
-                                          .offerTo(exporter, getRecipeName(Items.NAME_TAG) + "_shapeless");
+                        .input(Items.PAPER)
+                        .input(ModItems.ROD_IRON)
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .criterion(hasItem(ModItems.ROD_IRON), conditionsFromItem(ModItems.ROD_IRON))
+                        .offerTo(exporter, getRecipeName(Items.NAME_TAG) + "_shapeless");
                 //endregion
                 //region STAIRS
                 offerStonecuttingRecipe(RecipeCategory.DECORATIONS, ModBlocks.CITRINE_STAIRS, ModBlocks.CITRINE, 9);
@@ -264,1037 +264,1037 @@ public class ModRecipeProvider extends FabricRecipeProvider
                 //endregion
                 //region BUTTON
                 createShapeless(RecipeCategory.REDSTONE, ModBlocks.CITRINE_BUTTON, 1)
-                                          .input(ModItems.GEM_CITRINE)
-                                          .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
-                                          .offerTo(exporter, getRecipeName(ModBlocks.CITRINE_BUTTON) + "_shapeless");
+                        .input(ModItems.GEM_CITRINE)
+                        .criterion(hasItem(ModItems.GEM_CITRINE), conditionsFromItem(ModItems.GEM_CITRINE))
+                        .offerTo(exporter, getRecipeName(ModBlocks.CITRINE_BUTTON) + "_shapeless");
                 createShapeless(RecipeCategory.REDSTONE, ModBlocks.ENDERITE_BUTTON, 1)
-                                          .input(ModItems.INGOT_ENDERITE)
-                                          .criterion(hasItem(ModItems.INGOT_ENDERITE), conditionsFromItem(ModItems.INGOT_ENDERITE))
-                                          .offerTo(exporter, getRecipeName(ModBlocks.ENDERITE_BUTTON) + "_shapeless");
+                        .input(ModItems.INGOT_ENDERITE)
+                        .criterion(hasItem(ModItems.INGOT_ENDERITE), conditionsFromItem(ModItems.INGOT_ENDERITE))
+                        .offerTo(exporter, getRecipeName(ModBlocks.ENDERITE_BUTTON) + "_shapeless");
                 createShapeless(RecipeCategory.REDSTONE, ModBlocks.RUBY_BUTTON, 1)
-                                          .input(ModItems.GEM_RUBY)
-                                          .criterion(hasItem(ModItems.GEM_RUBY), conditionsFromItem(ModItems.GEM_RUBY))
-                                          .offerTo(exporter, getRecipeName(ModBlocks.RUBY_BUTTON) + "_shapeless");
+                        .input(ModItems.GEM_RUBY)
+                        .criterion(hasItem(ModItems.GEM_RUBY), conditionsFromItem(ModItems.GEM_RUBY))
+                        .offerTo(exporter, getRecipeName(ModBlocks.RUBY_BUTTON) + "_shapeless");
                 createShapeless(RecipeCategory.REDSTONE, ModBlocks.SAPPHIRE_BUTTON, 1)
-                                          .input(ModItems.GEM_SAPPHIRE)
-                                          .criterion(hasItem(ModItems.GEM_SAPPHIRE), conditionsFromItem(ModItems.GEM_SAPPHIRE))
-                                          .offerTo(exporter, getRecipeName(ModBlocks.SAPPHIRE_BUTTON) + "_shapeless");
+                        .input(ModItems.GEM_SAPPHIRE)
+                        .criterion(hasItem(ModItems.GEM_SAPPHIRE), conditionsFromItem(ModItems.GEM_SAPPHIRE))
+                        .offerTo(exporter, getRecipeName(ModBlocks.SAPPHIRE_BUTTON) + "_shapeless");
                 //endregion
                 //region CITRINE TOOLS
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_AXE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_CITRINE_AXE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_CITRINE_AXE),
-                                                  conditionsFromItem(ModItems.HEAD_CITRINE_AXE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_AXE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_CITRINE_AXE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_CITRINE_AXE),
+                                   conditionsFromItem(ModItems.HEAD_CITRINE_AXE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_AXE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_EXCAVATOR, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_CITRINE_EXCAVATOR)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_CITRINE_EXCAVATOR),
-                                                  conditionsFromItem(ModItems.HEAD_CITRINE_EXCAVATOR))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_EXCAVATOR));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_CITRINE_EXCAVATOR)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_CITRINE_EXCAVATOR),
+                                   conditionsFromItem(ModItems.HEAD_CITRINE_EXCAVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_EXCAVATOR));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_HAMMER, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_CITRINE_HAMMER)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_CITRINE_HAMMER),
-                                                  conditionsFromItem(ModItems.HEAD_CITRINE_HAMMER))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_HAMMER));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_CITRINE_HAMMER)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_CITRINE_HAMMER),
+                                   conditionsFromItem(ModItems.HEAD_CITRINE_HAMMER))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_HAMMER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_HOE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_CITRINE_HOE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_CITRINE_HOE),
-                                                  conditionsFromItem(ModItems.HEAD_CITRINE_HOE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_HOE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_CITRINE_HOE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_CITRINE_HOE),
+                                   conditionsFromItem(ModItems.HEAD_CITRINE_HOE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_HOE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_PICKAXE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_CITRINE_PICKAXE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_CITRINE_PICKAXE),
-                                                  conditionsFromItem(ModItems.HEAD_CITRINE_PICKAXE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_PICKAXE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_CITRINE_PICKAXE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_CITRINE_PICKAXE),
+                                   conditionsFromItem(ModItems.HEAD_CITRINE_PICKAXE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_PICKAXE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_SHOVEL, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_CITRINE_SHOVEL)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_CITRINE_SHOVEL),
-                                                  conditionsFromItem(ModItems.HEAD_CITRINE_SHOVEL))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_SHOVEL));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_CITRINE_SHOVEL)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_CITRINE_SHOVEL),
+                                   conditionsFromItem(ModItems.HEAD_CITRINE_SHOVEL))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_SHOVEL));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_CITRINE_SWORD, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_CITRINE_SWORD)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_CITRINE_SWORD),
-                                                  conditionsFromItem(ModItems.HEAD_CITRINE_SWORD))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_SWORD));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_CITRINE_SWORD)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_CITRINE_SWORD),
+                                   conditionsFromItem(ModItems.HEAD_CITRINE_SWORD))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_CITRINE_SWORD));
                 //endregion
                 //region COPPER TOOLS
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_AXE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_COPPER_AXE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_COPPER_AXE),
-                                                  conditionsFromItem(ModItems.HEAD_COPPER_AXE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_AXE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_COPPER_AXE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_COPPER_AXE),
+                                   conditionsFromItem(ModItems.HEAD_COPPER_AXE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_AXE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_EXCAVATOR, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_COPPER_EXCAVATOR)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_COPPER_EXCAVATOR),
-                                                  conditionsFromItem(ModItems.HEAD_COPPER_EXCAVATOR))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_EXCAVATOR));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_COPPER_EXCAVATOR)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_COPPER_EXCAVATOR),
+                                   conditionsFromItem(ModItems.HEAD_COPPER_EXCAVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_EXCAVATOR));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_HAMMER, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_COPPER_HAMMER)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_COPPER_HAMMER),
-                                                  conditionsFromItem(ModItems.HEAD_COPPER_HAMMER))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_HAMMER));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_COPPER_HAMMER)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_COPPER_HAMMER),
+                                   conditionsFromItem(ModItems.HEAD_COPPER_HAMMER))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_HAMMER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_HOE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_COPPER_HOE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_COPPER_HOE),
-                                                  conditionsFromItem(ModItems.HEAD_COPPER_HOE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_HOE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_COPPER_HOE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_COPPER_HOE),
+                                   conditionsFromItem(ModItems.HEAD_COPPER_HOE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_HOE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_PICKAXE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_COPPER_PICKAXE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_COPPER_PICKAXE),
-                                                  conditionsFromItem(ModItems.HEAD_COPPER_PICKAXE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_PICKAXE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_COPPER_PICKAXE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_COPPER_PICKAXE),
+                                   conditionsFromItem(ModItems.HEAD_COPPER_PICKAXE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_PICKAXE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_SHOVEL, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_COPPER_SHOVEL)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_COPPER_SHOVEL),
-                                                  conditionsFromItem(ModItems.HEAD_COPPER_SHOVEL))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_SHOVEL));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_COPPER_SHOVEL)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_COPPER_SHOVEL),
+                                   conditionsFromItem(ModItems.HEAD_COPPER_SHOVEL))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_SHOVEL));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_COPPER_SWORD, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_COPPER_SWORD)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_COPPER_SWORD),
-                                                  conditionsFromItem(ModItems.HEAD_COPPER_SWORD))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_SWORD));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_COPPER_SWORD)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_COPPER_SWORD),
+                                   conditionsFromItem(ModItems.HEAD_COPPER_SWORD))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_COPPER_SWORD));
                 //endregion
                 //region ENDERITE TOOLS
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_AXE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_ENDERITE_AXE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_ENDERITE_AXE),
-                                                  conditionsFromItem(ModItems.HEAD_ENDERITE_AXE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_AXE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_ENDERITE_AXE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_ENDERITE_AXE),
+                                   conditionsFromItem(ModItems.HEAD_ENDERITE_AXE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_AXE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_EXCAVATOR, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_ENDERITE_EXCAVATOR)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_ENDERITE_EXCAVATOR),
-                                                  conditionsFromItem(ModItems.HEAD_ENDERITE_EXCAVATOR))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_EXCAVATOR));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_ENDERITE_EXCAVATOR)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_ENDERITE_EXCAVATOR),
+                                   conditionsFromItem(ModItems.HEAD_ENDERITE_EXCAVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_EXCAVATOR));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_HAMMER, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_ENDERITE_HAMMER)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_ENDERITE_HAMMER),
-                                                  conditionsFromItem(ModItems.HEAD_ENDERITE_HAMMER))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_HAMMER));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_ENDERITE_HAMMER)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_ENDERITE_HAMMER),
+                                   conditionsFromItem(ModItems.HEAD_ENDERITE_HAMMER))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_HAMMER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_HOE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_ENDERITE_HOE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_ENDERITE_HOE),
-                                                  conditionsFromItem(ModItems.HEAD_ENDERITE_HOE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_HOE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_ENDERITE_HOE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_ENDERITE_HOE),
+                                   conditionsFromItem(ModItems.HEAD_ENDERITE_HOE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_HOE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_PICKAXE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_ENDERITE_PICKAXE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_ENDERITE_PICKAXE),
-                                                  conditionsFromItem(ModItems.HEAD_ENDERITE_PICKAXE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_PICKAXE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_ENDERITE_PICKAXE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_ENDERITE_PICKAXE),
+                                   conditionsFromItem(ModItems.HEAD_ENDERITE_PICKAXE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_PICKAXE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_SHOVEL, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_ENDERITE_SHOVEL)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_ENDERITE_SHOVEL),
-                                                  conditionsFromItem(ModItems.HEAD_ENDERITE_SHOVEL))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_SHOVEL));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_ENDERITE_SHOVEL)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_ENDERITE_SHOVEL),
+                                   conditionsFromItem(ModItems.HEAD_ENDERITE_SHOVEL))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_SHOVEL));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_ENDERITE_SWORD, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_ENDERITE_SWORD)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_ENDERITE_SWORD),
-                                                  conditionsFromItem(ModItems.HEAD_ENDERITE_SWORD))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_SWORD));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_ENDERITE_SWORD)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_ENDERITE_SWORD),
+                                   conditionsFromItem(ModItems.HEAD_ENDERITE_SWORD))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_ENDERITE_SWORD));
                 //endregion
                 //region RUBY TOOLS
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_AXE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_RUBY_AXE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_RUBY_AXE),
-                                                  conditionsFromItem(ModItems.HEAD_RUBY_AXE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_AXE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_RUBY_AXE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_RUBY_AXE),
+                                   conditionsFromItem(ModItems.HEAD_RUBY_AXE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_AXE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_EXCAVATOR, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_RUBY_EXCAVATOR)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_RUBY_EXCAVATOR),
-                                                  conditionsFromItem(ModItems.HEAD_RUBY_EXCAVATOR))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_EXCAVATOR));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_RUBY_EXCAVATOR)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_RUBY_EXCAVATOR),
+                                   conditionsFromItem(ModItems.HEAD_RUBY_EXCAVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_EXCAVATOR));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_HAMMER, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_RUBY_HAMMER)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_RUBY_HAMMER),
-                                                  conditionsFromItem(ModItems.HEAD_RUBY_HAMMER))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_HAMMER));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_RUBY_HAMMER)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_RUBY_HAMMER),
+                                   conditionsFromItem(ModItems.HEAD_RUBY_HAMMER))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_HAMMER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_HOE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_RUBY_HOE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_RUBY_HOE),
-                                                  conditionsFromItem(ModItems.HEAD_RUBY_HOE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_HOE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_RUBY_HOE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_RUBY_HOE),
+                                   conditionsFromItem(ModItems.HEAD_RUBY_HOE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_HOE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_PICKAXE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_RUBY_PICKAXE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_RUBY_PICKAXE),
-                                                  conditionsFromItem(ModItems.HEAD_RUBY_PICKAXE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_PICKAXE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_RUBY_PICKAXE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_RUBY_PICKAXE),
+                                   conditionsFromItem(ModItems.HEAD_RUBY_PICKAXE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_PICKAXE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_SHOVEL, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_RUBY_SHOVEL)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_RUBY_SHOVEL),
-                                                  conditionsFromItem(ModItems.HEAD_RUBY_SHOVEL))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_SHOVEL));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_RUBY_SHOVEL)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_RUBY_SHOVEL),
+                                   conditionsFromItem(ModItems.HEAD_RUBY_SHOVEL))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_SHOVEL));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_RUBY_SWORD, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_RUBY_SWORD)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_RUBY_SWORD),
-                                                  conditionsFromItem(ModItems.HEAD_RUBY_SWORD))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_SWORD));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_RUBY_SWORD)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_RUBY_SWORD),
+                                   conditionsFromItem(ModItems.HEAD_RUBY_SWORD))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_RUBY_SWORD));
                 //endregion
                 //region SAPPHIRE TOOLS
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_AXE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_SAPPHIRE_AXE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_SAPPHIRE_AXE),
-                                                  conditionsFromItem(ModItems.HEAD_SAPPHIRE_AXE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_AXE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_SAPPHIRE_AXE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_SAPPHIRE_AXE),
+                                   conditionsFromItem(ModItems.HEAD_SAPPHIRE_AXE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_AXE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_EXCAVATOR, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_SAPPHIRE_EXCAVATOR)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_SAPPHIRE_EXCAVATOR),
-                                                  conditionsFromItem(ModItems.HEAD_SAPPHIRE_EXCAVATOR))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_EXCAVATOR));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_SAPPHIRE_EXCAVATOR)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_SAPPHIRE_EXCAVATOR),
+                                   conditionsFromItem(ModItems.HEAD_SAPPHIRE_EXCAVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_EXCAVATOR));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_HAMMER, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_SAPPHIRE_HAMMER)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_SAPPHIRE_HAMMER),
-                                                  conditionsFromItem(ModItems.HEAD_SAPPHIRE_HAMMER))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_HAMMER));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_SAPPHIRE_HAMMER)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_SAPPHIRE_HAMMER),
+                                   conditionsFromItem(ModItems.HEAD_SAPPHIRE_HAMMER))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_HAMMER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_HOE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_SAPPHIRE_HOE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_SAPPHIRE_HOE),
-                                                  conditionsFromItem(ModItems.HEAD_SAPPHIRE_HOE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_HOE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_SAPPHIRE_HOE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_SAPPHIRE_HOE),
+                                   conditionsFromItem(ModItems.HEAD_SAPPHIRE_HOE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_HOE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_PICKAXE, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_SAPPHIRE_PICKAXE)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_SAPPHIRE_PICKAXE),
-                                                  conditionsFromItem(ModItems.HEAD_SAPPHIRE_PICKAXE))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_PICKAXE));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_SAPPHIRE_PICKAXE)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_SAPPHIRE_PICKAXE),
+                                   conditionsFromItem(ModItems.HEAD_SAPPHIRE_PICKAXE))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_PICKAXE));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_SHOVEL, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_SAPPHIRE_SHOVEL)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_SAPPHIRE_SHOVEL),
-                                                  conditionsFromItem(ModItems.HEAD_SAPPHIRE_SHOVEL))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_SHOVEL));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_SAPPHIRE_SHOVEL)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_SAPPHIRE_SHOVEL),
+                                   conditionsFromItem(ModItems.HEAD_SAPPHIRE_SHOVEL))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_SHOVEL));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_SAPPHIRE_SWORD, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_SAPPHIRE_SWORD)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_SAPPHIRE_SWORD),
-                                                  conditionsFromItem(ModItems.HEAD_SAPPHIRE_SWORD))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_SWORD));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_SAPPHIRE_SWORD)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_SAPPHIRE_SWORD),
+                                   conditionsFromItem(ModItems.HEAD_SAPPHIRE_SWORD))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_SAPPHIRE_SWORD));
                 //endregion
                 //region VANILLA HAMMERS
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_DIAMOND_HAMMER, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_DIAMOND_HAMMER)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_DIAMOND_HAMMER),
-                                                  conditionsFromItem(ModItems.HEAD_DIAMOND_HAMMER))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_DIAMOND_HAMMER));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_DIAMOND_HAMMER)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_DIAMOND_HAMMER),
+                                   conditionsFromItem(ModItems.HEAD_DIAMOND_HAMMER))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_DIAMOND_HAMMER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_DIAMOND_EXCAVATOR, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_DIAMOND_EXCAVATOR)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_DIAMOND_EXCAVATOR),
-                                                  conditionsFromItem(ModItems.HEAD_DIAMOND_EXCAVATOR))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_DIAMOND_EXCAVATOR));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_DIAMOND_EXCAVATOR)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_DIAMOND_EXCAVATOR),
+                                   conditionsFromItem(ModItems.HEAD_DIAMOND_EXCAVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_DIAMOND_EXCAVATOR));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_GOLD_HAMMER, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_GOLD_HAMMER)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_GOLD_HAMMER),
-                                                  conditionsFromItem(ModItems.HEAD_GOLD_HAMMER))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_GOLD_HAMMER));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_GOLD_HAMMER)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_GOLD_HAMMER),
+                                   conditionsFromItem(ModItems.HEAD_GOLD_HAMMER))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_GOLD_HAMMER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_GOLD_EXCAVATOR, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_GOLD_EXCAVATOR)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_GOLD_EXCAVATOR),
-                                                  conditionsFromItem(ModItems.HEAD_GOLD_EXCAVATOR))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_GOLD_EXCAVATOR));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_GOLD_EXCAVATOR)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_GOLD_EXCAVATOR),
+                                   conditionsFromItem(ModItems.HEAD_GOLD_EXCAVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_GOLD_EXCAVATOR));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_IRON_HAMMER, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_IRON_HAMMER)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_IRON_HAMMER),
-                                                  conditionsFromItem(ModItems.HEAD_IRON_HAMMER))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_IRON_HAMMER));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_IRON_HAMMER)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_IRON_HAMMER),
+                                   conditionsFromItem(ModItems.HEAD_IRON_HAMMER))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_IRON_HAMMER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_IRON_EXCAVATOR, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_IRON_EXCAVATOR)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_IRON_EXCAVATOR),
-                                                  conditionsFromItem(ModItems.HEAD_IRON_EXCAVATOR))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_IRON_EXCAVATOR));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_IRON_EXCAVATOR)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_IRON_EXCAVATOR),
+                                   conditionsFromItem(ModItems.HEAD_IRON_EXCAVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_IRON_EXCAVATOR));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_NETHERITE_HAMMER, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_NETHERITE_HAMMER)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_NETHERITE_HAMMER),
-                                                  conditionsFromItem(ModItems.HEAD_NETHERITE_HAMMER))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_NETHERITE_HAMMER));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_NETHERITE_HAMMER)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_NETHERITE_HAMMER),
+                                   conditionsFromItem(ModItems.HEAD_NETHERITE_HAMMER))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_NETHERITE_HAMMER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_NETHERITE_EXCAVATOR, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_NETHERITE_EXCAVATOR)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_NETHERITE_EXCAVATOR),
-                                                  conditionsFromItem(ModItems.HEAD_NETHERITE_EXCAVATOR))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_NETHERITE_EXCAVATOR));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_NETHERITE_EXCAVATOR)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_NETHERITE_EXCAVATOR),
+                                   conditionsFromItem(ModItems.HEAD_NETHERITE_EXCAVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_NETHERITE_EXCAVATOR));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_STONE_HAMMER, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_STONE_HAMMER)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_STONE_HAMMER),
-                                                  conditionsFromItem(ModItems.HEAD_STONE_HAMMER))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_STONE_HAMMER));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_STONE_HAMMER)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_STONE_HAMMER),
+                                   conditionsFromItem(ModItems.HEAD_STONE_HAMMER))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_STONE_HAMMER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_STONE_EXCAVATOR, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_STONE_EXCAVATOR)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_STONE_EXCAVATOR),
-                                                  conditionsFromItem(ModItems.HEAD_STONE_EXCAVATOR))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_STONE_EXCAVATOR));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_STONE_EXCAVATOR)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_STONE_EXCAVATOR),
+                                   conditionsFromItem(ModItems.HEAD_STONE_EXCAVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_STONE_EXCAVATOR));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_WOOD_HAMMER, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_WOOD_HAMMER)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_WOOD_HAMMER),
-                                                  conditionsFromItem(ModItems.HEAD_WOOD_HAMMER))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_WOOD_HAMMER));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_WOOD_HAMMER)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_WOOD_HAMMER),
+                                   conditionsFromItem(ModItems.HEAD_WOOD_HAMMER))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_WOOD_HAMMER));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.TOOL_WOOD_EXCAVATOR, 1)
-                                       .pattern("H")
-                                       .pattern("B")
-                                       .pattern("S")
-                                       .input('B', ModItems.BINDING_STRING)
-                                       .input('S', Items.STICK)
-                                       .input('H', ModItems.HEAD_WOOD_EXCAVATOR)
-                                       .criterion(hasItem(ModItems.BINDING_STRING),
-                                                  conditionsFromItem(ModItems.BINDING_STRING))
-                                       .criterion(hasItem(ModItems.HEAD_WOOD_EXCAVATOR),
-                                                  conditionsFromItem(ModItems.HEAD_WOOD_EXCAVATOR))
-                                       .offerTo(exporter, getRecipeName(ModItems.TOOL_WOOD_EXCAVATOR));
+                        .pattern("H")
+                        .pattern("B")
+                        .pattern("S")
+                        .input('B', ModItems.BINDING_STRING)
+                        .input('S', Items.STICK)
+                        .input('H', ModItems.HEAD_WOOD_EXCAVATOR)
+                        .criterion(hasItem(ModItems.BINDING_STRING),
+                                   conditionsFromItem(ModItems.BINDING_STRING))
+                        .criterion(hasItem(ModItems.HEAD_WOOD_EXCAVATOR),
+                                   conditionsFromItem(ModItems.HEAD_WOOD_EXCAVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.TOOL_WOOD_EXCAVATOR));
                 //endregion
                 //region AMETHYST ARMOR
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_AMETHYST_HELMET, 1)
-                                       .pattern("III")
-                                       .pattern("IGI")
-                                       .pattern("   ")
-                                       .input('I', ModItems.REINFORCED_AMETHYST)
-                                       .input('G', ModItems.GEAR_DIAMOND)
-                                       .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
-                                       .criterion(hasItem(ModItems.GEAR_DIAMOND), conditionsFromItem(ModItems.GEAR_DIAMOND))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_AMETHYST_HELMET));
+                        .pattern("III")
+                        .pattern("IGI")
+                        .pattern("   ")
+                        .input('I', ModItems.REINFORCED_AMETHYST)
+                        .input('G', ModItems.GEAR_DIAMOND)
+                        .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
+                        .criterion(hasItem(ModItems.GEAR_DIAMOND), conditionsFromItem(ModItems.GEAR_DIAMOND))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_AMETHYST_HELMET));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_AMETHYST_CHESTPLATE, 1)
-                                       .pattern("IGI")
-                                       .pattern("III")
-                                       .pattern("III")
-                                       .input('I', ModItems.REINFORCED_AMETHYST)
-                                       .input('G', ModItems.GEAR_DIAMOND)
-                                       .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
-                                       .criterion(hasItem(ModItems.GEAR_DIAMOND), conditionsFromItem(ModItems.GEAR_DIAMOND))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_AMETHYST_CHESTPLATE));
+                        .pattern("IGI")
+                        .pattern("III")
+                        .pattern("III")
+                        .input('I', ModItems.REINFORCED_AMETHYST)
+                        .input('G', ModItems.GEAR_DIAMOND)
+                        .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
+                        .criterion(hasItem(ModItems.GEAR_DIAMOND), conditionsFromItem(ModItems.GEAR_DIAMOND))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_AMETHYST_CHESTPLATE));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_AMETHYST_LEGGINGS, 1)
-                                       .pattern("IGI")
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_AMETHYST)
-                                       .input('G', ModItems.GEAR_DIAMOND)
-                                       .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
-                                       .criterion(hasItem(ModItems.GEAR_DIAMOND), conditionsFromItem(ModItems.GEAR_DIAMOND))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_AMETHYST_LEGGINGS));
+                        .pattern("IGI")
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_AMETHYST)
+                        .input('G', ModItems.GEAR_DIAMOND)
+                        .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
+                        .criterion(hasItem(ModItems.GEAR_DIAMOND), conditionsFromItem(ModItems.GEAR_DIAMOND))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_AMETHYST_LEGGINGS));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_AMETHYST_BOOTS, 1)
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_AMETHYST)
-                                       .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_AMETHYST_BOOTS));
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_AMETHYST)
+                        .criterion(hasItem(ModItems.REINFORCED_AMETHYST), conditionsFromItem(ModItems.REINFORCED_AMETHYST))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_AMETHYST_BOOTS));
                 //endregion
                 //region CITRINE ARMOR
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_CITRINE_HELMET, 1)
-                                       .pattern("III")
-                                       .pattern("IGI")
-                                       .pattern("   ")
-                                       .input('I', ModItems.REINFORCED_CITRINE)
-                                       .input('G', ModItems.GEAR_GOLD)
-                                       .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
-                                       .criterion(hasItem(ModItems.GEAR_GOLD), conditionsFromItem(ModItems.GEAR_GOLD))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_CITRINE_HELMET));
+                        .pattern("III")
+                        .pattern("IGI")
+                        .pattern("   ")
+                        .input('I', ModItems.REINFORCED_CITRINE)
+                        .input('G', ModItems.GEAR_GOLD)
+                        .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
+                        .criterion(hasItem(ModItems.GEAR_GOLD), conditionsFromItem(ModItems.GEAR_GOLD))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_CITRINE_HELMET));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_CITRINE_CHESTPLATE, 1)
-                                       .pattern("IGI")
-                                       .pattern("III")
-                                       .pattern("III")
-                                       .input('I', ModItems.REINFORCED_CITRINE)
-                                       .input('G', ModItems.GEAR_GOLD)
-                                       .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
-                                       .criterion(hasItem(ModItems.GEAR_GOLD), conditionsFromItem(ModItems.GEAR_GOLD))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_CITRINE_CHESTPLATE));
+                        .pattern("IGI")
+                        .pattern("III")
+                        .pattern("III")
+                        .input('I', ModItems.REINFORCED_CITRINE)
+                        .input('G', ModItems.GEAR_GOLD)
+                        .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
+                        .criterion(hasItem(ModItems.GEAR_GOLD), conditionsFromItem(ModItems.GEAR_GOLD))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_CITRINE_CHESTPLATE));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_CITRINE_LEGGINGS, 1)
-                                       .pattern("IGI")
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_CITRINE)
-                                       .input('G', ModItems.GEAR_GOLD)
-                                       .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
-                                       .criterion(hasItem(ModItems.GEAR_GOLD), conditionsFromItem(ModItems.GEAR_GOLD))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_CITRINE_LEGGINGS));
+                        .pattern("IGI")
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_CITRINE)
+                        .input('G', ModItems.GEAR_GOLD)
+                        .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
+                        .criterion(hasItem(ModItems.GEAR_GOLD), conditionsFromItem(ModItems.GEAR_GOLD))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_CITRINE_LEGGINGS));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_CITRINE_BOOTS, 1)
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_CITRINE)
-                                       .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_CITRINE_BOOTS));
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_CITRINE)
+                        .criterion(hasItem(ModItems.REINFORCED_CITRINE), conditionsFromItem(ModItems.REINFORCED_CITRINE))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_CITRINE_BOOTS));
                 //endregion
                 //region COPPER ARMOR
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_COPPER_HELMET, 1)
-                                       .pattern("III")
-                                       .pattern("IGI")
-                                       .pattern("   ")
-                                       .input('I', ModItems.REINFORCED_COPPER)
-                                       .input('G', ModItems.GEAR_COPPER)
-                                       .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
-                                       .criterion(hasItem(ModItems.GEAR_COPPER), conditionsFromItem(ModItems.GEAR_COPPER))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_COPPER_HELMET));
+                        .pattern("III")
+                        .pattern("IGI")
+                        .pattern("   ")
+                        .input('I', ModItems.REINFORCED_COPPER)
+                        .input('G', ModItems.GEAR_COPPER)
+                        .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
+                        .criterion(hasItem(ModItems.GEAR_COPPER), conditionsFromItem(ModItems.GEAR_COPPER))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_COPPER_HELMET));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_COPPER_CHESTPLATE, 1)
-                                       .pattern("IGI")
-                                       .pattern("III")
-                                       .pattern("III")
-                                       .input('I', ModItems.REINFORCED_COPPER)
-                                       .input('G', ModItems.GEAR_COPPER)
-                                       .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
-                                       .criterion(hasItem(ModItems.GEAR_COPPER), conditionsFromItem(ModItems.GEAR_COPPER))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_COPPER_CHESTPLATE));
+                        .pattern("IGI")
+                        .pattern("III")
+                        .pattern("III")
+                        .input('I', ModItems.REINFORCED_COPPER)
+                        .input('G', ModItems.GEAR_COPPER)
+                        .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
+                        .criterion(hasItem(ModItems.GEAR_COPPER), conditionsFromItem(ModItems.GEAR_COPPER))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_COPPER_CHESTPLATE));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_COPPER_LEGGINGS, 1)
-                                       .pattern("IGI")
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_COPPER)
-                                       .input('G', ModItems.GEAR_COPPER)
-                                       .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
-                                       .criterion(hasItem(ModItems.GEAR_COPPER), conditionsFromItem(ModItems.GEAR_COPPER))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_COPPER_LEGGINGS));
+                        .pattern("IGI")
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_COPPER)
+                        .input('G', ModItems.GEAR_COPPER)
+                        .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
+                        .criterion(hasItem(ModItems.GEAR_COPPER), conditionsFromItem(ModItems.GEAR_COPPER))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_COPPER_LEGGINGS));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_COPPER_BOOTS, 1)
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_COPPER)
-                                       .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_COPPER_BOOTS));
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_COPPER)
+                        .criterion(hasItem(ModItems.REINFORCED_COPPER), conditionsFromItem(ModItems.REINFORCED_COPPER))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_COPPER_BOOTS));
                 //endregion
                 // region EMERALD ARMOR
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_EMERALD_HELMET, 1)
-                                       .pattern("III")
-                                       .pattern("IGI")
-                                       .pattern("   ")
-                                       .input('I', ModItems.REINFORCED_EMERALD)
-                                       .input('G', ModItems.GEAR_EMERALD)
-                                       .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
-                                       .criterion(hasItem(ModItems.GEAR_EMERALD), conditionsFromItem(ModItems.GEAR_EMERALD))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_EMERALD_HELMET));
+                        .pattern("III")
+                        .pattern("IGI")
+                        .pattern("   ")
+                        .input('I', ModItems.REINFORCED_EMERALD)
+                        .input('G', ModItems.GEAR_EMERALD)
+                        .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
+                        .criterion(hasItem(ModItems.GEAR_EMERALD), conditionsFromItem(ModItems.GEAR_EMERALD))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_EMERALD_HELMET));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_EMERALD_CHESTPLATE, 1)
-                                       .pattern("IGI")
-                                       .pattern("III")
-                                       .pattern("III")
-                                       .input('I', ModItems.REINFORCED_EMERALD)
-                                       .input('G', ModItems.GEAR_EMERALD)
-                                       .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
-                                       .criterion(hasItem(ModItems.GEAR_EMERALD), conditionsFromItem(ModItems.GEAR_EMERALD))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_EMERALD_CHESTPLATE));
+                        .pattern("IGI")
+                        .pattern("III")
+                        .pattern("III")
+                        .input('I', ModItems.REINFORCED_EMERALD)
+                        .input('G', ModItems.GEAR_EMERALD)
+                        .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
+                        .criterion(hasItem(ModItems.GEAR_EMERALD), conditionsFromItem(ModItems.GEAR_EMERALD))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_EMERALD_CHESTPLATE));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_EMERALD_LEGGINGS, 1)
-                                       .pattern("IGI")
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_EMERALD)
-                                       .input('G', ModItems.GEAR_EMERALD)
-                                       .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
-                                       .criterion(hasItem(ModItems.GEAR_EMERALD), conditionsFromItem(ModItems.GEAR_EMERALD))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_EMERALD_LEGGINGS));
+                        .pattern("IGI")
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_EMERALD)
+                        .input('G', ModItems.GEAR_EMERALD)
+                        .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
+                        .criterion(hasItem(ModItems.GEAR_EMERALD), conditionsFromItem(ModItems.GEAR_EMERALD))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_EMERALD_LEGGINGS));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_EMERALD_BOOTS, 1)
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_EMERALD)
-                                       .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_EMERALD_BOOTS));
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_EMERALD)
+                        .criterion(hasItem(ModItems.REINFORCED_EMERALD), conditionsFromItem(ModItems.REINFORCED_EMERALD))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_EMERALD_BOOTS));
                 //endregion
                 // region ENDERITE ARMOR
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_ENDERITE_HELMET, 1)
-                                       .pattern("III")
-                                       .pattern("IGI")
-                                       .pattern("   ")
-                                       .input('I', ModItems.REINFORCED_ENDERITE)
-                                       .input('G', ModItems.GEAR_ENDERITE)
-                                       .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
-                                       .criterion(hasItem(ModItems.GEAR_ENDERITE), conditionsFromItem(ModItems.GEAR_ENDERITE))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_ENDERITE_HELMET));
+                        .pattern("III")
+                        .pattern("IGI")
+                        .pattern("   ")
+                        .input('I', ModItems.REINFORCED_ENDERITE)
+                        .input('G', ModItems.GEAR_ENDERITE)
+                        .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
+                        .criterion(hasItem(ModItems.GEAR_ENDERITE), conditionsFromItem(ModItems.GEAR_ENDERITE))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_ENDERITE_HELMET));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_ENDERITE_CHESTPLATE, 1)
-                                       .pattern("IGI")
-                                       .pattern("III")
-                                       .pattern("III")
-                                       .input('I', ModItems.REINFORCED_ENDERITE)
-                                       .input('G', ModItems.GEAR_ENDERITE)
-                                       .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
-                                       .criterion(hasItem(ModItems.GEAR_ENDERITE), conditionsFromItem(ModItems.GEAR_ENDERITE))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_ENDERITE_CHESTPLATE));
+                        .pattern("IGI")
+                        .pattern("III")
+                        .pattern("III")
+                        .input('I', ModItems.REINFORCED_ENDERITE)
+                        .input('G', ModItems.GEAR_ENDERITE)
+                        .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
+                        .criterion(hasItem(ModItems.GEAR_ENDERITE), conditionsFromItem(ModItems.GEAR_ENDERITE))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_ENDERITE_CHESTPLATE));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_ENDERITE_LEGGINGS, 1)
-                                       .pattern("IGI")
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_ENDERITE)
-                                       .input('G', ModItems.GEAR_ENDERITE)
-                                       .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
-                                       .criterion(hasItem(ModItems.GEAR_ENDERITE), conditionsFromItem(ModItems.GEAR_ENDERITE))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_ENDERITE_LEGGINGS));
+                        .pattern("IGI")
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_ENDERITE)
+                        .input('G', ModItems.GEAR_ENDERITE)
+                        .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
+                        .criterion(hasItem(ModItems.GEAR_ENDERITE), conditionsFromItem(ModItems.GEAR_ENDERITE))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_ENDERITE_LEGGINGS));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_ENDERITE_BOOTS, 1)
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_ENDERITE)
-                                       .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_ENDERITE_BOOTS));
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_ENDERITE)
+                        .criterion(hasItem(ModItems.REINFORCED_ENDERITE), conditionsFromItem(ModItems.REINFORCED_ENDERITE))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_ENDERITE_BOOTS));
                 //endregion
                 // region RUBY ARMOR
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_RUBY_HELMET, 1)
-                                       .pattern("III")
-                                       .pattern("IGI")
-                                       .pattern("   ")
-                                       .input('I', ModItems.REINFORCED_RUBY)
-                                       .input('G', ModItems.GEAR_RUBY)
-                                       .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
-                                       .criterion(hasItem(ModItems.GEAR_RUBY), conditionsFromItem(ModItems.GEAR_RUBY))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_RUBY_HELMET));
+                        .pattern("III")
+                        .pattern("IGI")
+                        .pattern("   ")
+                        .input('I', ModItems.REINFORCED_RUBY)
+                        .input('G', ModItems.GEAR_RUBY)
+                        .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
+                        .criterion(hasItem(ModItems.GEAR_RUBY), conditionsFromItem(ModItems.GEAR_RUBY))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_RUBY_HELMET));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_RUBY_CHESTPLATE, 1)
-                                       .pattern("IGI")
-                                       .pattern("III")
-                                       .pattern("III")
-                                       .input('I', ModItems.REINFORCED_RUBY)
-                                       .input('G', ModItems.GEAR_RUBY)
-                                       .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
-                                       .criterion(hasItem(ModItems.GEAR_RUBY), conditionsFromItem(ModItems.GEAR_RUBY))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_RUBY_CHESTPLATE));
+                        .pattern("IGI")
+                        .pattern("III")
+                        .pattern("III")
+                        .input('I', ModItems.REINFORCED_RUBY)
+                        .input('G', ModItems.GEAR_RUBY)
+                        .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
+                        .criterion(hasItem(ModItems.GEAR_RUBY), conditionsFromItem(ModItems.GEAR_RUBY))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_RUBY_CHESTPLATE));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_RUBY_LEGGINGS, 1)
-                                       .pattern("IGI")
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_RUBY)
-                                       .input('G', ModItems.GEAR_RUBY)
-                                       .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
-                                       .criterion(hasItem(ModItems.GEAR_RUBY), conditionsFromItem(ModItems.GEAR_RUBY))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_RUBY_LEGGINGS));
+                        .pattern("IGI")
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_RUBY)
+                        .input('G', ModItems.GEAR_RUBY)
+                        .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
+                        .criterion(hasItem(ModItems.GEAR_RUBY), conditionsFromItem(ModItems.GEAR_RUBY))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_RUBY_LEGGINGS));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_RUBY_BOOTS, 1)
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_RUBY)
-                                       .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_RUBY_BOOTS));
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_RUBY)
+                        .criterion(hasItem(ModItems.REINFORCED_RUBY), conditionsFromItem(ModItems.REINFORCED_RUBY))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_RUBY_BOOTS));
                 //endregion
                 // region SAPPHIRE ARMOR
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_SAPPHIRE_HELMET, 1)
-                                       .pattern("III")
-                                       .pattern("IGI")
-                                       .pattern("   ")
-                                       .input('I', ModItems.REINFORCED_SAPPHIRE)
-                                       .input('G', ModItems.GEAR_SAPPHIRE)
-                                       .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
-                                       .criterion(hasItem(ModItems.GEAR_SAPPHIRE), conditionsFromItem(ModItems.GEAR_SAPPHIRE))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_SAPPHIRE_HELMET));
+                        .pattern("III")
+                        .pattern("IGI")
+                        .pattern("   ")
+                        .input('I', ModItems.REINFORCED_SAPPHIRE)
+                        .input('G', ModItems.GEAR_SAPPHIRE)
+                        .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
+                        .criterion(hasItem(ModItems.GEAR_SAPPHIRE), conditionsFromItem(ModItems.GEAR_SAPPHIRE))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_SAPPHIRE_HELMET));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_SAPPHIRE_CHESTPLATE, 1)
-                                       .pattern("IGI")
-                                       .pattern("III")
-                                       .pattern("III")
-                                       .input('I', ModItems.REINFORCED_SAPPHIRE)
-                                       .input('G', ModItems.GEAR_SAPPHIRE)
-                                       .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
-                                       .criterion(hasItem(ModItems.GEAR_SAPPHIRE), conditionsFromItem(ModItems.GEAR_SAPPHIRE))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_SAPPHIRE_CHESTPLATE));
+                        .pattern("IGI")
+                        .pattern("III")
+                        .pattern("III")
+                        .input('I', ModItems.REINFORCED_SAPPHIRE)
+                        .input('G', ModItems.GEAR_SAPPHIRE)
+                        .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
+                        .criterion(hasItem(ModItems.GEAR_SAPPHIRE), conditionsFromItem(ModItems.GEAR_SAPPHIRE))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_SAPPHIRE_CHESTPLATE));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_SAPPHIRE_LEGGINGS, 1)
-                                       .pattern("IGI")
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_SAPPHIRE)
-                                       .input('G', ModItems.GEAR_SAPPHIRE)
-                                       .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
-                                       .criterion(hasItem(ModItems.GEAR_SAPPHIRE), conditionsFromItem(ModItems.GEAR_SAPPHIRE))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_SAPPHIRE_LEGGINGS));
+                        .pattern("IGI")
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_SAPPHIRE)
+                        .input('G', ModItems.GEAR_SAPPHIRE)
+                        .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
+                        .criterion(hasItem(ModItems.GEAR_SAPPHIRE), conditionsFromItem(ModItems.GEAR_SAPPHIRE))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_SAPPHIRE_LEGGINGS));
 
                 createShaped(RecipeCategory.COMBAT, ModItems.ARMOR_SAPPHIRE_BOOTS, 1)
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.REINFORCED_SAPPHIRE)
-                                       .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
-                                       .offerTo(exporter, getRecipeName(ModItems.ARMOR_SAPPHIRE_BOOTS));
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.REINFORCED_SAPPHIRE)
+                        .criterion(hasItem(ModItems.REINFORCED_SAPPHIRE), conditionsFromItem(ModItems.REINFORCED_SAPPHIRE))
+                        .offerTo(exporter, getRecipeName(ModItems.ARMOR_SAPPHIRE_BOOTS));
                 //endregion
                 // region NETHERITE ARMOR
                 createShaped(RecipeCategory.COMBAT, Items.NETHERITE_HELMET, 1)
-                                       .pattern("IRI")
-                                       .pattern("I I")
-                                       .pattern("   ")
-                                       .input('I', ModItems.PLATE_NETHERITE)
-                                       .input('R', ModItems.REINFORCED_NETHERITE)
-                                       .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
-                                       .offerTo(exporter, getRecipeName(Items.NETHERITE_HELMET) + "_shaped");
+                        .pattern("IRI")
+                        .pattern("I I")
+                        .pattern("   ")
+                        .input('I', ModItems.PLATE_NETHERITE)
+                        .input('R', ModItems.REINFORCED_NETHERITE)
+                        .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
+                        .offerTo(exporter, getRecipeName(Items.NETHERITE_HELMET) + "_shaped");
 
                 createShaped(RecipeCategory.COMBAT, Items.NETHERITE_CHESTPLATE, 1)
-                                       .pattern("I I")
-                                       .pattern("IRI")
-                                       .pattern("IRI")
-                                       .input('I', ModItems.PLATE_NETHERITE)
-                                       .input('R', ModItems.REINFORCED_NETHERITE)
-                                       .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
-                                       .offerTo(exporter, getRecipeName(Items.NETHERITE_CHESTPLATE) + "_shaped");
+                        .pattern("I I")
+                        .pattern("IRI")
+                        .pattern("IRI")
+                        .input('I', ModItems.PLATE_NETHERITE)
+                        .input('R', ModItems.REINFORCED_NETHERITE)
+                        .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
+                        .offerTo(exporter, getRecipeName(Items.NETHERITE_CHESTPLATE) + "_shaped");
 
                 createShaped(RecipeCategory.COMBAT, Items.NETHERITE_LEGGINGS, 1)
-                                       .pattern("IRI")
-                                       .pattern("I I")
-                                       .pattern("I I")
-                                       .input('I', ModItems.PLATE_NETHERITE)
-                                       .input('R', ModItems.REINFORCED_NETHERITE)
-                                       .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
-                                       .offerTo(exporter, getRecipeName(Items.NETHERITE_LEGGINGS) + "_shaped");
+                        .pattern("IRI")
+                        .pattern("I I")
+                        .pattern("I I")
+                        .input('I', ModItems.PLATE_NETHERITE)
+                        .input('R', ModItems.REINFORCED_NETHERITE)
+                        .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
+                        .offerTo(exporter, getRecipeName(Items.NETHERITE_LEGGINGS) + "_shaped");
 
                 createShaped(RecipeCategory.COMBAT, Items.NETHERITE_BOOTS, 1)
-                                       .pattern("I I")
-                                       .pattern("R R")
-                                       .input('I', ModItems.PLATE_NETHERITE)
-                                       .input('R', ModItems.REINFORCED_NETHERITE)
-                                       .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
-                                       .offerTo(exporter, getRecipeName(Items.NETHERITE_BOOTS) + "_shaped");
+                        .pattern("I I")
+                        .pattern("R R")
+                        .input('I', ModItems.PLATE_NETHERITE)
+                        .input('R', ModItems.REINFORCED_NETHERITE)
+                        .criterion(hasItem(ModItems.PLATE_NETHERITE), conditionsFromItem(ModItems.PLATE_NETHERITE))
+                        .offerTo(exporter, getRecipeName(Items.NETHERITE_BOOTS) + "_shaped");
                 //endregion
                 //region GOO
                 createShaped(RecipeCategory.MISC, ModBlocks.BRIDGE_GOO, 1)
-                                       .pattern("DED")
-                                       .pattern("EWE")
-                                       .pattern("DED")
-                                       .input('E', Items.ENDER_PEARL)
-                                       .input('W', ModItems.UNSTABLE_GOO)
-                                       .input('D', Items.YELLOW_DYE)
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
-                                       .criterion(hasItem(Items.YELLOW_DYE), conditionsFromItem(Items.YELLOW_DYE))
-                                       .offerTo(exporter, getRecipeName(ModBlocks.BRIDGE_GOO));
+                        .pattern("DED")
+                        .pattern("EWE")
+                        .pattern("DED")
+                        .input('E', Items.ENDER_PEARL)
+                        .input('W', ModItems.UNSTABLE_GOO)
+                        .input('D', Items.YELLOW_DYE)
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                        .criterion(hasItem(Items.YELLOW_DYE), conditionsFromItem(Items.YELLOW_DYE))
+                        .offerTo(exporter, getRecipeName(ModBlocks.BRIDGE_GOO));
 
                 createShaped(RecipeCategory.MISC, ModBlocks.CHUNK_GOO, 1)
-                                       .pattern("DED")
-                                       .pattern("EWE")
-                                       .pattern("DED")
-                                       .input('E', Items.ENDER_PEARL)
-                                       .input('W', ModItems.UNSTABLE_GOO)
-                                       .input('D', Items.PINK_DYE)
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
-                                       .criterion(hasItem(Items.PINK_DYE), conditionsFromItem(Items.PINK_DYE))
-                                       .offerTo(exporter, getRecipeName(ModBlocks.CHUNK_GOO));
+                        .pattern("DED")
+                        .pattern("EWE")
+                        .pattern("DED")
+                        .input('E', Items.ENDER_PEARL)
+                        .input('W', ModItems.UNSTABLE_GOO)
+                        .input('D', Items.PINK_DYE)
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                        .criterion(hasItem(Items.PINK_DYE), conditionsFromItem(Items.PINK_DYE))
+                        .offerTo(exporter, getRecipeName(ModBlocks.CHUNK_GOO));
 
                 createShaped(RecipeCategory.MISC, ModBlocks.LAVA_EATING_GOO, 1)
-                                       .pattern("DED")
-                                       .pattern("EWE")
-                                       .pattern("DED")
-                                       .input('E', Items.ENDER_PEARL)
-                                       .input('W', ModItems.UNSTABLE_GOO)
-                                       .input('D', Items.MAGENTA_DYE)
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
-                                       .criterion(hasItem(Items.MAGENTA_DYE), conditionsFromItem(Items.MAGENTA_DYE))
-                                       .offerTo(exporter, getRecipeName(ModBlocks.LAVA_EATING_GOO));
+                        .pattern("DED")
+                        .pattern("EWE")
+                        .pattern("DED")
+                        .input('E', Items.ENDER_PEARL)
+                        .input('W', ModItems.UNSTABLE_GOO)
+                        .input('D', Items.MAGENTA_DYE)
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                        .criterion(hasItem(Items.MAGENTA_DYE), conditionsFromItem(Items.MAGENTA_DYE))
+                        .offerTo(exporter, getRecipeName(ModBlocks.LAVA_EATING_GOO));
 
                 createShaped(RecipeCategory.MISC, ModBlocks.LAVA_GENERATING_GOO, 1)
-                                       .pattern("DED")
-                                       .pattern("EWE")
-                                       .pattern("DED")
-                                       .input('E', Items.ENDER_PEARL)
-                                       .input('W', ModItems.UNSTABLE_GOO)
-                                       .input('D', Items.RED_DYE)
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
-                                       .criterion(hasItem(Items.RED_DYE), conditionsFromItem(Items.RED_DYE))
-                                       .offerTo(exporter, getRecipeName(ModBlocks.LAVA_GENERATING_GOO));
+                        .pattern("DED")
+                        .pattern("EWE")
+                        .pattern("DED")
+                        .input('E', Items.ENDER_PEARL)
+                        .input('W', ModItems.UNSTABLE_GOO)
+                        .input('D', Items.RED_DYE)
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                        .criterion(hasItem(Items.RED_DYE), conditionsFromItem(Items.RED_DYE))
+                        .offerTo(exporter, getRecipeName(ModBlocks.LAVA_GENERATING_GOO));
 
                 createShaped(RecipeCategory.MISC, ModBlocks.TOWERING_GOO, 1)
-                                       .pattern("DED")
-                                       .pattern("EWE")
-                                       .pattern("DED")
-                                       .input('E', Items.ENDER_PEARL)
-                                       .input('W', ModItems.UNSTABLE_GOO)
-                                       .input('D', Items.PURPLE_DYE)
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
-                                       .criterion(hasItem(Items.PURPLE_DYE), conditionsFromItem(Items.PURPLE_DYE))
-                                       .offerTo(exporter, getRecipeName(ModBlocks.TOWERING_GOO));
+                        .pattern("DED")
+                        .pattern("EWE")
+                        .pattern("DED")
+                        .input('E', Items.ENDER_PEARL)
+                        .input('W', ModItems.UNSTABLE_GOO)
+                        .input('D', Items.PURPLE_DYE)
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                        .criterion(hasItem(Items.PURPLE_DYE), conditionsFromItem(Items.PURPLE_DYE))
+                        .offerTo(exporter, getRecipeName(ModBlocks.TOWERING_GOO));
 
                 createShaped(RecipeCategory.MISC, ModBlocks.TUNNELING_GOO, 1)
-                                       .pattern("DED")
-                                       .pattern("EWE")
-                                       .pattern("DED")
-                                       .input('E', Items.ENDER_PEARL)
-                                       .input('W', ModItems.UNSTABLE_GOO)
-                                       .input('D', Items.CYAN_DYE)
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
-                                       .criterion(hasItem(Items.CYAN_DYE), conditionsFromItem(Items.CYAN_DYE))
-                                       .offerTo(exporter, getRecipeName(ModBlocks.TUNNELING_GOO));
+                        .pattern("DED")
+                        .pattern("EWE")
+                        .pattern("DED")
+                        .input('E', Items.ENDER_PEARL)
+                        .input('W', ModItems.UNSTABLE_GOO)
+                        .input('D', Items.CYAN_DYE)
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                        .criterion(hasItem(Items.CYAN_DYE), conditionsFromItem(Items.CYAN_DYE))
+                        .offerTo(exporter, getRecipeName(ModBlocks.TUNNELING_GOO));
 
                 createShaped(RecipeCategory.MISC, ModBlocks.WATER_EATING_GOO, 1)
-                                       .pattern("DED")
-                                       .pattern("EWE")
-                                       .pattern("DED")
-                                       .input('E', Items.ENDER_PEARL)
-                                       .input('W', ModItems.UNSTABLE_GOO)
-                                       .input('D', Items.GRAY_DYE)
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
-                                       .criterion(hasItem(Items.GRAY_DYE), conditionsFromItem(Items.GRAY_DYE))
-                                       .offerTo(exporter, getRecipeName(ModBlocks.WATER_EATING_GOO));
+                        .pattern("DED")
+                        .pattern("EWE")
+                        .pattern("DED")
+                        .input('E', Items.ENDER_PEARL)
+                        .input('W', ModItems.UNSTABLE_GOO)
+                        .input('D', Items.GRAY_DYE)
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                        .criterion(hasItem(Items.GRAY_DYE), conditionsFromItem(Items.GRAY_DYE))
+                        .offerTo(exporter, getRecipeName(ModBlocks.WATER_EATING_GOO));
 
                 createShaped(RecipeCategory.MISC, ModBlocks.WATER_GENERATING_GOO, 1)
-                                       .pattern("DED")
-                                       .pattern("EWE")
-                                       .pattern("DED")
-                                       .input('E', Items.ENDER_PEARL)
-                                       .input('W', ModItems.UNSTABLE_GOO)
-                                       .input('D', Items.BLUE_DYE)
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
-                                       .criterion(hasItem(Items.BLUE_DYE), conditionsFromItem(Items.BLUE_DYE))
-                                       .offerTo(exporter, getRecipeName(ModBlocks.WATER_GENERATING_GOO));
+                        .pattern("DED")
+                        .pattern("EWE")
+                        .pattern("DED")
+                        .input('E', Items.ENDER_PEARL)
+                        .input('W', ModItems.UNSTABLE_GOO)
+                        .input('D', Items.BLUE_DYE)
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion(hasItem(ModItems.UNSTABLE_GOO), conditionsFromItem(ModItems.UNSTABLE_GOO))
+                        .criterion(hasItem(Items.BLUE_DYE), conditionsFromItem(Items.BLUE_DYE))
+                        .offerTo(exporter, getRecipeName(ModBlocks.WATER_GENERATING_GOO));
                 //endregion
                 //region WOOD STRIPPER
 
@@ -1305,88 +1305,88 @@ public class ModRecipeProvider extends FabricRecipeProvider
                                        300, Items.EGG, ModItems.COOKED_EGG, 0.15F);
 
                 createShapeless(RecipeCategory.FOOD, ModItems.EGG_AND_BREAD, 1)
-                                          .input(ModItems.COOKED_EGG)
-                                          .input(Items.BREAD)
-                                          .criterion(hasItem(ModItems.COOKED_EGG), conditionsFromItem(ModItems.COOKED_EGG))
-                                          .criterion(hasItem(Items.BREAD), conditionsFromItem(Items.BREAD))
-                                          .offerTo(exporter, getRecipeName(ModItems.EGG_AND_BREAD) + "_shapeless");
+                        .input(ModItems.COOKED_EGG)
+                        .input(Items.BREAD)
+                        .criterion(hasItem(ModItems.COOKED_EGG), conditionsFromItem(ModItems.COOKED_EGG))
+                        .criterion(hasItem(Items.BREAD), conditionsFromItem(Items.BREAD))
+                        .offerTo(exporter, getRecipeName(ModItems.EGG_AND_BREAD) + "_shapeless");
 
                 createShaped(RecipeCategory.MISC, ModItems.HOT_COAL, 8)
-                                       .pattern("CCC")
-                                       .pattern("CBC")
-                                       .pattern("CCC")
-                                       .input('C', Items.COAL)
-                                       .input('B', Items.LAVA_BUCKET)
-                                       .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
-                                       .criterion(hasItem(Items.LAVA_BUCKET), conditionsFromItem(Items.LAVA_BUCKET))
-                                       .offerTo(exporter, getRecipeName(ModItems.HOT_COAL));
+                        .pattern("CCC")
+                        .pattern("CBC")
+                        .pattern("CCC")
+                        .input('C', Items.COAL)
+                        .input('B', Items.LAVA_BUCKET)
+                        .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
+                        .criterion(hasItem(Items.LAVA_BUCKET), conditionsFromItem(Items.LAVA_BUCKET))
+                        .offerTo(exporter, getRecipeName(ModItems.HOT_COAL));
 
                 createShaped(RecipeCategory.MISC, ModItems.BLUEPRINT_EMPTY, 1)
-                                       .pattern("RRR")
-                                       .pattern("LLL")
-                                       .pattern("PPP")
-                                       .input('P', Items.PAPER)
-                                       .input('L', Items.LAPIS_LAZULI)
-                                       .input('R', Items.REDSTONE)
-                                       .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
-                                       .criterion(hasItem(Items.LAPIS_LAZULI), conditionsFromItem(Items.LAPIS_LAZULI))
-                                       .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
-                                       .offerTo(exporter, getRecipeName(ModItems.BLUEPRINT_EMPTY));
+                        .pattern("RRR")
+                        .pattern("LLL")
+                        .pattern("PPP")
+                        .input('P', Items.PAPER)
+                        .input('L', Items.LAPIS_LAZULI)
+                        .input('R', Items.REDSTONE)
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .criterion(hasItem(Items.LAPIS_LAZULI), conditionsFromItem(Items.LAPIS_LAZULI))
+                        .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                        .offerTo(exporter, getRecipeName(ModItems.BLUEPRINT_EMPTY));
 
                 createShaped(RecipeCategory.TOOLS, ModItems.ENDER_CHARM, 1)
-                                       .pattern("EIE")
-                                       .pattern("GIG")
-                                       .pattern("IHI")
-                                       .input('E', ModItems.ENDERMAN_EYE)
-                                       .input('I', ModItems.INGOT_ENDERITE)
-                                       .input('G', ModItems.ENDERMAN_GLAND)
-                                       .input('H', ModItems.ENDERMAN_HEART)
-                                       .criterion(hasItem(ModItems.ENDERMAN_EYE), conditionsFromItem(ModItems.ENDERMAN_EYE))
-                                       .criterion(hasItem(ModItems.INGOT_ENDERITE), conditionsFromItem(ModItems.INGOT_ENDERITE))
-                                       .criterion(hasItem(ModItems.ENDERMAN_GLAND), conditionsFromItem(ModItems.ENDERMAN_GLAND))
-                                       .criterion(hasItem(ModItems.ENDERMAN_HEART), conditionsFromItem(ModItems.ENDERMAN_HEART))
-                                       .offerTo(exporter, getRecipeName(ModItems.ENDER_CHARM));
+                        .pattern("EIE")
+                        .pattern("GIG")
+                        .pattern("IHI")
+                        .input('E', ModItems.ENDERMAN_EYE)
+                        .input('I', ModItems.INGOT_ENDERITE)
+                        .input('G', ModItems.ENDERMAN_GLAND)
+                        .input('H', ModItems.ENDERMAN_HEART)
+                        .criterion(hasItem(ModItems.ENDERMAN_EYE), conditionsFromItem(ModItems.ENDERMAN_EYE))
+                        .criterion(hasItem(ModItems.INGOT_ENDERITE), conditionsFromItem(ModItems.INGOT_ENDERITE))
+                        .criterion(hasItem(ModItems.ENDERMAN_GLAND), conditionsFromItem(ModItems.ENDERMAN_GLAND))
+                        .criterion(hasItem(ModItems.ENDERMAN_HEART), conditionsFromItem(ModItems.ENDERMAN_HEART))
+                        .offerTo(exporter, getRecipeName(ModItems.ENDER_CHARM));
 
                 createShapeless(RecipeCategory.TOOLS, ModItems.VOID_PLATE, 1)
-                                          .input(ModItems.VOID_PLATE_BASE)
-                                          .input(ModItems.VOID_PLATE_ACTIVATOR)
-                                          .criterion(hasItem(ModItems.VOID_PLATE_BASE), conditionsFromItem(ModItems.VOID_PLATE_BASE))
-                                          .criterion(hasItem(ModItems.VOID_PLATE_ACTIVATOR), conditionsFromItem(ModItems.VOID_PLATE_ACTIVATOR))
-                                          .offerTo(exporter, getRecipeName(ModItems.VOID_PLATE) + "_shapeless");
+                        .input(ModItems.VOID_PLATE_BASE)
+                        .input(ModItems.VOID_PLATE_ACTIVATOR)
+                        .criterion(hasItem(ModItems.VOID_PLATE_BASE), conditionsFromItem(ModItems.VOID_PLATE_BASE))
+                        .criterion(hasItem(ModItems.VOID_PLATE_ACTIVATOR), conditionsFromItem(ModItems.VOID_PLATE_ACTIVATOR))
+                        .offerTo(exporter, getRecipeName(ModItems.VOID_PLATE) + "_shapeless");
 
                 createShaped(RecipeCategory.MISC, ModItems.ITEM_FILTER, 1)
-                                       .pattern("   ")
-                                       .pattern("RRR")
-                                       .pattern("PPP")
-                                       .input('R', Items.REDSTONE)
-                                       .input('P', Items.PAPER)
-                                       .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
-                                       .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
-                                       .offerTo(exporter, getRecipeName(ModItems.ITEM_FILTER));
+                        .pattern("   ")
+                        .pattern("RRR")
+                        .pattern("PPP")
+                        .input('R', Items.REDSTONE)
+                        .input('P', Items.PAPER)
+                        .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                        .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                        .offerTo(exporter, getRecipeName(ModItems.ITEM_FILTER));
 
                 createShaped(RecipeCategory.MISC, ModItems.SLOT_DISABLED, 1)
-                                       .pattern("   ")
-                                       .pattern("RWR")
-                                       .pattern("SSS")
-                                       .input('R', Items.REDSTONE)
-                                       .input('W', Items.LAPIS_LAZULI)
-                                       .input('S', ModItems.PLATE_STONE)
-                                       .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
-                                       .criterion(hasItem(Items.LAPIS_LAZULI), conditionsFromItem(Items.LAPIS_LAZULI))
-                                       .criterion(hasItem(ModItems.PLATE_STONE), conditionsFromItem(ModItems.PLATE_STONE))
-                                       .offerTo(exporter, getRecipeName(ModItems.SLOT_DISABLED));
+                        .pattern("   ")
+                        .pattern("RWR")
+                        .pattern("SSS")
+                        .input('R', Items.REDSTONE)
+                        .input('W', Items.LAPIS_LAZULI)
+                        .input('S', ModItems.PLATE_STONE)
+                        .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                        .criterion(hasItem(Items.LAPIS_LAZULI), conditionsFromItem(Items.LAPIS_LAZULI))
+                        .criterion(hasItem(ModItems.PLATE_STONE), conditionsFromItem(ModItems.PLATE_STONE))
+                        .offerTo(exporter, getRecipeName(ModItems.SLOT_DISABLED));
 
                 createShaped(RecipeCategory.MISC, ModItems.SLOT_ENABLED, 1)
-                                       .pattern("   ")
-                                       .pattern("RWR")
-                                       .pattern("SSS")
-                                       .input('R', Items.REDSTONE)
-                                       .input('W', Items.EMERALD)
-                                       .input('S', ModItems.PLATE_STONE)
-                                       .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
-                                       .criterion(hasItem(Items.EMERALD), conditionsFromItem(Items.EMERALD))
-                                       .criterion(hasItem(ModItems.PLATE_STONE), conditionsFromItem(ModItems.PLATE_STONE))
-                                       .offerTo(exporter, getRecipeName(ModItems.SLOT_ENABLED));
+                        .pattern("   ")
+                        .pattern("RWR")
+                        .pattern("SSS")
+                        .input('R', Items.REDSTONE)
+                        .input('W', Items.EMERALD)
+                        .input('S', ModItems.PLATE_STONE)
+                        .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                        .criterion(hasItem(Items.EMERALD), conditionsFromItem(Items.EMERALD))
+                        .criterion(hasItem(ModItems.PLATE_STONE), conditionsFromItem(ModItems.PLATE_STONE))
+                        .offerTo(exporter, getRecipeName(ModItems.SLOT_ENABLED));
                 //endregion
                 //region BLASTING
                 offerBlasting(List.of(ModBlocks.ORE_END_ENDERITE_CRACKED), RecipeCategory.MISC, ModBlocks.ORE_ENDERITE, 7.0f, 7200, "ore_enderite");
@@ -1412,45 +1412,45 @@ public class ModRecipeProvider extends FabricRecipeProvider
 
                 //region MACHINES
                 createShaped(RecipeCategory.MISC, ModItems.THERMAL_CORE, 1)
-                                       .pattern("PPP")
-                                       .pattern("HIH")
-                                       .pattern("PPP")
-                                       .input('I', ModItems.COMBUSTION_CORE)
-                                       .input('H', ModItems.HOT_COAL)
-                                       .input('P', ModItems.REINFORCED_IRON)
-                                       .criterion(hasItem(ModItems.HOT_COAL), conditionsFromItem(ModItems.HOT_COAL))
-                                       .criterion(hasItem(Blocks.IRON_BLOCK), conditionsFromItem(Blocks.IRON_BLOCK))
-                                       .criterion(hasItem(ModItems.REINFORCED_IRON), conditionsFromItem(ModItems.REINFORCED_IRON))
-                                       .offerTo(exporter, getRecipeName(ModItems.THERMAL_CORE));
+                        .pattern("PPP")
+                        .pattern("HIH")
+                        .pattern("PPP")
+                        .input('I', ModItems.COMBUSTION_CORE)
+                        .input('H', ModItems.HOT_COAL)
+                        .input('P', ModItems.REINFORCED_IRON)
+                        .criterion(hasItem(ModItems.HOT_COAL), conditionsFromItem(ModItems.HOT_COAL))
+                        .criterion(hasItem(Blocks.IRON_BLOCK), conditionsFromItem(Blocks.IRON_BLOCK))
+                        .criterion(hasItem(ModItems.REINFORCED_IRON), conditionsFromItem(ModItems.REINFORCED_IRON))
+                        .offerTo(exporter, getRecipeName(ModItems.THERMAL_CORE));
 
                 createShaped(RecipeCategory.MISC, ModBlocks.ELEVATOR, 1)
-                                       .pattern(" E ")
-                                       .pattern("EWE")
-                                       .pattern(" E ")
-                                       .input('E', Items.ENDER_PEARL)
-                                       .input('W', ItemTags.WOOL)
-                                       .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                       .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
-                                       .offerTo(exporter, getRecipeName(ModBlocks.ELEVATOR));
+                        .pattern(" E ")
+                        .pattern("EWE")
+                        .pattern(" E ")
+                        .input('E', Items.ENDER_PEARL)
+                        .input('W', ItemTags.WOOL)
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
+                        .offerTo(exporter, getRecipeName(ModBlocks.ELEVATOR));
 
                 createShapeless(RecipeCategory.TOOLS, ModBlocks.ANGEL, 1)
-                                          .input(ItemTags.WOOL)
-                                          .input(Items.ENDER_PEARL)
-                                          .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
-                                          .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
-                                          .offerTo(exporter, getRecipeName(ModBlocks.ANGEL) + "_shapeless");
+                        .input(ItemTags.WOOL)
+                        .input(Items.ENDER_PEARL)
+                        .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
+                        .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
+                        .offerTo(exporter, getRecipeName(ModBlocks.ANGEL) + "_shapeless");
 
                 createShaped(RecipeCategory.MISC, ModBlocks.REDSTONE_CLOCK, 1)
-                                       .pattern("EEE")
-                                       .pattern("ECE")
-                                       .pattern("ERE")
-                                       .input('R', Blocks.REDSTONE_BLOCK)
-                                       .input('E', ItemTags.WOOL)
-                                       .input('C', Items.CLOCK)
-                                       .criterion(hasItem(Items.CLOCK), conditionsFromItem(Items.CLOCK))
-                                       .criterion(hasItem(Blocks.REDSTONE_BLOCK), conditionsFromItem(Blocks.REDSTONE_BLOCK))
-                                       .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
-                                       .offerTo(exporter, getRecipeName(ModBlocks.REDSTONE_CLOCK));
+                        .pattern("EEE")
+                        .pattern("ECE")
+                        .pattern("ERE")
+                        .input('R', Blocks.REDSTONE_BLOCK)
+                        .input('E', ItemTags.WOOL)
+                        .input('C', Items.CLOCK)
+                        .criterion(hasItem(Items.CLOCK), conditionsFromItem(Items.CLOCK))
+                        .criterion(hasItem(Blocks.REDSTONE_BLOCK), conditionsFromItem(Blocks.REDSTONE_BLOCK))
+                        .criterion("has_wool", conditionsFromTag(ItemTags.WOOL))
+                        .offerTo(exporter, getRecipeName(ModBlocks.REDSTONE_CLOCK));
 
                 // ALLOY_MIXER
                 // CAST_PRESS

@@ -105,7 +105,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
 
         //region TIER DEFINITION
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL);
-                //.add(ModBlocks.CREATIVE_ENERGY);
+        //.add(ModBlocks.CREATIVE_ENERGY);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.CITRINE)

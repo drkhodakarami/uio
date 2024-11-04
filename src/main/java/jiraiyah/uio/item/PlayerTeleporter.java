@@ -74,12 +74,12 @@ public class PlayerTeleporter extends Item
 
         if (player != null)
         {
-            if(player.isSneaking() && !context.getWorld().isClient())
+            if (player.isSneaking() && !context.getWorld().isClient())
             {
                 player.getStackInHand(context.getHand()).set(ModDataComponentTypes.COORDINATE, null);
                 return ActionResult.SUCCESS;
             }
-            if(!player.isSneaking())
+            if (!player.isSneaking())
             {
                 if (!context.getWorld().isClient())
                 {
@@ -110,7 +110,7 @@ public class PlayerTeleporter extends Item
                 user.getStackInHand(hand).set(ModDataComponentTypes.COORDINATE, null);
             return super.use(world, user, hand);
         }
-        if(!user.isSneaking() && data != null)
+        if (!user.isSneaking() && data != null)
         {
             if (!world.isClient)
             {
@@ -118,7 +118,7 @@ public class PlayerTeleporter extends Item
                 var dimension = data.dimension();
                 MinecraftServer server = world.getServer();
                 RegistryKey<World> storedKey = RegistryKey.of(RegistryKeys.WORLD, idOf(dimension));
-                if(storedKey == null || server == null)
+                if (storedKey == null || server == null)
                     return super.use(world, user, hand);
                 TeleportTarget target = new TeleportTarget(server.getWorld(storedKey),
                                                            new Vec3d(pos.getX() + 0.5f, pos.getY() + 1.0f, pos.getZ() + 0.5f),
@@ -126,7 +126,7 @@ public class PlayerTeleporter extends Item
                                                            user.getYaw(),
                                                            user.getPitch(),
                                                            TeleportTarget.NO_OP);
-                if(user.getWorld().getRegistryKey().equals(storedKey))
+                if (user.getWorld().getRegistryKey().equals(storedKey))
                     ((ServerPlayerEntity) user).networkHandler.requestTeleport(target.position().getX(),
                                                                                target.position().getY(),
                                                                                target.position().getZ(),

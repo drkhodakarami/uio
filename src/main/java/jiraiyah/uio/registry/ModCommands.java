@@ -28,13 +28,52 @@ import jiraiyah.uio.command.DclrCommand;
 
 import static jiraiyah.uio.Reference.*;
 
+/**
+ * The {@code ModCommands} class handles the registration of commands for the application.
+ * <p>
+ * This class is not meant to be instantiated, as it contains a private constructor that
+ * throws an {@code AssertionError}. Instead, it provides a static initialization method
+ * to register commands.
+ * </p>
+ * <p>
+ * The main functionality of this class is encapsulated in the {@link #init()} method,
+ * which logs the registration process and calls the {@link DclrCommand#register()} method
+ * to register specific commands.
+ * </p>
+ *
+ * @see DclrCommand
+ * @see Reference
+ */
 public class ModCommands
 {
+    /**
+     * Constructs a new instance of the {@code ModCommands} class.
+     * <p>
+     * This constructor is intended to be private and throws an {@code AssertionError}
+     * to prevent instantiation of the {@code ModCommands} class, as it is designed
+     * to function solely through its static methods.
+     * </p>
+     *
+     * @throws AssertionError if an attempt is made to instantiate this class.
+     */
     ModCommands()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes the command registration process for the application.
+     * <p>
+     * This method logs a message indicating that the command registration is
+     * taking place and subsequently calls the {@link DclrCommand#register()} method
+     * to register the commands defined in the {@code DclrCommand} class.
+     * </p>
+     * <p>
+     * This method is static and can be called without creating an instance of the
+     * {@code ModCommands} class, making it suitable for initial setup in the
+     * application lifecycle.
+     * </p>
+     */
     public static void init()
     {
         log("Registering Commands");

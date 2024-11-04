@@ -24,6 +24,7 @@
 
 package jiraiyah.uio.datagen;
 
+import jiraiyah.uio.registry.ModBlockItems;
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -42,6 +43,11 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
     public ModEnLanguageProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup)
     {
         super(dataOutput, "en_us", registryLookup);
+    }
+
+    private static void addText(@NotNull TranslationBuilder builder, @NotNull MutableText text, @NotNull String value)
+    {
+        builder.add(((TranslatableTextContent) text.getContent()).getKey(), value);
     }
 
     @Override
@@ -330,7 +336,7 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModItems.ARMOR_SAPPHIRE_CHESTPLATE, "Sapphire Chestplate");
         builder.add(ModItems.ARMOR_SAPPHIRE_LEGGINGS, "Sapphire Leggings");
         builder.add(ModItems.ARMOR_SAPPHIRE_BOOTS, "Sapphire Boots");
-        builder.add(ModItems.ANGEL_BI, "Angel Block");
+        builder.add(ModBlockItems.ANGEL, "Angel Block");
 
         builder.add(ModBlocks.CITRINE, "Citrine Block");
         builder.add(ModBlocks.ENDERITE, "Enderite Block");
@@ -522,10 +528,5 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(identifier(Constants.EXCAVATOR_PARAM_TOOLTIP), "Size : %d * %d * %d");
 
         builder.add("effect." + ModID + ".flight", "Flight");
-    }
-
-    private static void addText(@NotNull TranslationBuilder builder, @NotNull MutableText text, @NotNull String value)
-    {
-        builder.add(((TranslatableTextContent)text.getContent()).getKey(), value);
     }
 }

@@ -74,7 +74,7 @@ public class TunerItem extends Item
                 {
                     context.getStack().set(ModDataComponentTypes.COORDINATE,
                                            new CoordinateData(context.getBlockPos(),
-                                                    player.getWorld().getRegistryKey().getValue().toString()));
+                                                              player.getWorld().getRegistryKey().getValue().toString()));
                 }
                 else
                 {
@@ -122,7 +122,7 @@ public class TunerItem extends Item
     @NotNull
     protected ActionResult useOnEntityResult(PlayerEntity user, LivingEntity entity, @Nullable CoordinateData data)
     {
-        if(data == null)
+        if (data == null)
             return ActionResult.PASS;
 
         BlockPos pos = data.pos();
@@ -133,7 +133,7 @@ public class TunerItem extends Item
             var userDimension = user.getWorld().getRegistryKey().getValue().toString();
             if (dimension.equalsIgnoreCase(userDimension))
             {
-                if(entity.getWorld() instanceof ServerWorld sw)
+                if (entity.getWorld() instanceof ServerWorld sw)
                     entity.teleport(sw, entity.getX(), pos.getY() + 1, entity.getZ(),
                                     PositionFlag.VALUES, entity.getYaw(), entity.getPitch(), false);
                 entity.refreshPositionAfterTeleport(pos.getX(), pos.getY() + 1, pos.getZ());

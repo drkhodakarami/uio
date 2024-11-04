@@ -1,3 +1,27 @@
+/***********************************************************************************
+ * Copyright (c) 2024 Alireza Khodakarami (Jiraiyah)                               *
+ * ------------------------------------------------------------------------------- *
+ * MIT License                                                                     *
+ * =============================================================================== *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy    *
+ * of this software and associated documentation files (the "Software"), to deal   *
+ * in the Software without restriction, including without limitation the rights    *
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell       *
+ * copies of the Software, and to permit persons to whom the Software is           *
+ * furnished to do so, subject to the following conditions:                        *
+ * ------------------------------------------------------------------------------- *
+ * The above copyright notice and this permission notice shall be included in all  *
+ * copies or substantial portions of the Software.                                 *
+ * ------------------------------------------------------------------------------- *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR      *
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,        *
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE     *
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER          *
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,   *
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE   *
+ * SOFTWARE.                                                                       *
+ ***********************************************************************************/
+
 package jiraiyah.uio.event;
 
 import jiraiyah.uio.item.ExcavatorItem;
@@ -23,7 +47,7 @@ public class BeforePlayerBlockBreakListener implements PlayerBlockBreakEvents.Be
     public boolean beforeBlockBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, @Nullable BlockEntity blockEntity)
     {
         ItemStack stack = player.getMainHandStack();
-        if(player instanceof ServerPlayerEntity sp)
+        if (player instanceof ServerPlayerEntity sp)
         {
             if (stack.getItem() instanceof HammerItem hammer)
             {
@@ -43,17 +67,17 @@ public class BeforePlayerBlockBreakListener implements PlayerBlockBreakEvents.Be
                     HARVESTED_BLOCK.remove(position);
                 }
             }
-            else if(stack.getItem() instanceof ExcavatorItem excavator)
+            else if (stack.getItem() instanceof ExcavatorItem excavator)
             {
-                if(HARVESTED_BLOCK.contains(pos))
+                if (HARVESTED_BLOCK.contains(pos))
                     return true;
 
                 int radius = excavator.getRadius();
                 int depth = excavator.getDepth();
 
-                for(BlockPos position : ExcavatorItem.getAreaBlocks(pos, depth, radius, sp))
+                for (BlockPos position : ExcavatorItem.getAreaBlocks(pos, depth, radius, sp))
                 {
-                    if(pos == position || !excavator.isCorrectForDrops(stack, world.getBlockState(position)))
+                    if (pos == position || !excavator.isCorrectForDrops(stack, world.getBlockState(position)))
                         continue;
 
                     HARVESTED_BLOCK.add(position);

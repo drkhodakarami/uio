@@ -26,7 +26,7 @@ package jiraiyah.uio.registry;
 
 import jiraiyah.uio.blockentity.*;
 import jiraiyah.uio.blockentity.WaterEatingGooBE;
-import jiraiyah.uio.util.Registers.Entities;
+import jiraiyah.uio.util.registry.Registers.Entities;
 import net.minecraft.block.entity.BlockEntityType;
 
 import static jiraiyah.uio.Reference.log;

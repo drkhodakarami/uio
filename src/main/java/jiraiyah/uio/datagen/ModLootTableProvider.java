@@ -34,7 +34,7 @@ import net.minecraft.registry.RegistryWrapper;
 import java.util.concurrent.CompletableFuture;
 
 import static jiraiyah.uio.Reference.logRGB256;
-import static jiraiyah.uio.util.Registers.Datagen.customOreDrops;
+import static jiraiyah.uio.util.registry.Registers.Datagen.customOreDrops;
 
 @SuppressWarnings("ALL")
 public class ModLootTableProvider extends FabricBlockLootTableProvider
@@ -187,7 +187,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
         //endregion
     }
     //region HELPER METHODS
-
 
 
     //endregion

@@ -51,44 +51,48 @@ public class ModArmorMaterials
         //F: Toughness: Leather: 0.0f, Chain: 0.0f, Iron 0.0f, Gold: 0.0f, Diamond: 2.0f, TurtleScute: 0.0f, Netherite: 3.0f, ArmadilloScute: 0.0f
         //G: Knockback Resistance: Leather: 0.0f, Chain: 0.0f, Iron 0.0f, Gold: 0.0f, Diamond: 0.0f, TurtleScute: 0.0f, Netherite: 0.1f, ArmadilloScute: 0.0f
         //Enchantability can't be 0 any more, take a look at Item Tag Provider Datagen
-        AMETHYST  = new ArmorMaterial(20, Util.make(new EnumMap<>(EquipmentType.class),
-                                                         (map) -> {
-                                                                                    map.put(EquipmentType.BOOTS, 1);
-                                                                                    map.put(EquipmentType.LEGGINGS, 5);
-                                                                                    map.put(EquipmentType.CHESTPLATE, 7);
-                                                                                    map.put(EquipmentType.HELMET, 3);
-                                                                                    map.put(EquipmentType.BODY, 5);
-                                                                                }),
-                                      20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
-                                      1.5f, 0.05f, Tags.Item.REPAIRS_AMETHYST_ARMOR,
-                                      identifier("amethyst"));
-
-        CITRINE  = new ArmorMaterial(30, Util.make(new EnumMap<>(EquipmentType.class),
-                                                    (map) -> {
-                                                        map.put(EquipmentType.BOOTS, 3);
-                                                        map.put(EquipmentType.LEGGINGS, 6);
-                                                        map.put(EquipmentType.CHESTPLATE, 8);
-                                                        map.put(EquipmentType.HELMET, 3);
-                                                        map.put(EquipmentType.BODY, 7);
-                                                    }),
-                                      10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
-                                      2.0f, 0.05f, Tags.Item.REPAIRS_CITRINE_ARMOR,
-                                      identifier("citrine"));
-
-        COPPER  = new ArmorMaterial(25, Util.make(new EnumMap<>(EquipmentType.class),
-                                                   (map) -> {
-                                                       map.put(EquipmentType.BOOTS, 2);
+        AMETHYST = new ArmorMaterial(20, Util.make(new EnumMap<>(EquipmentType.class),
+                                                   (map) ->
+                                                   {
+                                                       map.put(EquipmentType.BOOTS, 1);
                                                        map.put(EquipmentType.LEGGINGS, 5);
-                                                       map.put(EquipmentType.CHESTPLATE, 6);
-                                                       map.put(EquipmentType.HELMET, 2);
-                                                       map.put(EquipmentType.BODY, 7);
+                                                       map.put(EquipmentType.CHESTPLATE, 7);
+                                                       map.put(EquipmentType.HELMET, 3);
+                                                       map.put(EquipmentType.BODY, 5);
                                                    }),
-                                     9, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
-                                     0.0f, 0.0f, Tags.Item.REPAIRS_COPPER_ARMOR,
-                                     identifier("copper"));
+                                     20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+                                     1.5f, 0.05f, Tags.Item.REPAIRS_AMETHYST_ARMOR,
+                                     identifier("amethyst"));
 
-        EMERALD  = new ArmorMaterial(15, Util.make(new EnumMap<>(EquipmentType.class),
-                                                  (map) -> {
+        CITRINE = new ArmorMaterial(30, Util.make(new EnumMap<>(EquipmentType.class),
+                                                  (map) ->
+                                                  {
+                                                      map.put(EquipmentType.BOOTS, 3);
+                                                      map.put(EquipmentType.LEGGINGS, 6);
+                                                      map.put(EquipmentType.CHESTPLATE, 8);
+                                                      map.put(EquipmentType.HELMET, 3);
+                                                      map.put(EquipmentType.BODY, 7);
+                                                  }),
+                                    10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+                                    2.0f, 0.05f, Tags.Item.REPAIRS_CITRINE_ARMOR,
+                                    identifier("citrine"));
+
+        COPPER = new ArmorMaterial(25, Util.make(new EnumMap<>(EquipmentType.class),
+                                                 (map) ->
+                                                 {
+                                                     map.put(EquipmentType.BOOTS, 2);
+                                                     map.put(EquipmentType.LEGGINGS, 5);
+                                                     map.put(EquipmentType.CHESTPLATE, 6);
+                                                     map.put(EquipmentType.HELMET, 2);
+                                                     map.put(EquipmentType.BODY, 7);
+                                                 }),
+                                   9, SoundEvents.ITEM_ARMOR_EQUIP_IRON,
+                                   0.0f, 0.0f, Tags.Item.REPAIRS_COPPER_ARMOR,
+                                   identifier("copper"));
+
+        EMERALD = new ArmorMaterial(15, Util.make(new EnumMap<>(EquipmentType.class),
+                                                  (map) ->
+                                                  {
                                                       map.put(EquipmentType.BOOTS, 1);
                                                       map.put(EquipmentType.LEGGINGS, 5);
                                                       map.put(EquipmentType.CHESTPLATE, 7);
@@ -99,8 +103,9 @@ public class ModArmorMaterials
                                     1.5f, 0.05f, Tags.Item.REPAIRS_EMERALD_ARMOR,
                                     identifier("emerald"));
 
-        ENDERITE  = new ArmorMaterial(42, Util.make(new EnumMap<>(EquipmentType.class),
-                                                   (map) -> {
+        ENDERITE = new ArmorMaterial(42, Util.make(new EnumMap<>(EquipmentType.class),
+                                                   (map) ->
+                                                   {
                                                        map.put(EquipmentType.BOOTS, 3);
                                                        map.put(EquipmentType.LEGGINGS, 6);
                                                        map.put(EquipmentType.CHESTPLATE, 8);
@@ -111,28 +116,30 @@ public class ModArmorMaterials
                                      4.0f, 0.2f, Tags.Item.REPAIRS_ENDERITE_ARMOR,
                                      identifier("enderite"));
 
-        RUBY  = new ArmorMaterial(35, Util.make(new EnumMap<>(EquipmentType.class),
-                                                    (map) -> {
-                                                        map.put(EquipmentType.BOOTS, 3);
-                                                        map.put(EquipmentType.LEGGINGS, 6);
-                                                        map.put(EquipmentType.CHESTPLATE, 8);
-                                                        map.put(EquipmentType.HELMET, 3);
-                                                        map.put(EquipmentType.BODY, 7);
-                                                    }),
-                                      10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
-                                      2.0f, 0.05f, Tags.Item.REPAIRS_RUBY_ARMOR,
-                                      identifier("ruby"));
+        RUBY = new ArmorMaterial(35, Util.make(new EnumMap<>(EquipmentType.class),
+                                               (map) ->
+                                               {
+                                                   map.put(EquipmentType.BOOTS, 3);
+                                                   map.put(EquipmentType.LEGGINGS, 6);
+                                                   map.put(EquipmentType.CHESTPLATE, 8);
+                                                   map.put(EquipmentType.HELMET, 3);
+                                                   map.put(EquipmentType.BODY, 7);
+                                               }),
+                                 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+                                 2.0f, 0.05f, Tags.Item.REPAIRS_RUBY_ARMOR,
+                                 identifier("ruby"));
 
-        SAPPHIRE  = new ArmorMaterial(35, Util.make(new EnumMap<>(EquipmentType.class),
-                                                (map) -> {
-                                                    map.put(EquipmentType.BOOTS, 3);
-                                                    map.put(EquipmentType.LEGGINGS, 6);
-                                                    map.put(EquipmentType.CHESTPLATE, 8);
-                                                    map.put(EquipmentType.HELMET, 3);
-                                                    map.put(EquipmentType.BODY, 7);
-                                                }),
-                                  10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
-                                  2.0f, 0.05f, Tags.Item.REPAIRS_SAPPHIRE_ARMOR,
-                                  identifier("sapphire"));
+        SAPPHIRE = new ArmorMaterial(35, Util.make(new EnumMap<>(EquipmentType.class),
+                                                   (map) ->
+                                                   {
+                                                       map.put(EquipmentType.BOOTS, 3);
+                                                       map.put(EquipmentType.LEGGINGS, 6);
+                                                       map.put(EquipmentType.CHESTPLATE, 8);
+                                                       map.put(EquipmentType.HELMET, 3);
+                                                       map.put(EquipmentType.BODY, 7);
+                                                   }),
+                                     10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND,
+                                     2.0f, 0.05f, Tags.Item.REPAIRS_SAPPHIRE_ARMOR,
+                                     identifier("sapphire"));
     }
 }

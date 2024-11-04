@@ -53,7 +53,7 @@ repositories {
     }
 }
 
-//loom {
+loom {
 //    splitEnvironmentSourceSets()
 //    mods {
 //        "${archives_base_name}" {
@@ -61,7 +61,9 @@ repositories {
 //            sourceSet sourceSets.client
 //        }
 //    }
-//}
+
+    accessWidenerPath = file("src/main/resources/${project.archives_base_name}.accesswidener")
+}
 
 fabricApi {
     configureDataGeneration()
@@ -75,9 +77,9 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // Energy API Handling Dependency <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    //include modApi("teamreborn:energy:${project.energy_version}") {
-    //    exclude(group: "net.fabricmc.fabric-api")
-    //}
+    include modApi("teamreborn:energy:${project.energy_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 
     // PAL <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     modImplementation "io.github.ladysnake:PlayerAbilityLib:${project.pal_version}"

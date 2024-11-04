@@ -31,8 +31,18 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
 
+/**
+ * Client class that implements ClientModInitializer.
+ * This class is responsible for client-side initialization
+ * of the mod, including setting up custom rendering layers
+ * for specific blocks in the mod.
+ */
 public class Client implements ClientModInitializer
 {
+    /**
+     * This method is called during the client initialization to set up rendering
+     * properties for special blocks such as cutout layers for doors and trap doors.
+     */
     @Override
     public void onInitializeClient()
     {

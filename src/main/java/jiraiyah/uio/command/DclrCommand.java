@@ -1,3 +1,27 @@
+/***********************************************************************************
+ * Copyright (c) 2024 Alireza Khodakarami (Jiraiyah)                               *
+ * ------------------------------------------------------------------------------- *
+ * MIT License                                                                     *
+ * =============================================================================== *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy    *
+ * of this software and associated documentation files (the "Software"), to deal   *
+ * in the Software without restriction, including without limitation the rights    *
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell       *
+ * copies of the Software, and to permit persons to whom the Software is           *
+ * furnished to do so, subject to the following conditions:                        *
+ * ------------------------------------------------------------------------------- *
+ * The above copyright notice and this permission notice shall be included in all  *
+ * copies or substantial portions of the Software.                                 *
+ * ------------------------------------------------------------------------------- *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR      *
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,        *
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE     *
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER          *
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,   *
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE   *
+ * SOFTWARE.                                                                       *
+ ***********************************************************************************/
+
 package jiraiyah.uio.command;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -57,7 +81,7 @@ public class DclrCommand
                     "oak_stairs", "spruce_stairs", "birch_stairs", "jungle_stairs", "acacia_stairs", "cherry_stairs", "dark_oak_stairs", "mangrove_stairs",
                     "oak_trapdoor", "spruce_trapdoor", "birch_trapdoor", "jungle_trapdoor", "acacia_trapdoor", "cherry_trapdoor",
                     "dark_oak_trapdoor", "mangrove_trapdoor", "iron_trapdoor",
-                    "pumpkin","chain", "bee_nest", "melon", "polished_blackstone_bricks", "cracked_polished_blackstone_bricks",
+                    "pumpkin", "chain", "bee_nest", "melon", "polished_blackstone_bricks", "cracked_polished_blackstone_bricks",
                     "chiseled_polished_blackstone", "cracked_deepslate_bricks", "cracked_stone_bricks", "mossy_stone_bricks"
             };
 
@@ -70,7 +94,7 @@ public class DclrCommand
                     "prismarine", "prismarine_bricks", "dark_prismarine", "sea_lantern"
             };
 
-    static String[] fluid_block_list ={"water", "lava", "kelp", "kelp_plant", "seagrass", "tall_seagrass", "air", "bubble_column", "glow_lichen"};
+    static String[] fluid_block_list = {"water", "lava", "kelp", "kelp_plant", "seagrass", "tall_seagrass", "air", "bubble_column", "glow_lichen"};
     //endregion
 
     public DclrCommand()
@@ -80,90 +104,90 @@ public class DclrCommand
 
     public static void register()
     {
-        if(FabricLoader.getInstance().isDevelopmentEnvironment())
+        if (FabricLoader.getInstance().isDevelopmentEnvironment())
         {
             CommandRegistrationCallback.EVENT.register((((dispatcher, registryAccess, environment) ->
             {
                 dispatcher.register(CommandManager.literal("dclr")
-                  .then(CommandManager.argument("clear_operation_type", StringArgumentType.string())
-                      .suggests(new DevCleanSuggestionProvider())
-                      .executes(context ->
-                        {
-                            String typ = StringArgumentType.getString(context, "clear_operation_type");
-                            if (Objects.equals(typ, ""))
-                                typ = "all";
+                                                  .then(CommandManager.argument("clear_operation_type", StringArgumentType.string())
+                                                                      .suggests(new DevCleanSuggestionProvider())
+                                                                      .executes(context ->
+                                                                                {
+                                                                                    String typ = StringArgumentType.getString(context, "clear_operation_type");
+                                                                                    if (Objects.equals(typ, ""))
+                                                                                        typ = "all";
 
-                            if (!Objects.equals(typ, "ore") &&
-                                !Objects.equals(typ, "block") &&
-                                !Objects.equals(typ, "fluid") &&
-                                !Objects.equals(typ, "all"))
-                            {
-                                context.getSource().sendFeedback(() -> translate(Constants.DCLR_ERROR_ID_NAME), false);
-                            }
-                            else
-                            {
-                                String[] blocks = Objects.equals(typ, "ore")
-                                                  ? ArrayUtils.addAll(ore_clear_list)
-                                                  : Objects.equals(typ, "block")
-                                                    ? ArrayUtils.addAll(block_clear_list)
-                                                    : Objects.equals(typ, "fluid")
-                                                      ? ArrayUtils.addAll(fluid_block_list)
-                                                      : ArrayUtils.addAll(block_clear_list, ore_clear_list);
+                                                                                    if (!Objects.equals(typ, "ore") &&
+                                                                                        !Objects.equals(typ, "block") &&
+                                                                                        !Objects.equals(typ, "fluid") &&
+                                                                                        !Objects.equals(typ, "all"))
+                                                                                    {
+                                                                                        context.getSource().sendFeedback(() -> translate(Constants.DCLR_ERROR_ID_NAME), false);
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        String[] blocks = Objects.equals(typ, "ore")
+                                                                                                          ? ArrayUtils.addAll(ore_clear_list)
+                                                                                                          : Objects.equals(typ, "block")
+                                                                                                            ? ArrayUtils.addAll(block_clear_list)
+                                                                                                            : Objects.equals(typ, "fluid")
+                                                                                                              ? ArrayUtils.addAll(fluid_block_list)
+                                                                                                              : ArrayUtils.addAll(block_clear_list, ore_clear_list);
 
-                                if (blocks.length == 0)
-                                    return 1;
+                                                                                        if (blocks.length == 0)
+                                                                                            return 1;
 
-                                PlayerEntity player = context.getSource().getPlayer();
+                                                                                        PlayerEntity player = context.getSource().getPlayer();
 
-                                if (player != null)
-                                {
-                                    MinecraftServer server = player.getServer();
-                                    BlockPos position = player.getBlockPos();
+                                                                                        if (player != null)
+                                                                                        {
+                                                                                            MinecraftServer server = player.getServer();
+                                                                                            BlockPos position = player.getBlockPos();
 
-                                    int minX = position.getX() - Configs.DCLR_RADIUS;
-                                    int maxX = position.getX() + Configs.DCLR_RADIUS;
-                                    int minZ = position.getZ() - Configs.DCLR_RADIUS;
-                                    int maxZ = position.getZ() + Configs.DCLR_RADIUS;
+                                                                                            int minX = position.getX() - Configs.DCLR_RADIUS;
+                                                                                            int maxX = position.getX() + Configs.DCLR_RADIUS;
+                                                                                            int minZ = position.getZ() - Configs.DCLR_RADIUS;
+                                                                                            int maxZ = position.getZ() + Configs.DCLR_RADIUS;
 
-                                    context.getSource().sendFeedback(() -> translate(Constants.DCLR_START_ID_NAME), false);
+                                                                                            context.getSource().sendFeedback(() -> translate(Constants.DCLR_START_ID_NAME), false);
 
-                                    BlockState state;
-                                    String name;
-                                    BlockPos pos;
+                                                                                            BlockState state;
+                                                                                            String name;
+                                                                                            BlockPos pos;
 
-                                    World world = player.getWorld();
+                                                                                            World world = player.getWorld();
 
-                                    for (int y = -64; y <= 128; y++)
-                                    {
-                                        for (int x = minX; x <= maxX; x++)
-                                        {
-                                            for (int z = minZ; z <= maxZ; z++)
-                                            {
-                                                pos = new BlockPos(x, y, z);
-                                                state = world.getBlockState(pos);
-                                                name = Registries.BLOCK.getEntry(state.getBlock()).getKey().orElseThrow().getValue().getPath();
-                                                if(x == minX || x == maxX || z == minZ || z == maxZ)
-                                                {
-                                                    if(y <= 65 &&
-                                                       ArrayUtils.contains(fluid_block_list, name))
-                                                        world.setBlockState(pos, Blocks.OBSIDIAN.getDefaultState(), Block.NOTIFY_ALL);
-                                                    else if(ArrayUtils.contains(fluid_block_list, name) &&
-                                                            !name.equals("air"))
-                                                        world.setBlockState(pos, Blocks.OBSIDIAN.getDefaultState(), Block.NOTIFY_ALL);
-                                                }
-                                                else if( minX < x && x < maxX &&
-                                                         minZ < z && z < maxZ &&
-                                                         ArrayUtils.contains(blocks, name))
-                                                            world.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
-                                            }
-                                        }
-                                    }
+                                                                                            for (int y = -64; y <= 128; y++)
+                                                                                            {
+                                                                                                for (int x = minX; x <= maxX; x++)
+                                                                                                {
+                                                                                                    for (int z = minZ; z <= maxZ; z++)
+                                                                                                    {
+                                                                                                        pos = new BlockPos(x, y, z);
+                                                                                                        state = world.getBlockState(pos);
+                                                                                                        name = Registries.BLOCK.getEntry(state.getBlock()).getKey().orElseThrow().getValue().getPath();
+                                                                                                        if (x == minX || x == maxX || z == minZ || z == maxZ)
+                                                                                                        {
+                                                                                                            if (y <= 65 &&
+                                                                                                                ArrayUtils.contains(fluid_block_list, name))
+                                                                                                                world.setBlockState(pos, Blocks.OBSIDIAN.getDefaultState(), Block.NOTIFY_ALL);
+                                                                                                            else if (ArrayUtils.contains(fluid_block_list, name) &&
+                                                                                                                     !name.equals("air"))
+                                                                                                                world.setBlockState(pos, Blocks.OBSIDIAN.getDefaultState(), Block.NOTIFY_ALL);
+                                                                                                        }
+                                                                                                        else if (minX < x && x < maxX &&
+                                                                                                                 minZ < z && z < maxZ &&
+                                                                                                                 ArrayUtils.contains(blocks, name))
+                                                                                                            world.setBlockState(pos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL);
+                                                                                                    }
+                                                                                                }
+                                                                                            }
 
-                                    context.getSource().sendFeedback(() -> translate(Constants.DCLR_END_ID_NAME), false);
-                                }
-                            }
-                            return 1;
-                        })));
+                                                                                            context.getSource().sendFeedback(() -> translate(Constants.DCLR_END_ID_NAME), false);
+                                                                                        }
+                                                                                    }
+                                                                                    return 1;
+                                                                                })));
             })));
         }
     }

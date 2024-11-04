@@ -1,3 +1,27 @@
+/***********************************************************************************
+ * Copyright (c) 2024 Alireza Khodakarami (Jiraiyah)                               *
+ * ------------------------------------------------------------------------------- *
+ * MIT License                                                                     *
+ * =============================================================================== *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy    *
+ * of this software and associated documentation files (the "Software"), to deal   *
+ * in the Software without restriction, including without limitation the rights    *
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell       *
+ * copies of the Software, and to permit persons to whom the Software is           *
+ * furnished to do so, subject to the following conditions:                        *
+ * ------------------------------------------------------------------------------- *
+ * The above copyright notice and this permission notice shall be included in all  *
+ * copies or substantial portions of the Software.                                 *
+ * ------------------------------------------------------------------------------- *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR      *
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,        *
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE     *
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER          *
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,   *
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE   *
+ * SOFTWARE.                                                                       *
+ ***********************************************************************************/
+
 package jiraiyah.uio.block.machine;
 
 import jiraiyah.uio.block.base.MachineBase;
@@ -41,16 +65,10 @@ public class EnderChanter extends MachineBase
     }
 
     @Override
-    protected boolean onSyncedBlockEvent(BlockState state, World world, BlockPos pos, int type, int data) {
+    protected boolean onSyncedBlockEvent(BlockState state, World world, BlockPos pos, int type, int data)
+    {
         super.onSyncedBlockEvent(state, world, pos, type, data);
         BlockEntity blockEntity = world.getBlockEntity(pos);
         return blockEntity != null && blockEntity.onSyncedBlockEvent(type, data);
-    }
-
-    @Nullable
-    private static <E extends BlockEntity, A extends BlockEntity> BlockEntityTicker<A> validateTicker(
-            BlockEntityType<A> givenType, BlockEntityType<E> expectedType, BlockEntityTicker<A> ticker)
-    {
-        return expectedType == givenType ? ticker : null;
     }
 }

@@ -1,3 +1,27 @@
+/***********************************************************************************
+ * Copyright (c) 2024 Alireza Khodakarami (Jiraiyah)                               *
+ * ------------------------------------------------------------------------------- *
+ * MIT License                                                                     *
+ * =============================================================================== *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy    *
+ * of this software and associated documentation files (the "Software"), to deal   *
+ * in the Software without restriction, including without limitation the rights    *
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell       *
+ * copies of the Software, and to permit persons to whom the Software is           *
+ * furnished to do so, subject to the following conditions:                        *
+ * ------------------------------------------------------------------------------- *
+ * The above copyright notice and this permission notice shall be included in all  *
+ * copies or substantial portions of the Software.                                 *
+ * ------------------------------------------------------------------------------- *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR      *
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,        *
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE     *
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER          *
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,   *
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE   *
+ * SOFTWARE.                                                                       *
+ ***********************************************************************************/
+
 package jiraiyah.uio;
 
 import com.mojang.datafixers.util.Pair;
@@ -5,8 +29,17 @@ import jiraiyah.uio.util.config.Config;
 
 import static jiraiyah.uio.Reference.Keys;
 
+/**
+ * The Configs class extends the Config class, presumably to manage configuration settings
+ * related to the game's mechanics or features. It contains several static integer variables
+ * that appear to represent various game parameters.
+ */
 public class Configs extends Config
 {
+    /**
+     * The constructor for the Configs class, invoking the superclass constructor and
+     * throwing an AssertionError, indicating that this class should not be instantiated directly.
+     */
     public Configs()
     {
         super();
@@ -25,6 +58,14 @@ public class Configs extends Config
 
     public static double SAPPHIRE_SWORD_MULTIPLIER;
 
+    /**
+     * Creates configuration settings for the application.
+     * This method adds various comments and pairs to the configuration provider.
+     * <p>
+     * It includes settings for commands, swords, and items including specific parameters like the radius for
+     * the DCLR command that defines how far the command expands on each side.
+     * The method is grouped with similar settings to enhance readability and organization within the config.
+     */
     protected static void createConfigs()
     {
         provider.addComment("===================================================================================================");
@@ -138,6 +179,11 @@ public class Configs extends Config
         provider.addPair(new Pair<>(Keys.Config.WOOD_HAMMER_DEPTH, 1), false, true);
     }
 
+    /**
+     * Assigns configuration values to the application.
+     * This method is responsible for setting up the necessary
+     * configurations based on predefined parameters.
+     */
     protected static void assignConfigValues()
     {
         DCLR_RADIUS = CONFIG.getOrDefault(Keys.Config.DCLR, 128);

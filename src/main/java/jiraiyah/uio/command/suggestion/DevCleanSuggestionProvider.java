@@ -39,9 +39,9 @@ public class DevCleanSuggestionProvider implements SuggestionProvider<ServerComm
     public CompletableFuture<Suggestions> getSuggestions(CommandContext<ServerCommandSource> context, SuggestionsBuilder builder) throws CommandSyntaxException
     {
         builder.suggest("ore")
-                .suggest("block")
-                .suggest("fluid")
-                .suggest("all");
+               .suggest("block")
+               .suggest("fluid")
+               .suggest("all");
         return builder.buildFuture();
     }
 }

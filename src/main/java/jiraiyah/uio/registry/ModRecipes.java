@@ -32,13 +32,24 @@ import net.minecraft.registry.Registry;
 import static jiraiyah.uio.Reference.identifier;
 import static jiraiyah.uio.Reference.log;
 
+/**
+ * This class is responsible for managing the registration of custom recipes in the mod.
+ */
 public class ModRecipes
 {
+    /**
+     * Private constructor to prevent instantiation of the ModRecipes class.
+     * Throws an AssertionError if attempted to create an instance.
+     */
     ModRecipes()
     {
         throw new AssertionError();
     }
 
+    /**
+     * Initializes the mod's recipe registration process.
+     * Logs a message indicating that recipes are being registered.
+     */
     public static void init()
     {
         log("Registering Recipes");

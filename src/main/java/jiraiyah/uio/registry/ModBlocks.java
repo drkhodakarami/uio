@@ -30,38 +30,81 @@ import jiraiyah.uio.block.energy.SolarPanel;
 import jiraiyah.uio.block.goo.*;
 import jiraiyah.uio.block.machine.*;
 import jiraiyah.uio.block.misc.*;
-import jiraiyah.uio.util.Registers;
 import net.minecraft.block.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static jiraiyah.uio.Reference.ModID;
 import static jiraiyah.uio.Reference.log;
-import static jiraiyah.uio.util.Registers.Blocks.*;
-import static jiraiyah.uio.util.Registers.Blocks.registerPressurePlate;
+import static jiraiyah.uio.util.registry.Registers.Block.*;
+import static jiraiyah.uio.util.registry.Registers.Block.registerPressurePlate;
 
+/**
+ * The ModBlocks class is responsible for managing and registering custom blocks
+ * within the Minecraft mod associated with the Jiraiyah UI Overhaul (UIO).
+ * <p>
+ * This class contains static definitions for various block types including ores,
+ * decorative blocks, and utility blocks. It also maintains a blacklist that
+ * prevents specific blocks from being registered or used within the mod.
+ * </p>
+ * <p>
+ * The constructor is private to prevent instantiation, as this class is intended
+ * to serve as a utility class for block management.
+ * </p>
+ * <p>
+ * Example usage includes initializing and registering blocks during the mod's
+ * setup phase.
+ * </p>
+ *
+ * <p>
+ * <strong>Thread Safety:</strong> This class is not thread-safe and should be
+ * accessed within a single-threaded context during mod initialization.
+ * </p>
+ *
+ * @see Block
+ * @see List
+ * @see java.util.ArrayList
+ */
 public class ModBlocks
 {
-    ModBlocks()
-    {
-        throw new AssertionError();
-    }
-
-    public static List<Block> AllBlocks = new ArrayList<>();
+    /**
+     * A list of blocks that are excluded from registration in the Minecraft mod.
+     * <p>
+     * This list serves as a blacklist to manage which blocks will not be included
+     * or used within the mod functionality. Blocks added to this list will be
+     * ignored during the block registration process.
+     * </p>
+     * <p>
+     * The list is static and final, meaning it is shared among all instances and
+     * cannot be modified to reference a different list after initialization.
+     * </p>
+     */
     public static final List<Block> BLACK_LIST = new ArrayList<>();
-
     public static Block ENDERITE, CARROT_BOX, POTATO_BOX, CITRINE, RUBY, SAPPHIRE, ORE_ENDERITE,
-            RAW_CITRINE, RAW_ENDERITE ,RAW_QUARTZ, RAW_RUBY, RAW_SAPPHIRE, ORE_DEEP_CITRINE, ORE_DEEP_RUBY, ORE_DEEP_SAPPHIRE,
+            RAW_CITRINE, RAW_ENDERITE, RAW_QUARTZ, RAW_RUBY, RAW_SAPPHIRE, ORE_DEEP_CITRINE, ORE_DEEP_RUBY, ORE_DEEP_SAPPHIRE,
             ORE_END_CITRINE, ORE_END_ENDERITE_CRACKED, ORE_END_RUBY, ORE_END_SAPPHIRE,
             ORE_NETHER_CITRINE, ORE_NETHER_RUBY, ORE_NETHER_SAPPHIRE, ORE_NETHER_COAL, ORE_NETHER_COPPER, ORE_NETHER_DIAMOND,
-            ORE_NETHER_IRON, ORE_NETHER_LAPIS,ORE_NETHER_REDSTONE, ORE_WORLD_CITRINE, ORE_WORLD_RUBY, ORE_WORLD_SAPPHIRE;
+            ORE_NETHER_IRON, ORE_NETHER_LAPIS, ORE_NETHER_REDSTONE, ORE_WORLD_CITRINE, ORE_WORLD_RUBY, ORE_WORLD_SAPPHIRE;
+    public static FenceBlock CITRINE_FENCE, ENDERITE_FENCE, RUBY_FENCE, SAPPHIRE_FENCE;
 
     public static StairsBlock CITRINE_STAIRS, ENDERITE_STAIRS, RUBY_STAIRS, SAPPHIRE_STAIRS;
     public static SlabBlock CITRINE_SLAB, ENDERITE_SLAB, RUBY_SLAB, SAPPHIRE_SLAB;
     public static ButtonBlock CITRINE_BUTTON, ENDERITE_BUTTON, RUBY_BUTTON, SAPPHIRE_BUTTON;
     public static PressurePlateBlock CITRINE_PRESSURE_PLATE, ENDERITE_PRESSURE_PLATE, RUBY_PRESSURE_PLATE, SAPPHIRE_PRESSURE_PLATE;
-    public static FenceBlock CITRINE_FENCE, ENDERITE_FENCE, RUBY_FENCE,SAPPHIRE_FENCE;
+    /**
+     * Private constructor for the ModBlocks class.
+     * <p>
+     * This constructor is intentionally left private to prevent instantiation of
+     * the ModBlocks class, as it is intended to be a utility class that contains
+     * only static methods and fields for managing mod blocks.
+     * </p>
+     *
+     * @throws AssertionError if an attempt is made to instantiate this class.
+     */
+    ModBlocks()
+    {
+        throw new AssertionError();
+    }
     public static FenceGateBlock CITRINE_FENCE_GATE, ENDERITE_FENCE_GATE, RUBY_FENCE_GATE, SAPPHIRE_FENCE_GATE;
     public static WallBlock CITRINE_WALL, ENDERITE_WALL, RUBY_WALL, SAPPHIRE_WALL;
     public static DoorBlock CITRINE_DOOR, ENDERITE_DOOR, RUBY_DOOR, SAPPHIRE_DOOR;
@@ -110,6 +153,24 @@ public class ModBlocks
     public static Miner MINER;
     //endregion
 
+    /**
+     * Initializes and registers all custom blocks for the Minecraft mod.
+     * <p>
+     * This method is responsible for creating instances of the various blocks defined
+     * in this class, such as gems, ores, and utility blocks, and registering them
+     * with the appropriate Minecraft registry system. It outputs logging information
+     * to indicate the registration process.
+     * </p>
+     * <p>
+     * Typically called during the mod's initialization phase to ensure all blocks
+     * are available for use in the game. This method also handles the
+     * registration of block variations such as stairs, slabs, and buttons.
+     * </p>
+     * <p>
+     * <strong>Note:</strong> This method should only be called once during the
+     * initialization process to avoid duplicate registrations.
+     * </p>
+     */
     public static void init()
     {
         log("Registering Blocks");
@@ -143,9 +204,9 @@ public class ModBlocks
         SAPPHIRE_BUTTON = registerButton("block_sapphire_button", BlockSetType.IRON, 40, Blocks.AMETHYST_BLOCK);
 
         CITRINE_PRESSURE_PLATE = registerPressurePlate("block_citrine_pressure_plate", BlockSetType.IRON, Blocks.AMETHYST_BLOCK);
-        ENDERITE_PRESSURE_PLATE = registerPressurePlate("block_enderite_pressure_plate",BlockSetType.IRON, Blocks.IRON_BLOCK);
-        RUBY_PRESSURE_PLATE = registerPressurePlate("block_ruby_pressure_plate",BlockSetType.IRON, Blocks.AMETHYST_BLOCK);
-        SAPPHIRE_PRESSURE_PLATE = registerPressurePlate("block_sapphire_pressure_plate",BlockSetType.IRON, Blocks.AMETHYST_BLOCK);
+        ENDERITE_PRESSURE_PLATE = registerPressurePlate("block_enderite_pressure_plate", BlockSetType.IRON, Blocks.IRON_BLOCK);
+        RUBY_PRESSURE_PLATE = registerPressurePlate("block_ruby_pressure_plate", BlockSetType.IRON, Blocks.AMETHYST_BLOCK);
+        SAPPHIRE_PRESSURE_PLATE = registerPressurePlate("block_sapphire_pressure_plate", BlockSetType.IRON, Blocks.AMETHYST_BLOCK);
 
         CITRINE_FENCE = registerFence("block_citrine_fence", Blocks.AMETHYST_BLOCK);
         ENDERITE_FENCE = registerFence("block_enderite_fence", Blocks.IRON_BLOCK);
@@ -222,7 +283,7 @@ public class ModBlocks
 
         REDSTONE_CLOCK = register("redstone_clock", Blocks.GRAY_WOOL, RedstoneClock::new);
         CREATIVE_BANK = register("creative_bank", Blocks.IRON_BLOCK, CreativeEnergyBank::new);
-        BATTERY_BANK = register("battery_bank", Blocks.IRON_BLOCK,BatteryBank::new);
+        BATTERY_BANK = register("battery_bank", Blocks.IRON_BLOCK, BatteryBank::new);
         ALLOY_MIXER = register("alloy_mixer", Blocks.IRON_BLOCK, AlloyMixer::new);
         BUILDER = register("builder", Blocks.IRON_BLOCK, BuilderBlock::new);
         CAST_PRESS = register("cast_press", Blocks.IRON_BLOCK, CastPress::new);
@@ -249,6 +310,25 @@ public class ModBlocks
         //endregion
     }
 
+    /**
+     * Adds custom blocks to appropriate item groups in the Minecraft mod.
+     * <p>
+     * This method is responsible for including the registered custom blocks
+     * into various item groups, allowing them to be accessible in the game's
+     * inventory system. For example, this could include adding blocks to the
+     * building blocks group or any other relevant categories.
+     * </p>
+     * <p>
+     * The method may utilize item group events to modify existing groups or
+     * create new ones, ensuring that players can find and use these blocks
+     * easily within the game.
+     * </p>
+     * <p>
+     * <strong>Note:</strong> The method currently contains commented-out code
+     * indicating potential future implementations. Ensure to implement item
+     * group additions as needed based on game design requirements.
+     * </p>
+     */
     public static void addToItemGroups()
     {
         log("Adding Blocks to Item Groups");
@@ -259,10 +339,23 @@ public class ModBlocks
                                                                                 });*/
     }
 
-    public static void setAllBlocks()
+    /**
+     * Populates the blacklist with specific block types that should be excluded
+     * from registration in the Minecraft mod.
+     * <p>
+     * This method adds predefined blocks to the BLACK_LIST, preventing them from
+     * being registered or utilized within the mod's functionality. The blacklist
+     * serves as a filter to manage which blocks are ignored during the
+     * registration process, ensuring certain blocks do not interfere with
+     * gameplay or mod features.
+     * </p>
+     * <p>
+     * This method should be called during the mod's initialization phase to
+     * effectively manage block exclusions before any registration occurs.
+     * </p>
+     */
+    public static void setBlackList()
     {
-        AllBlocks = Registers.getAllBlocks(ModID);
-
         BLACK_LIST.add(AIR_BOMB_GOO);
         BLACK_LIST.add(CHUNK_BOMB_GOO);
         BLACK_LIST.add(STONE_BOMB_GOO);

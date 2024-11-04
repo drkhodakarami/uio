@@ -26,31 +26,40 @@ package jiraiyah.uio.registry;
 
 import jiraiyah.uio.Configs;
 import jiraiyah.uio.item.*;
-import jiraiyah.uio.item.blockitem.AngelBlockItem;
 import jiraiyah.uio.registry.misc.ModArmorMaterials;
 import jiraiyah.uio.registry.misc.ModToolMaterials;
-import jiraiyah.uio.util.Registers;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static jiraiyah.uio.Reference.ModID;
 import static jiraiyah.uio.Reference.log;
-import static jiraiyah.uio.util.Registers.Items.*;
+import static jiraiyah.uio.util.registry.Registers.Item.*;
 
-// Some of the textures are from : https://github/malcolmriley/unused-textures
+/**
+ * The {@code ModItems} class provides utility methods and fields
+ * related to the custom items in the Minecraft mod. It handles
+ * the registration of various items including gems, tools, and
+ * armor, while also maintaining a blacklist for specific items.
+ *
+ * <p>This class cannot be instantiated as it is intended to be
+ * a static utility class.</p>
+ *
+ * <p>All items are registered in the Minecraft mod and can be
+ * accessed statically.</p>
+ *
+ * <p>Some of the textures are from : <a href="https://github/malcolmriley/unused-textures">GITHUB REPOSITORY</a></p>
+ */
 public class ModItems
 {
-    ModItems()
-    {
-        throw new AssertionError();
-    }
-
-    public static List<Item> AllItems = new ArrayList<>();
+    /**
+     * A blacklist that contains items that should be excluded from
+     * certain functionalities such as crafting or usage.
+     * This is a static final list that cannot be modified post
+     * initialization.
+     */
     public static final List<Item> BLACK_LIST = new ArrayList<>();
-
     public static Item GEM_CITRINE, GEM_RUBY, GEM_SAPPHIRE,
             RAW_CITRINE, RAW_ENDERITE, RAW_QUARTZ, RAW_RUBY, RAW_SAPPHIRE,
             CAST_AXE, CAST_BINDING, CAST_EXCAVATOR, CAST_GEAR, CAST_GEM, CAST_HAMMER, CAST_HANDLE, CAST_HOE, CAST_INGOT, CAST_NUGGET,
@@ -62,10 +71,10 @@ public class ModItems
             GEAR_VIBRANT, GEAR_WOOD,
             INGOT_ALLOY_CONDUCTIVE, INGOT_ALLOY_ENERGETIC, INGOT_ALLOY_PULSATING, INGOT_ALLOY_RED, INGOT_ALLOY_VIBRANT,
             INGOT_ALLOY_ENDERITE, RAW_ALLOY_ENDERITE, INGOT_ENDERITE,
-            PLATE_AMETHYST, PLATE_CITRINE, PLATE_COPPER, PLATE_DIAMOND, PLATE_EMERALD, PLATE_ENDERITE,PLATE_GOLD,
+            PLATE_AMETHYST, PLATE_CITRINE, PLATE_COPPER, PLATE_DIAMOND, PLATE_EMERALD, PLATE_ENDERITE, PLATE_GOLD,
             PLATE_IRON, PLATE_NETHERITE, PLATE_RUBY, PLATE_SAPPHIRE, PLATE_SHULKER, PLATE_STONE,
             REINFORCED_AMETHYST, REINFORCED_CITRINE, REINFORCED_COPPER, REINFORCED_DIAMOND, REINFORCED_EMERALD, REINFORCED_ENDERITE,
-            REINFORCED_GOLD, REINFORCED_IRON, REINFORCED_NETHERITE, REINFORCED_RUBY, REINFORCED_SAPPHIRE,REINFORCED_SHULKER,
+            REINFORCED_GOLD, REINFORCED_IRON, REINFORCED_NETHERITE, REINFORCED_RUBY, REINFORCED_SAPPHIRE, REINFORCED_SHULKER,
             ROD_COPPER, ROD_ENDERITE, ROD_GLOWSTONE, ROD_GOLD, ROD_IRON, ROD_OBSIDIAN, ROD_REDSTONE, ROD_SHULKER,
             HEAD_CITRINE_AXE, HEAD_CITRINE_EXCAVATOR, HEAD_CITRINE_HAMMER, HEAD_CITRINE_HOE, HEAD_CITRINE_PICKAXE, HEAD_CITRINE_SHOVEL, HEAD_CITRINE_SWORD,
             HEAD_COPPER_AXE, HEAD_COPPER_EXCAVATOR, HEAD_COPPER_HAMMER, HEAD_COPPER_HOE, HEAD_COPPER_PICKAXE, HEAD_COPPER_SHOVEL, HEAD_COPPER_SWORD,
@@ -78,9 +87,16 @@ public class ModItems
             HEAD_SAPPHIRE_AXE, HEAD_SAPPHIRE_EXCAVATOR, HEAD_SAPPHIRE_HAMMER, HEAD_SAPPHIRE_HOE, HEAD_SAPPHIRE_PICKAXE, HEAD_SAPPHIRE_SHOVEL, HEAD_SAPPHIRE_SWORD,
             HEAD_STONE_HAMMER, HEAD_STONE_EXCAVATOR, HEAD_WOOD_HAMMER, HEAD_WOOD_EXCAVATOR,
 
-            ENDER_CHARM, ENDERMAN_EYE, ENDERMAN_HEART, ENDERMAN_GLAND, BLUEPRINT_EMPTY, THERMAL_CORE, HOT_COAL,
+    ENDER_CHARM, ENDERMAN_EYE, ENDERMAN_HEART, ENDERMAN_GLAND, BLUEPRINT_EMPTY, THERMAL_CORE, HOT_COAL,
             COOKED_EGG, EGG_AND_BREAD, SLOT_DISABLED, SLOT_ENABLED, ITEM_FILTER, CHALICE_EMPTY,
             VOID_PLATE_BASE, VOID_PLATE_ACTIVATOR, VOID_PLATE, RUBBER, RAW_RUBBER, BINDING_STRING, UNSTABLE_GOO, COMBUSTION_CORE;
+    public static ArmorItem ARMOR_AMETHYST_HELMET, ARMOR_AMETHYST_CHESTPLATE, ARMOR_AMETHYST_LEGGINGS, ARMOR_AMETHYST_BOOTS,
+            ARMOR_CITRINE_HELMET, ARMOR_CITRINE_CHESTPLATE, ARMOR_CITRINE_LEGGINGS, ARMOR_CITRINE_BOOTS,
+            ARMOR_COPPER_HELMET, ARMOR_COPPER_CHESTPLATE, ARMOR_COPPER_LEGGINGS, ARMOR_COPPER_BOOTS,
+            ARMOR_EMERALD_HELMET, ARMOR_EMERALD_CHESTPLATE, ARMOR_EMERALD_LEGGINGS, ARMOR_EMERALD_BOOTS,
+            ARMOR_ENDERITE_HELMET, ARMOR_ENDERITE_CHESTPLATE, ARMOR_ENDERITE_LEGGINGS, ARMOR_ENDERITE_BOOTS,
+            ARMOR_RUBY_HELMET, ARMOR_RUBY_CHESTPLATE, ARMOR_RUBY_LEGGINGS, ARMOR_RUBY_BOOTS,
+            ARMOR_SAPPHIRE_HELMET, ARMOR_SAPPHIRE_CHESTPLATE, ARMOR_SAPPHIRE_LEGGINGS, ARMOR_SAPPHIRE_BOOTS;
 
     public static ExcavatorItem TOOL_CITRINE_EXCAVATOR, TOOL_COPPER_EXCAVATOR, TOOL_ENDERITE_EXCAVATOR, TOOL_RUBY_EXCAVATOR, TOOL_SAPPHIRE_EXCAVATOR,
             TOOL_NETHERITE_EXCAVATOR, TOOL_DIAMOND_EXCAVATOR, TOOL_GOLD_EXCAVATOR, TOOL_IRON_EXCAVATOR, TOOL_STONE_EXCAVATOR, TOOL_WOOD_EXCAVATOR;
@@ -107,39 +123,34 @@ public class ModItems
     public static ChaliceItem CHALICE;
     public static WrenchItem WRENCH;
 
-    public static ArmorItem ARMOR_AMETHYST_HELMET, ARMOR_AMETHYST_CHESTPLATE, ARMOR_AMETHYST_LEGGINGS, ARMOR_AMETHYST_BOOTS,
-            ARMOR_CITRINE_HELMET, ARMOR_CITRINE_CHESTPLATE, ARMOR_CITRINE_LEGGINGS, ARMOR_CITRINE_BOOTS,
-            ARMOR_COPPER_HELMET, ARMOR_COPPER_CHESTPLATE, ARMOR_COPPER_LEGGINGS,ARMOR_COPPER_BOOTS,
-            ARMOR_EMERALD_HELMET, ARMOR_EMERALD_CHESTPLATE, ARMOR_EMERALD_LEGGINGS, ARMOR_EMERALD_BOOTS,
-            ARMOR_ENDERITE_HELMET, ARMOR_ENDERITE_CHESTPLATE, ARMOR_ENDERITE_LEGGINGS, ARMOR_ENDERITE_BOOTS,
-            ARMOR_RUBY_HELMET, ARMOR_RUBY_CHESTPLATE, ARMOR_RUBY_LEGGINGS, ARMOR_RUBY_BOOTS,
-            ARMOR_SAPPHIRE_HELMET, ARMOR_SAPPHIRE_CHESTPLATE, ARMOR_SAPPHIRE_LEGGINGS, ARMOR_SAPPHIRE_BOOTS;
+    /**
+     * Private constructor to prevent instantiation of this class.
+     * Throws an {@code AssertionError} if attempted.
+     */
+    ModItems()
+    {
+        throw new AssertionError();
+    }
 
     //BI: Block Item
-    public static BlockItem ANGEL_BI, ENDERITE_BI, CARROT_BOX_BI, POTATO_BOX_BI,
-            CITRINE_BI, RUBY_BI, SAPPHIRE_BI, RAW_CITRINE_BI, RAW_ENDERITE_BI ,RAW_QUARTZ_BI, RAW_RUBY_BI, RAW_SAPPHIRE_BI,
-            CITRINE_STAIRS_BI, ENDERITE_STAIRS_BI, RUBY_STAIRS_BI, SAPPHIRE_STAIRS_BI,
-            CITRINE_SLAB_BI, ENDERITE_SLAB_BI, RUBY_SLAB_BI, SAPPHIRE_SLAB_BI,
-            CITRINE_BUTTON_BI, ENDERITE_BUTTON_BI, RUBY_BUTTON_BI, SAPPHIRE_BUTTON_BI,
-            CITRINE_PRESSURE_PLATE_BI, ENDERITE_PRESSURE_PLATE_BI, RUBY_PRESSURE_PLATE_BI, SAPPHIRE_PRESSURE_PLATE_BI,
-            CITRINE_FENCE_BI, ENDERITE_FENCE_BI, RUBY_FENCE,SAPPHIRE_FENCE_BI,
-            CITRINE_FENCE_GATE_BI, ENDERITE_FENCE_GATE_BI, RUBY_FENCE_GATE_BI, SAPPHIRE_FENCE_GATE_BI,
-            CITRINE_WALL_BI, ENDERITE_WALL_BI, RUBY_WALL_BI, SAPPHIRE_WALL_BI,
-            CITRINE_DOOR_BI, ENDERITE_DOOR_BI, RUBY_DOOR_BI, SAPPHIRE_DOOR_BI,
-            CITRINE_TRAP_DOOR_BI, ENDERITE_TRAP_DOOR_BI, RUBY_TRAP_DOOR_BI, SAPPHIRE_TRAP_DOOR_BI,
-            ORE_DEEP_CITRINE_BI, ORE_DEEP_RUBY_BI, ORE_DEEP_SAPPHIRE_BI,
-            ORE_END_CITRINE_BI, ORE_END_ENDERITE_BI, ORE_END_ENDERITE_CRACKED_BI, ORE_END_RUBY_BI, ORE_END_SAPPHIRE_BI,
-            ORE_NETHER_CITRINE_BI, ORE_NETHER_RUBY_BI, ORE_NETHER_SAPPHIRE_BI, ORE_NETHER_COAL_BI, ORE_NETHER_COPPER_BI, ORE_NETHER_DIAMOND_BI,
-            ORE_NETHER_IRON_BI, ORE_NETHER_LAPIS_BI,ORE_NETHER_REDSTONE_BI,
-            ORE_WORLD_CITRINE_BI, ORE_WORLD_RUBY_BI, ORE_WORLD_SAPPHIRE_BI,
-            ORE_ENDERITE_BI,
-            WATER_EATING_GOO_BI, WATER_GENERATING_GOO_BI, LAVA_EATING_GOO_BI, LAVA_GENERATING_GOO_BI, CHUNK_GOO_BI, TOWERING_GOO_BI,
-            TUNNELING_GOO_BI, BRIDGE_GOO_BI, AIR_BOMB_GOO_BI, CHUNK_BOMB_GOO_BI, LAVA_PUMP_GOO_BI, STONE_BOMB_GOO_BI, WATER_PUMP_GOO_BI,
-            ELEVATOR_BI, REDSTONE_CLOCK_BI, ALLOY_MIXER_BI, CAST_PRESS_BI, GEM_CLEANER_BI, OVEN_BI, PULVERIZER_BI, SMELTER_BI, ANIMAL_FEED_BI,
-            GENERATOR_BI, BLOCK_BREAKER_BI, BLOCK_PLACER_BI, BUILDER_BI, CHUNK_LOADER_BI, CREATIVE_BANK_BI, ENDER_CHANTER_BI, FLUID_PUMP_BI,
-            PRINTER_BI, PROJECT_TABLE_BI, TESSERACT_BI, WOOD_STRIPPER_BI, BATTERY_BANK_BI, SOLAR_PANEL_BI, MINER_BI;
 
-    public static void initItems()
+    /**
+     * Initializes and registers all custom items for the Minecraft mod.
+     * <p>
+     * This method is called during the mod's initialization phase to ensure
+     * that all items are properly registered and available for use. It logs
+     * the registration process for debugging and tracking purposes.
+     * The method will encapsulate the registration of various categories of
+     * items including gems, raw materials, tools, casts, dusts, gears,
+     * ingots, plates, reinforced materials, rods, and armor.
+     * </p>
+     * <p>
+     * Each item is registered using the appropriate registration methods,
+     * and the method ensures that all items are accounted for in the
+     * mod's collection of items.
+     * </p>
+     */
+    public static void init()
     {
         log("Registering Items");
 
@@ -238,7 +249,7 @@ public class ModItems
         INGOT_ALLOY_RED = register("ingot_alloy_red");
         INGOT_ALLOY_VIBRANT = register("ingot_alloy_vibrant");
         INGOT_ALLOY_ENDERITE = register("ingot_alloy_enderite");
-        
+
         RAW_ALLOY_ENDERITE = register("raw_alloy_enderite");
 
         INGOT_ENDERITE = register("ingot_enderite");
@@ -451,7 +462,7 @@ public class ModItems
         TUNER = register("tool_tuner", 1, TunerItem::new);
         ADVANCED_TUNER = register("tool_tuner_advanced", 1, AdvancedTuner::new);
         WRENCH = register("tool_wrench", 1, WrenchItem::new);
-        CHALICE = register("chalice",  1, ChaliceItem::new);
+        CHALICE = register("chalice", 1, ChaliceItem::new);
         CHALICE_EMPTY = register("chalice_empty", 1);
         //endregion
         //region AMETHYST ARMOR
@@ -498,121 +509,25 @@ public class ModItems
         //endregion
     }
 
-    public static void initBlockItems()
-    {
-        log("Registering Block Items");
-
-        //ANGEL_BI = Items.register("block_angel", settings ->  new AngelBlockItem(ModBlocks.ANGEL, settings));
-        //ENDERITE_BI = Items.register("block_enderite", settings ->  new AngelBlockItem(ModBlocks.ANGEL, settings));
-        ANGEL_BI = registerBI(ModBlocks.ANGEL, AngelBlockItem::new);
-
-        ENDERITE_BI = registerBI(ModBlocks.ENDERITE);
-        CARROT_BOX_BI = registerBI(ModBlocks.CARROT_BOX);
-        POTATO_BOX_BI = registerBI(ModBlocks.POTATO_BOX);
-        CITRINE_BI = registerBI(ModBlocks.CITRINE);
-        RUBY_BI = registerBI(ModBlocks.RUBY);
-        SAPPHIRE_BI = registerBI(ModBlocks.SAPPHIRE);
-        RAW_CITRINE_BI = registerBI(ModBlocks.RAW_CITRINE);
-        RAW_ENDERITE_BI = registerBI(ModBlocks.RAW_ENDERITE);
-        RAW_QUARTZ_BI = registerBI(ModBlocks.RAW_QUARTZ);
-        RAW_RUBY_BI = registerBI(ModBlocks.RAW_RUBY);
-        RAW_SAPPHIRE_BI = registerBI(ModBlocks.RAW_SAPPHIRE);
-        CITRINE_STAIRS_BI = registerBI(ModBlocks.CITRINE_STAIRS);
-        ENDERITE_STAIRS_BI = registerBI(ModBlocks.ENDERITE_STAIRS);
-        RUBY_STAIRS_BI = registerBI(ModBlocks.RUBY_STAIRS);
-        SAPPHIRE_STAIRS_BI = registerBI(ModBlocks.SAPPHIRE_STAIRS);
-        CITRINE_SLAB_BI = registerBI(ModBlocks.CITRINE_SLAB);
-        ENDERITE_SLAB_BI = registerBI(ModBlocks.ENDERITE_SLAB);
-        RUBY_SLAB_BI = registerBI(ModBlocks.RUBY_SLAB);
-        SAPPHIRE_SLAB_BI = registerBI(ModBlocks.SAPPHIRE_SLAB);
-        CITRINE_BUTTON_BI = registerBI(ModBlocks.CITRINE_BUTTON);
-        ENDERITE_BUTTON_BI = registerBI(ModBlocks.ENDERITE_BUTTON);
-        RUBY_BUTTON_BI = registerBI(ModBlocks.RUBY_BUTTON);
-        SAPPHIRE_BUTTON_BI = registerBI(ModBlocks.SAPPHIRE_BUTTON);
-        CITRINE_PRESSURE_PLATE_BI = registerBI(ModBlocks.CITRINE_PRESSURE_PLATE);
-        ENDERITE_PRESSURE_PLATE_BI = registerBI(ModBlocks.ENDERITE_PRESSURE_PLATE);
-        RUBY_PRESSURE_PLATE_BI = registerBI(ModBlocks.RUBY_PRESSURE_PLATE);
-        SAPPHIRE_PRESSURE_PLATE_BI = registerBI(ModBlocks.SAPPHIRE_PRESSURE_PLATE);
-        CITRINE_FENCE_BI = registerBI(ModBlocks.CITRINE_FENCE);
-        ENDERITE_FENCE_BI = registerBI(ModBlocks.ENDERITE_FENCE);
-        RUBY_FENCE = registerBI(ModBlocks.RUBY_FENCE);
-        SAPPHIRE_FENCE_BI = registerBI(ModBlocks.SAPPHIRE_FENCE);
-        CITRINE_FENCE_GATE_BI = registerBI(ModBlocks.CITRINE_FENCE_GATE);
-        ENDERITE_FENCE_GATE_BI = registerBI(ModBlocks.ENDERITE_FENCE_GATE);
-        RUBY_FENCE_GATE_BI = registerBI(ModBlocks.RUBY_FENCE_GATE);
-        SAPPHIRE_FENCE_GATE_BI = registerBI(ModBlocks.SAPPHIRE_FENCE_GATE);
-        CITRINE_WALL_BI = registerBI(ModBlocks.CITRINE_WALL);
-        ENDERITE_WALL_BI = registerBI(ModBlocks.ENDERITE_WALL);
-        RUBY_WALL_BI = registerBI(ModBlocks.RUBY_WALL);
-        SAPPHIRE_WALL_BI = registerBI(ModBlocks.SAPPHIRE_WALL);
-        CITRINE_DOOR_BI = registerBI(ModBlocks.CITRINE_DOOR);
-        ENDERITE_DOOR_BI = registerBI(ModBlocks.ENDERITE_DOOR);
-        RUBY_DOOR_BI = registerBI(ModBlocks.RUBY_DOOR);
-        SAPPHIRE_DOOR_BI = registerBI(ModBlocks.SAPPHIRE_DOOR);
-        CITRINE_TRAP_DOOR_BI = registerBI(ModBlocks.CITRINE_TRAP_DOOR);
-        ENDERITE_TRAP_DOOR_BI = registerBI(ModBlocks.ENDERITE_TRAP_DOOR);
-        RUBY_TRAP_DOOR_BI = registerBI(ModBlocks.RUBY_TRAP_DOOR);
-        SAPPHIRE_TRAP_DOOR_BI = registerBI(ModBlocks.SAPPHIRE_TRAP_DOOR);
-        ORE_DEEP_CITRINE_BI = registerBI(ModBlocks.ORE_DEEP_CITRINE);
-        ORE_DEEP_RUBY_BI = registerBI(ModBlocks.ORE_DEEP_RUBY);
-        ORE_DEEP_SAPPHIRE_BI = registerBI(ModBlocks.ORE_DEEP_SAPPHIRE);
-        ORE_END_CITRINE_BI = registerBI(ModBlocks.ORE_END_CITRINE);
-        ORE_END_ENDERITE_CRACKED_BI = registerBI(ModBlocks.ORE_END_ENDERITE_CRACKED);
-        ORE_END_RUBY_BI = registerBI(ModBlocks.ORE_END_RUBY);
-        ORE_END_SAPPHIRE_BI = registerBI(ModBlocks.ORE_END_SAPPHIRE);
-        ORE_END_ENDERITE_BI = registerBI(ModBlocks.ORE_END_ENDERITE);
-        ORE_NETHER_CITRINE_BI = registerBI(ModBlocks.ORE_NETHER_CITRINE);
-        ORE_NETHER_RUBY_BI = registerBI(ModBlocks.ORE_NETHER_RUBY);
-        ORE_NETHER_SAPPHIRE_BI = registerBI(ModBlocks.ORE_NETHER_SAPPHIRE);
-        ORE_NETHER_COAL_BI = registerBI(ModBlocks.ORE_NETHER_COAL);
-        ORE_NETHER_COPPER_BI = registerBI(ModBlocks.ORE_NETHER_COPPER);
-        ORE_NETHER_DIAMOND_BI = registerBI(ModBlocks.ORE_NETHER_DIAMOND);
-        ORE_NETHER_IRON_BI = registerBI(ModBlocks.ORE_NETHER_IRON);
-        ORE_NETHER_LAPIS_BI = registerBI(ModBlocks.ORE_NETHER_LAPIS);
-        ORE_NETHER_REDSTONE_BI = registerBI(ModBlocks.ORE_NETHER_REDSTONE);
-        ORE_WORLD_CITRINE_BI = registerBI(ModBlocks.ORE_WORLD_CITRINE);
-        ORE_WORLD_RUBY_BI = registerBI(ModBlocks.ORE_WORLD_RUBY);
-        ORE_WORLD_SAPPHIRE_BI = registerBI(ModBlocks.ORE_WORLD_SAPPHIRE);
-        ORE_ENDERITE_BI = registerBI(ModBlocks.ORE_ENDERITE);
-        WATER_EATING_GOO_BI = registerBI(ModBlocks.WATER_EATING_GOO);
-        WATER_GENERATING_GOO_BI = registerBI(ModBlocks.WATER_GENERATING_GOO);
-        LAVA_EATING_GOO_BI = registerBI(ModBlocks.LAVA_EATING_GOO);
-        LAVA_GENERATING_GOO_BI = registerBI(ModBlocks.LAVA_GENERATING_GOO);
-        CHUNK_GOO_BI = registerBI(ModBlocks.CHUNK_GOO);
-        TOWERING_GOO_BI = registerBI(ModBlocks.TOWERING_GOO);
-        TUNNELING_GOO_BI = registerBI(ModBlocks.TUNNELING_GOO);
-        BRIDGE_GOO_BI = registerBI(ModBlocks.BRIDGE_GOO);
-        AIR_BOMB_GOO_BI = registerBI(ModBlocks.AIR_BOMB_GOO);
-        CHUNK_BOMB_GOO_BI = registerBI(ModBlocks.CHUNK_BOMB_GOO);
-        LAVA_PUMP_GOO_BI = registerBI(ModBlocks.LAVA_PUMP_GOO);
-        STONE_BOMB_GOO_BI = registerBI(ModBlocks.STONE_BOMB_GOO);
-        WATER_PUMP_GOO_BI = registerBI(ModBlocks.WATER_PUMP_GOO);
-        ELEVATOR_BI = registerBI(ModBlocks.ELEVATOR);
-        REDSTONE_CLOCK_BI = registerBI(ModBlocks.REDSTONE_CLOCK);
-        ALLOY_MIXER_BI = registerBI(ModBlocks.ALLOY_MIXER);
-        CAST_PRESS_BI = registerBI(ModBlocks.CAST_PRESS);
-        GEM_CLEANER_BI = registerBI(ModBlocks.GEM_CLEANER);
-        OVEN_BI = registerBI(ModBlocks.OVEN);
-        PULVERIZER_BI = registerBI(ModBlocks.PULVERIZER);
-        SMELTER_BI = registerBI(ModBlocks.SMELTER);
-        ANIMAL_FEED_BI = registerBI(ModBlocks.ANIMAL_FEED);
-        GENERATOR_BI = registerBI(ModBlocks.GENERATOR);
-        BLOCK_BREAKER_BI = registerBI(ModBlocks.BLOCK_BREAKER);
-        BLOCK_PLACER_BI = registerBI(ModBlocks.BLOCK_PLACER);
-        BUILDER_BI = registerBI(ModBlocks.BUILDER);
-        CHUNK_LOADER_BI = registerBI(ModBlocks.CHUNK_LOADER);
-        CREATIVE_BANK_BI = registerBI(ModBlocks.CREATIVE_BANK);
-        ENDER_CHANTER_BI = registerBI(ModBlocks.ENDER_CHANTER);
-        FLUID_PUMP_BI = registerBI(ModBlocks.FLUID_PUMP);
-        PRINTER_BI = registerBI(ModBlocks.PRINTER);
-        PROJECT_TABLE_BI = registerBI(ModBlocks.PROJECT_TABLE);
-        TESSERACT_BI = registerBI(ModBlocks.TESSERACT);
-        WOOD_STRIPPER_BI = registerBI(ModBlocks.WOOD_STRIPPER);
-        BATTERY_BANK_BI = registerBI(ModBlocks.BATTERY_BANK);
-        SOLAR_PANEL_BI = registerBI(ModBlocks.SOLAR_PANEL);
-        MINER_BI = registerBI(ModBlocks.MINER);
-    }
-
+    /**
+     * Adds custom items to specific vanilla item groups for better
+     * organization and accessibility in the game.
+     *
+     * <p>
+     * This method enhances the user experience by categorizing items
+     * into appropriate item groups, making it easier for players to
+     * locate them within the inventory and creative mode's item
+     * menu. It is particularly useful for mods with numerous custom
+     * items, helping to avoid clutter and improving the overall
+     * navigation through item lists.
+     * </p>
+     * <p>
+     * The method currently contains commented-out logic for adding a
+     * specific item (e.g., {@code RUBBER}) to the building blocks
+     * item group. Additional entries can be modified or added in future
+     * updates.
+     * </p>
+     */
     public static void addToItemGroups()
     {
         log("Adding Items to Item Groups");
@@ -623,8 +538,20 @@ public class ModItems
                                                                                 });*/
     }
 
-    public static void setAllItems()
+    /**
+     * Configures or sets the blacklist for items that should be excluded
+     * from certain functionalities within the mod.
+     *
+     * <p>
+     * This method provides a mechanism to define specific items that will
+     * not be available for crafting, usage, or other interactions, allowing
+     * for greater control over the game's mechanics and item utilization.
+     * While the currently implemented version of this method is empty,
+     * it is intended for future development where specific items can
+     * be added to or removed from the blacklist.
+     * </p>
+     */
+    public static void setBlackList()
     {
-        AllItems = Registers.getAllItems(ModID);
     }
 }

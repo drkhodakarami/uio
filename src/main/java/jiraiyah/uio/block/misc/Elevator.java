@@ -49,7 +49,7 @@ public class Elevator extends Block
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity)
     {
-        if(entity.getServer() != null)
+        if (entity.getServer() != null)
             entity.getServer().sendMessage(Text.literal(String.valueOf(world.getTime())));
         teleportDown(world, pos, entity);
     }
@@ -86,7 +86,7 @@ public class Elevator extends Block
             if (found == null)
                 return;
 
-            if(entity.getWorld() instanceof ServerWorld sw)
+            if (entity.getWorld() instanceof ServerWorld sw)
                 entity.teleport(sw, entity.getX(), lookingPos.getY() + 1, entity.getZ(),
                                 PositionFlag.VALUES, entity.getYaw(), entity.getPitch(), false);
             world.playSound(null, entity.getSteppingPos(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS,
@@ -119,7 +119,7 @@ public class Elevator extends Block
         if (found == null)
             return;
 
-        if(entity.getWorld() instanceof ServerWorld sw)
+        if (entity.getWorld() instanceof ServerWorld sw)
             entity.teleport(sw, entity.getX(), lookingPos.getY() + 1, entity.getZ(),
                             PositionFlag.VALUES, entity.getYaw(), entity.getPitch(), false);
         world.playSound(null, entity.getSteppingPos(), SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.PLAYERS,

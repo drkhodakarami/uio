@@ -28,8 +28,13 @@ import jiraiyah.uio.registry.ModEvents;
 import jiraiyah.uio.registry.*;
 import jiraiyah.uio.registry.misc.*;
 import jiraiyah.uio.registry.world.ModWorldGeneration;
+import jiraiyah.uio.util.registry.Registers;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+
+import java.util.List;
 
 import static jiraiyah.uio.Reference.*;
 
@@ -106,30 +111,45 @@ import static jiraiyah.uio.Reference.*;
 // Add new enchantment (Lava Walking)
 //endregion
 
+/**
+ * The Main class serves as the entry point for the modding initialization process.
+ * It implements the ModInitializer interface to ensure proper mod loading.
+ * This class holds essential information such as development flags and collections
+ * for blocks and items that will be added or modified within the mod.
+ */
 public class Main implements ModInitializer
 {
     public static boolean DEBUG;
+    public static List<Block> BLOCKS;
+    public static List<Item> ITEMS;
 
-    @Override
-    public void onInitialize()
+    /**
+     * Initializes all the necessary components and registers within the mod.
+     * This method should be called before any event handling takes place,
+     * and it ensures that all materials, items, and blocks are properly initialized
+     * and registered.
+     * <p>
+     * The initialization process includes:
+     * - Initializing mod data component types
+     * - Setting up mod events
+     * - Initializing armor materials and tool materials prior to item registration
+     * - Final initialization of items and blocks
+     * <p>
+     * This method is crucial for ensuring that all game elements are available
+     * and properly configured before the mod is used.
+     */
+    private static void initializeAll()
     {
-        DEBUG = FabricLoader.getInstance().isDevelopmentEnvironment();
-
-        logMain();
-
-        Configs.load(ModID);
-        GameRules.init();
-
         //region REGISTER CALLS
         ModDataComponentTypes.init(); // Should happen before events
         ModEvents.init();
 
         ModArmorMaterials.init(); // Should happen before items
         ModToolMaterials.init(); // Should be before registering items because of tool items needing tool materials
-        ModItems.initItems(); // Should be anywhere after Tool and Armor Materials registration
+        ModItems.init(); // Should be anywhere after Tool and Armor Materials registration
 
         ModBlocks.init();
-        ModItems.initBlockItems(); // Should be after Mod BLocks because of Block Item registeration needs blocks
+        ModBlockItems.init(); // Should be after Mod BLocks because of Block Item registeration needs blocks
 
         ModRecipes.init(); // Should happen after item and block registration
         ModItemGroups.init(); // Should happen after Items and Block Registration
@@ -153,10 +173,33 @@ public class Main implements ModInitializer
 
         ModMessages.registerC2SPackets();
 
-        ModBlocks.setAllBlocks(); //Can happen anywhere after Block registration
-        ModItems.setAllItems(); //Can happen anywhere after Item Block registration
-        ModBlocks.addToItemGroups(); //Should happen after setting all the blocks to set the black list
-        ModItems.addToItemGroups(); //Should happen after setting all the items to set the black list
+        ModBlocks.setBlackList(); //Can happen anywhere after Block registration
+        ModBlockItems.setBlackList(); //Can happen anywhere after Block Item registration
+        ModItems.setBlackList(); //Can happen anywhere after Item Block registration
         //endregion
+    }
+
+    /**
+     * Method called during the mod's initialization phase.
+     * Sets the DEBUG variable based on whether the environment is a development setup and initializes lists for blocks and items.
+     */
+    @Override
+    public void onInitialize()
+    {
+        DEBUG = FabricLoader.getInstance().isDevelopmentEnvironment();
+
+        logMain();
+
+        Registers.init(ModID);
+        Configs.load(ModID);
+        GameRules.init();
+
+        initializeAll();
+
+        BLOCKS = Registers.getAllBlocks(ModID);
+        ITEMS = Registers.getAllItems(ModID);
+
+        ModBlocks.addToItemGroups(); //Should happen after initialization and list generation
+        ModItems.addToItemGroups(); //Should happen after initialization and list generation
     }
 }
