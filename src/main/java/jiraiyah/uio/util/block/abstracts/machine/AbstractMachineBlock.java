@@ -39,25 +39,69 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * The abstracted class for every machine block. It provides the block entity and handles some base functionalities.
+ * The abstract class for machine blocks, providing block entity functionality and handling base operations.
+ * This class extends {@link AbstractHorizontalDirectionBlock} and implements {@link BlockEntityProvider}.
+ * It is designed to be extended by specific machine block implementations.
+ *
+ * <p>It provides methods for handling block events, creating tickers, and screen handler factories.</p>
+ *
+ * @see AbstractHorizontalDirectionBlock
+ * @see BlockEntityProvider
+ * @see ITickBE
+ * @see BlockEntityTicker
+ * @see NamedScreenHandlerFactory
+ * @see BlockState
+ * @see World
+ * @see BlockPos
+ * @see BlockEntity
+ * @see BlockEntityType
+ * @see MapCodec
+ * @see HorizontalFacingBlock
+ *
+ * @param <T> The type of block entity associated with this block.
+ * @param <E> The expected type of block entity for ticker validation.
+ * @param <A> The actual type of block entity for ticker validation.
  *
  * @author jiraiyah
  */
 public abstract class AbstractMachineBlock extends AbstractHorizontalDirectionBlock implements BlockEntityProvider
 {
+    /**
+     * The codec for serializing and deserializing this block.
+     */
     protected MapCodec<? extends AbstractMachineBlock> CODEC;
 
+    /**
+     * Constructs an AbstractMachineBlock with the specified settings.
+     *
+     * @param settings The settings for the block.
+     */
     public AbstractMachineBlock(Settings settings)
     {
         super(settings, true);
     }
 
+    /**
+     * Returns the codec used for this block.
+     *
+     * @return The codec for this block.
+     */
     @Override
     protected MapCodec<? extends HorizontalFacingBlock> getCodec()
     {
         return CODEC;
     }
 
+    /**
+     * Handles synchronized block events. This method is called when a block event is triggered.
+     *
+     * @param state The block state.
+     * @param world The world in which the block is located.
+     * @param pos   The position of the block.
+     * @param type  The type of the event.
+     * @param data  The data associated with the event.
+     * @return True if the event was handled successfully, false otherwise.
+     */
     @Override
     protected boolean onSyncedBlockEvent(BlockState state, World world, BlockPos pos, int type, int data)
     {
@@ -66,12 +110,28 @@ public abstract class AbstractMachineBlock extends AbstractHorizontalDirectionBl
         return blockEntity != null && blockEntity.onSyncedBlockEvent(type, data);
     }
 
+    /**
+     * Returns a ticker for the block entity. This method is used to create a ticker for the block entity.
+     *
+     * @param world The world in which the block is located.
+     * @param state The block state.
+     * @param type  The type of the block entity.
+     * @return A ticker for the block entity, or null if no ticker is available.
+     */
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type)
     {
         return ITickBE.createTicker(world);
     }
 
+    /**
+     * Validates the ticker for the block entity. This method checks if the given type matches the expected type.
+     *
+     * @param givenType   The given block entity type.
+     * @param expectedType The expected block entity type.
+     * @param ticker      The ticker to validate.
+     * @return The validated ticker, or null if the types do not match.
+     */
     @Nullable
     protected static <E extends BlockEntity, A extends BlockEntity> BlockEntityTicker<A> validateTicker(
             BlockEntityType<A> givenType, BlockEntityType<E> expectedType, BlockEntityTicker<A> ticker)
@@ -79,6 +139,14 @@ public abstract class AbstractMachineBlock extends AbstractHorizontalDirectionBl
         return expectedType == givenType ? ticker : null;
     }
 
+    /**
+     * Creates a screen handler factory for the block entity. This method is used to create a screen handler factory.
+     *
+     * @param state The block state.
+     * @param world The world in which the block is located.
+     * @param pos   The position of the block.
+     * @return A screen handler factory, or null if no factory is available.
+     */
     @Nullable
     @Override
     protected NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {

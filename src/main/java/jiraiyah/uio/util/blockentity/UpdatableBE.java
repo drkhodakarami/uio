@@ -28,7 +28,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * This interface is used to mark block entities that need to be updated between server and client..
@@ -52,5 +58,37 @@ public class UpdatableBE extends BlockEntity
 
         if (this.world != null)
             this.world.updateListeners(this.pos, getCachedState(), getCachedState(), Block.NOTIFY_ALL);
+    }
+
+    /**
+     * Creates a packet that is sent to the client to update the block entity's state.
+     * This packet includes all necessary data to synchronize the client with the current
+     * state of the block entity on the server.
+     *
+     * @return A packet containing the block entity update or null if there is no update.
+     */
+    @Override
+    public @Nullable Packet<ClientPlayPacketListener> toUpdatePacket()
+    {
+        return BlockEntityUpdateS2CPacket.create(this);
+    }
+
+    /**
+     * Converts the initial chunk data of this block entity into an NBT compound.
+     * This allows the block entity to serialize its initial state for sending
+     * to clients when the chunk is loaded. This includes the inventory and any
+     * other relevant data necessary for the client to replicate the block entity's
+     * state accurately.
+     *
+     * @param registries The wrapper lookup registries used for serialization.
+     *
+     * @return An NbtCompound containing the initial chunk data of the block entity.
+     */
+    @Override
+    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registries)
+    {
+        NbtCompound nbt = super.toInitialChunkDataNbt(registries);
+        writeNbt(nbt, registries);
+        return nbt;
     }
 }

@@ -35,20 +35,54 @@ import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * This is an abstract class for facing blocks. It sets the facing property to NORTH by default.
- * The constructor takes a boolean parameter to determine whether the facing should face opposite to the player's look direction or not.
+ * AbstractFacingBlock is an abstract class that extends the FacingBlock class.
+ * It provides a base implementation for blocks that have a directional facing property.
+ * The facing direction can be set to either match or oppose the player's look direction
+ * when the block is placed.
+ *
+ * <p>This class is part of the 'jiraiyah.uio.util.block.abstracts.base' package and
+ * utilizes Minecraft's block state management system to handle block rotation and mirroring.
+ *
+ * <p>By default, the facing direction is set to NORTH.
+ *
+ * <p>Usage of this class requires specifying block settings and whether the block should
+ * face opposite to the player's look direction upon placement.
+ *
+ * <p>Usage example:</p>
+ * <pre>
+ * {@code
+ * public class MyConcreteFacingBlock extends AbstractFacingBlock
+ * }
+ * </pre>
+ *
+ * <p>Note: This class is abstract and must be subclassed to be used.</p>
+ *
+ * @see net.minecraft.block.FacingBlock
+ * @see net.minecraft.state.StateManager
+ * @see net.minecraft.util.BlockRotation
+ * @see net.minecraft.util.BlockMirror
+ * @see net.minecraft.util.math.Direction
  *
  * @author Jiraiyah
  */
 public abstract class AbstractFacingBlock extends FacingBlock
 {
+    /**
+     * A flag indicating whether the block should face opposite to the player's look direction when placed.
+     *
+     * <p>If `true`, the block will face the direction opposite to where the player is looking during placement.
+     * If `false`, the block will face the same direction as the player's look direction.
+     *
+     * <p>This property is used in the `getPlacementState` method to determine the block's facing direction
+     * upon placement in the world.
+     */
     private final boolean faceOpposite;
 
     /**
-     * Constructor for AbstractFacingBlock.
+     * Constructs an AbstractFacingBlock with the specified settings and facing behavior.
      *
-     * @param settings     the block settings
-     * @param faceOpposite whether the facing should face opposite to the player's look direction or not.
+     * @param settings     the block settings, which define the block's properties such as material and hardness.
+     * @param faceOpposite a boolean indicating whether the block should face opposite to the player's look direction when placed.
      */
     public AbstractFacingBlock(Settings settings, boolean faceOpposite)
     {
@@ -57,6 +91,12 @@ public abstract class AbstractFacingBlock extends FacingBlock
         setDefaultState(getDefaultState().with(FACING, Direction.NORTH));
     }
 
+    /**
+     * Appends the facing property to the block's state manager.
+     * This method is called during the block's initialization to ensure the facing property is included in the block's state.
+     *
+     * @param builder the state manager builder used to define the block's state properties.
+     */
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder)
     {
@@ -64,6 +104,13 @@ public abstract class AbstractFacingBlock extends FacingBlock
         builder.add(FACING);
     }
 
+    /**
+     * Determines the block state when the block is placed in the world.
+     * The facing direction is set based on the player's look direction and the `faceOpposite` flag.
+     *
+     * @param ctx the item placement context, which provides information about the placement event.
+     * @return the block state with the appropriate facing direction, or null if the placement is invalid.
+     */
     @Override
     public @Nullable BlockState getPlacementState(ItemPlacementContext ctx)
     {
@@ -72,12 +119,28 @@ public abstract class AbstractFacingBlock extends FacingBlock
                                                    : ctx.getPlayerLookDirection());
     }
 
+    /**
+     * Rotates the block state based on the specified block rotation.
+     * This method is used to handle block rotation logic when the block is rotated in the world.
+     *
+     * @param state    the current block state.
+     * @param rotation the block rotation to apply.
+     * @return the rotated block state.
+     */
     @Override
     protected BlockState rotate(BlockState state, BlockRotation rotation)
     {
         return state.with(FACING, rotation.rotate(state.get(FACING)));
     }
 
+    /**
+     * Mirrors the block state based on the specified block mirror.
+     * This method is used to handle block mirroring logic when the block is mirrored in the world.
+     *
+     * @param state  the current block state.
+     * @param mirror the block mirror to apply.
+     * @return the mirrored block state.
+     */
     @Override
     protected BlockState mirror(BlockState state, BlockMirror mirror)
     {

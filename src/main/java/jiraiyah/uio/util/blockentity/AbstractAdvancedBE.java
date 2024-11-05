@@ -24,21 +24,29 @@
 
 package jiraiyah.uio.util.blockentity;
 
-import jiraiyah.uio.util.inventory.IWrappedInventory;
-import jiraiyah.uio.util.inventory.OutputSimpleInventory;
+import jiraiyah.uio.util.energy.IWrappedEnergyProvider;
+import jiraiyah.uio.util.energy.SyncedEnergyStorage;
+import jiraiyah.uio.util.energy.WrappedEnergyStorage;
+import jiraiyah.uio.util.fluid.IWrappedFluidProvider;
+import jiraiyah.uio.util.fluid.SyncedFluidStorage;
+import jiraiyah.uio.util.fluid.WrappedFluidStorage;
+import jiraiyah.uio.util.inventory.IWrappedInventoryProvider;
 import jiraiyah.uio.util.inventory.WrappedInventoryStorage;
 import jiraiyah.uio.util.network.BlockPosPayload;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.fabric.api.transfer.v1.item.InventoryStorage;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
-import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
-import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import org.jetbrains.annotations.Nullable;
@@ -51,39 +59,47 @@ import static jiraiyah.uio.Reference.Keys.BlockEntities.*;
  *
  * @author jiraiyah
  */
-public abstract class AbstractAdvancedBE extends UpdatableBE implements ExtendedScreenHandlerFactory<BlockPosPayload>, ITickBE, IWrappedInventory<SimpleInventory>
+public abstract class AbstractAdvancedBE extends UpdatableBE implements ExtendedScreenHandlerFactory<BlockPosPayload>, ITickBE,
+        IWrappedInventoryProvider, IWrappedEnergyProvider, IWrappedFluidProvider
 {
+    /**
+     * The wrapped inventory storage for this block entity.
+     * This instance of WrappedInventoryStorage is responsible for managing
+     * the inventories associated with the block entity, allowing various
+     * inventory operations such as adding, retrieving, and managing items.
+     *
+     * <p>The inventory is initialized as an empty storage and can be used
+     * to facilitate item transfer and interaction with neighboring blocks
+     * or entities.</p>
+     *
+     * <p>This is a shared instance, and its state should be managed
+     * carefully to ensure thread safety and consistency across different
+     * operations.</p>
+     */
+    private final WrappedInventoryStorage<SimpleInventory> inventory = new WrappedInventoryStorage<>();
 
     /**
-     * The wrapped inventory of type Simple Inventory for the block entity.
+     * The wrapped fluid storage instance used by this provider.
+     *
+     * <p>
+     * This instance manages multiple {@link SyncedFluidStorage} instances and
+     * provides methods to interact with them.
+     * </p>
      */
-    private final WrappedInventoryStorage<SimpleInventory> inventory;
-
-
-    /**
-     * The index of output inventory. This constant is always the same
-     * because we are registering the output inventory as index zero all the time.
-     */
-    public static final int OUTPUT_INV_INDEX = 0;
+    private final WrappedFluidStorage<SyncedFluidStorage> fluidStorage = new WrappedFluidStorage<>();
 
     /**
-     * The size of the output inventory, representing the maximum number of items
-     * that can be held in this inventory. This constant can be overridden in
-     * subclasses to accommodate different output capacities as needed. By default,
-     * the output inventory is set to allow only one item, making it suitable for
-     * scenarios where a single item output is required.
+     * The {@link WrappedEnergyStorage} instance that holds the current energy storage.
+     * This instance is shared across implementations of the {@code IWrappedEnergyProvider}
+     * and provides methods for managing energy within the storage units.
+     *
+     * <p>
+     * It is initialized as an empty storage and can be configured using the
+     * {@link #AddEnergyStorage(int, int, int, Direction)} method to add new
+     * energy storage units with specified parameters.
+     * </p>
      */
-    protected static final int OUTPUT_INV_SIZE = 1;
-
-    /**
-     * The direction in which the output inventory is oriented. This constant
-     * defines the default direction for item extraction from the output inventory.
-     * Subclasses can override this value if a different output direction is needed
-     * for more specialized behavior. By default, the output direction is set to
-     * Direction.DOWN, indicating that items are extracted downward from the block
-     * entity.
-     */
-    protected static final Direction OUTPUT_INV_DIRECTION = Direction.DOWN;
+    private final WrappedEnergyStorage<SyncedEnergyStorage> energyStorage = new WrappedEnergyStorage<>();
 
     /**
      * Constructs a new instance of the AbstractAdvancedBE block entity.
@@ -102,108 +118,109 @@ public abstract class AbstractAdvancedBE extends UpdatableBE implements Extended
     public AbstractAdvancedBE(BlockEntityType<?> type, BlockPos pos, BlockState state)
     {
         super(type, pos, state);
-        inventory = new WrappedInventoryStorage<>();
-        addOutputInventory();
     }
 
     /**
-     * Adds an output inventory to the block entity. This method is responsible
-     * for initializing the output inventory, allowing items to be extracted or
-     * transferred out of the block entity. It may be overridden in subclasses to
-     * customize the direction, size, or behavior of the output inventory.
+     * Adds an output inventory to this block entity.
      * <p>
-     * By default, this method adds an instance of OutputSimpleInventory with a
-     * specified size and direction configured in the class. If modifications to
-     * the inventory setup are needed, this method can be overridden accordingly.
+     * This method initializes an output inventory of the specified size, allowing
+     * items to be extracted or transferred from the block entity in the specified
+     * direction. The output inventory facilitates item management and interactions
+     * with neighboring blocks or entities.
+     * </p>
+     *
+     * @param size     The size (capacity) of the output inventory. This determines
+     *                 how many items the inventory can hold.
+     * @param direction The direction from which items can be extracted from the
+     *                  output inventory. This parameter can restrict access to the
+     *                  inventory from a specific direction (e.g., NORTH, SOUTH).
+     *                  If set to null, the inventory may be accessible from all
+     *                  directions.
      */
-    protected void addOutputInventory()
+    @Override
+    public  void addOutputInventory(int size, Direction direction)
     {
-        this.inventory.addInventory(new OutputSimpleInventory(this, OUTPUT_INV_SIZE), OUTPUT_INV_DIRECTION);
+        inventory.addDefaultOutputInventory(this, size, direction);
     }
 
     /**
-     * Executes the logic for the block entity on each tick. This method is called
-     * every game tick (20 times per second) and can be overridden to implement
-     * custom behavior that should occur regularly, such as processing inventory
-     * updates, energy management, or other periodic actions.
+     * Adds a new energy storage to this block entity with the specified capacity,
+     * maximum insertion rate, maximum extraction rate, and direction.
      * <p>
-     * This base implementation is empty and can be extended by subclasses to provide
-     * specific functionality as needed.
+     * This method allows the block entity to manage energy storage by adding a
+     * new {@link SyncedEnergyStorage} instance to the internal {@link WrappedEnergyStorage}.
+     * The energy storage can be configured to accept energy from a specific direction
+     * or from all directions if no direction is specified.
+     * <p>
+     * Example usage:
+     * <pre>
+     * {@code
+     * addEnergyStorage(10000, 100, 100, Direction.NORTH);
+     * }
+     * </pre>
+     *
+     * @param capacity  The maximum amount of energy that the storage can hold.
+     *                  This parameter defines the total energy capacity of the storage.
+     * @param maxInsert The maximum amount of energy that can be inserted into the storage per tick.
+     *                  This parameter limits the rate at which energy can be added to the storage.
+     * @param maxExtract The maximum amount of energy that can be extracted from the storage per tick.
+     *                   This parameter limits the rate at which energy can be removed from the storage.
+     * @param direction The direction from which energy can be inserted or extracted.
+     *                  If null, energy can be inserted or extracted from all directions.
      */
     @Override
-    public void tick()
+    public void AddEnergyStorage(int capacity, int maxInsert, int maxExtract, Direction direction)
     {
-
+        energyStorage.addStorage(this, capacity, maxInsert, maxExtract, direction);
     }
 
     /**
-     * Deserializes the state of this block entity from an NBT compound. This method
-     * is responsible for retrieving and reconstructing the essential data of the
-     * block entity, including its inventory, from the NBT format into memory. It
-     * extends the base behavior to ensure that the inventory is correctly restored
-     * when the block entity is loaded or initialized.
+     * Retrieves the current energy storage associated with this block entity.
      *
-     * @param nbt        The NbtCompound containing the data to be read and restored to
-     *                   the block entity.
-     * @param registries The wrapper lookup registries used for deserialization
-     *                   of associated data.
+     * This method allows other components of the system to access the energy
+     * storage configuration defined for this block entity. It returns an instance
+     * of {@link WrappedEnergyStorage} containing synchronized energy storage units,
+     * which can be used for operations related to energy management, such as
+     * checking current energy levels or manipulating energy within the storage.
+     *
+     * @return A {@link WrappedEnergyStorage<SyncedEnergyStorage>} instance
+     *         representing the energy storage for this block entity.
      */
     @Override
-    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries)
+    public WrappedEnergyStorage<SyncedEnergyStorage> getEnergyStorage()
     {
-        super.readNbt(nbt, registries);
-        if (nbt.contains(INVENTORY_KEY, NbtElement.LIST_TYPE))
-            this.inventory.readNbt(nbt.getList(INVENTORY_KEY, NbtElement.COMPOUND_TYPE), registries);
+        return this.energyStorage;
     }
 
     /**
-     * Serializes the state of this block entity to an NBT compound for storage or
-     * transmission. This method is responsible for converting essential data of the
-     * block entity, including its inventory, into a format that can be saved in the
-     * game's NBT format. It extends the base behavior by adding the inventory data
-     * for later retrieval.
+     * Adds a fluid storage unit to this block entity.
+     * <p>
+     * This method allows the block entity to manage fluid storage by specifying
+     * its maximum capacity. The fluid storage is used to hold and manipulate
+     * various fluids, facilitating interactions with surrounding blocks or
+     * entities that require fluid management.
+     * </p>
      *
-     * @param nbt        The NbtCompound where the block entity's data will be written to.
-     * @param registries The wrapper lookup registries used for serialization of
-     *                   associated data.
+     * @param capacity The maximum amount of fluid that the storage unit can hold.
+     *                 This parameter determines the total capacity of the fluid
+     *                 storage, influencing how much fluid can be stored and managed
+     *                 by this block entity.
      */
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries)
+    public void addFluidStorage(long capacity)
     {
-        super.writeNbt(nbt, registries);
-        nbt.put(INVENTORY_KEY, this.inventory.writeNbt(registries));
+        fluidStorage.addStorage(this, capacity);
     }
 
     /**
-     * Creates a packet that is sent to the client to update the block entity's state.
-     * This packet includes all necessary data to synchronize the client with the current
-     * state of the block entity on the server.
+     * Retrieves the wrapped fluid storage instance.
      *
-     * @return A packet containing the block entity update or null if there is no update.
+     * @return The wrapped fluid storage instance.
      */
     @Override
-    public @Nullable Packet<ClientPlayPacketListener> toUpdatePacket()
+    public WrappedFluidStorage<SyncedFluidStorage> getFluidStorage()
     {
-        return BlockEntityUpdateS2CPacket.create(this);
-    }
-
-    /**
-     * Converts the initial chunk data of this block entity into an NBT compound.
-     * This allows the block entity to serialize its initial state for sending
-     * to clients when the chunk is loaded. This includes the inventory and any
-     * other relevant data necessary for the client to replicate the block entity's
-     * state accurately.
-     *
-     * @param registries The wrapper lookup registries used for serialization.
-     *
-     * @return An NbtCompound containing the initial chunk data of the block entity.
-     */
-    @Override
-    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registries)
-    {
-        NbtCompound nbt = super.toInitialChunkDataNbt(registries);
-        writeNbt(nbt, registries);
-        return nbt;
+        return this.fluidStorage;
     }
 
     /**
@@ -251,8 +268,161 @@ public abstract class AbstractAdvancedBE extends UpdatableBE implements Extended
     public SimpleInventory getOutputInventory()
     {
         if (!this.inventory.getStorages().isEmpty())
-            return this.inventory.getInventory(OUTPUT_INV_INDEX);
+            return this.inventory.getInventory(DEFAULT_OUTPUT_INDEX);
         else
             return null;
+    }
+
+    /**
+     * Executes the logic for the block entity on each tick. This method is called
+     * every game tick (20 times per second) and can be overridden to implement
+     * custom behavior that should occur regularly, such as processing inventory
+     * updates, energy management, or other periodic actions.
+     * <p>
+     * This base implementation is empty and can be extended by subclasses to provide
+     * specific functionality as needed.
+     */
+    @Override
+    public void tick()
+    {
+
+    }
+
+
+    /**
+     * Reads and initializes the state of this block entity from the specified NBT compound.
+     * <p>
+     * This method extracts data stored in a given NBT (Named Binary Tag) compound and
+     * updates the block entity's attributes accordingly. It specifically handles the
+     * restoration of the inventory, energy storage, and fluid storage based on the data
+     * present in the NBT compound. The method should be called during world loading or
+     * when the block entity is created from persistent data.
+     * </p>
+     *
+     * @param nbt        The NbtCompound containing the data to be read. This compound
+     *                   holds the serialized representation of the block entity's state,
+     *                   including its inventory, energy, and fluid information.
+     * @param registries A RegistryWrapper.WrapperLookup instance used for looking up
+     *                   registered types or elements while reading the NBT data. This
+     *                   parameter is essential for correctly interpreting the data types
+     *                   stored in the NBT.
+     */
+    @Override
+    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries)
+    {
+        super.readNbt(nbt, registries);
+        if (nbt.contains(HAS_INVENTORY, NbtElement.COMPOUND_TYPE))
+            inventory.readNbt(nbt.getList(HAS_INVENTORY, NbtElement.COMPOUND_TYPE), registries);
+        if(nbt.contains(HAS_ENERGY, NbtElement.COMPOUND_TYPE))
+            this.energyStorage.readNbt(nbt.getList(HAS_ENERGY, NbtElement.COMPOUND_TYPE), registries);
+        if(nbt.contains(HAS_FLUID, NbtElement.COMPOUND_TYPE))
+            this.fluidStorage.readNbt(nbt.getList(HAS_FLUID, NbtElement.COMPOUND_TYPE), registries);
+    }
+
+    /**
+     * Writes the current state of this block entity to the specified NBT compound.
+     * <p>
+     * This method serializes the block entity's inventory, energy storage, and fluid storage
+     * information into the provided NBT (Named Binary Tag) compound, allowing the state to be
+     * saved persistently. This is essential for ensuring that the block entity can be restored
+     * accurately when the world is reloaded or when the entity is retrieved from saved data.
+     * </p>
+     *
+     * @param nbt        The NbtCompound to which the block entity's state will be written.
+     *                   This compound serves as a storage for the serialized data, including
+     *                   inventories, energy levels, and fluid quantities associated with this
+     *                   block entity.
+     * @param registries A RegistryWrapper.WrapperLookup instance used for looking up
+     *                   registered types or elements while writing the NBT data. This
+     *                   parameter ensures that the correct types are represented in the
+     *                   saved data.
+     */
+    @Override
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries)
+    {
+        super.writeNbt(nbt, registries);
+        nbt.put(HAS_INVENTORY, inventory.writeNbt(registries));
+        nbt.put(HAS_ENERGY, this.energyStorage.writeNbt(registries));
+        nbt.put(HAS_FLUID, this.fluidStorage.writeNbt(registries));
+    }
+
+    /**
+     * Retrieves the data necessary for opening a screen on the client side.
+     * This method is used to provide the client with the position of the block entity
+     * when a screen associated with this block entity is opened. The position is
+     * encapsulated in a {@link BlockPosPayload} object, which is sent to the client
+     * to ensure that the correct block entity is referenced.
+     *
+     * @param player The server-side player entity requesting the screen opening data.
+     *               This parameter represents the player who is interacting with the
+     *               block entity and is used to determine the context of the interaction.
+     *
+     * @return A {@link BlockPosPayload} containing the position of this block entity.
+     *         This payload is used to synchronize the client with the server, ensuring
+     *         that the correct block entity's screen is opened.
+     */
+    @Override
+    public BlockPosPayload getScreenOpeningData(ServerPlayerEntity player)
+    {
+        return new BlockPosPayload(this.pos);
+    }
+
+    /**
+     * Retrieves the display name of this block entity. This name is used to
+     * represent the block entity in the user interface, such as in the title
+     * of a screen or in tooltips. By default, this method returns null, indicating
+     * that no specific display name is set for this block entity.
+     * <p>
+     * Subclasses can override this method to provide a custom display name
+     * that is more descriptive or context-specific, enhancing the user experience
+     * by providing meaningful information about the block entity.
+     *
+     * @return A {@link Text} object representing the display name of this block entity,
+     *         or null if no display name is set.
+     */
+    @Override
+    public Text getDisplayName()
+    {
+        return null;
+    }
+
+    /**
+     * Creates a screen handler for the block entity, which is used to manage
+     * the interaction between the player's inventory and the block entity's inventory.
+     * This method is called when a player opens the block entity's screen, allowing
+     * for the synchronization of inventory data between the client and server.
+     * <p>
+     * By default, this method returns null, indicating that no specific menu is
+     * created for this block entity. Subclasses can override this method to provide
+     * a custom screen handler that facilitates interaction with the block entity's
+     * inventory or other functionalities.
+     * <p>
+     * Example usage:
+     * <pre>
+     * {@code
+     * @Override
+     * public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+     *     return new SomeScreenHandler(syncId, playerInventory, this);
+     * }
+     * }
+     * </pre>
+     *
+     * @param syncId           The synchronization ID for the screen handler. This ID is used
+     *                         to ensure that the client and server are synchronized when
+     *                         interacting with the block entity's inventory.
+     * @param playerInventory  The player's inventory, which is used to manage the items
+     *                         that the player is carrying. This parameter allows the screen
+     *                         handler to interact with the player's inventory.
+     * @param player           The player entity interacting with the block entity. This
+     *                         parameter provides context for the interaction, such as
+     *                         the player's position and state.
+     *
+     * @return A {@link ScreenHandler} instance representing the menu for the block entity,
+     *         or null if no menu is created.
+     */
+    @Override
+    public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player)
+    {
+        return null;
     }
 }

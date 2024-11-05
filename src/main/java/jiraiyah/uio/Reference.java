@@ -650,15 +650,17 @@ public class Reference
         {
             public static final String ENERGY_AMOUNT = ModID + ".be.energy.amount";
             public static final String ENERGY_CAPACITY = ModID + ".be.energy.capacity";
+            public static final String HAS_ENERGY = ModID + ".be.has.energy";
             public static final String FLUID_AMOUNT = ModID + ".be.fluid.amount";
             public static final String FLUID_CAPACITY = ModID + ".be.fluid.capacity";
+            public static final String HAS_FLUID = ModID + ".be.has.fluid";
             public static final String PROGRESS_AMOUNT = ModID + ".be.progress.amount";
             public static final String PROGRESS_MAX = ModID + ".be.progress.max";
             public static final String COOLDOWN_AMOUNT = ModID + ".be.cooldown.amount";
             public static final String COOLDOWN_MAX = ModID + ".be.cooldown.max";
             public static final String BURN_AMOUNT = ModID + ".be.burn.amount";
             public static final String BURN_MAX = ModID + ".be.burn.max";
-            public static final String INVENTORY_KEY = ModID + ".be.inventory";
+            public static final String HAS_INVENTORY = ModID + ".be.has.inventory";
             /**
              * Private constructor to prevent instantiation of the blockEntities class.
              * This will throw an AssertionError if instantiation is attempted.

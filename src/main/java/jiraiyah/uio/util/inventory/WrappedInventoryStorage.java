@@ -24,10 +24,12 @@
 
 package jiraiyah.uio.util.inventory;
 
+import jiraiyah.uio.util.blockentity.UpdatableBE;
 import jiraiyah.uio.util.interfaces.NBTSerializable;
 import net.fabricmc.fabric.api.transfer.v1.item.InventoryStorage;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.base.CombinedStorage;
+import net.fabricmc.fabric.api.transfer.v1.storage.base.SingleSlotStorage;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
@@ -36,24 +38,22 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.UnmodifiableView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * A wrapper for multiple, sided, inventories that implements the {@link InventoryStorage} interface.
  *
  * @author TurtyWurty
  */
+@SuppressWarnings("unused")
 public class WrappedInventoryStorage<T extends SimpleInventory> implements NBTSerializable<NbtList>
 {
     private final List<T> inventories = new ArrayList<>();
@@ -118,6 +118,22 @@ public class WrappedInventoryStorage<T extends SimpleInventory> implements NBTSe
     public CombinedStorage<ItemVariant, InventoryStorage> getCombinedStorage()
     {
         return combinedStorage;
+    }
+
+    public @Nullable SingleSlotStorage<ItemVariant> getSlot(int slot, Direction direction)
+    {
+        InventoryStorage storage = this.getStorage(direction);
+        if (storage == null)
+            return null;
+        return storage.getSlot(slot);
+    }
+
+    public @Nullable List<SingleSlotStorage<ItemVariant>> getSlots(Direction direction)
+    {
+        InventoryStorage storage = this.getStorage(direction);
+        if (storage == null)
+            return null;
+        return storage.getSlots();
     }
 
     /**
@@ -220,8 +236,18 @@ public class WrappedInventoryStorage<T extends SimpleInventory> implements NBTSe
      */
     public void dropContents(@NotNull World world, @NotNull BlockPos pos)
     {
-        for (T invetory : this.inventories)
-            ItemScatterer.spawn(world, pos, invetory);
+        for (T inventory : this.inventories)
+            ItemScatterer.spawn(world, pos, inventory);
+    }
+
+    @SuppressWarnings("unchecked")
+    public void addDefaultOutputInventory(UpdatableBE blockEntity, int size, Direction direction)
+    {
+        OutputSimpleInventory out = new OutputSimpleInventory(blockEntity, size);
+        this.inventories.add((T) out);
+        InventoryStorage storage = InventoryStorage.of(out, direction);
+        this.storages.add(storage);
+        this.sidedStorageMap.put(direction, storage);
     }
 
     //region Serialization
