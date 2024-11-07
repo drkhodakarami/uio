@@ -31,6 +31,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 
+import java.util.function.BiFunction;
+
 import static jiraiyah.uio.Reference.identifier;
 import static jiraiyah.uio.Reference.log;
 
@@ -69,7 +71,14 @@ public class ModEffects
     {
         log("Registering Effects");
 
-        FLIGHT_EFFECT = Registry.registerReference(Registries.STATUS_EFFECT, identifier("flight"),
-                                                   new FlightEffect(StatusEffectCategory.BENEFICIAL, 0xFFFFFF));
+        FLIGHT_EFFECT = register("flight", StatusEffectCategory.BENEFICIAL, 0xFFFFFF, FlightEffect::new);
+                /*Registry.registerReference(Registries.STATUS_EFFECT, identifier("flight"),
+                                                   new FlightEffect(StatusEffectCategory.BENEFICIAL, 0xFFFFFF));*/
+    }
+
+    private static RegistryEntry<StatusEffect> register(String name, StatusEffectCategory category, int color, BiFunction<StatusEffectCategory, Integer, StatusEffect> factory)
+    {
+        StatusEffect effect = factory.apply(category, color);
+        return Registry.registerReference(Registries.STATUS_EFFECT, identifier(name), effect);
     }
 }

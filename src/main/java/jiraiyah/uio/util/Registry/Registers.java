@@ -43,6 +43,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -72,10 +73,7 @@ import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
 import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
+import java.util.function.*;
 import java.util.stream.Collectors;
 
 import static jiraiyah.uio.Reference.identifier;
@@ -116,6 +114,7 @@ public class Registers
     private static final Map<String, List<EntityType<? extends Entity>>> ALL_ENTITIES = new HashMap<>();
     private static final Map<String, List<RecipeSerializer<?>>> ALL_RECIPE_SERIALIZERS = new HashMap<>();
     private static final Map<String, List<RecipeType<?>>> ALL_RECIPE_TYPES = new HashMap<>();
+    private static final Map<String, List<RegistryEntry<net.minecraft.entity.effect.StatusEffect>>> ALL_EFFECTS = new HashMap<>();
     /**
      * The temporary mod Id that should be used during the registration process.
      */
@@ -148,6 +147,7 @@ public class Registers
         ALL_ENTITIES.computeIfAbsent(modID, k -> new ArrayList<>());
         ALL_RECIPE_SERIALIZERS.computeIfAbsent(modID, k -> new ArrayList<>());
         ALL_RECIPE_TYPES.computeIfAbsent(modID, k -> new ArrayList<>());
+        ALL_EFFECTS.computeIfAbsent(modID, k -> new ArrayList<>());
     }
 
     //region GET LIST
@@ -327,6 +327,16 @@ public class Registers
     public static List<EntityType<? extends Entity>> getAllEntities(String key)
     {
         return ALL_ENTITIES.get(key);
+    }
+
+    /**
+     * @param key The mod ID to get the list of entities for.
+     *
+     * @return A list of all the registry entries for the effects in the mod with the given mod ID.
+     */
+    public static List<RegistryEntry<net.minecraft.entity.effect.StatusEffect>> getAllEffects(String key)
+    {
+        return ALL_EFFECTS.get(key);
     }
     //endregion
 
@@ -1482,6 +1492,31 @@ public class Registers
             RegistryKey<net.minecraft.component.ComponentType<?>> key = getKey(name, RegistryKeys.DATA_COMPONENT_TYPE);
             return Registry.register(Registries.DATA_COMPONENT_TYPE, key,
                                      buildOperator.apply(net.minecraft.component.ComponentType.builder()).build());
+        }
+    }
+
+    /**
+     * Registers Custom Status Effects
+     */
+    public static class StatusEffect
+    {
+        /**
+         * Registers a new status effect with the specified name, category, and color.
+         *
+         * @param name The name of the status effect to be registered.
+         * @param category The category of the status effect, which determines its behavior and application.
+         * @param color The color associated with the status effect, typically used for display purposes.
+         * @param factory A factory function that creates a new instance of the status effect using the provided category and color.
+         * @return A `RegistryEntry` representing the registered status effect.
+         */
+        public static RegistryEntry<net.minecraft.entity.effect.StatusEffect> register(String name, StatusEffectCategory category, int color,
+                                                           BiFunction<StatusEffectCategory, Integer, net.minecraft.entity.effect.StatusEffect> factory)
+        {
+            RegistryKey<net.minecraft.entity.effect.StatusEffect> key = getKey(name, RegistryKeys.STATUS_EFFECT);
+            net.minecraft.entity.effect.StatusEffect effect = factory.apply(category, color);
+            RegistryEntry<net.minecraft.entity.effect.StatusEffect> newEffect = Registry.registerReference(Registries.STATUS_EFFECT, key, effect);
+            ALL_EFFECTS.get(modID).add(newEffect);
+            return newEffect;
         }
     }
 
