@@ -104,11 +104,11 @@ public class ModModelProvider extends FabricModelProvider
         registerRodItems(generator);
         registerToolHeadItems(generator);
         registerToolItems(generator);
-        registeArmorItems(generator);
+        registerArmorItems(generator);
         registerSpecialItems(generator);
     }
 
-    //region PRIVATE METHODS
+    //region PRIVATE ITEM METHODS
     private static void generateTexturePools(BlockStateModelGenerator generator)
     {
         citrine_pool = generator.registerCubeAllModelTexturePool(ModBlocks.CITRINE);
@@ -118,7 +118,7 @@ public class ModModelProvider extends FabricModelProvider
         oakPlank = generator.registerCubeAllModelTexturePool(Blocks.OAK_PLANKS);
     }
 
-    private void registerSpecialItems(ItemModelGenerator generator)
+    private static void registerSpecialItems(ItemModelGenerator generator)
     {
         generator.register(ModItems.BINDING_STRING, Models.GENERATED);
 
@@ -140,7 +140,7 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.SLOT_ENABLED, Models.GENERATED);
     }
 
-    private void registeArmorItems(ItemModelGenerator generator)
+    private static void registerArmorItems(ItemModelGenerator generator)
     {
         /*registerArmor(generator, ModItems.ARMOR_AMETHYST_HELMET, ModArmorMaterials.AMETHYST, EquipmentSlot.HEAD, false);
         registerArmor(generator, ModItems.ARMOR_AMETHYST_CHESTPLATE, ModArmorMaterials.AMETHYST, EquipmentSlot.CHEST, false);
@@ -176,7 +176,7 @@ public class ModModelProvider extends FabricModelProvider
                                  ModArmorMaterials.SAPPHIRE);
     }
 
-    private void registerToolItems(ItemModelGenerator generator)
+    private static void registerToolItems(ItemModelGenerator generator)
     {
 
         generator.register(ModItems.PLAYER_TELEPORT, Models.GENERATED);
@@ -246,7 +246,7 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.TOOL_WOOD_EXCAVATOR, Models.HANDHELD);
     }
 
-    private void registerToolHeadItems(ItemModelGenerator generator)
+    private static void registerToolHeadItems(ItemModelGenerator generator)
     {
         generator.register(ModItems.HEAD_CITRINE_AXE, Models.GENERATED);
         generator.register(ModItems.HEAD_CITRINE_EXCAVATOR, Models.GENERATED);
@@ -326,7 +326,7 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.HEAD_WOOD_EXCAVATOR, Models.GENERATED);
     }
 
-    private void registerRodItems(ItemModelGenerator generator)
+    private static void registerRodItems(ItemModelGenerator generator)
     {
         generator.register(ModItems.ROD_COPPER, Models.GENERATED);
         generator.register(ModItems.ROD_ENDERITE, Models.GENERATED);
@@ -338,7 +338,7 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.ROD_SHULKER, Models.GENERATED);
     }
 
-    private void registerRawItems(ItemModelGenerator generator)
+    private static void registerRawItems(ItemModelGenerator generator)
     {
         generator.register(ModItems.RAW_CITRINE, Models.GENERATED);
         generator.register(ModItems.RAW_ENDERITE, Models.GENERATED);
@@ -347,7 +347,7 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.RAW_SAPPHIRE, Models.GENERATED);
     }
 
-    private void registerPlateItems(ItemModelGenerator generator)
+    private static void registerPlateItems(ItemModelGenerator generator)
     {
         generator.register(ModItems.PLATE_AMETHYST, Models.GENERATED);
         generator.register(ModItems.PLATE_CITRINE, Models.GENERATED);
@@ -377,7 +377,7 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.REINFORCED_SHULKER, Models.GENERATED);
     }
 
-    private void registerIngotItems(ItemModelGenerator generator)
+    private static void registerIngotItems(ItemModelGenerator generator)
     {
         generator.register(ModItems.INGOT_ALLOY_CONDUCTIVE, Models.GENERATED);
         generator.register(ModItems.INGOT_ALLOY_ENERGETIC, Models.GENERATED);
@@ -390,14 +390,14 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.RAW_ALLOY_ENDERITE, Models.GENERATED);
     }
 
-    private void registerGemItems(ItemModelGenerator generator)
+    private static void registerGemItems(ItemModelGenerator generator)
     {
         generator.register(ModItems.GEM_CITRINE, Models.GENERATED);
         generator.register(ModItems.GEM_RUBY, Models.GENERATED);
         generator.register(ModItems.GEM_SAPPHIRE, Models.GENERATED);
     }
 
-    private void registerGearItems(ItemModelGenerator generator)
+    private static void registerGearItems(ItemModelGenerator generator)
     {
         generator.register(ModItems.GEAR_COPPER, Models.GENERATED);
         generator.register(ModItems.GEAR_DIAMOND, Models.GENERATED);
@@ -419,7 +419,7 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.GEAR_WOOD, Models.GENERATED);
     }
 
-    private void registerDustItems(ItemModelGenerator generator)
+    private static void registerDustItems(ItemModelGenerator generator)
     {
         generator.register(ModItems.CRUSHED_SHULKER, Models.GENERATED);
         generator.register(ModItems.DUST_CONDUCTIVE, Models.GENERATED);
@@ -436,7 +436,7 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.DUST_WITHERING, Models.GENERATED);
     }
 
-    private void registerCastItems(ItemModelGenerator generator)
+    private static void registerCastItems(ItemModelGenerator generator)
     {
         generator.register(ModItems.CAST_AXE, Models.GENERATED);
         generator.register(ModItems.CAST_BINDING, Models.GENERATED);
@@ -458,7 +458,7 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.CAST_WOOD_PICKAXE, Models.GENERATED);
     }
 
-    private void registerMobDrops(ItemModelGenerator generator)
+    private static void registerMobDrops(ItemModelGenerator generator)
     {
         generator.register(ModItems.ENDER_CHARM, Models.GENERATED);
         generator.register(ModItems.ENDERMAN_EYE, Models.GENERATED);
@@ -466,17 +466,18 @@ public class ModModelProvider extends FabricModelProvider
         generator.register(ModItems.ENDERMAN_GLAND, Models.GENERATED);
     }
 
-    private void registerFuels(ItemModelGenerator generator)
+    private static void registerFuels(ItemModelGenerator generator)
     {
         generator.register(ModItems.HOT_COAL, Models.GENERATED);
     }
 
-    private void registerFoods(ItemModelGenerator generator)
+    private static void registerFoods(ItemModelGenerator generator)
     {
         generator.register(ModItems.COOKED_EGG, Models.GENERATED);
         generator.register(ModItems.EGG_AND_BREAD, Models.GENERATED);
     }
-
+    //endregion
+    //region PRIVATE BLOCK METHODS
     private static void registerMachineBlocks(BlockStateModelGenerator generator)
     {
         generator.registerSimpleCubeAll(ModBlocks.ANGEL);

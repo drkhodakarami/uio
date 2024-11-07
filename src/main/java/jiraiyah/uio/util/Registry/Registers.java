@@ -45,10 +45,12 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.equipment.ArmorMaterial;
 import net.minecraft.item.equipment.EquipmentModel;
 import net.minecraft.item.equipment.EquipmentType;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
@@ -59,12 +61,14 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.placementmodifier.*;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.injection.invoke.arg.ArgumentCountException;
 
 import java.util.*;
@@ -379,6 +383,31 @@ public class Registers
         }
 
         /**
+         * Registers a new block with the given tooltips.
+         *
+         * @param name     The name of the block to be registered, used as its unique identifier.
+         * @param tooltips A list of tooltips to be displayed when hovering over the block in the inventory, providing additional information.
+         * @return The registered block.
+         * This method uses the internal registry system to create and register a new block within the game.
+         * It ensures that the block is properly identified by the given name and attaches the provided tooltips for enhanced user interaction and information.
+         */
+        public static net.minecraft.block.Block register(String name, List<Text> tooltips)
+        {
+            RegistryKey<net.minecraft.block.Block> key = getKey(name, RegistryKeys.BLOCK);
+            net.minecraft.block.Block block = Registry.register(Registries.BLOCK, key,
+                                                                new net.minecraft.block.Block(AbstractBlock.Settings.create().registryKey(key))
+                                                                {
+                                                                    @Override
+                                                                    public void appendTooltip(ItemStack stack, net.minecraft.item.Item.TooltipContext context, List<Text> tooltip, TooltipType options)
+                                                                    {
+                                                                        tooltip.addAll(tooltips);
+                                                                        super.appendTooltip(stack, context, tooltip, options);
+                                                                    }
+                                                                });
+            ALL_BLOCKS.get(modID).add(block);
+            return block;
+        }
+        /**
          * Registers a new block with the given name and copies the settings from the givne block.
          *
          * @param name      the name of the block.
@@ -398,6 +427,33 @@ public class Registers
         }
 
         /**
+         * Registers a new block by copying the properties of an existing block and adding specified tooltips.
+         *
+         * @param name      The name of the block to be registered, used as its unique identifier.
+         * @param blockCopy The existing block whose properties will be copied to the new block.
+         * @param tooltips  A list of tooltips to be displayed when hovering over the block in the inventory, providing additional information.
+         * @return The registered block.
+         * This method uses the internal registry system to create and register a new block within the game.
+         * It duplicates the properties of the provided `blockCopy` and ensures that the new block is properly identified by the given name.
+         * Additionally, it attaches the provided tooltips for enhanced user interaction and information.
+         */
+        public static net.minecraft.block.Block register(String name, net.minecraft.block.Block blockCopy, List<Text> tooltips)
+        {
+            RegistryKey<net.minecraft.block.Block> key = getKey(name, RegistryKeys.BLOCK);
+            net.minecraft.block.Block block = Registry.register(Registries.BLOCK, key,
+                                                                new net.minecraft.block.Block(AbstractBlock.Settings.copy(blockCopy).registryKey(key))
+                                                                {
+                                                                    @Override
+                                                                    public void appendTooltip(ItemStack stack, net.minecraft.item.Item.TooltipContext context, List<Text> tooltip, TooltipType options)
+                                                                    {
+                                                                        tooltip.addAll(tooltips);
+                                                                        super.appendTooltip(stack, context, tooltip, options);
+                                                                    }
+                                                                });
+            ALL_BLOCKS.get(modID).add(block);
+            return block;
+        }
+        /**
          * Registers a new block with the given name and settings.
          *
          * @param name     the name of the block.
@@ -414,6 +470,34 @@ public class Registers
         public static net.minecraft.block.Block register(String name, AbstractBlock.Settings settings)
         {
             return register(name, settings, net.minecraft.block.Block::new);
+        }
+
+        /**
+         * Registers a new block with the specified settings and tooltips.
+         *
+         * @param name     The name of the block to be registered, used as its unique identifier.
+         * @param settings The settings that define the properties and behavior of the block, such as hardness, resistance, and material.
+         * @param tooltips A list of tooltips to be displayed when hovering over the block in the inventory, providing additional information.
+         * @return The registered block.
+         * This method uses the internal registry system to create and register a new block within the game.
+         * It ensures that the block is properly identified by the given name and configured with the specified settings.
+         * Additionally, it attaches the provided tooltips for enhanced user interaction and information.
+         */
+        public static net.minecraft.block.Block register(String name, AbstractBlock.Settings settings, List<Text> tooltips)
+        {
+            RegistryKey<net.minecraft.block.Block> key = getKey(name, RegistryKeys.BLOCK);
+            net.minecraft.block.Block block = Registry.register(Registries.BLOCK, key,
+                                                                new net.minecraft.block.Block(settings.registryKey(key))
+                                                                {
+                                                                    @Override
+                                                                    public void appendTooltip(ItemStack stack, net.minecraft.item.Item.TooltipContext context, List<Text> tooltip, TooltipType options)
+                                                                    {
+                                                                        tooltip.addAll(tooltips);
+                                                                        super.appendTooltip(stack, context, tooltip, options);
+                                                                    }
+                                                                });
+            ALL_BLOCKS.get(modID).add(block);
+            return block;
         }
 
         /**
@@ -513,7 +597,6 @@ public class Registers
         }
 
         //region HELPERS
-
         /**
          * Registers a new Stair Block with the given name and given block for default state and uses the given block to copy the settings from.
          *
@@ -816,16 +899,15 @@ public class Registers
     {
         /**
          * Registers an Item with the given name and the default factory.
-         *
          * @param name the name of the item.
-         *
          * @return the registered item.
-         *
          * <br>
          * <h4>Example usage:
-         * <pre>{@code
+         * <pre>
+         *     {@code
          *    Item.register("someName");
-         *    }</pre>
+         *    }
+         *    </pre>
          */
         public static net.minecraft.item.Item register(String name)
         {
@@ -833,13 +915,34 @@ public class Registers
         }
 
         /**
+         * Registers a new item with the tooltips.
+         * @param name     The name of the item to be registered, used as its unique identifier.
+         * @param tooltips A list of tooltips to be displayed when hovering over the item in the inventory, providing additional information.
+         * @return The registered item.
+         * This method uses the internal registry system to create and register a new item within the game.
+         * It ensures that the item is properly identified by the given name and attaches the provided tooltips for enhanced user interaction and information.
+         */
+        public static net.minecraft.item.Item register(String name, List<Text> tooltips)
+        {
+            RegistryKey<net.minecraft.item.Item> key = getKey(name, RegistryKeys.ITEM);
+            net.minecraft.item.Item item = Registry.register(Registries.ITEM, key, new net.minecraft.item.Item(new net.minecraft.item.Item.Settings().registryKey(key))
+            {
+                @Override
+                public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
+                {
+                    tooltip.addAll(tooltips);
+                    super.appendTooltip(stack, context, tooltip, type);
+                }
+            });
+            ALL_ITEMS.get(modID).add(item);
+            return item;
+        }
+
+        /**
          * Registers an Item with the given name and the given stack count.
-         *
          * @param name       the name of the item.
          * @param stackCount the stack count of the item.
-         *
          * @return the registered item.
-         *
          * <br>
          * <h4>Example usage:
          * <pre>{@code
@@ -852,18 +955,42 @@ public class Registers
         }
 
         /**
+         * Registers a new item with the specified stack count.
+         * @param name       The name of the item to be registered, used as its unique identifier.
+         * @param stackCount The maximum number of items that can be stacked together in the inventory.
+         * @param tooltips   A list of tooltips to be displayed when hovering over the item in the inventory, providing additional information.
+         * @return The registered item.
+         * This method uses the internal registry system to create and register a new item within the game.
+         * It ensures that the item has the specified stack size and attaches the provided tooltips for enhanced user interaction and information.
+         */
+        public static net.minecraft.item.Item register(String name, int stackCount, List<Text> tooltips)
+        {
+            RegistryKey<net.minecraft.item.Item> key = getKey(name, RegistryKeys.ITEM);
+            net.minecraft.item.Item item = Registry.register(Registries.ITEM, key, new net.minecraft.item.Item(new net.minecraft.item.Item.Settings()
+                                                                                               .maxCount(stackCount)
+                                                                                               .registryKey(key))
+            {
+                @Override
+                public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
+                {
+                    tooltip.addAll(tooltips);
+                    super.appendTooltip(stack, context, tooltip, type);
+                }
+            });
+            ALL_ITEMS.get(modID).add(item);
+            return item;
+        }
+
+        /**
          * Registers an Item with the given name and the given factory.
-         *
          * @param name    the name of the item.
          * @param factory the factory to use to create the item.
          * @param <T>     the type of the item.
-         *
          *                <br>
          *                <h4>Example usage:
          *                <pre>{@code
          *                                  Item.register("someName", SomeItem::new);
          *                                  }</pre>
-         *
          * @return the registered item.
          */
         public static <T extends net.minecraft.item.Item> T register(String name,
@@ -878,18 +1005,15 @@ public class Registers
 
         /**
          * Registers an Item with the given name, stack count and the given factory.
-         *
          * @param name       the name of the item.
          * @param stackCount the stack count of the item.
          * @param factory    the factory to use to create the item.
          * @param <T>        the type of the item.
-         *
          *                   <br>
          *                   <h4>Example usage:
          *                   <pre>{@code
          *                                        Item.register("someName", 16, SomeItem::new);
          *                                        }</pre>
-         *
          * @return the registered item.
          */
         public static <T extends net.minecraft.item.Item> T register(String name, int stackCount,
@@ -904,19 +1028,16 @@ public class Registers
 
         /**
          * Registers an Item with the given name, stack count, custom settings and the given factory.
-         *
          * @param name       the name of the item.
          * @param stackCount the stack count of the item.
          * @param settings   the custom settings for the item.
          * @param factory    the factory to use to create the item.
          * @param <T>        the type of the item.
-         *
          *                   <br>
          *                   <h4>Example usage:
          *                   <pre>{@code
          *                                        Item.register("someName", 16, new Item.Settings(), SomeItem::new);
          *                                        }</pre>
-         *
          * @return the registered item.
          */
         public static <T extends net.minecraft.item.Item> T register(String name, int stackCount,
@@ -932,18 +1053,15 @@ public class Registers
 
         /**
          * Registers an Item with the given name, custom settings and the given factory.
-         *
          * @param name     the name of the item.
          * @param settings the custom settings for the item.
          * @param factory  the factory to use to create the item.
          * @param <T>      the type of the item.
-         *
          *                 <br>
          *                 <h4>Example usage:
          *                 <pre>{@code
          *                                    Item.register("someName", new Item.Settings(), SomeItem::new);
          *                                    }</pre>
-         *
          * @return the registered item.
          */
         public static <T extends net.minecraft.item.Item> T register(String name, net.minecraft.item.Item.Settings settings,
@@ -958,20 +1076,17 @@ public class Registers
 
         /**
          * Registers a tool with the given name, material, attack damage and attack speed, and the given factory.
-         *
          * @param name         the name of the tool.
          * @param material     the material of the tool.
          * @param attackDamage the attack damage of the tool.
          * @param attackSpeed  the attack speed of the tool.
          * @param factory      the factory to use to create the tool.
          * @param <T>          the type of the tool.
-         *
          *                     <br>
          *                     <h4>Example usage:
          *                     <pre>{@code
          *                                            Item.registerTool("someName", ToolMaterials.DIAMOND, 0.0f, 0.0f, HoeItem::new);
          *                                            }</pre>
-         *
          * @return the registered tool.
          */
         public static <T extends net.minecraft.item.Item> T registerTool(String name, ToolMaterial material,
@@ -988,7 +1103,6 @@ public class Registers
 
         /**
          * Registers a tool with the given name, material, attack damage and attack speed, custom settings, and the given factory.
-         *
          * @param name         the name of the tool.
          * @param material     the material of the tool.
          * @param attackDamage the attack damage of the tool.
@@ -996,13 +1110,11 @@ public class Registers
          * @param settings     the custom settings for the tool.
          * @param factory      the factory to use to create the tool.
          * @param <T>          the type of the tool.
-         *
          *                     <br>
          *                     <h4>Example usage:
          *                     <pre>{@code
          *                                            Item.registerTool("someName", ToolMaterials.DIAMOND, 0.0f, 0.0f, new Item.Settings(), HoeItem::new);
          *                                            }</pre>
-         *
          * @return the registered tool.
          */
         public static <T extends net.minecraft.item.Item> T registerTool(String name, ToolMaterial material,
@@ -1019,19 +1131,16 @@ public class Registers
 
         /**
          * Registers an armor with the given name, material, equipment type, and the given factory.
-         *
          * @param name      the name of the armor.
          * @param material  the material of the armor.
          * @param equipment the equipment type of the armor.
          * @param factory   the factory to use to create the armor.
          * @param <T>       the type of the armor.
-         *
          *                  <br>
          *                  <h4>Example usage:
          *                  <pre>{@code
          *                                      Item.registerArmor("someName", ArmorMaterial.DIAMOND, EquipmentType.HELMET, ArmorItem::new);
          *                                      }</pre>
-         *
          * @return the registered armor.
          */
         public static <T extends net.minecraft.item.Item> T registerArmor(String name, ArmorMaterial material,
@@ -1047,20 +1156,17 @@ public class Registers
 
         /**
          * Registers an armor with the given name, material, equipment type, custom settings, and the given factory.
-         *
          * @param name      the name of the armor.
          * @param material  the material of the armor.
          * @param equipment the equipment type of the armor.
          * @param settings  the custom settings for the armor.
          * @param factory   the factory to use to create the armor.
          * @param <T>       the type of the armor.
-         *
          *                  <br>
          *                  <h4>Example usage:
          *                  <pre>{@code
          *                                      Item.registerArmor("someName", ArmorMaterial.DIAMOND, EquipmentType.HELMET, new Item.Settings(), ArmorItem::new);
          *                                      }</pre>
-         *
          * @return the registered armor.
          */
         public static <T extends net.minecraft.item.Item> T registerArmor(String name, ArmorMaterial material,
@@ -1077,14 +1183,11 @@ public class Registers
 
         /**
          * Registers a snack food item with the given name, stack count, nutrition and saturation.
-         *
          * @param name       the name of the snack food
          * @param stackCount the stack count of the snack food
          * @param nutrition  the nutrition amount of the snack food
          * @param saturation the saturation amount of the snack food
-         *
          * @return the registered snack food item.
-         *
          * <br>
          * <h4>Example usage:
          * <pre>{@code
@@ -1109,15 +1212,49 @@ public class Registers
         }
 
         /**
+         * Registers a new snack food item with the specified properties.
+         * @param name       The name of the snack food item to be registered. This serves as the unique identifier.
+         * @param stackCount The maximum number of items that can be stacked together in the inventory.
+         * @param nutrition  The amount of hunger points restored when the snack food item is consumed.
+         * @param saturation The saturation modifier applied when the snack food item is consumed, affecting how long the hunger points last.
+         * @param tooltips   A list of tooltips to be displayed when hovering over the snack food item in the inventory, providing additional information.
+         * @return The registered snack food item.
+         * This method uses the internal registry system to create and register a new snack food item within the game.
+         * It ensures that the item has the specified stack size, nutrition value, and saturation effect.
+         * Additionally, it attaches the provided tooltips to the item for enhanced user interaction and information.
+         */
+        public static net.minecraft.item.Item registerSnackFood(String name, int stackCount, int nutrition, float saturation, List<Text> tooltips)
+        {
+            RegistryKey<net.minecraft.item.Item> key = getKey(name, RegistryKeys.ITEM);
+            net.minecraft.item.Item newItem = Registry.register(Registries.ITEM, key,
+                                                                new net.minecraft.item.Item(new net.minecraft.item.Item.Settings()
+                                                                                                    .registryKey(key)
+                                                                                                    .food(new FoodComponent.Builder()
+                                                                                                                  .nutrition(nutrition)
+                                                                                                                  .saturationModifier(saturation)
+                                                                                                                  .alwaysEdible()
+                                                                                                                  .build())
+                                                                                                    .maxCount(stackCount))
+                                                                {
+                                                                    @Override
+                                                                    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
+                                                                    {
+                                                                        tooltip.addAll(tooltips);
+                                                                        super.appendTooltip(stack, context, tooltip, type);
+                                                                    }
+                                                                });
+            ALL_SNACKS.get(modID).add(newItem);
+            ALL_ITEMS.get(modID).add(newItem);
+            return newItem;
+        }
+
+        /**
          * Registers a food item with the given name, stack count, nutrition and saturation.
-         *
          * @param name       the name of the food
          * @param stackCount the stack count of the food
          * @param nutrition  the nutrition amount of the food
          * @param saturation the saturation amount of the food
-         *
          * @return the registered food item.
-         *
          * <br>
          * <h4>Example usage:
          * <pre>{@code
@@ -1135,6 +1272,42 @@ public class Registers
                                                                                                                   .saturationModifier(saturation)
                                                                                                                   .build())
                                                                                                     .maxCount(stackCount)));
+            ALL_FOODS.get(modID).add(newItem);
+            ALL_ITEMS.get(modID).add(newItem);
+            return newItem;
+        }
+
+        /**
+         * Registers a new food item with the specified properties.
+         * @param name       The name of the food item to be registered. This is used as the identifier.
+         * @param stackCount The maximum stack size for the food item.
+         * @param nutrition  The amount of hunger points restored when the food item is consumed.
+         * @param saturation The saturation modifier applied when the food item is consumed.
+         * @param tooltips   A list of tooltips to be displayed when hovering over the food item in the inventory.
+         * @return The registered food item.
+         * This method utilizes the internal registry system to create and register a new food item in the game.
+         * It ensures that the item has the specified stack size, nutrition value, and saturation effect.
+         * Additionally, it attaches the provided tooltips to the item for enhanced user interaction.
+         */
+        public static net.minecraft.item.Item registerFood(String name, int stackCount, int nutrition, float saturation, List<Text> tooltips)
+        {
+            RegistryKey<net.minecraft.item.Item> key = getKey(name, RegistryKeys.ITEM);
+            net.minecraft.item.Item newItem = Registry.register(Registries.ITEM, key,
+                                                                new net.minecraft.item.Item(new net.minecraft.item.Item.Settings()
+                                                                                                    .registryKey(key)
+                                                                                                    .food(new FoodComponent.Builder()
+                                                                                                                  .nutrition(nutrition)
+                                                                                                                  .saturationModifier(saturation)
+                                                                                                                  .build())
+                                                                                                    .maxCount(stackCount))
+                                                                {
+                                                                    @Override
+                                                                    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
+                                                                    {
+                                                                        tooltip.addAll(tooltips);
+                                                                        super.appendTooltip(stack, context, tooltip, type);
+                                                                    }
+                                                                });
             ALL_FOODS.get(modID).add(newItem);
             ALL_ITEMS.get(modID).add(newItem);
             return newItem;
@@ -1337,21 +1510,12 @@ public class Registers
          */
         public static void registerAllArmor(ItemModelGenerator generator, net.minecraft.item.Item[] items, ArmorMaterial material)
         {
-            //if(items.length < 4)
-            //    throw new ArgumentCountException(items.length, 4, "Armor item array should contain at least 4 items : Helmet, Chest, Leggings, Boots");
             for (net.minecraft.item.Item item : items)
             {
                 EquipmentSlot slot = Objects.requireNonNull(item.getComponents().get(DataComponentTypes.EQUIPPABLE)).slot();
                 if (slot != null && slot.isArmorSlot())
                     registerArmor(generator, item, material, slot);
             }
-
-            //registerArmor(generator, items[0], material, EquipmentSlot.HEAD);
-            //registerArmor(generator, items[1], material, EquipmentSlot.CHEST);
-            //registerArmor(generator, items[2], material, EquipmentSlot.LEGS);
-            //registerArmor(generator, items[3], material, EquipmentSlot.FEET);
-            //if(hasHorseArmor && items.length == 5)
-            //registerArmor(generator, items[4], material, EquipmentSlot.BODY);
         }
 
         /**
