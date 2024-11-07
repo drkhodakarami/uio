@@ -42,11 +42,9 @@ public class ChunkGoo extends GooBase
         CODEC = createCodec(ChunkGoo::new);
     }
 
-    //region Block Entity Provider
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
     {
         return ModBlockEntities.CHUNK_GOO.instantiate(pos, state);
     }
-    //endregion
 }

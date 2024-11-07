@@ -39,11 +39,9 @@ public class AirGooBomb extends GooBase
         CODEC = createCodec(AirGooBomb::new);
     }
 
-    //region Block Entity Provider
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
     {
         return ModBlockEntities.AIR_GOO_BOMB.instantiate(pos, state);
     }
-    //endregion
 }

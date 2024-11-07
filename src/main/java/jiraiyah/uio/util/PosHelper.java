@@ -84,14 +84,86 @@ public class PosHelper
     }
 
     /**
-     * Returns the position that is one block to the left of the given position with the given block facing..
+     * Returns the direction that is to the left of the given facing direction.
+     *
+     * @param facing The current facing direction.
+     * @return The direction to the left of the given facing direction.
+     */
+    public static Direction left(Direction facing)
+    {
+        return switch (facing)
+        {
+            case NORTH -> Direction.WEST;
+            case SOUTH -> Direction.EAST;
+            case WEST -> Direction.SOUTH;
+            case EAST -> Direction.NORTH;
+            default -> facing;
+        };
+    }
+
+    /**
+     * Returns the direction that is to the right of the given facing direction.
+     *
+     * @param facing The current facing direction.
+     * @return The direction to the right of the given facing direction.
+     */
+    public static Direction right(Direction facing)
+    {
+        return switch (facing)
+        {
+            case NORTH -> Direction.EAST;
+            case SOUTH -> Direction.WEST;
+            case WEST -> Direction.NORTH;
+            case EAST -> Direction.SOUTH;
+            default -> facing;
+        };
+    }
+
+    /**
+     * Returns the direction that is directly in front of the given facing direction.
+     *
+     * @param facing The current facing direction.
+     * @return The direction in front of the given facing direction.
+     */
+    public static Direction front(Direction facing)
+    {
+        return switch (facing)
+        {
+            case NORTH -> Direction.SOUTH;
+            case SOUTH -> Direction.NORTH;
+            case WEST -> Direction.EAST;
+            case EAST -> Direction.WEST;
+            default -> facing;
+        };
+    }
+
+    /**
+     * Returns the direction that is to the back of the given facing direction.
+     *
+     * @param facing The current facing direction.
+     * @return The direction to the back of the given facing direction.
+     */
+    public static Direction back(Direction facing)
+    {
+        return switch (facing)
+        {
+            case NORTH -> Direction.NORTH;
+            case SOUTH -> Direction.SOUTH;
+            case WEST -> Direction.WEST;
+            case EAST -> Direction.EAST;
+            default -> facing;
+        };
+    }
+
+    /**
+     * Returns the position that is one block to the left of the given position with the given block facing.
      *
      * @param pos    The position to move from.
      * @param facing The direction the block is facing.
      *
      * @return The new position.
      */
-    public static BlockPos getLeft(BlockPos pos, Direction facing)
+    public static BlockPos getLeftBlock(BlockPos pos, Direction facing)
     {
         switch (facing)
         {
@@ -119,14 +191,14 @@ public class PosHelper
     }
 
     /**
-     * Returns the position that is one block to the right of the given position with the given block facing..
+     * Returns the position that is one block to the right of the given position with the given block facing.
      *
      * @param pos    The position to move from.
      * @param facing The direction the block is facing.
      *
      * @return The new position.
      */
-    public static BlockPos getRight(BlockPos pos, Direction facing)
+    public static BlockPos getRightBlock(BlockPos pos, Direction facing)
     {
         switch (facing)
         {
@@ -154,14 +226,14 @@ public class PosHelper
     }
 
     /**
-     * Returns the position that is one block to the back of the given position with the given block facing..
+     * Returns the position that is one block to the back of the given position with the given block facing.
      *
      * @param pos    The position to move from.
      * @param facing The direction the block is facing.
      *
      * @return The new position.
      */
-    public static BlockPos getBack(BlockPos pos, Direction facing)
+    public static BlockPos getBackBlock(BlockPos pos, Direction facing)
     {
         switch (facing)
         {
@@ -189,14 +261,14 @@ public class PosHelper
     }
 
     /**
-     * Returns the position that is one block in front of the given position with the given block facing..
+     * Returns the position that is one block in front of the given position with the given block facing.
      *
      * @param pos    The position to move from.
      * @param facing The direction the block is facing.
      *
      * @return The new position.
      */
-    public static BlockPos getFront(BlockPos pos, Direction facing)
+    public static BlockPos getFrontBlock(BlockPos pos, Direction facing)
     {
         switch (facing)
         {
@@ -224,25 +296,25 @@ public class PosHelper
     }
 
     /**
-     * Returns the position that is one block to the top of the given position with the given block facing..
+     * Returns the position that is one block to the top of the given position.
      *
      * @param pos The position to move from.
      *
      * @return The new position.
      */
-    public static BlockPos getTop(BlockPos pos)
+    public static BlockPos getTopBlock(BlockPos pos)
     {
         return pos.up();
     }
 
     /**
-     * Returns the position that is one block to the bottom of the given position with the given block facing..
+     * Returns the position that is one block to the bottom of the given position.
      *
      * @param pos The position to move from.
      *
      * @return The new position.
      */
-    public static BlockPos getBottom(BlockPos pos)
+    public static BlockPos getBottomBlock(BlockPos pos)
     {
         return pos.down();
     }

@@ -42,11 +42,9 @@ public class LavaEatingGoo extends GooBase
         CODEC = createCodec(LavaEatingGoo::new);
     }
 
-    //region Block Entity Provider
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
     {
         return ModBlockEntities.LAVA_EATING_GOO.instantiate(pos, state);
     }
-    //endregion
 }

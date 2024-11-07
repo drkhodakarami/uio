@@ -42,11 +42,9 @@ public class ToweringGoo extends GooBase
         CODEC = createCodec(ToweringGoo::new);
     }
 
-    //region Block Entity Provider
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
     {
         return ModBlockEntities.TOWERING_GOO.instantiate(pos, state);
     }
-    //endregion
 }

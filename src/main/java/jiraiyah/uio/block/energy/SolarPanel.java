@@ -25,17 +25,13 @@
 package jiraiyah.uio.block.energy;
 
 import jiraiyah.uio.util.block.abstracts.machine.AbstractMachineBlock;
-import jiraiyah.uio.util.blockentity.AbstractEnergyBE;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class SolarPanel extends AbstractMachineBlock

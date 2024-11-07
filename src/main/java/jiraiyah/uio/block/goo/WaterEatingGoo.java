@@ -39,12 +39,10 @@ public class WaterEatingGoo extends GooBase
         CODEC = createCodec(WaterEatingGoo::new);
     }
 
-    //region Block Entity Provider
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
     {
         //return new WaterEatingGooBE(pos, state);
         return ModBlockEntities.WATER_EATING_GOO.instantiate(pos, state);
     }
-    //endregion
 }

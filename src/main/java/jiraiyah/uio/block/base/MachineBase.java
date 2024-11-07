@@ -25,7 +25,6 @@
 package jiraiyah.uio.block.base;
 
 import jiraiyah.uio.util.block.abstracts.machine.AbstractActivatableMachineBlock;
-import jiraiyah.uio.util.blockentity.AbstractAdvancedBE;
 
 public abstract class MachineBase extends AbstractActivatableMachineBlock
 {

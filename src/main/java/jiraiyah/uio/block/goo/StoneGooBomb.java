@@ -40,11 +40,9 @@ public class StoneGooBomb extends GooBase
         CODEC = createCodec(StoneGooBomb::new);
     }
 
-    //region Block Entity Provider
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
     {
         return ModBlockEntities.STONE_GOO_BOMB.instantiate(pos, state);
     }
-    //endregion
 }

@@ -43,11 +43,9 @@ public class WaterPumpGoo extends GooBase
         CODEC = createCodec(WaterPumpGoo::new);
     }
 
-    //region Block Entity Provider
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
     {
         return ModBlockEntities.WATER_PUMP_GOO.instantiate(pos, state);
     }
-    //endregion
 }

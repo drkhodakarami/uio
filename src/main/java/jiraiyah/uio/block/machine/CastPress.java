@@ -24,9 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
-import jiraiyah.uio.util.blockentity.AbstractInventoryBE;
 import jiraiyah.uio.util.blockentity.ITickBE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;

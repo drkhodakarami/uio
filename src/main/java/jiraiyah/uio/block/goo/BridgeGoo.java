@@ -40,11 +40,9 @@ public class BridgeGoo extends GooBase
         CODEC = createCodec(BridgeGoo::new);
     }
 
-    //region Block Entity Provider
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
     {
         return ModBlockEntities.BRIDGE_GOO.instantiate(pos, state);
     }
-    //endregion
 }
