@@ -154,7 +154,7 @@ public class ModPlacedFeatures
      * The method utilizes the `getKey` utility to generate keys based on ore names
      * and the `PLACED_FEATURE` registry type.
      */
-    private static void init()
+    public static void init()
     {
         ORE_CITRINE_PLACED_KEY = getKey("ore_citrine_placed", RegistryKeys.PLACED_FEATURE);
         ORE_RUBY_PLACED_KEY = getKey("ore_ruby_placed", RegistryKeys.PLACED_FEATURE);

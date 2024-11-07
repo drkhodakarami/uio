@@ -59,6 +59,8 @@ public class ModOreGeneration
     {
         log("Registering Ore Data");
 
+        ModPlacedFeatures.init();
+
         //region OVERWORLD
 
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(),
