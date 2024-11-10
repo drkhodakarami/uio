@@ -1,0 +1,55 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"particle": "uio:block/cable"
+	},
+	"elements": [
+		{
+			"name": "fluid_cable_b",
+			"from": [8.2, 0, 6.8],
+			"to": [9.2, 6.5, 7.8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, -1.5, 8]},
+			"faces": {
+				"north": {"uv": [11.2335, 12.6415, 10.7665, 15.8625], "rotation": 180, "texture": "#particle"},
+				"east": {"uv": [12.6415, 14.1415, 15.8625, 14.6085], "rotation": 270, "texture": "#particle"},
+				"south": {"uv": [11.2335, 15.8625, 10.7665, 12.6415], "texture": "#particle"},
+				"west": {"uv": [12.6415, 14.1415, 15.8625, 14.6085], "rotation": 90, "texture": "#particle"},
+				"up": {"uv": [14.7665, 12.8915, 15.2335, 13.3585], "rotation": 180, "texture": "#particle"},
+				"down": {"uv": [14.7665, 12.8915, 15.2335, 13.3585], "texture": "#particle"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 225, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.35, 0.35, 0.35]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"fixed": {
+			"translation": [0, 0, 1],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

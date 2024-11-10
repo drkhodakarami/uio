@@ -1,0 +1,56 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "uio:block/cable",
+		"particle": "uio:block/cable"
+	},
+	"elements": [
+		{
+			"name": "connection_north",
+			"from": [5, 5, -0.01],
+			"to": [11, 11, 0.491],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0.1375, 0.1375, 2.616, 2.61871], "texture": "#0"},
+				"east": {"uv": [0.1375, 2.508, 0.246, 2.61071], "texture": "#0"},
+				"south": {"uv": [0.1375, 2.758, 2.616, 5.23486], "texture": "#0"},
+				"west": {"uv": [2.508, 2.50321, 2.616, 2.61393], "texture": "#0"},
+				"up": {"uv": [0.2445, 0.242, 0.1375, 0.1375], "texture": "#0"},
+				"down": {"uv": [2.611, 0.13529, 2.514, 0.242], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 225, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.35, 0.35, 0.35]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"fixed": {
+			"translation": [0, 0, 1],
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}
