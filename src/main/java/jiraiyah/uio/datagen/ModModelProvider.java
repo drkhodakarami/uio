@@ -24,6 +24,7 @@
 
 package jiraiyah.uio.datagen;
 
+import jiraiyah.uio.Main;
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import jiraiyah.uio.registry.misc.ModArmorMaterials;
@@ -32,11 +33,13 @@ import jiraiyah.uio.util.block.abstracts.machine.AbstractActivatableMachineBlock
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.client.*;
+import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.Models;
+import net.minecraft.data.client.TexturedModel;
 import net.minecraft.item.Item;
 
-import static jiraiyah.uio.Reference.logRGB256;
-import static jiraiyah.uio.util.registry.Registers.Datagen;
+import static jiraiyah.jiregister.Registers.Datagen;
 
 /**
  * The `ModModelProvider` class is responsible for generating block and item models
@@ -67,7 +70,7 @@ public class ModModelProvider extends FabricModelProvider
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator generator)
     {
-        logRGB256("Generating Block Model Data", 0, 255, 0);
+        Main.LOGGER.logRGB256("Generating Block Model Data", 0, 255, 0);
 
         generateTexturePools(generator);
 
@@ -89,7 +92,7 @@ public class ModModelProvider extends FabricModelProvider
     @Override
     public void generateItemModels(ItemModelGenerator generator)
     {
-        logRGB256("Generating Item Model Data", 0, 255, 0);
+        Main.LOGGER.logRGB256("Generating Item Model Data", 0, 255, 0);
 
         registerFoods(generator);
         registerFuels(generator);

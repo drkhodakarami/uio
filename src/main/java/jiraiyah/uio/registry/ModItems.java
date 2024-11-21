@@ -24,7 +24,6 @@
 
 package jiraiyah.uio.registry;
 
-import jiraiyah.uio.Configs;
 import jiraiyah.uio.item.*;
 import jiraiyah.uio.registry.misc.ModArmorMaterials;
 import jiraiyah.uio.registry.misc.ModToolMaterials;
@@ -34,8 +33,8 @@ import net.minecraft.item.equipment.EquipmentType;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jiraiyah.uio.Reference.log;
-import static jiraiyah.uio.util.registry.Registers.Item.*;
+import static jiraiyah.jiregister.Registers.Item.*;
+import static jiraiyah.uio.Main.*;
 
 /**
  * The {@code ModItems} class provides utility methods and fields
@@ -152,7 +151,7 @@ public class ModItems
      */
     public static void init()
     {
-        log("Registering Items");
+        LOGGER.log("Registering Items");
 
         //region FOOD FUEL MISC
         BINDING_STRING = register("binding_string", 16);
@@ -378,9 +377,9 @@ public class ModItems
         TOOL_CITRINE_SHOVEL = registerTool("tool_citrine_shovel", ModToolMaterials.CITRINE, 0.0f, 0.0f, ShovelItem::new);
         TOOL_CITRINE_SWORD = registerTool("tool_citrine_sword", ModToolMaterials.CITRINE, 3.0f, -0.5f, CitrineSword::new);
         TOOL_CITRINE_EXCAVATOR = registerTool("tool_citrine_excavator", ModToolMaterials.CITRINE, 0.0f, 0.0f, ExcavatorItem::new)
-                .setDepth(Configs.CITRINE_EXCAVATOR_DEPTH).setRadius(Configs.CITRINE_EXCAVATOR_WIDTH);
+                .setDepth(CONFIGS.CITRINE_EXCAVATOR_DEPTH).setRadius(CONFIGS.CITRINE_EXCAVATOR_WIDTH);
         TOOL_CITRINE_HAMMER = registerTool("tool_citrine_hammer", ModToolMaterials.CITRINE, 1.0f, -2.0f, HammerItem::new)
-                .setDepth(Configs.CITRINE_HAMMER_DEPTH).setRadius(Configs.CITRINE_HAMMER_WIDTH);
+                .setDepth(CONFIGS.CITRINE_HAMMER_DEPTH).setRadius(CONFIGS.CITRINE_HAMMER_WIDTH);
         //endregion
         //region COPPER TOOLS
         TOOL_COPPER_AXE = registerTool("tool_copper_axe", ModToolMaterials.COPPER, 6.0f, -1.5f, AxeItem::new);
@@ -389,9 +388,9 @@ public class ModItems
         TOOL_COPPER_SHOVEL = registerTool("tool_copper_shovel", ModToolMaterials.COPPER, 0.0f, 0.0f, ShovelItem::new);
         TOOL_COPPER_SWORD = registerTool("tool_copper_sword", ModToolMaterials.COPPER, 3.0f, -2.4f, CopperSword::new);
         TOOL_COPPER_EXCAVATOR = registerTool("tool_copper_excavator", ModToolMaterials.COPPER, 0.0f, 0.0f, ExcavatorItem::new)
-                .setDepth(Configs.COPPER_EXCAVATOR_DEPTH).setRadius(Configs.COPPER_EXCAVATOR_WIDTH);
+                .setDepth(CONFIGS.COPPER_EXCAVATOR_DEPTH).setRadius(CONFIGS.COPPER_EXCAVATOR_WIDTH);
         TOOL_COPPER_HAMMER = registerTool("tool_copper_hammer", ModToolMaterials.COPPER, 1.0f, -2.8f, HammerItem::new)
-                .setDepth(Configs.COPPER_HAMMER_DEPTH).setRadius(Configs.COPPER_HAMMER_WIDTH);
+                .setDepth(CONFIGS.COPPER_HAMMER_DEPTH).setRadius(CONFIGS.COPPER_HAMMER_WIDTH);
         //endregion
         //region ENDERITE TOOLS
         TOOL_ENDERITE_AXE = registerTool("tool_enderite_axe", ModToolMaterials.ENDERITE, 20.0f, -2.5f, AxeItem::new);
@@ -400,9 +399,9 @@ public class ModItems
         TOOL_ENDERITE_SHOVEL = registerTool("tool_enderite_shovel", ModToolMaterials.ENDERITE, 0.0f, 0.0f, ShovelItem::new);
         TOOL_ENDERITE_SWORD = registerTool("tool_enderite_sword", ModToolMaterials.ENDERITE, 3.0f, 3.0f, EnderiteSword::new);
         TOOL_ENDERITE_EXCAVATOR = registerTool("tool_enderite_excavator", ModToolMaterials.ENDERITE, 0.0f, 0.0f, ExcavatorItem::new)
-                .setDepth(Configs.ENDERITE_EXCAVATOR_DEPTH).setRadius(Configs.ENDERITE_EXCAVATOR_WIDTH);
+                .setDepth(CONFIGS.ENDERITE_EXCAVATOR_DEPTH).setRadius(CONFIGS.ENDERITE_EXCAVATOR_WIDTH);
         TOOL_ENDERITE_HAMMER = registerTool("tool_enderite_hammer", ModToolMaterials.ENDERITE, 1.0f, -2.8f, HammerItem::new)
-                .setDepth(Configs.ENDERITE_HAMMER_DEPTH).setRadius(Configs.ENDERITE_HAMMER_WIDTH);
+                .setDepth(CONFIGS.ENDERITE_HAMMER_DEPTH).setRadius(CONFIGS.ENDERITE_HAMMER_WIDTH);
 
         //endregion
         //region RUBY TOOLS
@@ -412,9 +411,9 @@ public class ModItems
         TOOL_RUBY_SHOVEL = registerTool("tool_ruby_shovel", ModToolMaterials.RUBY, 0.0f, 0.0f, ShovelItem::new);
         TOOL_RUBY_SWORD = registerTool("tool_ruby_sword", ModToolMaterials.RUBY, 4.0f, -0.5f, RubySword::new);
         TOOL_RUBY_EXCAVATOR = registerTool("tool_ruby_excavator", ModToolMaterials.RUBY, 0.0f, 0.0f, ExcavatorItem::new)
-                .setDepth(Configs.RUBY_EXCAVATOR_DEPTH).setRadius(Configs.RUBY_EXCAVATOR_WIDTH);
+                .setDepth(CONFIGS.RUBY_EXCAVATOR_DEPTH).setRadius(CONFIGS.RUBY_EXCAVATOR_WIDTH);
         TOOL_RUBY_HAMMER = registerTool("tool_ruby_hammer", ModToolMaterials.RUBY, 1.0f, -2.8f, HammerItem::new)
-                .setDepth(Configs.RUBY_HAMMER_DEPTH).setRadius(Configs.RUBY_HAMMER_WIDTH);
+                .setDepth(CONFIGS.RUBY_HAMMER_DEPTH).setRadius(CONFIGS.RUBY_HAMMER_WIDTH);
         //endregion
         //region SAPPHIRE TOOLS
         TOOL_SAPPHIRE_AXE = registerTool("tool_sapphire_axe", ModToolMaterials.SAPPHIRE, 5.0f, -1.5f, AxeItem::new);
@@ -423,35 +422,35 @@ public class ModItems
         TOOL_SAPPHIRE_SHOVEL = registerTool("tool_sapphire_shovel", ModToolMaterials.SAPPHIRE, 0.0f, 0.0f, ShovelItem::new);
         TOOL_SAPPHIRE_SWORD = registerTool("tool_sapphire_sword", ModToolMaterials.SAPPHIRE, 4.0f, -0.5f, SapphireSword::new);
         TOOL_SAPPHIRE_EXCAVATOR = registerTool("tool_sapphire_excavator", ModToolMaterials.SAPPHIRE, 0.0f, 0.0f, ExcavatorItem::new)
-                .setDepth(Configs.SAPPHIRE_EXCAVATOR_DEPTH).setRadius(Configs.SAPPHIRE_EXCAVATOR_WIDTH);
+                .setDepth(CONFIGS.SAPPHIRE_EXCAVATOR_DEPTH).setRadius(CONFIGS.SAPPHIRE_EXCAVATOR_WIDTH);
         TOOL_SAPPHIRE_HAMMER = registerTool("tool_sapphire_hammer", ModToolMaterials.SAPPHIRE, 1.0f, -2.8f, HammerItem::new)
-                .setDepth(Configs.SAPPHIRE_HAMMER_DEPTH).setRadius(Configs.SAPPHIRE_HAMMER_WIDTH);
+                .setDepth(CONFIGS.SAPPHIRE_HAMMER_DEPTH).setRadius(CONFIGS.SAPPHIRE_HAMMER_WIDTH);
         //endregion
         //region VANILLA HAMMERS
         TOOL_DIAMOND_EXCAVATOR = registerTool("tool_diamond_excavator", ToolMaterial.DIAMOND, 0.0f, 0.0f, ExcavatorItem::new)
-                .setDepth(Configs.DIAMOND_EXCAVATOR_DEPTH).setRadius(Configs.DIAMOND_EXCAVATOR_WIDTH);
+                .setDepth(CONFIGS.DIAMOND_EXCAVATOR_DEPTH).setRadius(CONFIGS.DIAMOND_EXCAVATOR_WIDTH);
         TOOL_DIAMOND_HAMMER = registerTool("tool_diamond_hammer", ToolMaterial.DIAMOND, 1.0f, -2.8f, HammerItem::new)
-                .setDepth(Configs.DIAMOND_HAMMER_DEPTH).setRadius(Configs.DIAMOND_HAMMER_WIDTH);
+                .setDepth(CONFIGS.DIAMOND_HAMMER_DEPTH).setRadius(CONFIGS.DIAMOND_HAMMER_WIDTH);
         TOOL_GOLD_EXCAVATOR = registerTool("tool_gold_excavator", ToolMaterial.GOLD, 0.0f, 0.0f, ExcavatorItem::new)
-                .setDepth(Configs.GOLD_EXCAVATOR_DEPTH).setRadius(Configs.GOLD_EXCAVATOR_WIDTH);
+                .setDepth(CONFIGS.GOLD_EXCAVATOR_DEPTH).setRadius(CONFIGS.GOLD_EXCAVATOR_WIDTH);
         TOOL_GOLD_HAMMER = registerTool("tool_gold_hammer", ToolMaterial.GOLD, 1.0f, -2.8f, HammerItem::new)
-                .setDepth(Configs.GOLD_HAMMER_DEPTH).setRadius(Configs.GOLD_HAMMER_WIDTH);
+                .setDepth(CONFIGS.GOLD_HAMMER_DEPTH).setRadius(CONFIGS.GOLD_HAMMER_WIDTH);
         TOOL_IRON_EXCAVATOR = registerTool("tool_iron_excavator", ToolMaterial.IRON, 0.0f, 0.0f, ExcavatorItem::new)
-                .setDepth(Configs.IRON_EXCAVATOR_DEPTH).setRadius(Configs.IRON_EXCAVATOR_WIDTH);
+                .setDepth(CONFIGS.IRON_EXCAVATOR_DEPTH).setRadius(CONFIGS.IRON_EXCAVATOR_WIDTH);
         TOOL_IRON_HAMMER = registerTool("tool_iron_hammer", ToolMaterial.IRON, 1.0f, -2.8f, HammerItem::new)
-                .setDepth(Configs.IRON_HAMMER_DEPTH).setRadius(Configs.IRON_HAMMER_WIDTH);
+                .setDepth(CONFIGS.IRON_HAMMER_DEPTH).setRadius(CONFIGS.IRON_HAMMER_WIDTH);
         TOOL_NETHERITE_EXCAVATOR = registerTool("tool_netherite_excavator", ToolMaterial.NETHERITE, 0.0f, 0.0f, ExcavatorItem::new)
-                .setDepth(Configs.NETHERITE_EXCAVATOR_DEPTH).setRadius(Configs.NETHERITE_EXCAVATOR_WIDTH);
+                .setDepth(CONFIGS.NETHERITE_EXCAVATOR_DEPTH).setRadius(CONFIGS.NETHERITE_EXCAVATOR_WIDTH);
         TOOL_NETHERITE_HAMMER = registerTool("tool_netherite_hammer", ToolMaterial.NETHERITE, 1.0f, -2.8f, HammerItem::new)
-                .setDepth(Configs.NETHERITE_HAMMER_DEPTH).setRadius(Configs.NETHERITE_HAMMER_WIDTH);
+                .setDepth(CONFIGS.NETHERITE_HAMMER_DEPTH).setRadius(CONFIGS.NETHERITE_HAMMER_WIDTH);
         TOOL_STONE_EXCAVATOR = registerTool("tool_stone_excavator", ToolMaterial.STONE, 0.0f, 0.0f, ExcavatorItem::new)
-                .setDepth(Configs.STONE_EXCAVATOR_DEPTH).setRadius(Configs.STONE_EXCAVATOR_WIDTH);
+                .setDepth(CONFIGS.STONE_EXCAVATOR_DEPTH).setRadius(CONFIGS.STONE_EXCAVATOR_WIDTH);
         TOOL_STONE_HAMMER = registerTool("tool_stone_hammer", ToolMaterial.STONE, 1.0f, -2.8f, HammerItem::new)
-                .setDepth(Configs.STONE_HAMMER_DEPTH).setRadius(Configs.STONE_HAMMER_WIDTH);
+                .setDepth(CONFIGS.STONE_HAMMER_DEPTH).setRadius(CONFIGS.STONE_HAMMER_WIDTH);
         TOOL_WOOD_EXCAVATOR = registerTool("tool_wood_excavator", ToolMaterial.WOOD, 0.0f, 0.0f, ExcavatorItem::new)
-                .setDepth(Configs.WOOD_EXCAVATOR_DEPTH).setRadius(Configs.WOOD_EXCAVATOR_WIDTH);
+                .setDepth(CONFIGS.WOOD_EXCAVATOR_DEPTH).setRadius(CONFIGS.WOOD_EXCAVATOR_WIDTH);
         TOOL_WOOD_HAMMER = registerTool("tool_wood_hammer", ToolMaterial.WOOD, 1.0f, -2.8f, HammerItem::new)
-                .setDepth(Configs.WOOD_HAMMER_DEPTH).setRadius(Configs.WOOD_HAMMER_WIDTH);
+                .setDepth(CONFIGS.WOOD_HAMMER_DEPTH).setRadius(CONFIGS.WOOD_HAMMER_WIDTH);
         //endregion
         //region TOOL
         BACKPACK = register("backpack", 1, BackpackItem::new);
@@ -530,7 +529,7 @@ public class ModItems
      */
     public static void addToItemGroups()
     {
-        log("Adding Items to Item Groups");
+        LOGGER.log("Adding Items to Item Groups");
 
         /*ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries ->
                                                                                 {

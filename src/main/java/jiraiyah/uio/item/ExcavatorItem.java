@@ -24,7 +24,6 @@
 
 package jiraiyah.uio.item;
 
-import jiraiyah.uio.Configs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MiningToolItem;
 import net.minecraft.item.ToolMaterial;
@@ -40,7 +39,8 @@ import net.minecraft.util.math.Direction;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Main.CONFIGS;
+import static jiraiyah.uio.Main.REFERENCE;
 
 public class ExcavatorItem extends MiningToolItem
 {
@@ -80,7 +80,7 @@ public class ExcavatorItem extends MiningToolItem
     {
         List<BlockPos> positions = new ArrayList<>();
 
-        HitResult hit = player.raycast(Configs.EXCAVATOR_MAX_DISTANCE, 0, false);
+        HitResult hit = player.raycast(CONFIGS.EXCAVATOR_MAX_DISTANCE, 0, false);
 
         if (hit.getType() != HitResult.Type.BLOCK)
             return positions;
@@ -141,6 +141,6 @@ public class ExcavatorItem extends MiningToolItem
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
     {
-        tooltip.add(translate(Constants.EXCAVATOR_PARAM_TOOLTIP, this.radius * 2 + 1, this.radius * 2 + 1, this.depth + 1));
+        tooltip.add(REFERENCE.translate(REFERENCE.EXCAVATOR_PARAM_TOOLTIP, this.radius * 2 + 1, this.radius * 2 + 1, this.depth + 1));
     }
 }

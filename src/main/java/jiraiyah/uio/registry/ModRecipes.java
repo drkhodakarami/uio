@@ -24,13 +24,7 @@
 
 package jiraiyah.uio.registry;
 
-import net.minecraft.recipe.RecipeSerializer;
-import net.minecraft.recipe.RecipeType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-
-import static jiraiyah.uio.Reference.identifier;
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * This class is responsible for managing the registration of custom recipes in the mod.
@@ -52,6 +46,6 @@ public class ModRecipes
      */
     public static void init()
     {
-        log("Registering Recipes");
+        LOGGER.log("Registering Recipes");
     }
 }

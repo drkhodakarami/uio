@@ -24,9 +24,10 @@
 
 package jiraiyah.uio.registry.misc;
 
-import jiraiyah.uio.Reference.Tags;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
+
+import static jiraiyah.uio.Main.REFERENCE;
 
 /**
  * The {@code ModToolMaterials} class is responsible for defining custom tool materials
@@ -71,14 +72,14 @@ public class ModToolMaterials
     public static void init()
     {
         CITRINE = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 1000, 10.0f, 3.0f, 22,
-                                   Tags.Item.REPAIRS_CITRINE_TOOL);
+                                   REFERENCE.REPAIRS_CITRINE_TOOL);
         COPPER = new ToolMaterial(BlockTags.INCORRECT_FOR_IRON_TOOL, 500, 6.0f, 1.0f, 14,
-                                  Tags.Item.REPAIRS_COPPER_TOOL);
-        ENDERITE = new ToolMaterial(Tags.Block.INCORRECT_FOR_ENDERITE_TOOL, 3000, 24.0f, 15.0f, 32,
-                                    Tags.Item.REPAIRS_ENDERITE_TOOL);
+                                  REFERENCE.REPAIRS_COPPER_TOOL);
+        ENDERITE = new ToolMaterial(REFERENCE.INCORRECT_FOR_ENDERITE_TOOL, 3000, 24.0f, 15.0f, 32,
+                                    REFERENCE.REPAIRS_ENDERITE_TOOL);
         RUBY = new ToolMaterial(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 2000, 12.0f, 4.0f, 22,
-                                Tags.Item.REPAIRS_RUBY_TOOL);
+                                REFERENCE.REPAIRS_RUBY_TOOL);
         SAPPHIRE = new ToolMaterial(BlockTags.INCORRECT_FOR_DIAMOND_TOOL, 2000, 12.0f, 4.0f, 22,
-                                    Tags.Item.REPAIRS_SAPPHIRE_TOOL);
+                                    REFERENCE.REPAIRS_SAPPHIRE_TOOL);
     }
 }

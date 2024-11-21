@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.misc;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The {@code ModPortals} class is responsible for managing the registration
@@ -50,6 +50,6 @@ public class ModPortals
      */
     public static void init()
     {
-        log("Registering Custom Portals");
+        LOGGER.log("Registering Custom Portals");
     }
 }

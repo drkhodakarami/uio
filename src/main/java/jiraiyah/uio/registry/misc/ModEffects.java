@@ -27,14 +27,10 @@ package jiraiyah.uio.registry.misc;
 import jiraiyah.uio.effect.FlightEffect;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 
-import java.util.function.BiFunction;
-
-import static jiraiyah.uio.Reference.identifier;
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.jiregister.Registers.StatusEffect.register;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModEffects` class is responsible for registering custom status effects
@@ -69,16 +65,8 @@ public class ModEffects
      */
     public static void init()
     {
-        log("Registering Effects");
+        LOGGER.log("Registering Effects");
 
         FLIGHT_EFFECT = register("flight", StatusEffectCategory.BENEFICIAL, 0xFFFFFF, FlightEffect::new);
-                /*Registry.registerReference(Registries.STATUS_EFFECT, identifier("flight"),
-                                                   new FlightEffect(StatusEffectCategory.BENEFICIAL, 0xFFFFFF));*/
-    }
-
-    private static RegistryEntry<StatusEffect> register(String name, StatusEffectCategory category, int color, BiFunction<StatusEffectCategory, Integer, StatusEffect> factory)
-    {
-        StatusEffect effect = factory.apply(category, color);
-        return Registry.registerReference(Registries.STATUS_EFFECT, identifier(name), effect);
     }
 }

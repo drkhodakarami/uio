@@ -29,7 +29,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Main.*;
 
 /**
  * The {@code ModItemGroups} class manages the various item groups for the
@@ -89,11 +89,11 @@ public class ModItemGroups
      */
     public static void init()
     {
-        log("Registering Item Groups");
+        LOGGER.log("Registering Item Groups");
 
         BLOCKS = Registry.register(Registries.ITEM_GROUP,
-                                   identifier(ModID + Constants.BLOCK_ITEM_GROUP_NAME),
-                                   FabricItemGroup.builder().displayName(Constants.BLOCKS_TITLE)
+                                   REFERENCE.identifier(ModID + REFERENCE.BLOCK_ITEM_GROUP_NAME),
+                                   FabricItemGroup.builder().displayName(REFERENCE.BLOCKS_TITLE)
                                                   .icon(ModBlocks.CITRINE.asItem()::getDefaultStack)
                                                   .entries((displayContext, entries) ->
                                                            {
@@ -190,8 +190,8 @@ public class ModItemGroups
                                                            }).build());
 
         INGREDIENTS = Registry.register(Registries.ITEM_GROUP,
-                                        identifier(ModID + Constants.INGREDIENT_ITEM_GROUP_NAME),
-                                        FabricItemGroup.builder().displayName(Constants.INGREDIENT_TITLE)
+                                        REFERENCE.identifier(ModID + REFERENCE.INGREDIENT_ITEM_GROUP_NAME),
+                                        FabricItemGroup.builder().displayName(REFERENCE.INGREDIENT_TITLE)
                                                        .icon(ModItems.UNSTABLE_GOO::getDefaultStack)
                                                        .entries((displayContext, entries) ->
                                                                 {
@@ -308,9 +308,9 @@ public class ModItemGroups
                                                                 }).build());
 
         MACHINES = Registry.register(Registries.ITEM_GROUP,
-                                     identifier(ModID + Constants.MACHINE_ITEM_GROUP_NAME),
-                                     FabricItemGroup.builder().displayName(Constants.MACHINES_TITLE)
-                                                    .icon(ModBlocks.ELEVATOR.asItem()::getDefaultStack)
+                                     REFERENCE.identifier(ModID + REFERENCE.MACHINE_ITEM_GROUP_NAME),
+                                     FabricItemGroup.builder().displayName(REFERENCE.MACHINES_TITLE)
+                                                    .icon(ModBlocks.CHUNK_LOADER.asItem()::getDefaultStack)
                                                     .entries((displayContext, entries) ->
                                                              {
                                                                  entries.add(ModBlocks.WOOD_STRIPPER);
@@ -379,8 +379,8 @@ public class ModItemGroups
                                                              }).build());
 
         TOOLS = Registry.register(Registries.ITEM_GROUP,
-                                  identifier(ModID + Constants.TOOLS_ITEM_GROUP_NAME),
-                                  FabricItemGroup.builder().displayName(Constants.TOOLS_TITLE)
+                                  REFERENCE.identifier(ModID + REFERENCE.TOOLS_ITEM_GROUP_NAME),
+                                  FabricItemGroup.builder().displayName(REFERENCE.TOOLS_TITLE)
                                                  .icon(ModItems.PLAYER_TELEPORT::getDefaultStack)
                                                  .entries((displayContext, entries) ->
                                                           {
@@ -450,8 +450,8 @@ public class ModItemGroups
                                                           }).build());
 
         ARMORS = Registry.register(Registries.ITEM_GROUP,
-                                   identifier(ModID + Constants.ARMOR_ITEM_GROUP_NAME),
-                                   FabricItemGroup.builder().displayName(Constants.ARMORS_TITLE)
+                                   REFERENCE.identifier(ModID + REFERENCE.ARMOR_ITEM_GROUP_NAME),
+                                   FabricItemGroup.builder().displayName(REFERENCE.ARMORS_TITLE)
                                                   .icon(ModItems.ARMOR_AMETHYST_CHESTPLATE::getDefaultStack)
                                                   .entries((displayContext, entries) ->
                                                            {
@@ -492,8 +492,8 @@ public class ModItemGroups
                                                            }).build());
 
         MISC = Registry.register(Registries.ITEM_GROUP,
-                                 identifier(ModID + Constants.MISC_ITEM_GROUP_NAME),
-                                 FabricItemGroup.builder().displayName(Constants.MISC_TITLE)
+                                 REFERENCE.identifier(ModID + REFERENCE.MISC_ITEM_GROUP_NAME),
+                                 FabricItemGroup.builder().displayName(REFERENCE.MISC_TITLE)
                                                 .icon(ModItems.HOT_COAL::getDefaultStack)
                                                 .entries((displayContext, entries) ->
                                                          {

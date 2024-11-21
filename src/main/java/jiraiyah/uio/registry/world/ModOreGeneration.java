@@ -29,7 +29,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.world.gen.GenerationStep;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModOreGeneration` class is responsible for registering custom ore generation
@@ -57,7 +57,7 @@ public class ModOreGeneration
      */
     public static void init()
     {
-        log("Registering Ore Data");
+        LOGGER.log("Registering Ore Data");
 
         ModPlacedFeatures.init();
 

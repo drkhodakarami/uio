@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.datagen;
 
-import jiraiyah.uio.Reference.*;
+import jiraiyah.uio.Main;
 import jiraiyah.uio.registry.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -33,7 +33,7 @@ import net.minecraft.registry.tag.BlockTags;
 
 import java.util.concurrent.CompletableFuture;
 
-import static jiraiyah.uio.Reference.logRGB256;
+import static jiraiyah.uio.Main.REFERENCE;
 
 /**
  * The `ModBlockTagProvider` class is responsible for generating block tag data for the mod.
@@ -64,7 +64,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg)
     {
-        logRGB256("Generating Block Tag Data", 0, 255, 0);
+        Main.LOGGER.logRGB256("Generating Block Tag Data", 0, 255, 0);
 
         //region TOOL NEEDS
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
@@ -201,7 +201,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.SAPPHIRE_WALL);
         //endregion
 
-        getOrCreateTagBuilder(Tags.Block.HAMMER_BLACKLIST)
+        getOrCreateTagBuilder(REFERENCE.HAMMER_BLACKLIST)
                 .add(ModBlocks.ELEVATOR)
                 .add(ModBlocks.ANGEL)
                 .add(ModBlocks.REDSTONE_CLOCK)
@@ -228,17 +228,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.BATTERY_BANK)
                 .add(ModBlocks.MINER);
 
-        getOrCreateTagBuilder(Tags.Block.EXCAVATOR_BLACKLIST)
+        getOrCreateTagBuilder(REFERENCE.EXCAVATOR_BLACKLIST)
                 .add(ModBlocks.ELEVATOR)
                 .add(ModBlocks.ANGEL);
 
-        getOrCreateTagBuilder(Tags.Block.GEM_BLOCKS)
+        getOrCreateTagBuilder(REFERENCE.GEM_BLOCKS)
                 .add(ModBlocks.RUBY)
                 .add(ModBlocks.CITRINE)
                 .add(ModBlocks.SAPPHIRE)
                 .add(ModBlocks.ENDERITE);
 
-        getOrCreateTagBuilder(Tags.Block.IS_MACHINE)
+        getOrCreateTagBuilder(REFERENCE.IS_MACHINE)
                 .add(ModBlocks.ELEVATOR)
                 .add(ModBlocks.ANGEL)
                 .add(ModBlocks.REDSTONE_CLOCK)
@@ -265,6 +265,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider
                 .add(ModBlocks.BATTERY_BANK)
                 .add(ModBlocks.MINER);
 
-        getOrCreateTagBuilder(Tags.Block.INCORRECT_FOR_ENDERITE_TOOL);
+        getOrCreateTagBuilder(REFERENCE.INCORRECT_FOR_ENDERITE_TOOL);
     }
 }

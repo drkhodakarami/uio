@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.misc;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModStrippables` class is responsible for managing the registration of strippable items
@@ -51,6 +51,6 @@ public class ModStrippables
      */
     public static void init()
     {
-        log("Registering Strippables");
+        LOGGER.log("Registering Strippables");
     }
 }

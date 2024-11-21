@@ -24,6 +24,7 @@
 
 package jiraiyah.uio.datagen;
 
+import jiraiyah.uio.Main;
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -42,8 +43,6 @@ import net.minecraft.registry.tag.ItemTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-
-import static jiraiyah.uio.Reference.logRGB256;
 
 /**
  * The {@code ModRecipeProvider} class is responsible for generating custom recipes for the mod.
@@ -91,7 +90,7 @@ public class ModRecipeProvider extends FabricRecipeProvider
             @Override
             public void generate()
             {
-                logRGB256("Generating Recipe Data", 0, 255, 0);
+                Main.LOGGER.logRGB256("Generating Recipe Data", 0, 255, 0);
 
                 //region GEM BLOCKS
                 offerReversibleCompactingRecipes(RecipeCategory.BUILDING_BLOCKS, ModItems.GEM_CITRINE,

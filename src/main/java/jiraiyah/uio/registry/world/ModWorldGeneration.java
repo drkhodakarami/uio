@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.world;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The {@code ModWorldGeneration} class is responsible for coordinating the registration
@@ -55,7 +55,7 @@ public class ModWorldGeneration
      */
     public static void init()
     {
-        log("Registering World Generation");
+        LOGGER.log("Registering World Generation");
 
         ModGeodeGeneration.init();
         ModOreGeneration.init();

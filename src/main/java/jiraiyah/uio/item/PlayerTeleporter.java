@@ -26,7 +26,6 @@ package jiraiyah.uio.item;
 
 import jiraiyah.uio.registry.misc.ModDataComponentTypes;
 import jiraiyah.uio.util.record.CoordinateData;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -47,7 +46,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Main.REFERENCE;
 
 //TODO : Add the ability to name the teleporter using shift click
 // - The name should be shown in the tooltip when hovering over the teleporter
@@ -64,7 +63,7 @@ public class PlayerTeleporter extends Item
     @Override
     public ActionResult useOnBlock(ItemUsageContext context)
     {
-        @Nullable var data = context.getStack().get(DataComponentTypes.CUSTOM_DATA);
+        @Nullable var data = context.getStack().get(ModDataComponentTypes.COORDINATE);
 
         if (data != null)
             return super.useOnBlock(context);
@@ -107,8 +106,10 @@ public class PlayerTeleporter extends Item
         if (!world.isClient())
         {
             if (user.isSneaking() && data != null)
+            {
                 user.getStackInHand(hand).set(ModDataComponentTypes.COORDINATE, null);
-            return super.use(world, user, hand);
+                return super.use(world, user, hand);
+            }
         }
         if (!user.isSneaking() && data != null)
         {
@@ -117,8 +118,8 @@ public class PlayerTeleporter extends Item
                 BlockPos pos = data.pos();
                 var dimension = data.dimension();
                 MinecraftServer server = world.getServer();
-                RegistryKey<World> storedKey = RegistryKey.of(RegistryKeys.WORLD, idOf(dimension));
-                if (storedKey == null || server == null)
+                RegistryKey<World> storedKey = RegistryKey.of(RegistryKeys.WORLD, REFERENCE.idOf(dimension));
+                if (storedKey == null || server == null || server.getWorld(storedKey) == null)
                     return super.use(world, user, hand);
                 TeleportTarget target = new TeleportTarget(server.getWorld(storedKey),
                                                            new Vec3d(pos.getX() + 0.5f, pos.getY() + 1.0f, pos.getZ() + 0.5f),
@@ -149,7 +150,7 @@ public class PlayerTeleporter extends Item
             BlockPos pos = data.pos();
             var dimension = data.dimension();
             var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
-            tooltip.add(translate(Constants.TELEPORTER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
+            tooltip.add(REFERENCE.translate(REFERENCE.TELEPORTER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
         }
     }
 
@@ -162,6 +163,6 @@ public class PlayerTeleporter extends Item
 
     private void outputCoordinatesToChat(BlockPos pos, String dimension, PlayerEntity player)
     {
-        player.sendMessage(translate(Constants.TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimension), false);
+        player.sendMessage(REFERENCE.translate(REFERENCE.TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimension), false);
     }
 }

@@ -33,7 +33,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-import static jiraiyah.uio.Reference.ModID;
+import static jiraiyah.uio.Main.ModID;
 
 public class FlightEffect extends StatusEffect
 {

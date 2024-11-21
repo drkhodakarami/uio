@@ -26,7 +26,7 @@ package jiraiyah.uio.registry;
 
 import jiraiyah.uio.command.DclrCommand;
 
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The {@code ModCommands} class handles the registration of commands for the application.
@@ -42,7 +42,6 @@ import static jiraiyah.uio.Reference.*;
  * </p>
  *
  * @see DclrCommand
- * @see Reference
  */
 public class ModCommands
 {
@@ -76,7 +75,7 @@ public class ModCommands
      */
     public static void init()
     {
-        log("Registering Commands");
+        LOGGER.log("Registering Commands");
 
         DclrCommand.register();
     }

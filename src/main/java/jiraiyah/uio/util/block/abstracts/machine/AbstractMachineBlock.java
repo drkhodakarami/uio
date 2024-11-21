@@ -58,10 +58,6 @@ import org.jetbrains.annotations.Nullable;
  * @see MapCodec
  * @see HorizontalFacingBlock
  *
- * @param <T> The type of block entity associated with this block.
- * @param <E> The expected type of block entity for ticker validation.
- * @param <A> The actual type of block entity for ticker validation.
- *
  * @author jiraiyah
  */
 public abstract class AbstractMachineBlock extends AbstractHorizontalDirectionBlock implements BlockEntityProvider

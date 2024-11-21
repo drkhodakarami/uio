@@ -35,9 +35,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
-import static jiraiyah.uio.Reference.Constants;
-import static jiraiyah.uio.Reference.Tags.Entity.TUNER_BLACKLIST;
-import static jiraiyah.uio.Reference.translate;
+import static jiraiyah.uio.Main.REFERENCE;
 
 public class UseEntityCallbackListener
 {
@@ -56,7 +54,7 @@ public class UseEntityCallbackListener
                 @Nullable var data = stack.get(ModDataComponentTypes.COORDINATE);
                 if (data != null)
                 {
-                    if (entity.getType().isIn(TUNER_BLACKLIST))
+                    if (entity.getType().isIn(REFERENCE.TUNER_BLACKLIST))
                         return ActionResult.PASS;
                     if (entity.getType() == EntityType.VILLAGER)
                     {
@@ -80,12 +78,12 @@ public class UseEntityCallbackListener
                         var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
                         if (dimension.equalsIgnoreCase(userDimension))
                         {
-                            player.sendMessage(translate(Constants.TUNER_TELEPORTED_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
+                            player.sendMessage(REFERENCE.translate(REFERENCE.TUNER_TELEPORTED_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
                             return ActionResult.SUCCESS;
                         }
                         else
                         {
-                            player.sendMessage(translate(Constants.TUNER_ERROR_ID_NAME, dimensionName), false);
+                            player.sendMessage(REFERENCE.translate(REFERENCE.TUNER_ERROR_ID_NAME, dimensionName), false);
                             return ActionResult.FAIL;
                         }
                     }

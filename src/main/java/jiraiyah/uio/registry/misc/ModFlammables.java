@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.misc;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModFlammables` class is responsible for managing the registration
@@ -54,6 +54,6 @@ public class ModFlammables
      */
     public static void init()
     {
-        log("Registering Flammables");
+        LOGGER.log("Registering Flammables");
     }
 }

@@ -28,7 +28,7 @@ import jiraiyah.uio.event.*;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The {@code ModEvents} class serves as a central hub for registering
@@ -78,7 +78,7 @@ public class ModEvents
      */
     public static void init()
     {
-        log("Registering Events");
+        LOGGER.log("Registering Events");
 
         PlayerBlockBreakEvents.BEFORE.register(new BeforePlayerBlockBreakListener());
         ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register(new KillingEntityListener());

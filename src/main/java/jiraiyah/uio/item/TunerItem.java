@@ -44,9 +44,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import static jiraiyah.uio.Reference.Constants;
-import static jiraiyah.uio.Reference.Tags.Entity.TUNER_BLACKLIST;
-import static jiraiyah.uio.Reference.translate;
+import static jiraiyah.uio.Main.REFERENCE;
 
 public class TunerItem extends Item
 {
@@ -108,7 +106,7 @@ public class TunerItem extends Item
 
         if (entity.isPlayer() ||
             data == null ||
-            entity.getType().isIn(TUNER_BLACKLIST))
+            entity.getType().isIn(REFERENCE.TUNER_BLACKLIST))
             return ActionResult.FAIL;
 
         if (!user.isSneaking())
@@ -117,6 +115,19 @@ public class TunerItem extends Item
         }
 
         return super.useOnEntity(stack, user, entity, hand);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
+    {
+        @Nullable var data = stack.get(ModDataComponentTypes.COORDINATE);
+        if (data != null)
+        {
+            BlockPos pos = data.pos();
+            var dimension = data.dimension();
+            var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
+            tooltip.add(REFERENCE.translate(REFERENCE.TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
+        }
     }
 
     @NotNull
@@ -147,26 +158,13 @@ public class TunerItem extends Item
         var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
         if (dimension.equalsIgnoreCase(userDimension))
         {
-            user.sendMessage(translate(Constants.TUNER_TELEPORTED_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
+            user.sendMessage(REFERENCE.translate(REFERENCE.TUNER_TELEPORTED_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName), false);
             return ActionResult.SUCCESS;
         }
         else
         {
-            user.sendMessage(translate(Constants.TUNER_ERROR_ID_NAME, dimensionName), false);
+            user.sendMessage(REFERENCE.translate(REFERENCE.TUNER_ERROR_ID_NAME, dimensionName), false);
             return ActionResult.FAIL;
-        }
-    }
-
-    @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
-    {
-        @Nullable var data = stack.get(ModDataComponentTypes.COORDINATE);
-        if (data != null)
-        {
-            BlockPos pos = data.pos();
-            var dimension = data.dimension();
-            var dimensionName = dimension.substring(dimension.indexOf(':') + 1).replace('_', ' ');
-            tooltip.add(translate(Constants.TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimensionName));
         }
     }
 
@@ -179,6 +177,6 @@ public class TunerItem extends Item
 
     protected void outputCoordinatesToChat(BlockPos pos, String dimension, PlayerEntity player)
     {
-        player.sendMessage(translate(Constants.TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimension), false);
+        player.sendMessage(REFERENCE.translate(REFERENCE.TUNER_TOOLTIP_ID_NAME, pos.getX(), pos.getY(), pos.getZ(), dimension), false);
     }
 }

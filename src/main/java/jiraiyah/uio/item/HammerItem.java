@@ -24,7 +24,6 @@
 
 package jiraiyah.uio.item;
 
-import jiraiyah.uio.Configs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MiningToolItem;
 import net.minecraft.item.ToolMaterial;
@@ -40,8 +39,8 @@ import net.minecraft.util.math.Direction;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jiraiyah.uio.Reference.Constants;
-import static jiraiyah.uio.Reference.translate;
+import static jiraiyah.uio.Main.CONFIGS;
+import static jiraiyah.uio.Main.REFERENCE;
 
 public class HammerItem extends MiningToolItem
 {
@@ -82,7 +81,7 @@ public class HammerItem extends MiningToolItem
     {
         List<BlockPos> positions = new ArrayList<>();
 
-        HitResult hit = player.raycast(Configs.HAMMER_MAX_DISTANCE, 0, false);
+        HitResult hit = player.raycast(CONFIGS.HAMMER_MAX_DISTANCE, 0, false);
 
         if (hit.getType() != HitResult.Type.BLOCK)
             return positions;
@@ -143,6 +142,6 @@ public class HammerItem extends MiningToolItem
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type)
     {
-        tooltip.add(translate(Constants.HAMMER_PARAM_TOOLTIP, this.radius * 2 + 1, this.radius * 2 + 1, this.depth + 1));
+        tooltip.add(REFERENCE.translate(REFERENCE.HAMMER_PARAM_TOOLTIP, this.radius * 2 + 1, this.radius * 2 + 1, this.depth + 1));
     }
 }

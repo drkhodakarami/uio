@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.misc;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModOxidizables` class is responsible for managing the registration
@@ -50,6 +50,6 @@ public class ModOxidizables
      */
     public static void init()
     {
-        log("Registering Oxidizables");
+        LOGGER.log("Registering Oxidizables");
     }
 }

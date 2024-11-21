@@ -27,8 +27,8 @@ package jiraiyah.uio.registry.misc;
 import jiraiyah.uio.util.record.CoordinateData;
 import net.minecraft.component.ComponentType;
 
-import static jiraiyah.uio.Reference.log;
-import static jiraiyah.uio.util.registry.Registers.ComponentType.*;
+import static jiraiyah.jiregister.Registers.ComponentType.register;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * This class is responsible for managing and registering custom data component types
@@ -59,7 +59,7 @@ public class ModDataComponentTypes
      */
     public static void init()
     {
-        log("Registering custom data component types");
+        LOGGER.log("Registering custom data component types");
 
         COORDINATE = register("coordinates", builder -> builder.codec(CoordinateData.CODEC));
     }

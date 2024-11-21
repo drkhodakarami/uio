@@ -24,19 +24,16 @@
 
 package jiraiyah.uio;
 
-import jiraiyah.uio.registry.ModEvents;
+import jiraiyah.jiregister.Registers;
+import jiraiyah.logger.Logger;
 import jiraiyah.uio.registry.*;
 import jiraiyah.uio.registry.misc.*;
 import jiraiyah.uio.registry.world.ModWorldGeneration;
-import jiraiyah.uio.util.registry.Registers;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 
 import java.util.List;
-
-import static jiraiyah.uio.Reference.*;
 
 //region CUSTOM FLAT WORLD GEN PRESETS
 // This is a flat world gen custom preset I always use for redstone and building massive tech contraptions
@@ -119,9 +116,39 @@ import static jiraiyah.uio.Reference.*;
  */
 public class Main implements ModInitializer
 {
-    public static boolean DEBUG;
+    public static String ModID = "uio";
+    public static Reference REFERENCE = new Reference(ModID);
+    public static Logger LOGGER = new Logger(ModID);
+
+    public static Configs CONFIGS;
+
     public static List<Block> BLOCKS;
     public static List<Item> ITEMS;
+
+    /**
+     * Method called during the mod's initialization phase.
+     * Sets the DEBUG variable based on whether the environment is a development setup and initializes lists for blocks and items.
+     */
+    @Override
+    public void onInitialize()
+    {
+        LOGGER.logMain();
+
+        Registers.init(ModID);
+
+        CONFIGS = new Configs(ModID);
+        CONFIGS.load();
+
+        GameRules.init();
+
+        initializeAll();
+
+        BLOCKS = Registers.getAllBlocks(ModID);
+        ITEMS = Registers.getAllItems(ModID);
+
+        ModBlocks.addToItemGroups(); //Should happen after initialization and list generation
+        ModItems.addToItemGroups(); //Should happen after initialization and list generation
+    }
 
     /**
      * Initializes all the necessary components and registers within the mod.
@@ -177,29 +204,5 @@ public class Main implements ModInitializer
         ModBlockItems.setBlackList(); //Can happen anywhere after Block Item registration
         ModItems.setBlackList(); //Can happen anywhere after Item Block registration
         //endregion
-    }
-
-    /**
-     * Method called during the mod's initialization phase.
-     * Sets the DEBUG variable based on whether the environment is a development setup and initializes lists for blocks and items.
-     */
-    @Override
-    public void onInitialize()
-    {
-        DEBUG = FabricLoader.getInstance().isDevelopmentEnvironment();
-
-        logMain();
-
-        Registers.init(ModID);
-        Configs.load(ModID);
-        GameRules.init();
-
-        initializeAll();
-
-        BLOCKS = Registers.getAllBlocks(ModID);
-        ITEMS = Registers.getAllItems(ModID);
-
-        ModBlocks.addToItemGroups(); //Should happen after initialization and list generation
-        ModItems.addToItemGroups(); //Should happen after initialization and list generation
     }
 }

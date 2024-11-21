@@ -24,13 +24,12 @@
 
 package jiraiyah.uio.registry;
 
+import jiraiyah.jiregister.Registers;
 import jiraiyah.uio.item.blockitem.AngelBlockItem;
-import jiraiyah.uio.util.registry.Registers;
 import net.minecraft.item.BlockItem;
 
-import static jiraiyah.uio.Reference.ModID;
-import static jiraiyah.uio.Reference.log;
-import static jiraiyah.uio.util.registry.Registers.BlockItem.*;
+import static jiraiyah.jiregister.Registers.BlockItem.register;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The {@code ModBlockItems} class is responsible for defining and registering
@@ -122,12 +121,11 @@ public class ModBlockItems
      * the game runs.
      * </p>
      *
-     * @see Registers#BlockItem
      * @see #setBlackList()
      */
     public static void init()
     {
-        log("Registering Block Items");
+        LOGGER.log("Registering Block Items");
 
         //ANGEL = Items.register("block_angel", settings ->  new AngelBlockItem(ModBlocks.ANGEL, settings));
         //ENDERITE = Items.register("block_enderite", settings ->  new AngelBlockItem(ModBlocks.ANGEL, settings));

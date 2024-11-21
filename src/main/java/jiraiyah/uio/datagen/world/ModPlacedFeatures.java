@@ -31,9 +31,10 @@ import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 
-import static jiraiyah.uio.Reference.logRGB256;
-import static jiraiyah.uio.util.registry.Registers.getKey;
-import static jiraiyah.uio.util.registry.Registers.Datagen.*;
+import static jiraiyah.jiregister.Registers.Datagen.modifiersWithCount;
+import static jiraiyah.jiregister.Registers.Datagen.register;
+import static jiraiyah.jiregister.Registers.getKey;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModPlacedFeatures` class is responsible for defining and registering
@@ -69,7 +70,7 @@ public class ModPlacedFeatures
      */
     public static void bootstrap(Registerable<PlacedFeature> context)
     {
-        logRGB256("Generating Placed Features Data", 0, 255, 0);
+        LOGGER.logRGB256("Generating Placed Features Data", 0, 255, 0);
 
         init();
 

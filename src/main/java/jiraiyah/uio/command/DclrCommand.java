@@ -25,7 +25,6 @@
 package jiraiyah.uio.command;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
-import jiraiyah.uio.Configs;
 import jiraiyah.uio.command.suggestion.DevCleanSuggestionProvider;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
@@ -42,7 +41,8 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Objects;
 
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Main.CONFIGS;
+import static jiraiyah.uio.Main.REFERENCE;
 
 public class DclrCommand
 {
@@ -122,7 +122,7 @@ public class DclrCommand
                                                                                         !Objects.equals(typ, "fluid") &&
                                                                                         !Objects.equals(typ, "all"))
                                                                                     {
-                                                                                        context.getSource().sendFeedback(() -> translate(Constants.DCLR_ERROR_ID_NAME), false);
+                                                                                        context.getSource().sendFeedback(() -> REFERENCE.translate(REFERENCE.DCLR_ERROR_ID_NAME), false);
                                                                                     }
                                                                                     else
                                                                                     {
@@ -144,12 +144,12 @@ public class DclrCommand
                                                                                             MinecraftServer server = player.getServer();
                                                                                             BlockPos position = player.getBlockPos();
 
-                                                                                            int minX = position.getX() - Configs.DCLR_RADIUS;
-                                                                                            int maxX = position.getX() + Configs.DCLR_RADIUS;
-                                                                                            int minZ = position.getZ() - Configs.DCLR_RADIUS;
-                                                                                            int maxZ = position.getZ() + Configs.DCLR_RADIUS;
+                                                                                            int minX = position.getX() - CONFIGS.DCLR_RADIUS;
+                                                                                            int maxX = position.getX() + CONFIGS.DCLR_RADIUS;
+                                                                                            int minZ = position.getZ() - CONFIGS.DCLR_RADIUS;
+                                                                                            int maxZ = position.getZ() + CONFIGS.DCLR_RADIUS;
 
-                                                                                            context.getSource().sendFeedback(() -> translate(Constants.DCLR_START_ID_NAME), false);
+                                                                                            context.getSource().sendFeedback(() -> REFERENCE.translate(REFERENCE.DCLR_START_ID_NAME), false);
 
                                                                                             BlockState state;
                                                                                             String name;
@@ -183,7 +183,7 @@ public class DclrCommand
                                                                                                 }
                                                                                             }
 
-                                                                                            context.getSource().sendFeedback(() -> translate(Constants.DCLR_END_ID_NAME), false);
+                                                                                            context.getSource().sendFeedback(() -> REFERENCE.translate(REFERENCE.DCLR_END_ID_NAME), false);
                                                                                         }
                                                                                     }
                                                                                     return 1;

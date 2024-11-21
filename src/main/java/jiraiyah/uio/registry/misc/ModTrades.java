@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.misc;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The {@code ModTrades} class is responsible for managing and initializing
@@ -55,6 +55,6 @@ public class ModTrades
      */
     public static void init()
     {
-        log("Registering Custom Trades");
+        LOGGER.log("Registering Custom Trades");
     }
 }

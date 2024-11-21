@@ -24,8 +24,7 @@
 
 package jiraiyah.uio.registry;
 
-
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The ModScreenHandlers class is responsible for managing the screen handlers
@@ -51,6 +50,6 @@ public class ModScreenHandlers
      */
     public static void init()
     {
-        log("Registering Screen Handlers");
+        LOGGER.log("Registering Screen Handlers");
     }
 }

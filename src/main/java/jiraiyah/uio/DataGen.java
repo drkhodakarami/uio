@@ -33,8 +33,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 
-import static jiraiyah.uio.Reference.logBackRGB256;
-import static jiraiyah.uio.Reference.logRGB256;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The DataGen class implements the DataGeneratorEntrypoint interface,
@@ -51,7 +50,7 @@ public class DataGen implements DataGeneratorEntrypoint
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator)
     {
-        logBackRGB256("Generating Data", 255, 255, 0, 0, 155, 55);
+        LOGGER.logBackRGB256("Generating Data", 255, 255, 0, 0, 155, 55);
 
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
@@ -79,7 +78,7 @@ public class DataGen implements DataGeneratorEntrypoint
     @Override
     public void buildRegistry(RegistryBuilder registryBuilder)
     {
-        logRGB256("Registering Data Generation Features", 0, 255, 0);
+        LOGGER.logRGB256("Registering Data Generation Features", 0, 255, 0);
 
         registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
         registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);

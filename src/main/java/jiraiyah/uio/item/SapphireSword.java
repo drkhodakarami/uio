@@ -24,13 +24,14 @@
 
 package jiraiyah.uio.item;
 
-import jiraiyah.uio.Configs;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
+
+import static jiraiyah.uio.Main.CONFIGS;
 
 public class SapphireSword extends SwordItem
 {
@@ -42,9 +43,16 @@ public class SapphireSword extends SwordItem
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker)
     {
-        target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, Configs.SAPPHIRE_SWORD_DURATION, 3), attacker);
+        target.addStatusEffect(
+                new StatusEffectInstance(StatusEffects.SLOWNESS,
+                                         CONFIGS.SAPPHIRE_SWORD_DURATION,
+                                         3),
+                attacker);
 
-        var vector = target.getPos().subtract(attacker.getPos()).normalize().multiply(Configs.SAPPHIRE_SWORD_MULTIPLIER, 1, Configs.SAPPHIRE_SWORD_MULTIPLIER);
+        var vector = target.getPos().subtract(attacker.getPos()).normalize()
+                           .multiply(CONFIGS.SAPPHIRE_SWORD_MULTIPLIER,
+                                     1,
+                                     CONFIGS.SAPPHIRE_SWORD_MULTIPLIER);
         target.setVelocity(vector);
 
         return super.postHit(stack, target, attacker);

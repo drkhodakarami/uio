@@ -34,7 +34,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-import static jiraiyah.uio.Reference.Tags.Entity.ENDERITE_SWORD_BLACKLIST;
+import static jiraiyah.uio.Main.REFERENCE;
 
 public class EnderiteSword extends SwordItem
 {
@@ -47,7 +47,7 @@ public class EnderiteSword extends SwordItem
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker)
     {
         World world = attacker.getWorld();
-        if (world.isClient || target.getType().isIn(ENDERITE_SWORD_BLACKLIST))
+        if (world.isClient || target.getType().isIn(REFERENCE.ENDERITE_SWORD_BLACKLIST))
             return false;
         List<LivingEntity> targets = world.getNonSpectatingEntities(LivingEntity.class,
                                                                     target.getBoundingBox().expand(2.0, 0.25, 2.0));

@@ -36,7 +36,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.CompletableFuture;
 
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Main.ModID;
+import static jiraiyah.uio.Main.REFERENCE;
 
 /**
  * The `ModEnLanguageProvider` class is responsible for providing English (US) language translations
@@ -490,67 +491,67 @@ public class ModEnLanguageProvider extends FabricLanguageProvider
         builder.add(ModBlocks.CARROT_BOX, "Box of Carrots");
         builder.add(ModBlocks.POTATO_BOX, "Box of Potatoes");
 
-        builder.add(Tags.Block.GEM_BLOCKS, "");
-        builder.add(Tags.Block.IS_MACHINE, "");
-        builder.add(Tags.Block.HAMMER_BLACKLIST, "Hammer Blacklist");
+        builder.add(REFERENCE.GEM_BLOCKS, "");
+        builder.add(REFERENCE.IS_MACHINE, "");
+        builder.add(REFERENCE.HAMMER_BLACKLIST, "Hammer Blacklist");
 
-        builder.add(Tags.Item.FLUID_BUCKET, "Fluid Buckets");
-        builder.add(Tags.Item.CAST, "Casts");
-        builder.add(Tags.Item.RAW, "Raws");
-        builder.add(Tags.Item.WOOD_CAST, "Wood Casts");
-        builder.add(Tags.Item.GEAR, "Gears");
-        builder.add(Tags.Item.DUST, "Dusts");
-        builder.add(Tags.Item.INGOT, "Ingots");
-        builder.add(Tags.Item.PLATE, "Plates");
-        builder.add(Tags.Item.REINFORCED, "Reinforced Plates");
-        builder.add(Tags.Item.ROD, "Rods");
-        builder.add(Tags.Item.TOOL_HEAD, "Tool Heads");
-        builder.add(Tags.Item.ALLOY, "Alloys");
-        builder.add(Tags.Item.GEM, "Gems");
-        builder.add(Tags.Item.HAMMERS, "Hammers");
-        builder.add(Tags.Item.EXCAVATORS, "Excavators");
-        builder.add(Tags.Item.MENDING_ONLY, "Mending Only");
-        builder.add(Tags.Item.SMELTABLE, "Smeltables");
-        builder.add(Tags.Item.REPAIRS_AMETHYST_ARMOR, "Amethyst Armor Repair Material");
-        builder.add(Tags.Item.REPAIRS_CITRINE_ARMOR, "Citrine Armor Repair Material");
-        builder.add(Tags.Item.REPAIRS_COPPER_ARMOR, "Copper Armor Repair Material");
-        builder.add(Tags.Item.REPAIRS_EMERALD_ARMOR, "Emerald Armor Repair Material");
-        builder.add(Tags.Item.REPAIRS_ENDERITE_ARMOR, "Enderite Armor Repair Material");
-        builder.add(Tags.Item.REPAIRS_RUBY_ARMOR, "Ruby Armor Repair Material");
-        builder.add(Tags.Item.REPAIRS_SAPPHIRE_ARMOR, "Sapphire Armor Repair Material");
-        builder.add(Tags.Item.REPAIRS_CITRINE_TOOL, "Citrine Tool Repair Material");
-        builder.add(Tags.Item.REPAIRS_COPPER_TOOL, "Copper Tool Repair Material");
-        builder.add(Tags.Item.REPAIRS_ENDERITE_TOOL, "Enderite Tool Repair Material");
-        builder.add(Tags.Item.REPAIRS_RUBY_TOOL, "Ruby Tool Repair Material");
-        builder.add(Tags.Item.REPAIRS_SAPPHIRE_TOOL, "Sapphire Tool Repair Material");
+        builder.add(REFERENCE.FLUID_BUCKET, "Fluid Buckets");
+        builder.add(REFERENCE.CAST, "Casts");
+        builder.add(REFERENCE.RAW, "Raws");
+        builder.add(REFERENCE.WOOD_CAST, "Wood Casts");
+        builder.add(REFERENCE.GEAR, "Gears");
+        builder.add(REFERENCE.DUST, "Dusts");
+        builder.add(REFERENCE.INGOT, "Ingots");
+        builder.add(REFERENCE.PLATE, "Plates");
+        builder.add(REFERENCE.REINFORCED, "Reinforced Plates");
+        builder.add(REFERENCE.ROD, "Rods");
+        builder.add(REFERENCE.TOOL_HEAD, "Tool Heads");
+        builder.add(REFERENCE.ALLOY, "Alloys");
+        builder.add(REFERENCE.GEM, "Gems");
+        builder.add(REFERENCE.HAMMERS, "Hammers");
+        builder.add(REFERENCE.EXCAVATORS, "Excavators");
+        builder.add(REFERENCE.MENDING_ONLY, "Mending Only");
+        builder.add(REFERENCE.SMELTABLE, "Smeltables");
+        builder.add(REFERENCE.REPAIRS_AMETHYST_ARMOR, "Amethyst Armor Repair Material");
+        builder.add(REFERENCE.REPAIRS_CITRINE_ARMOR, "Citrine Armor Repair Material");
+        builder.add(REFERENCE.REPAIRS_COPPER_ARMOR, "Copper Armor Repair Material");
+        builder.add(REFERENCE.REPAIRS_EMERALD_ARMOR, "Emerald Armor Repair Material");
+        builder.add(REFERENCE.REPAIRS_ENDERITE_ARMOR, "Enderite Armor Repair Material");
+        builder.add(REFERENCE.REPAIRS_RUBY_ARMOR, "Ruby Armor Repair Material");
+        builder.add(REFERENCE.REPAIRS_SAPPHIRE_ARMOR, "Sapphire Armor Repair Material");
+        builder.add(REFERENCE.REPAIRS_CITRINE_TOOL, "Citrine Tool Repair Material");
+        builder.add(REFERENCE.REPAIRS_COPPER_TOOL, "Copper Tool Repair Material");
+        builder.add(REFERENCE.REPAIRS_ENDERITE_TOOL, "Enderite Tool Repair Material");
+        builder.add(REFERENCE.REPAIRS_RUBY_TOOL, "Ruby Tool Repair Material");
+        builder.add(REFERENCE.REPAIRS_SAPPHIRE_TOOL, "Sapphire Tool Repair Material");
 
-        builder.add(Tags.Item.AMETHYST_ARMOR_TYPE, "Amethyst Armors");
-        builder.add(Tags.Item.CITRINE_ARMOR_TYPE, "Citrine Armors");
-        builder.add(Tags.Item.COPPER_ARMOR_TYPE, "Copper Armors");
-        builder.add(Tags.Item.EMERALD_ARMOR_TYPE, "Emerald Armors");
-        builder.add(Tags.Item.ENDERITE_ARMOR_TYPE, "Enderite Armors");
-        builder.add(Tags.Item.RUBY_ARMOR_TYPE, "Ruby Armors");
-        builder.add(Tags.Item.SAPPHIRE_ARMOR_TYPE, "Sapphire Armors");
+        builder.add(REFERENCE.AMETHYST_ARMOR_TYPE, "Amethyst Armors");
+        builder.add(REFERENCE.CITRINE_ARMOR_TYPE, "Citrine Armors");
+        builder.add(REFERENCE.COPPER_ARMOR_TYPE, "Copper Armors");
+        builder.add(REFERENCE.EMERALD_ARMOR_TYPE, "Emerald Armors");
+        builder.add(REFERENCE.ENDERITE_ARMOR_TYPE, "Enderite Armors");
+        builder.add(REFERENCE.RUBY_ARMOR_TYPE, "Ruby Armors");
+        builder.add(REFERENCE.SAPPHIRE_ARMOR_TYPE, "Sapphire Armors");
 
-        builder.add(Tags.Entity.TUNER_BLACKLIST, "Tuner Blacklist");
-        builder.add(Tags.Entity.RUBY_SWORD_WHITELIST, "Ruby Sword Whitelist");
+        builder.add(REFERENCE.TUNER_BLACKLIST, "Tuner Blacklist");
+        builder.add(REFERENCE.RUBY_SWORD_WHITELIST, "Ruby Sword Whitelist");
 
-        addText(builder, Constants.BLOCKS_TITLE, "Blocks");
-        addText(builder, Constants.INGREDIENT_TITLE, "Ingredients");
-        addText(builder, Constants.MACHINES_TITLE, "Machines");
-        addText(builder, Constants.TOOLS_TITLE, "Tools");
-        addText(builder, Constants.ARMORS_TITLE, "Armors");
-        addText(builder, Constants.MISC_TITLE, "Misc");
+        addText(builder, REFERENCE.BLOCKS_TITLE, "Blocks");
+        addText(builder, REFERENCE.INGREDIENT_TITLE, "Ingredients");
+        addText(builder, REFERENCE.MACHINES_TITLE, "Machines");
+        addText(builder, REFERENCE.TOOLS_TITLE, "Tools");
+        addText(builder, REFERENCE.ARMORS_TITLE, "Armors");
+        addText(builder, REFERENCE.MISC_TITLE, "Misc");
 
-        builder.add(identifier(Constants.TUNER_TOOLTIP_ID_NAME), "Bound to position : (%d %d %d) - %d");
-        builder.add(identifier(Constants.TELEPORTER_TOOLTIP_ID_NAME), "Bound to position : (%d %d %d) - %d");
-        builder.add(identifier(Constants.TUNER_TELEPORTED_ID_NAME), "Teleported to : (%d %d %d) - %d");
-        builder.add(identifier(Constants.TUNER_ERROR_ID_NAME), "Wrong dimension, your tuner bound to %d");
-        builder.add(identifier(Constants.DCLR_ERROR_ID_NAME), "Wrong Type, it should be one of the choices: ore, block, fluid, all");
-        builder.add(identifier(Constants.DCLR_START_ID_NAME), "Starting to Clean");
-        builder.add(identifier(Constants.DCLR_END_ID_NAME), "Finished Cleaning");
-        builder.add(identifier(Constants.HAMMER_PARAM_TOOLTIP), "Size : %d * %d * %d");
-        builder.add(identifier(Constants.EXCAVATOR_PARAM_TOOLTIP), "Size : %d * %d * %d");
+        builder.add(REFERENCE.identifier(REFERENCE.TUNER_TOOLTIP_ID_NAME), "Bound to position : (%d %d %d) - %d");
+        builder.add(REFERENCE.identifier(REFERENCE.TELEPORTER_TOOLTIP_ID_NAME), "Bound to position : (%d %d %d) - %d");
+        builder.add(REFERENCE.identifier(REFERENCE.TUNER_TELEPORTED_ID_NAME), "Teleported to : (%d %d %d) - %d");
+        builder.add(REFERENCE.identifier(REFERENCE.TUNER_ERROR_ID_NAME), "Wrong dimension, your tuner bound to %d");
+        builder.add(REFERENCE.identifier(REFERENCE.DCLR_ERROR_ID_NAME), "Wrong Type, it should be one of the choices: ore, block, fluid, all");
+        builder.add(REFERENCE.identifier(REFERENCE.DCLR_START_ID_NAME), "Starting to Clean");
+        builder.add(REFERENCE.identifier(REFERENCE.DCLR_END_ID_NAME), "Finished Cleaning");
+        builder.add(REFERENCE.identifier(REFERENCE.HAMMER_PARAM_TOOLTIP), "Size : %d * %d * %d");
+        builder.add(REFERENCE.identifier(REFERENCE.EXCAVATOR_PARAM_TOOLTIP), "Size : %d * %d * %d");
 
         builder.add("effect." + ModID + ".flight", "Flight");
     }

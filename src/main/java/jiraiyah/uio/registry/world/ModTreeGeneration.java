@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.world;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModTreeGeneration` class is responsible for managing the registration
@@ -60,6 +60,6 @@ public class ModTreeGeneration
      */
     public static void init()
     {
-        log("Registering Tree Data");
+        LOGGER.log("Registering Tree Data");
     }
 }

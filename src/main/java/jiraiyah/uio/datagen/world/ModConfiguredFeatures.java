@@ -39,9 +39,9 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 
 import java.util.List;
 
-import static jiraiyah.uio.Reference.logRGB256;
-import static jiraiyah.uio.util.registry.Registers.Datagen.*;
-import static jiraiyah.uio.util.registry.Registers.getKey;
+import static jiraiyah.jiregister.Registers.Datagen.register;
+import static jiraiyah.jiregister.Registers.getKey;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModConfiguredFeatures` class is responsible for defining and registering
@@ -80,7 +80,7 @@ public class ModConfiguredFeatures
      */
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context)
     {
-        logRGB256("Generating Configured Features Data", 0, 255, 0);
+        LOGGER.logRGB256("Generating Configured Features Data", 0, 255, 0);
 
         init();
 

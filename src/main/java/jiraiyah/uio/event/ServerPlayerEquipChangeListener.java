@@ -38,7 +38,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.TagKey;
 
-import static jiraiyah.uio.Reference.Tags;
+import static jiraiyah.uio.Main.REFERENCE;
 
 public class ServerPlayerEquipChangeListener
 {
@@ -218,7 +218,7 @@ public class ServerPlayerEquipChangeListener
             if (currentStack.isOf(ModItems.ARMOR_ENDERITE_HELMET))
             {
                 addEffect(StatusEffects.NIGHT_VISION, player);
-                if (hasFullSet(Tags.Item.ENDERITE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.ENDERITE_ARMOR_TYPE, player))
                 {
                     addEffect(StatusEffects.LUCK, player);
                     addEffect(ModEffects.FLIGHT_EFFECT, player);
@@ -228,7 +228,7 @@ public class ServerPlayerEquipChangeListener
             if (currentStack.isOf(ModItems.ARMOR_ENDERITE_CHESTPLATE))
             {
                 addEffect(StatusEffects.REGENERATION, player);
-                if (hasFullSet(Tags.Item.ENDERITE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.ENDERITE_ARMOR_TYPE, player))
                 {
                     addEffect(StatusEffects.LUCK, player);
                     addEffect(ModEffects.FLIGHT_EFFECT, player);
@@ -238,7 +238,7 @@ public class ServerPlayerEquipChangeListener
             if (currentStack.isOf(ModItems.ARMOR_ENDERITE_LEGGINGS))
             {
                 addEffect(StatusEffects.SATURATION, player);
-                if (hasFullSet(Tags.Item.ENDERITE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.ENDERITE_ARMOR_TYPE, player))
                 {
                     addEffect(StatusEffects.LUCK, player);
                     addEffect(ModEffects.FLIGHT_EFFECT, player);
@@ -248,7 +248,7 @@ public class ServerPlayerEquipChangeListener
             if (currentStack.isOf(ModItems.ARMOR_ENDERITE_BOOTS))
             {
                 addEffect(StatusEffects.INVISIBILITY, player);
-                if (hasFullSet(Tags.Item.ENDERITE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.ENDERITE_ARMOR_TYPE, player))
                 {
                     addEffect(StatusEffects.LUCK, player);
                     addEffect(ModEffects.FLIGHT_EFFECT, player);
@@ -260,28 +260,28 @@ public class ServerPlayerEquipChangeListener
             if (currentStack.isOf(ModItems.ARMOR_COPPER_HELMET))
             {
                 addEffect(StatusEffects.SPEED, player);
-                if (hasFullSet(Tags.Item.COPPER_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.COPPER_ARMOR_TYPE, player))
                     addEffect(StatusEffects.STRENGTH, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_COPPER_CHESTPLATE))
             {
                 addEffect(StatusEffects.RESISTANCE, player);
-                if (hasFullSet(Tags.Item.COPPER_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.COPPER_ARMOR_TYPE, player))
                     addEffect(StatusEffects.STRENGTH, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_COPPER_LEGGINGS))
             {
                 addEffect(StatusEffects.JUMP_BOOST, player);
-                if (hasFullSet(Tags.Item.COPPER_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.COPPER_ARMOR_TYPE, player))
                     addEffect(StatusEffects.STRENGTH, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_COPPER_BOOTS))
             {
                 addEffect(StatusEffects.SLOW_FALLING, player);
-                if (hasFullSet(Tags.Item.COPPER_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.COPPER_ARMOR_TYPE, player))
                     addEffect(StatusEffects.STRENGTH, player);
                 return;
             }
@@ -290,28 +290,28 @@ public class ServerPlayerEquipChangeListener
             if (currentStack.isOf(ModItems.ARMOR_AMETHYST_HELMET))
             {
                 addEffect(StatusEffects.NIGHT_VISION, player);
-                if (hasFullSet(Tags.Item.AMETHYST_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.AMETHYST_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_AMETHYST_CHESTPLATE))
             {
                 addEffect(StatusEffects.SATURATION, player);
-                if (hasFullSet(Tags.Item.AMETHYST_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.AMETHYST_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_AMETHYST_LEGGINGS))
             {
                 addEffect(StatusEffects.REGENERATION, player);
-                if (hasFullSet(Tags.Item.AMETHYST_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.AMETHYST_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_AMETHYST_BOOTS))
             {
                 addEffect(StatusEffects.HASTE, player);
-                if (hasFullSet(Tags.Item.AMETHYST_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.AMETHYST_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
                 return;
             }
@@ -320,28 +320,28 @@ public class ServerPlayerEquipChangeListener
             if (currentStack.isOf(ModItems.ARMOR_EMERALD_HELMET))
             {
                 addEffect(StatusEffects.SATURATION, player);
-                if (hasFullSet(Tags.Item.EMERALD_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.EMERALD_ARMOR_TYPE, player))
                     addEffect(StatusEffects.HERO_OF_THE_VILLAGE, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_EMERALD_CHESTPLATE))
             {
                 addEffect(StatusEffects.REGENERATION, player);
-                if (hasFullSet(Tags.Item.EMERALD_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.EMERALD_ARMOR_TYPE, player))
                     addEffect(StatusEffects.HERO_OF_THE_VILLAGE, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_EMERALD_LEGGINGS))
             {
                 addEffect(StatusEffects.LUCK, player);
-                if (hasFullSet(Tags.Item.EMERALD_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.EMERALD_ARMOR_TYPE, player))
                     addEffect(StatusEffects.HERO_OF_THE_VILLAGE, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_EMERALD_BOOTS))
             {
                 addEffect(StatusEffects.BAD_OMEN, player);
-                if (hasFullSet(Tags.Item.EMERALD_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.EMERALD_ARMOR_TYPE, player))
                     addEffect(StatusEffects.HERO_OF_THE_VILLAGE, player);
                 return;
             }
@@ -350,28 +350,28 @@ public class ServerPlayerEquipChangeListener
             if (currentStack.isOf(ModItems.ARMOR_CITRINE_HELMET))
             {
                 addEffect(StatusEffects.SATURATION, player);
-                if (hasFullSet(Tags.Item.CITRINE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.CITRINE_ARMOR_TYPE, player))
                     addEffect(StatusEffects.HEALTH_BOOST, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_CITRINE_CHESTPLATE))
             {
                 addEffect(StatusEffects.REGENERATION, player);
-                if (hasFullSet(Tags.Item.CITRINE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.CITRINE_ARMOR_TYPE, player))
                     addEffect(StatusEffects.HEALTH_BOOST, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_CITRINE_LEGGINGS))
             {
                 addEffect(StatusEffects.LUCK, player);
-                if (hasFullSet(Tags.Item.CITRINE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.CITRINE_ARMOR_TYPE, player))
                     addEffect(StatusEffects.HEALTH_BOOST, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_CITRINE_BOOTS))
             {
                 addEffect(StatusEffects.INVISIBILITY, player);
-                if (hasFullSet(Tags.Item.CITRINE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.CITRINE_ARMOR_TYPE, player))
                     addEffect(StatusEffects.HEALTH_BOOST, player);
                 return;
             }
@@ -380,28 +380,28 @@ public class ServerPlayerEquipChangeListener
             if (currentStack.isOf(ModItems.ARMOR_RUBY_HELMET))
             {
                 addEffect(StatusEffects.SATURATION, player);
-                if (hasFullSet(Tags.Item.RUBY_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.RUBY_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_RUBY_CHESTPLATE))
             {
                 addEffect(StatusEffects.RESISTANCE, player);
-                if (hasFullSet(Tags.Item.RUBY_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.RUBY_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_RUBY_LEGGINGS))
             {
                 addEffect(StatusEffects.REGENERATION, player);
-                if (hasFullSet(Tags.Item.RUBY_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.RUBY_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_RUBY_BOOTS))
             {
                 addEffect(StatusEffects.FIRE_RESISTANCE, player);
-                if (hasFullSet(Tags.Item.RUBY_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.RUBY_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
                 return;
             }
@@ -410,28 +410,28 @@ public class ServerPlayerEquipChangeListener
             if (currentStack.isOf(ModItems.ARMOR_SAPPHIRE_HELMET))
             {
                 addEffect(StatusEffects.CONDUIT_POWER, player);
-                if (hasFullSet(Tags.Item.SAPPHIRE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.SAPPHIRE_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_SAPPHIRE_CHESTPLATE))
             {
                 addEffect(StatusEffects.SATURATION, player);
-                if (hasFullSet(Tags.Item.SAPPHIRE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.SAPPHIRE_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_SAPPHIRE_LEGGINGS))
             {
                 addEffect(StatusEffects.DOLPHINS_GRACE, player);
-                if (hasFullSet(Tags.Item.SAPPHIRE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.SAPPHIRE_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
                 return;
             }
             if (currentStack.isOf(ModItems.ARMOR_SAPPHIRE_BOOTS))
             {
                 addEffect(StatusEffects.INVISIBILITY, player);
-                if (hasFullSet(Tags.Item.SAPPHIRE_ARMOR_TYPE, player))
+                if (hasFullSet(REFERENCE.SAPPHIRE_ARMOR_TYPE, player))
                     addEffect(StatusEffects.LUCK, player);
             }
             //endregion

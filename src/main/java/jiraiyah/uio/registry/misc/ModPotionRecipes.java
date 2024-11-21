@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.misc;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModPotionRecipes` class is responsible for managing the registration
@@ -51,6 +51,6 @@ public class ModPotionRecipes
      */
     public static void init()
     {
-        log("Registering Potion Recipes");
+        LOGGER.log("Registering Potion Recipes");
     }
 }

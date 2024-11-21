@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.misc;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The {@code ModAttributes} class is responsible for managing the registration
@@ -59,6 +59,6 @@ public class ModAttributes
      */
     public static void init()
     {
-        log("Registering Attributes");
+        LOGGER.log("Registering Attributes");
     }
 }

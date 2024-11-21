@@ -24,12 +24,11 @@
 
 package jiraiyah.uio.registry;
 
+import jiraiyah.jiregister.Registers.Entities;
 import jiraiyah.uio.blockentity.*;
-import jiraiyah.uio.blockentity.WaterEatingGooBE;
-import jiraiyah.uio.util.registry.Registers.Entities;
 import net.minecraft.block.entity.BlockEntityType;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The {@code ModBlockEntities} class is responsible for registering all custom block entities
@@ -73,7 +72,7 @@ public class ModBlockEntities
      */
     public static void init()
     {
-        log("Registering Block Entities");
+        LOGGER.log("Registering Block Entities");
 
         AIR_GOO_BOMB = Entities.register("air_bomb_goo", ModBlocks.AIR_BOMB_GOO, AirGooBombBE::new);
         BRIDGE_GOO = Entities.register("bridge_goo", ModBlocks.BRIDGE_GOO, BridgeGooBE::new);

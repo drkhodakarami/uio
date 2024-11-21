@@ -24,6 +24,7 @@
 
 package jiraiyah.uio.datagen;
 
+import jiraiyah.uio.Main;
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -33,8 +34,7 @@ import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
 
-import static jiraiyah.uio.Reference.logRGB256;
-import static jiraiyah.uio.util.registry.Registers.Datagen.customOreDrops;
+import static jiraiyah.jiregister.Registers.Datagen.customOreDrops;
 
 /**
  * The `ModLootTableProvider` class is responsible for generating loot tables for various blocks in the mod.
@@ -68,7 +68,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider
     @Override
     public void generate()
     {
-        logRGB256("Generating Loot Table Data", 0, 255, 0);
+        Main.LOGGER.logRGB256("Generating Loot Table Data", 0, 255, 0);
 
         //region GEM
         addDrop(ModBlocks.CITRINE);

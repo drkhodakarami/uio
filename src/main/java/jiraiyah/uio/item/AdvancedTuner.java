@@ -38,7 +38,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import static jiraiyah.uio.Reference.*;
+import static jiraiyah.uio.Main.REFERENCE;
 
 public class AdvancedTuner extends TunerItem
 {
@@ -60,7 +60,7 @@ public class AdvancedTuner extends TunerItem
         {
             var dimension = data.dimension();
             MinecraftServer server = user.getWorld().getServer();
-            RegistryKey<World> storedKey = RegistryKey.of(RegistryKeys.WORLD, idOf(dimension));
+            RegistryKey<World> storedKey = RegistryKey.of(RegistryKeys.WORLD, REFERENCE.idOf(dimension));
             if (storedKey == null || server == null || server.getWorld(storedKey) == null)
                 return ActionResult.PASS;
             TeleportTarget target = new TeleportTarget(server.getWorld(storedKey),

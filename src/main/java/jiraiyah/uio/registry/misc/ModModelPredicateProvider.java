@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.misc;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModModelPredicateProvider` class is responsible for managing
@@ -53,6 +53,6 @@ public class ModModelPredicateProvider
      */
     public static void init()
     {
-        log("Registering Model Predicates");
+        LOGGER.log("Registering Model Predicates");
     }
 }

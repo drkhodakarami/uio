@@ -31,7 +31,7 @@ import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
 
-import static jiraiyah.uio.Reference.ModID;
+import static jiraiyah.uio.Main.ModID;
 
 /**
  * The `ModWorldGenerator` class is responsible for generating world data for the mod.

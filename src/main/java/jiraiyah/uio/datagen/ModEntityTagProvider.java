@@ -24,6 +24,7 @@
 
 package jiraiyah.uio.datagen;
 
+import jiraiyah.uio.Main;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.entity.EntityType;
@@ -31,8 +32,7 @@ import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
 
-import static jiraiyah.uio.Reference.Tags.Entity.*;
-import static jiraiyah.uio.Reference.logRGB256;
+import static jiraiyah.uio.Main.REFERENCE;
 
 /**
  * The `ModEntityTagProvider` class is responsible for generating and configuring
@@ -66,17 +66,17 @@ public class ModEntityTagProvider extends FabricTagProvider.EntityTypeTagProvide
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg)
     {
-        logRGB256("Generating Entity Tag Data", 0, 255, 0);
+        Main.LOGGER.logRGB256("Generating Entity Tag Data", 0, 255, 0);
 
-        getOrCreateTagBuilder(TUNER_BLACKLIST)
+        getOrCreateTagBuilder(REFERENCE.TUNER_BLACKLIST)
                 .add(EntityType.ENDER_DRAGON);
 
-        getOrCreateTagBuilder(ENDERITE_SWORD_BLACKLIST)
+        getOrCreateTagBuilder(REFERENCE.ENDERITE_SWORD_BLACKLIST)
                 .add(EntityType.ENDER_DRAGON)
                 .add(EntityType.WITHER)
                 .add(EntityType.WARDEN);
 
-        getOrCreateTagBuilder(RUBY_SWORD_WHITELIST)
+        getOrCreateTagBuilder(REFERENCE.RUBY_SWORD_WHITELIST)
                 .add(EntityType.CAMEL)
                 .add(EntityType.CHICKEN)
                 .add(EntityType.DONKEY)

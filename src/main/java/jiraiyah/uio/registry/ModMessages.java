@@ -26,14 +26,12 @@ package jiraiyah.uio.registry;
 
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The ModMessages class is responsible for handling network communication
@@ -72,7 +70,7 @@ public class ModMessages
      */
     public static void registerC2SPackets()
     {
-        log("Registering C2S Messages");
+        LOGGER.log("Registering C2S Messages");
     }
 
     /**
@@ -87,7 +85,7 @@ public class ModMessages
      */
     public static void registerS2CPackets()
     {
-        log("Registering S2C Messages");
+        LOGGER.log("Registering S2C Messages");
     }
 
     /**
@@ -105,7 +103,7 @@ public class ModMessages
      */
     public static void sendToClientPlayerEntities(World world, BlockPos pos, CustomPayload payload)
     {
-        log("Sending a message to client player entities.");
+        LOGGER.log("Sending a message to client player entities.");
 
         PlayerLookup.tracking((ServerWorld) world, pos).forEach(player ->
                                                                         ServerPlayNetworking.send(player, payload));

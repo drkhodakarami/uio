@@ -27,7 +27,7 @@ package jiraiyah.uio.registry.misc;
 import jiraiyah.uio.registry.ModItems;
 import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModFuels` class is responsible for registering custom fuel items
@@ -54,7 +54,7 @@ public class ModFuels
      */
     public static void init()
     {
-        log("Registering Fuel");
+        LOGGER.log("Registering Fuel");
 
         FuelRegistryEvents.BUILD.register((builder, context) ->
                                           {

@@ -35,9 +35,8 @@ import net.minecraft.block.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jiraiyah.uio.Reference.log;
-import static jiraiyah.uio.util.registry.Registers.Block.*;
-import static jiraiyah.uio.util.registry.Registers.Block.registerPressurePlate;
+import static jiraiyah.jiregister.Registers.Block.*;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The ModBlocks class is responsible for managing and registering custom blocks
@@ -173,7 +172,7 @@ public class ModBlocks
      */
     public static void init()
     {
-        log("Registering Blocks");
+        LOGGER.log("Registering Blocks");
 
         ENDERITE = register("block_enderite", Blocks.NETHERITE_BLOCK);
         //region GEMS
@@ -331,7 +330,7 @@ public class ModBlocks
      */
     public static void addToItemGroups()
     {
-        log("Adding Blocks to Item Groups");
+        LOGGER.log("Adding Blocks to Item Groups");
 
         /*ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(entries ->
                                                                                 {

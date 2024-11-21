@@ -31,6 +31,8 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
 
+import static jiraiyah.uio.Main.LOGGER;
+
 /**
  * Client class that implements ClientModInitializer.
  * This class is responsible for client-side initialization
@@ -46,6 +48,8 @@ public class Client implements ClientModInitializer
     @Override
     public void onInitializeClient()
     {
+        LOGGER.log("Initializing client side");
+
         //region SPECIAL BLOCK CUTOUT
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CITRINE_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CITRINE_TRAP_DOOR, RenderLayer.getCutout());

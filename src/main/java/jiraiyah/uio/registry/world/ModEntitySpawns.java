@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.world;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModEntitySpawns` class is responsible for managing the registration
@@ -56,6 +56,6 @@ public class ModEntitySpawns
      */
     public static void addSpawns()
     {
-        log("Registering Entity Spawn Data");
+        LOGGER.log("Registering Entity Spawn Data");
     }
 }

@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.world;
 
-import static jiraiyah.uio.Reference.log;
+import static jiraiyah.uio.Main.LOGGER;
 
 /**
  * The `ModFlowerGeneration` class is responsible for managing the registration
@@ -58,6 +58,6 @@ public class ModFlowerGeneration
      */
     public static void init()
     {
-        log("Registering Flower Data");
+        LOGGER.log("Registering Flower Data");
     }
 }
