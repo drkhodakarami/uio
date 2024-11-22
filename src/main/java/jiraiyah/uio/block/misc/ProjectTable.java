@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.misc;
 
-import jiraiyah.uio.util.blockentity.BlockWithBE;
+import jiraiyah.jiralib.block.BlockWithBE;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;

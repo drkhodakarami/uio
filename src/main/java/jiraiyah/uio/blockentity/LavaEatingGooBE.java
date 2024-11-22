@@ -24,13 +24,12 @@
 
 package jiraiyah.uio.blockentity;
 
+import jiraiyah.uio.blockentity.base.NoScreenBE;
 import jiraiyah.uio.registry.ModBlockEntities;
-import jiraiyah.uio.util.blockentity.ITickBE;
-import jiraiyah.uio.util.blockentity.UpdatableBE;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 
-public class LavaEatingGooBE extends UpdatableBE implements ITickBE
+public class LavaEatingGooBE extends NoScreenBE
 {
     public LavaEatingGooBE(BlockPos pos, BlockState state)
     {

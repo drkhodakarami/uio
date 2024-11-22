@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.uio.block.base.MachineBase;
+import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -47,7 +47,7 @@ import org.jetbrains.annotations.Nullable;
 // - It can speed up to 1 break per tick (total of 16 upgrades)
 // ==> 10 Sec => 9 Sec => 8 Sec => 7 Sec => 6 Sec => 5 Sec => 4 Sec => 3 Sec => 2 Sec => 1 Sec
 // ==> 16 Ticks => 12 Tick => 8 Tick => 4 Tick => 2 Tick => 1 Tick
-public class BlockBreaker extends MachineBase
+public class BlockBreaker extends AbstractActivatableMachineBlock
 {
     public BlockBreaker(Settings settings)
     {

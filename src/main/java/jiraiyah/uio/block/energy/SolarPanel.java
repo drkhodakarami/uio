@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.energy;
 
-import jiraiyah.uio.util.block.abstracts.machine.AbstractMachineBlock;
+import jiraiyah.jimachina.block.AbstractMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;

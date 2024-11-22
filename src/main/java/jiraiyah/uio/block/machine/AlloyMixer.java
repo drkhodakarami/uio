@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.uio.block.base.MachineBase;
+import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -42,7 +42,7 @@ import org.jetbrains.annotations.Nullable;
 // - It combines two or three different pulverized dust to create an alloy dust
 // - Uses energy
 // - Uses fluid enderite
-public class AlloyMixer extends MachineBase
+public class AlloyMixer extends AbstractActivatableMachineBlock
 {
     public AlloyMixer(Settings settings)
     {

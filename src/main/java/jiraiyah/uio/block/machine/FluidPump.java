@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.uio.block.base.MachineBase;
+import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -48,7 +48,7 @@ import org.jetbrains.annotations.Nullable;
 // - The internal energy is used to power the pump and fill the bucket
 // - Pump uses 1 energy unit per block pumped
 // - The internal energy capacity is 10 units
-public class FluidPump extends MachineBase
+public class FluidPump extends AbstractActivatableMachineBlock
 {
     public FluidPump(Settings settings)
     {

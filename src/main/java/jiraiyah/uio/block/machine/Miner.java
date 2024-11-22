@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.uio.block.base.MachineBase;
+import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -54,7 +54,7 @@ import org.jetbrains.annotations.Nullable;
 // - It can accept upgrade for fortune and / or silk touch
 // - It can accept upgrade destroy fluid blocks
 // - It will draw nice glowing border tape around the perimeter of the mining area
-public class Miner extends MachineBase
+public class Miner extends AbstractActivatableMachineBlock
 {
     public Miner(Settings settings)
     {

@@ -22,39 +22,35 @@
  * SOFTWARE.                                                                       *
  ***********************************************************************************/
 
-package jiraiyah.uio.util;
+package jiraiyah.uio.blockentity.base;
 
-import net.minecraft.world.World;
+import jiraiyah.jiralib.blockentity.UpdatableBE;
+import jiraiyah.jiralib.interfaces.ITickBE;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.text.Text;
+import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.Nullable;
 
-/**
- * MathHelper is a class that provides various math helper functions.
- *
- * @author Jiraiyah
- */
-public class MathHelper
+public abstract class NoScreenBE extends UpdatableBE implements ITickBE
 {
-    /**
-     * Returns a random chance based on the given value.
-     *
-     * @param value the value to base the chance on
-     *
-     * @return a random chance between 0 and 1 based on the given value
-     */
-    public static float getChance(int value)
+    public NoScreenBE(BlockEntityType<?> type, BlockPos pos, BlockState state)
     {
-        return (100 - value) / 100.0f;
+        super(type, pos, state);
     }
 
-    /**
-     * Returns a random chance based on the given value.
-     *
-     * @param world the world to use for random generation
-     * @param value the value to base the chance on
-     *
-     * @return a random chance between 0 and 1 based on the given value
-     */
-    public static boolean getChance(World world, int value)
+    @Override
+    public Text getDisplayName()
     {
-        return world.getRandom().nextFloat() >= getChance(value);
+        return null;
+    }
+
+    @Override
+    public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player)
+    {
+        return null;
     }
 }

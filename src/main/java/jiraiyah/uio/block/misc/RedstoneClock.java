@@ -25,7 +25,7 @@
 package jiraiyah.uio.block.misc;
 
 import com.mojang.serialization.MapCodec;
-import jiraiyah.uio.util.block.abstracts.base.AbstractActivatableBlock;
+import jiraiyah.jiralib.block.AbstractActivatableBlock;
 import net.minecraft.block.Block;
 
 //TODO : Handle Block Entity

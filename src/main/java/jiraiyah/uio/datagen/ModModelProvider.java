@@ -24,12 +24,12 @@
 
 package jiraiyah.uio.datagen;
 
+import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
+import jiraiyah.jiralib.block.AbstractActivatableBlock;
 import jiraiyah.uio.Main;
 import jiraiyah.uio.registry.ModBlocks;
 import jiraiyah.uio.registry.ModItems;
 import jiraiyah.uio.registry.misc.ModArmorMaterials;
-import jiraiyah.uio.util.block.abstracts.base.AbstractActivatableBlock;
-import jiraiyah.uio.util.block.abstracts.machine.AbstractActivatableMachineBlock;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Blocks;

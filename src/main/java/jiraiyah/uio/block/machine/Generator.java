@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.uio.block.base.MachineBase;
+import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -50,7 +50,7 @@ import org.jetbrains.annotations.Nullable;
 // - Snowy biomes have negative effect on energy production
 // - Nether has positive effect on energy production
 
-public class Generator extends MachineBase
+public class Generator extends AbstractActivatableMachineBlock
 {
     public Generator(Settings settings)
     {

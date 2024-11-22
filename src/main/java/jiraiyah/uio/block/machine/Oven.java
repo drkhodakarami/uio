@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.uio.block.base.MachineBase;
+import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -44,7 +44,7 @@ import org.jetbrains.annotations.Nullable;
 // - It will make Alloys from Alloy Dusts
 // - It will use Lava to heat up the Alloys
 // - It can accept upgrade for internal lava tank capacity
-public class Oven extends MachineBase
+public class Oven extends AbstractActivatableMachineBlock
 {
     public Oven(Settings settings)
     {

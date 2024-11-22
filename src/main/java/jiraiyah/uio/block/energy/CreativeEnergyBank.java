@@ -24,13 +24,10 @@
 
 package jiraiyah.uio.block.energy;
 
-import jiraiyah.uio.block.base.EnergyBankBase;
+import jiraiyah.jienergy.block.EnergyBankBase;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityTicker;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 //TODO : Create Model

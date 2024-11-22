@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.registry.misc;
 
-import jiraiyah.uio.util.record.CoordinateData;
+import jiraiyah.jiralib.record.CoordinateData;
 import net.minecraft.component.ComponentType;
 
 import static jiraiyah.jiregister.Registers.ComponentType.register;

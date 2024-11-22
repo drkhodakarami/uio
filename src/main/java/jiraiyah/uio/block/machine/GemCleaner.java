@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.uio.block.base.MachineBase;
+import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -47,7 +47,7 @@ import org.jetbrains.annotations.Nullable;
 // - It can accept upgrades for water / speed
 // - Default water capacity is 10 buckets
 // - Default speed changed for gems but the smallest time is 10 seconds
-public class GemCleaner extends MachineBase
+public class GemCleaner extends AbstractActivatableMachineBlock
 {
     public GemCleaner(Settings settings)
     {

@@ -25,9 +25,9 @@
 package jiraiyah.uio.block.base;
 
 import com.mojang.serialization.MapCodec;
+import jiraiyah.jiralib.block.AbstractActivatableBlock;
+import jiraiyah.jiralib.interfaces.ITickBE;
 import jiraiyah.uio.registry.ModItems;
-import jiraiyah.uio.util.block.abstracts.base.AbstractActivatableBlock;
-import jiraiyah.uio.util.blockentity.ITickBE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;

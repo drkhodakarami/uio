@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.uio.block.base.MachineBase;
+import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
@@ -50,7 +50,7 @@ import org.jetbrains.annotations.Nullable;
 // - Each upgrade adds 2 extra chunk
 // - Max distance is 130 Chunks ( 64 Upgrades * 2 chunks per upgrade + 2 chunks for base)
 // - Max distance will be 2080 blocks ( 130 chunks * 16 blocks per chunk)
-public class Tesseract extends MachineBase
+public class Tesseract extends AbstractActivatableMachineBlock
 {
     private static VoxelShape SHAPE;
 

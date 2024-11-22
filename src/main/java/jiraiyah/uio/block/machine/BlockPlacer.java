@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.uio.block.base.MachineBase;
+import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -41,7 +41,7 @@ import org.jetbrains.annotations.Nullable;
 // Ideas :
 // - It's opposite concept of block breaker. It just puts a block from inventory, in front of itself
 // - The inventory size, energy usage, and upgrades are the same as block breaker.
-public class BlockPlacer extends MachineBase
+public class BlockPlacer extends AbstractActivatableMachineBlock
 {
     public BlockPlacer(Settings settings)
     {

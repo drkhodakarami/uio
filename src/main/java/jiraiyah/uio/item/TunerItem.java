@@ -24,8 +24,8 @@
 
 package jiraiyah.uio.item;
 
+import jiraiyah.jiralib.record.CoordinateData;
 import jiraiyah.uio.registry.misc.ModDataComponentTypes;
-import jiraiyah.uio.util.record.CoordinateData;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

@@ -24,13 +24,12 @@
 
 package jiraiyah.uio.blockentity;
 
+import jiraiyah.uio.blockentity.base.NoScreenBE;
 import jiraiyah.uio.registry.ModBlockEntities;
-import jiraiyah.uio.util.blockentity.ITickBE;
-import jiraiyah.uio.util.blockentity.UpdatableBE;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 
-public class AirGooBombBE extends UpdatableBE implements ITickBE
+public class AirGooBombBE extends NoScreenBE
 {
     public AirGooBombBE(BlockPos pos, BlockState state)
     {
@@ -40,7 +39,5 @@ public class AirGooBombBE extends UpdatableBE implements ITickBE
     //TODO : Add Functionality
     @Override
     public void tick()
-    {
-
-    }
+    {}
 }
