@@ -22,24 +22,23 @@
  * SOFTWARE.                                                                       *
  ***********************************************************************************/
 
-package jiraiyah.uio.blockentity;
+package jiraiyah.uio.blockentity.goo;
 
-import jiraiyah.uio.blockentity.base.NoScreenBE;
+import jiraiyah.jiralib.blockentity.NoScreenUpdatableBE;
+import jiraiyah.jiralib.interfaces.ITickBE;
 import jiraiyah.uio.registry.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 
-public class ToweringGooBE extends NoScreenBE
+public class AirGooBombBE extends NoScreenUpdatableBE implements ITickBE
 {
-    public ToweringGooBE(BlockPos pos, BlockState state)
+    public AirGooBombBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.TOWERING_GOO, pos, state);
+        super(ModBlockEntities.AIR_GOO_BOMB, pos, state);
     }
 
     //TODO : Add Functionality
     @Override
     public void tick()
-    {
-
-    }
+    {}
 }

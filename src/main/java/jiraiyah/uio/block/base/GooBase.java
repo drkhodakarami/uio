@@ -34,6 +34,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -59,6 +60,13 @@ public abstract class GooBase extends AbstractActivatableBlock implements BlockE
     protected MapCodec<? extends Block> getCodec()
     {
         return CODEC;
+    }
+
+    @Override
+    public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack)
+    {
+        world.setBlockState(pos, state.with(ACTIVATED, false), NOTIFY_ALL);
+        super.onPlaced(world, pos, state, placer, itemStack);
     }
 
     @Override

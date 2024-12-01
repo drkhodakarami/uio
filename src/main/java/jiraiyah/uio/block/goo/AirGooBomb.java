@@ -28,8 +28,14 @@ import jiraiyah.uio.block.base.GooBase;
 import jiraiyah.uio.registry.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class AirGooBomb extends GooBase
 {
@@ -43,5 +49,12 @@ public class AirGooBomb extends GooBase
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
     {
         return ModBlockEntities.AIR_GOO_BOMB.instantiate(pos, state);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options)
+    {
+        
+        super.appendTooltip(stack, context, tooltip, options);
     }
 }

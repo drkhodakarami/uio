@@ -22,18 +22,19 @@
  * SOFTWARE.                                                                       *
  ***********************************************************************************/
 
-package jiraiyah.uio.blockentity;
+package jiraiyah.uio.blockentity.goo;
 
-import jiraiyah.uio.blockentity.base.NoScreenBE;
+import jiraiyah.jiralib.blockentity.NoScreenUpdatableBE;
+import jiraiyah.jiralib.interfaces.ITickBE;
 import jiraiyah.uio.registry.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 
-public class LavaPumpGooBE extends NoScreenBE
+public class WaterPumpGooBE extends NoScreenUpdatableBE implements ITickBE
 {
-    public LavaPumpGooBE(BlockPos pos, BlockState state)
+    public WaterPumpGooBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.LAVA_PUMP_GOO, pos, state);
+        super(ModBlockEntities.WATER_PUMP_GOO, pos, state);
     }
 
     //TODO : Add Functionality

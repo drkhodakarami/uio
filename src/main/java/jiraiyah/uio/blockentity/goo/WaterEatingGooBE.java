@@ -22,18 +22,19 @@
  * SOFTWARE.                                                                       *
  ***********************************************************************************/
 
-package jiraiyah.uio.blockentity;
+package jiraiyah.uio.blockentity.goo;
 
-import jiraiyah.uio.blockentity.base.NoScreenBE;
+import jiraiyah.jiralib.blockentity.NoScreenUpdatableBE;
+import jiraiyah.jiralib.interfaces.ITickBE;
 import jiraiyah.uio.registry.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 
-public class BridgeGooBE extends NoScreenBE
+public class WaterEatingGooBE extends NoScreenUpdatableBE implements ITickBE
 {
-    public BridgeGooBE(BlockPos pos, BlockState state)
+    public WaterEatingGooBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.BRIDGE_GOO, pos, state);
+        super(ModBlockEntities.WATER_EATING_GOO, pos, state);
     }
 
     //TODO : Add Functionality

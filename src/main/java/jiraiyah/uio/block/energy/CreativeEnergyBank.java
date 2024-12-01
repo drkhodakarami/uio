@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.energy;
 
-import jiraiyah.jienergy.block.EnergyBankBase;
+import jiraiyah.jienergy.block.AbstractEnergyBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
@@ -40,7 +40,7 @@ import org.jetbrains.annotations.Nullable;
 // Ideas :
 // - Just a creative energy bank without recipe
 // - Transfers up to 10_000 energy units per tick
-public class CreativeEnergyBank extends EnergyBankBase
+public class CreativeEnergyBank extends AbstractEnergyBlock
 {
     public CreativeEnergyBank(Settings settings)
     {

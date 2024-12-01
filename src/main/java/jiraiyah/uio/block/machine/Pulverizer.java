@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
+import jiraiyah.jimachina.block.AbstractMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -45,7 +45,7 @@ import org.jetbrains.annotations.Nullable;
 // - Uses energy per tick for pulverizing
 // - Can accept upgrades for speed / energy
 // - Speed changes based on the ingot type
-public class Pulverizer extends AbstractActivatableMachineBlock
+public class Pulverizer extends AbstractMachineBlock
 {
     public Pulverizer(Settings settings)
     {

@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.energy;
 
-import jiraiyah.jienergy.block.EnergyBankBase;
+import jiraiyah.jienergy.block.AbstractEnergyBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
@@ -42,7 +42,7 @@ import org.jetbrains.annotations.Nullable;
 // - It will have upgrade slots to increase the capacity
 // - It will draw the capacity and stored amount in world
 // - It will have enabled / disabled slots for directions in/out
-public class BatteryBank extends EnergyBankBase
+public class BatteryBank extends AbstractEnergyBlock
 {
     public BatteryBank(Settings settings)
     {

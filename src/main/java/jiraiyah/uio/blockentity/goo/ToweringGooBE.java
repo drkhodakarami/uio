@@ -22,35 +22,25 @@
  * SOFTWARE.                                                                       *
  ***********************************************************************************/
 
-package jiraiyah.uio.blockentity.base;
+package jiraiyah.uio.blockentity.goo;
 
-import jiraiyah.jiralib.blockentity.UpdatableBE;
+import jiraiyah.jiralib.blockentity.NoScreenUpdatableBE;
 import jiraiyah.jiralib.interfaces.ITickBE;
+import jiraiyah.uio.registry.ModBlockEntities;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.screen.ScreenHandler;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
-import org.jetbrains.annotations.Nullable;
 
-public abstract class NoScreenBE extends UpdatableBE implements ITickBE
+public class ToweringGooBE extends NoScreenUpdatableBE implements ITickBE
 {
-    public NoScreenBE(BlockEntityType<?> type, BlockPos pos, BlockState state)
+    public ToweringGooBE(BlockPos pos, BlockState state)
     {
-        super(type, pos, state);
+        super(ModBlockEntities.TOWERING_GOO, pos, state);
     }
 
+    //TODO : Add Functionality
     @Override
-    public Text getDisplayName()
+    public void tick()
     {
-        return null;
-    }
 
-    @Override
-    public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player)
-    {
-        return null;
     }
 }

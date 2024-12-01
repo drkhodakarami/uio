@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
+import jiraiyah.jimachina.block.AbstractMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -48,7 +48,7 @@ import org.jetbrains.annotations.Nullable;
 // - The base speed is 1 block per second. It can go up to 1 block every 2 ticks.
 // 20 Ticks => 16 Ticks => 12 Ticks => 8 Ticks => 4 Ticks => 2 Ticks
 
-public class BuilderBlock extends AbstractActivatableMachineBlock
+public class BuilderBlock extends AbstractMachineBlock
 {
     public BuilderBlock(Settings settings)
     {

@@ -25,7 +25,7 @@
 package jiraiyah.uio.registry;
 
 import jiraiyah.jiregister.Registers.Entities;
-import jiraiyah.uio.blockentity.*;
+import jiraiyah.uio.blockentity.goo.*;
 import net.minecraft.block.entity.BlockEntityType;
 
 import static jiraiyah.uio.Main.LOGGER;

@@ -25,13 +25,16 @@
 package jiraiyah.uio.block.misc;
 
 import com.mojang.serialization.MapCodec;
+import jiraiyah.jiralib.block.BlockWithBE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import org.jetbrains.annotations.Nullable;
 
 //TODO : Create Model
 //TODO : Create Block Recipe
@@ -44,7 +47,7 @@ import net.minecraft.world.BlockView;
 // - The default is just current chunk
 // - Each upgrade unlocks and loads one chunk
 // - The grid is 9 * 9 chunks (total of 80 Upgrades)
-public class ChunkLoader extends Block
+public class ChunkLoader extends BlockWithBE
 {
     private static VoxelShape SHAPE;
     public static MapCodec<ChunkLoader> CODEC;
@@ -69,5 +72,11 @@ public class ChunkLoader extends Block
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
     {
         return SHAPE;
+    }
+
+    @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state)
+    {
+        return null;
     }
 }

@@ -22,14 +22,15 @@
  * SOFTWARE.                                                                       *
  ***********************************************************************************/
 
-package jiraiyah.uio.blockentity;
+package jiraiyah.uio.blockentity.goo;
 
-import jiraiyah.uio.blockentity.base.NoScreenBE;
+import jiraiyah.jiralib.blockentity.NoScreenUpdatableBE;
+import jiraiyah.jiralib.interfaces.ITickBE;
 import jiraiyah.uio.registry.ModBlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 
-public class WaterGeneratingGooBE extends NoScreenBE
+public class WaterGeneratingGooBE extends NoScreenUpdatableBE implements ITickBE
 {
     public WaterGeneratingGooBE(BlockPos pos, BlockState state)
     {

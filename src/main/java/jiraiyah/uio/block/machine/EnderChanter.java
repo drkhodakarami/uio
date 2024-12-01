@@ -24,7 +24,7 @@
 
 package jiraiyah.uio.block.machine;
 
-import jiraiyah.jimachina.block.AbstractActivatableMachineBlock;
+import jiraiyah.jimachina.block.AbstractMachineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -44,7 +44,7 @@ import org.jetbrains.annotations.Nullable;
 // - After learning the enchantment, put an empty book and choose the enchantment to apply to the item
 // - Enchantments can be shown inside a sliding list (maybe)
 // - You should select the enchantment, and hit a button to apply it to the book
-public class EnderChanter extends AbstractActivatableMachineBlock
+public class EnderChanter extends AbstractMachineBlock
 {
     public EnderChanter(Settings settings)
     {
